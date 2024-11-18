@@ -1,4 +1,3 @@
-// Description: A simple Discord bot that records attendance from images using OCR. 
 const {Client, GatewayIntentBits, Partials} = require('discord.js');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
@@ -8,10 +7,35 @@ const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
 
-console.log('Starting bot...');
+// Ensure logs directory exists
+const LOG_DIR = path.join(__dirname, 'logs');
+const IMAGES_DIR = path.join(__dirname, 'images');
+[LOG_DIR, IMAGES_DIR].forEach(dir => {
+    if (!fs.existsSync(dir)) {
+        fs.mkdirSync(dir, { recursive: true });
+    }
+});
+
+// Setup logging
+const logStream = fs.createWriteStream(path.join(LOG_DIR, 'bot.log'), { flags: 'a' });
+const logger = {
+    log: (msg) => {
+        const timestamp = new Date().toISOString();
+        logStream.write(`[${timestamp}] INFO: ${msg}\n`);
+        console.log(`[${timestamp}] ${msg}`);
+    },
+    error: (msg, error) => {
+        const timestamp = new Date().toISOString();
+        logStream.write(`[${timestamp}] ERROR: ${msg} ${error?.stack || error}\n`);
+        console.error(`[${timestamp}] ERROR: ${msg}`, error);
+    }
+};
+
+logger.log('Starting bot...');
 
 const client = new Client({
     intents: [
+        GatewayIntentBits.GuildMembers,
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
         GatewayIntentBits.MessageContent,
@@ -27,84 +51,196 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-let attendanceLog = [];
-
-// Function to download and save image
-async function downloadImage(url, filepath) {
-    const response = await axios({
-        url,
-        method: 'GET',
-        responseType: 'stream'
-    });
-    return new Promise((resolve, reject) => {
-        response.data.pipe(fs.createWriteStream(filepath))
-            .on('finish', () => resolve())
-            .on('error', e => reject(e));
-    });
+// Store attendance in file instead of memory
+const ATTENDANCE_FILE = path.join(__dirname, 'data', 'attendance.json');
+if (!fs.existsSync(path.dirname(ATTENDANCE_FILE))) {
+    fs.mkdirSync(path.dirname(ATTENDANCE_FILE), { recursive: true });
 }
 
-// Extract names from OCR text
+let attendanceLog = [];
+let names = [];
+
+try {
+    if (fs.existsSync(ATTENDANCE_FILE)) {
+        attendanceLog = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
+    }
+} catch (error) {
+    logger.error('Error loading attendance log:', error);
+}
+
+// Save attendance to file
+function saveAttendance() {
+    try {
+        fs.writeFileSync(ATTENDANCE_FILE, JSON.stringify(attendanceLog, null, 2));
+    } catch (error) {
+        logger.error('Error saving attendance log:', error);
+    }
+}
+
+async function downloadImage(url, filepath) {
+    try {
+        const response = await axios({
+            url,
+            method: 'GET',
+            responseType: 'stream',
+            timeout: 10000 // 10 second timeout
+        });
+        return new Promise((resolve, reject) => {
+            response.data.pipe(fs.createWriteStream(filepath))
+                .on('finish', () => resolve())
+                .on('error', e => reject(e));
+        });
+    } catch (error) {
+        throw new Error(`Failed to download image: ${error.message}`);
+    }
+}
+
 function extractNames(text) {
     return text.split('\n')
         .map(line => line.trim())
-        .filter(line => line && /^[A-Za-z][A-Za-z]+/.test(line)); // Simple name detection
+        .filter(line => line && /^[A-Za-z][A-Za-z\s]{1,50}$/.test(line)); // More robust name detection
 }
 
-client.once('ready', () => {
-    console.log('Ready!');
-})
+// Cleanup old images (older than 1 hour)
+function cleanupOldImages() {
+    try {
+        const files = fs.readdirSync(IMAGES_DIR);
+        const now = Date.now();
+        files.forEach(file => {
+            const filePath = path.join(IMAGES_DIR, file);
+            const stats = fs.statSync(filePath);
+            if (now - stats.mtimeMs > 3600000) { // 1 hour
+                fs.unlinkSync(filePath);
+            }
+        });
+    } catch (error) {
+        logger.error('Error cleaning up old images:', error);
+    }
+}
 
-client.on('messageCreate', async (message) => {
-    // Ignore messages from bots
-    if (message.author.bot) return;
+// Run cleanup every hour
+setInterval(cleanupOldImages, 3600000);
 
-    // Check if the message has image attachments
-    if (message.attachments.size > 0) {
-        const attachment = message.attachments.first();
-        const imageUrl = attachment.url;
-        const imagePath = path.join(__dirname, 'images', attachment.name);
+client.once('ready', async () => {
+    logger.log(`Logged in as ${client.user.tag}`);
 
-        try {
-            // console.log('Downloading image:', imageUrl);
-            await downloadImage(imageUrl, imagePath);
-            // console.log('Image downloaded:', imagePath);
+    const guild = client.guilds.cache.get('1306969550851407912');
+    if (!guild) {
+        logger.error('Guild not found');
+        return;
+    }
+    const role = guild.roles.cache.find(role => role.name === 'WEBBERS');
+    if (!role) {
+        logger.error('Role not found');
+        return;
+    }
 
-            // Run OCR on the image
-            // console.log('Running OCR on image...');
-            const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
-            // console.log('OCR result:', text);
-            const names = extractNames(text);
-            const attendanceEntry = { 
-                date: new Date().toISOString(),
-                names 
-            };
-            // console.log('Attendance recorded:', attendanceEntry);
-            attendanceLog.push(attendanceEntry);
+    try {
+        logger.log('Fetching all members...');
+        await guild.members.fetch();
+        logger.log('All members fetched');
+        const members = guild.members.cache;
+        logger.log(`Fetched Members: ${members.map(member => member.user.username).join(', ')}`);
+        
+        const membersWithRole = members.filter(member => member.roles.cache.has(role.id));
+        logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.user.username).join(', ')}`);
 
-            // Format and send reply
-            const formattedNames = names.map((name, index) => `${index + 1}. ${name}`).join('\n');
-            message.reply(`Attendance recorded for: \n${formattedNames}`);
-            fs.unlinkSync(imagePath);
-            // Process the image as needed
-        } catch (error) {
-            console.error('Error downloading image:', error);
-            message.reply('Failed to download image.');
-        }
-    } else {
-        message.reply('Please send an image');
+        names = membersWithRole.map(member => member.nickname || member.user.username);
+        logger.log(`Members with role: ${names.join(', ')}`);
+    } catch (error) {
+        logger.error('Error fetching members:', error);
     }
 });
 
-// API route for fetching attendance log
+client.on('messageCreate', async (message) => {
+    if (message.author.bot) return;
+
+    if (message.attachments.size > 0) {
+        const attachment = message.attachments.first();
+        const imageUrl = attachment.url;
+        const imagePath = path.join(IMAGES_DIR, `${Date.now()}-${attachment.name}`);
+
+        try {
+            await downloadImage(imageUrl, imagePath);
+            logger.log(`Image downloaded: ${imagePath}`);
+
+            const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
+            const names = extractNames(text);
+            const attendanceEntry = {
+                date: new Date().toISOString(),
+                names,
+                channelId: message.channel.id,
+                guildId: message.guild?.id
+            };
+
+            attendanceLog.push(attendanceEntry);
+            saveAttendance();
+
+            const formattedNames = names.map((name, index) => `${index + 1}. ${name}`).join('\n');
+            await message.reply(names.length > 0
+                ? `Attendance recorded for: \n${formattedNames}`
+                : 'No names were detected in the image.');
+        } catch (error) {
+            logger.error('Error processing image:', error);
+            await message.reply('An error occurred while processing the image. Please try again.');
+        } finally {
+            // Cleanup the image file
+            try {
+                if (fs.existsSync(imagePath)) {
+                    fs.unlinkSync(imagePath);
+                }
+            } catch (error) {
+                logger.error('Error deleting image:', error);
+            }
+        }
+    } else {
+        await message.reply('Please send an image containing the attendance list.');
+    }
+});
+
+// API routes with basic security
+const API_KEY = process.env.API_KEY || Math.random().toString(36).substring(7);
+logger.log(`API Key: ${API_KEY}`); // Log this only on startup
+
+app.use((req, res, next) => {
+    const providedKey = req.headers['x-api-key'];
+    if (!providedKey || providedKey !== API_KEY) {
+        return res.status(401).json({ error: 'Unauthorized' });
+    }
+    next();
+});
+
+app.get('/names', (req, res) => {
+    res.json(names);
+});
+
 app.get('/attendance', (req, res) => {
     res.json(attendanceLog);
 });
 
-// Start the bot and API server
-const PORT = 5001;
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+// Graceful shutdown
+process.on('SIGTERM', () => {
+    logger.log('SIGTERM received. Shutting down gracefully...');
+    saveAttendance();
+    client.destroy();
+    process.exit(0);
 });
 
-// Log the bot into discord
-client.login(process.env.DISCORD_TOKEN);
+process.on('uncaughtException', (error) => {
+    logger.error('Uncaught Exception:', error);
+});
+
+process.on('unhandledRejection', (error) => {
+    logger.error('Unhandled Rejection:', error);
+});
+
+// Start the bot and API server
+const PORT = process.env.PORT || 5001;
+app.listen(PORT, '127.0.0.1', () => { // Listen only on localhost
+    logger.log(`Server running on port ${PORT}`);
+});
+
+client.login(process.env.DISCORD_TOKEN).catch(error => {
+    logger.error('Failed to login to Discord:', error);
+    process.exit(1);
+});

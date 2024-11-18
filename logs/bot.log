@@ -1,0 +1,336 @@
+[2024-11-14T00:05:00.791Z] INFO: Starting bot...
+[2024-11-14T00:05:00.812Z] INFO: API Key: 6huebm
+[2024-11-14T00:05:00.815Z] INFO: Server running on port 3000
+[2024-11-14T00:05:01.823Z] INFO: Bot is ready and connected to Discord!
+[2024-11-14T00:06:07.163Z] INFO: Starting bot...
+[2024-11-14T00:06:07.183Z] INFO: API Key: pw5bel
+[2024-11-14T00:06:07.187Z] INFO: Server running on port 5001
+[2024-11-14T00:06:08.105Z] INFO: Bot is ready and connected to Discord!
+[2024-11-15T13:14:14.799Z] INFO: Starting bot...
+[2024-11-15T13:14:14.820Z] INFO: API Key: h8ly48
+[2024-11-15T13:14:14.825Z] INFO: Server running on port 5001
+[2024-11-15T13:14:16.710Z] ERROR: Failed to login to Discord: Error: Used disallowed intents
+    at WebSocketShard.onClose (/Users/szymonsamus/attendance-tracker/node_modules/@discordjs/ws/dist/index.js:1149:18)
+    at connection.onclose (/Users/szymonsamus/attendance-tracker/node_modules/@discordjs/ws/dist/index.js:686:17)
+    at callListener (/Users/szymonsamus/attendance-tracker/node_modules/ws/lib/event-target.js:290:14)
+    at WebSocket.onClose (/Users/szymonsamus/attendance-tracker/node_modules/ws/lib/event-target.js:220:9)
+    at WebSocket.emit (node:events:519:28)
+    at WebSocket.emitClose (/Users/szymonsamus/attendance-tracker/node_modules/ws/lib/websocket.js:272:10)
+    at TLSSocket.socketOnClose (/Users/szymonsamus/attendance-tracker/node_modules/ws/lib/websocket.js:1341:15)
+    at TLSSocket.emit (node:events:531:35)
+    at node:net:338:12
+    at TCP.done (node:_tls_wrap:657:7)
+[2024-11-15T13:15:01.960Z] INFO: Starting bot...
+[2024-11-15T13:15:01.980Z] INFO: API Key: yi1phd
+[2024-11-15T13:15:01.984Z] INFO: Server running on port 5001
+[2024-11-15T13:15:03.714Z] INFO: Bot is ready and connected to Discord!
+[2024-11-15T13:17:35.368Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker/images/1731676654937-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-15T13:20:43.733Z] INFO: Starting bot...
+[2024-11-15T13:20:43.749Z] INFO: API Key: qu9ul8
+[2024-11-15T13:20:43.752Z] INFO: Server running on port 5001
+[2024-11-15T13:20:45.318Z] INFO: Bot is ready and connected to Discord!
+[2024-11-15T13:20:56.157Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker/images/1731676855724-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-15T13:45:09.607Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker/images/1731678309091-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-15T13:54:24.138Z] INFO: Starting bot...
+[2024-11-15T13:54:24.157Z] INFO: API Key: qu9ul8
+[2024-11-15T13:54:24.161Z] INFO: Server running on port 5001
+[2024-11-15T13:54:25.276Z] INFO: Bot is ready and connected to Discord!
+[2024-11-15T14:22:29.991Z] INFO: Starting bot...
+[2024-11-15T14:22:30.011Z] INFO: API Key: qu9ul8
+[2024-11-15T14:22:30.015Z] INFO: Server running on port 5001
+[2024-11-15T14:22:31.408Z] INFO: Bot is ready and connected to Discord!
+[2024-11-15T14:22:42.384Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker/images/1731680561934-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-18T02:40:22.243Z] INFO: Starting bot...
+[2024-11-18T02:40:22.263Z] INFO: API Key: qu9ul8
+[2024-11-18T02:40:22.268Z] INFO: Server running on port 5001
+[2024-11-18T02:40:23.789Z] INFO: Bot is ready and connected to Discord!
+[2024-11-18T02:40:49.300Z] INFO: Starting bot...
+[2024-11-18T02:40:49.309Z] INFO: API Key: qu9ul8
+[2024-11-18T02:40:49.312Z] INFO: Server running on port 5001
+[2024-11-18T02:40:50.613Z] INFO: Bot is ready and connected to Discord!
+[2024-11-18T02:42:47.095Z] INFO: Starting bot...
+[2024-11-18T02:42:47.115Z] INFO: API Key: qu9ul8
+[2024-11-18T02:42:47.119Z] INFO: Server running on port 5001
+[2024-11-18T02:42:48.786Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T02:44:02.620Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker/images/1731897842144-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-18T02:44:48.755Z] ERROR: Uncaught Exception: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-11-18T02:45:56.165Z] INFO: Starting bot...
+[2024-11-18T02:45:56.182Z] INFO: API Key: qu9ul8
+[2024-11-18T02:45:56.185Z] INFO: Server running on port 5001
+[2024-11-18T02:45:57.581Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T02:47:57.580Z] ERROR: Uncaught Exception: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-11-18T02:49:31.048Z] INFO: Starting bot...
+[2024-11-18T02:49:31.065Z] INFO: API Key: qu9ul8
+[2024-11-18T02:49:31.068Z] INFO: Server running on port 5001
+[2024-11-18T02:49:32.613Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T02:49:33.013Z] INFO: Members with role:
+[2024-11-18T02:52:38.962Z] INFO: Starting bot...
+[2024-11-18T02:52:38.980Z] INFO: API Key: qu9ul8
+[2024-11-18T02:52:38.983Z] INFO: Server running on port 5001
+[2024-11-18T02:52:40.311Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T02:52:40.472Z] INFO: Members with role:
+[2024-11-18T02:54:48.912Z] INFO: Starting bot...
+[2024-11-18T02:54:48.930Z] INFO: API Key: qu9ul8
+[2024-11-18T02:54:48.933Z] INFO: Server running on port 5001
+[2024-11-18T02:54:50.356Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T02:54:50.661Z] INFO: Fetched members:
+[2024-11-18T02:54:50.662Z] INFO: Members with role:
+[2024-11-18T02:56:05.542Z] INFO: Starting bot...
+[2024-11-18T02:56:05.559Z] INFO: API Key: qu9ul8
+[2024-11-18T02:56:05.562Z] INFO: Server running on port 5001
+[2024-11-18T02:56:07.052Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T02:56:07.291Z] INFO: Fetched members:
+[2024-11-18T02:56:07.292Z] INFO: Members with role:
+[2024-11-18T02:59:29.424Z] INFO: Starting bot...
+[2024-11-18T02:59:29.442Z] INFO: API Key: qu9ul8
+[2024-11-18T02:59:29.446Z] INFO: Server running on port 5001
+[2024-11-18T02:59:30.960Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T02:59:31.295Z] INFO: Members with role:
+[2024-11-18T02:59:31.296Z] INFO: Members with role:
+[2024-11-18T03:03:51.555Z] INFO: Starting bot...
+[2024-11-18T03:03:51.571Z] INFO: API Key: qu9ul8
+[2024-11-18T03:03:51.575Z] INFO: Server running on port 5001
+[2024-11-18T03:03:53.515Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:03:53.835Z] INFO: Fetched members:
+[2024-11-18T03:03:53.836Z] INFO: Members with role:
+[2024-11-18T03:06:18.278Z] INFO: Starting bot...
+[2024-11-18T03:06:18.295Z] INFO: API Key: qu9ul8
+[2024-11-18T03:06:18.298Z] INFO: Server running on port 5001
+[2024-11-18T03:06:19.657Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:06:19.658Z] INFO: Fetching all members...
+[2024-11-18T03:06:19.879Z] INFO: All members fetched
+[2024-11-18T03:06:19.880Z] INFO: Filtered members with role:
+[2024-11-18T03:06:19.880Z] INFO: Members with role:
+[2024-11-18T03:07:18.214Z] INFO: Starting bot...
+[2024-11-18T03:07:18.223Z] INFO: API Key: qu9ul8
+[2024-11-18T03:07:18.227Z] INFO: Server running on port 5001
+[2024-11-18T03:07:19.763Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:07:19.764Z] INFO: Fetching all members...
+[2024-11-18T03:07:20.062Z] INFO: All members fetched
+[2024-11-18T03:07:20.063Z] INFO: Filtered members with role:
+[2024-11-18T03:07:20.063Z] INFO: Members with role:
+[2024-11-18T03:19:20.949Z] INFO: Starting bot...
+[2024-11-18T03:19:20.969Z] INFO: API Key: qu9ul8
+[2024-11-18T03:19:20.974Z] INFO: Server running on port 5001
+[2024-11-18T03:19:22.483Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:19:22.484Z] INFO: Fetching all members...
+[2024-11-18T03:19:22.789Z] INFO: All members fetched
+[2024-11-18T03:19:22.789Z] INFO: 1307896233217757255
+[2024-11-18T03:19:22.789Z] INFO: Filtered members with role:
+[2024-11-18T03:19:22.789Z] INFO: Members with role:
+[2024-11-18T03:20:16.448Z] INFO: Starting bot...
+[2024-11-18T03:20:16.466Z] INFO: API Key: qu9ul8
+[2024-11-18T03:20:16.469Z] INFO: Server running on port 5001
+[2024-11-18T03:20:17.699Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:20:17.700Z] INFO: Fetching all members...
+[2024-11-18T03:20:17.917Z] INFO: All members fetched
+[2024-11-18T03:20:17.917Z] INFO: 1307896233217757255
+[2024-11-18T03:20:17.918Z] INFO: 1306969234261147718,519658224312516609
+[2024-11-18T03:20:17.918Z] INFO: Filtered members with role:
+[2024-11-18T03:20:17.919Z] INFO: Members with role:
+[2024-11-18T03:20:41.566Z] INFO: Starting bot...
+[2024-11-18T03:20:41.583Z] INFO: API Key: qu9ul8
+[2024-11-18T03:20:41.586Z] INFO: Server running on port 5001
+[2024-11-18T03:20:43.119Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:20:43.120Z] INFO: Fetching all members...
+[2024-11-18T03:20:43.428Z] INFO: All members fetched
+[2024-11-18T03:20:43.428Z] INFO: 1307896233217757255
+[2024-11-18T03:20:43.429Z] INFO: ,
+[2024-11-18T03:20:43.429Z] INFO: Filtered members with role:
+[2024-11-18T03:20:43.430Z] INFO: Members with role:
+[2024-11-18T03:22:36.474Z] INFO: Starting bot...
+[2024-11-18T03:22:36.491Z] INFO: API Key: qu9ul8
+[2024-11-18T03:22:36.494Z] INFO: Server running on port 5001
+[2024-11-18T03:22:37.876Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:22:37.877Z] INFO: Fetching all members...
+[2024-11-18T03:22:38.049Z] INFO: All members fetched
+[2024-11-18T03:22:38.049Z] INFO: 1306969234261147718,519658224312516609
+[2024-11-18T03:22:38.050Z] INFO: Filtered members with role:
+[2024-11-18T03:22:38.050Z] INFO: Members with role:
+[2024-11-18T03:27:18.677Z] INFO: Starting bot...
+[2024-11-18T03:27:18.696Z] INFO: API Key: qu9ul8
+[2024-11-18T03:27:18.699Z] INFO: Server running on port 5001
+[2024-11-18T03:27:19.991Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:27:19.992Z] INFO: Fetching all members...
+[2024-11-18T03:27:20.216Z] INFO: All members fetched
+[2024-11-18T03:27:20.217Z] INFO: Fetched members:
+[2024-11-18T03:27:20.217Z] INFO: Filtered members with role:
+[2024-11-18T03:27:20.217Z] INFO: Members with role:
+[2024-11-18T03:28:00.293Z] INFO: Starting bot...
+[2024-11-18T03:28:00.310Z] INFO: API Key: qu9ul8
+[2024-11-18T03:28:00.313Z] INFO: Server running on port 5001
+[2024-11-18T03:28:01.992Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:28:01.993Z] INFO: Fetching all members...
+[2024-11-18T03:28:02.193Z] INFO: All members fetched
+[2024-11-18T03:28:02.194Z] INFO: Fetched members:
+[2024-11-18T03:28:02.194Z] INFO: Filtered members with role:
+[2024-11-18T03:28:02.195Z] INFO: Members with role:
+[2024-11-18T03:28:51.456Z] INFO: Starting bot...
+[2024-11-18T03:28:51.473Z] INFO: API Key: qu9ul8
+[2024-11-18T03:28:51.476Z] INFO: Server running on port 5001
+[2024-11-18T03:28:52.709Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:28:52.709Z] INFO: Fetching all members...
+[2024-11-18T03:28:52.880Z] INFO: All members fetched
+[2024-11-18T03:28:52.880Z] INFO: 1306969234261147718,519658224312516609
+[2024-11-18T03:28:52.881Z] INFO: Filtered members with role:
+[2024-11-18T03:28:52.881Z] INFO: Members with role:
+[2024-11-18T03:29:24.040Z] INFO: Starting bot...
+[2024-11-18T03:29:24.057Z] INFO: API Key: qu9ul8
+[2024-11-18T03:29:24.060Z] INFO: Server running on port 5001
+[2024-11-18T03:29:25.158Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:29:25.159Z] INFO: Fetching all members...
+[2024-11-18T03:29:25.355Z] INFO: All members fetched
+[2024-11-18T03:29:25.355Z] INFO: AttendanceTest,shhmon
+[2024-11-18T03:29:25.356Z] INFO: Filtered members with role:
+[2024-11-18T03:29:25.356Z] INFO: Members with role:
+[2024-11-18T03:30:18.879Z] INFO: Starting bot...
+[2024-11-18T03:30:18.897Z] INFO: API Key: qu9ul8
+[2024-11-18T03:30:18.900Z] INFO: Server running on port 5001
+[2024-11-18T03:30:20.137Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:30:20.138Z] INFO: Fetching all members...
+[2024-11-18T03:30:20.327Z] INFO: All members fetched
+[2024-11-18T03:30:20.328Z] INFO: AttendanceTest,shhmon
+[2024-11-18T03:30:20.329Z] INFO: Filtered members with role:
+[2024-11-18T03:30:20.329Z] INFO: Members with role:
+[2024-11-18T03:33:17.556Z] INFO: Starting bot...
+[2024-11-18T03:33:17.573Z] INFO: API Key: qu9ul8
+[2024-11-18T03:33:17.576Z] INFO: Server running on port 5001
+[2024-11-18T03:33:18.950Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:33:18.951Z] INFO: Fetching all members...
+[2024-11-18T03:33:19.112Z] INFO: All members fetched
+[2024-11-18T03:33:19.112Z] ERROR: Error fetching members: TypeError: Fetched Members: is not a function
+    at _Collection.map (/Users/szymonsamus/attendance-tracker/node_modules/@discordjs/collection/dist/index.js:236:13)
+    at Client.<anonymous> (/Users/szymonsamus/attendance-tracker/bot.js:255:28)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2024-11-18T03:35:19.316Z] INFO: Starting bot...
+[2024-11-18T03:35:19.333Z] INFO: API Key: qu9ul8
+[2024-11-18T03:35:19.336Z] INFO: Server running on port 5001
+[2024-11-18T03:35:20.543Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:35:20.543Z] INFO: Fetching all members...
+[2024-11-18T03:35:20.758Z] INFO: All members fetched
+[2024-11-18T03:35:20.758Z] INFO: Fetched Members:
+[2024-11-18T03:35:20.759Z] INFO: Members with role:
+[2024-11-18T03:35:54.883Z] INFO: Starting bot...
+[2024-11-18T03:35:54.900Z] INFO: API Key: qu9ul8
+[2024-11-18T03:35:54.903Z] INFO: Server running on port 5001
+[2024-11-18T03:35:56.074Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:35:56.075Z] INFO: Fetching all members...
+[2024-11-18T03:35:56.278Z] INFO: All members fetched
+[2024-11-18T03:35:56.279Z] INFO: Fetched Members:
+[2024-11-18T03:35:56.279Z] INFO: Members with role:
+[2024-11-18T03:36:09.470Z] INFO: Starting bot...
+[2024-11-18T03:36:09.478Z] INFO: API Key: qu9ul8
+[2024-11-18T03:36:09.482Z] INFO: Server running on port 5001
+[2024-11-18T03:36:10.714Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:36:10.715Z] INFO: Fetching all members...
+[2024-11-18T03:36:10.900Z] INFO: All members fetched
+[2024-11-18T03:36:10.901Z] INFO: AttendanceTest,shhmon
+[2024-11-18T03:36:42.801Z] INFO: Starting bot...
+[2024-11-18T03:36:42.810Z] INFO: API Key: qu9ul8
+[2024-11-18T03:36:42.813Z] INFO: Server running on port 5001
+[2024-11-18T03:36:44.048Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:36:44.048Z] INFO: Fetching all members...
+[2024-11-18T03:36:44.225Z] INFO: All members fetched
+[2024-11-18T03:36:44.226Z] INFO: Fetched Members:
+[2024-11-18T03:38:14.778Z] INFO: Starting bot...
+[2024-11-18T03:38:14.796Z] INFO: API Key: qu9ul8
+[2024-11-18T03:38:14.799Z] INFO: Server running on port 5001
+[2024-11-18T03:38:15.891Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:38:15.892Z] INFO: Fetching all members...
+[2024-11-18T03:38:16.116Z] INFO: All members fetched
+[2024-11-18T03:38:16.116Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:39:20.289Z] INFO: Starting bot...
+[2024-11-18T03:39:20.306Z] INFO: API Key: qu9ul8
+[2024-11-18T03:39:20.309Z] INFO: Server running on port 5001
+[2024-11-18T03:39:21.485Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:39:21.486Z] INFO: Fetching all members...
+[2024-11-18T03:39:21.696Z] INFO: All members fetched
+[2024-11-18T03:39:21.696Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:39:21.697Z] INFO: Members with role: shhmon
+[2024-11-18T03:39:54.386Z] INFO: Starting bot...
+[2024-11-18T03:39:54.403Z] INFO: API Key: qu9ul8
+[2024-11-18T03:39:54.407Z] INFO: Server running on port 5001
+[2024-11-18T03:39:55.685Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:39:55.686Z] INFO: Fetching all members...
+[2024-11-18T03:39:55.847Z] INFO: All members fetched
+[2024-11-18T03:39:55.848Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:39:55.848Z] INFO: Members with role: shhmon
+[2024-11-18T03:39:55.849Z] INFO: Members with role: shhmon
+[2024-11-18T03:44:27.544Z] INFO: Starting bot...
+[2024-11-18T03:44:27.561Z] INFO: API Key: qu9ul8
+[2024-11-18T03:44:27.564Z] INFO: Server running on port 5001
+[2024-11-18T03:44:28.716Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:44:28.717Z] INFO: Fetching all members...
+[2024-11-18T03:44:28.885Z] INFO: All members fetched
+[2024-11-18T03:44:28.885Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:44:28.886Z] INFO: Members with role: shhmon
+[2024-11-18T03:44:28.886Z] INFO: Members with role: shhmon
+[2024-11-18T03:48:21.075Z] INFO: Starting bot...
+[2024-11-18T03:48:21.093Z] INFO: API Key: qu9ul8
+[2024-11-18T03:48:21.096Z] INFO: Server running on port 5001
+[2024-11-18T03:48:22.663Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:48:22.664Z] INFO: Fetching all members...
+[2024-11-18T03:48:22.962Z] INFO: All members fetched
+[2024-11-18T03:48:22.963Z] INFO: Fetched Members: , 
+[2024-11-18T03:48:22.963Z] INFO: Members with role: 
+[2024-11-18T03:48:22.963Z] INFO: Members with role: 
+[2024-11-18T03:48:50.144Z] INFO: Starting bot...
+[2024-11-18T03:48:50.161Z] INFO: API Key: qu9ul8
+[2024-11-18T03:48:50.164Z] INFO: Server running on port 5001
+[2024-11-18T03:48:51.611Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:48:51.612Z] INFO: Fetching all members...
+[2024-11-18T03:48:51.941Z] INFO: All members fetched
+[2024-11-18T03:48:51.941Z] INFO: Fetched Members: , 
+[2024-11-18T03:48:51.942Z] INFO: Members with role: 
+[2024-11-18T03:48:51.942Z] INFO: Members with role: 
+[2024-11-18T03:49:34.263Z] INFO: Starting bot...
+[2024-11-18T03:49:34.280Z] INFO: API Key: qu9ul8
+[2024-11-18T03:49:34.283Z] INFO: Server running on port 5001
+[2024-11-18T03:49:35.621Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:49:35.622Z] INFO: Fetching all members...
+[2024-11-18T03:49:35.973Z] INFO: All members fetched
+[2024-11-18T03:49:35.974Z] INFO: Fetched Members: , 
+[2024-11-18T03:49:35.974Z] INFO: Members with role: 
+[2024-11-18T03:49:35.974Z] INFO: Members with role: 
+[2024-11-18T03:49:48.116Z] INFO: Starting bot...
+[2024-11-18T03:49:48.133Z] INFO: API Key: qu9ul8
+[2024-11-18T03:49:48.136Z] INFO: Server running on port 5001
+[2024-11-18T03:49:49.398Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:49:49.398Z] INFO: Fetching all members...
+[2024-11-18T03:49:49.797Z] INFO: All members fetched
+[2024-11-18T03:49:49.798Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:49:49.798Z] INFO: Members with role: shhmon
+[2024-11-18T03:49:49.798Z] INFO: Members with role: shhmon
+[2024-11-18T03:51:17.121Z] INFO: Starting bot...
+[2024-11-18T03:51:17.138Z] INFO: API Key: qu9ul8
+[2024-11-18T03:51:17.141Z] INFO: Server running on port 5001
+[2024-11-18T03:51:18.504Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:51:18.505Z] INFO: Fetching all members...
+[2024-11-18T03:51:18.686Z] INFO: All members fetched
+[2024-11-18T03:51:18.687Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:51:18.688Z] INFO: Members with role: shhmon
+[2024-11-18T03:51:18.688Z] INFO: Members with role: shhmon
+[2024-11-18T03:51:38.397Z] INFO: Starting bot...
+[2024-11-18T03:51:38.413Z] INFO: API Key: qu9ul8
+[2024-11-18T03:51:38.416Z] INFO: Server running on port 5001
+[2024-11-18T03:51:39.618Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:51:39.618Z] INFO: Fetching all members...
+[2024-11-18T03:51:39.982Z] INFO: All members fetched
+[2024-11-18T03:51:39.982Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:51:39.983Z] INFO: Members with role: shhmon
+[2024-11-18T03:51:39.983Z] INFO: Members with role: shhmon
+[2024-11-18T03:54:52.089Z] INFO: Starting bot...
+[2024-11-18T03:54:52.107Z] INFO: API Key: qu9ul8
+[2024-11-18T03:54:52.110Z] INFO: Server running on port 5001
+[2024-11-18T03:54:53.537Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-18T03:54:53.538Z] INFO: Fetching all members...
+[2024-11-18T03:54:53.929Z] INFO: All members fetched
+[2024-11-18T03:54:53.930Z] INFO: Fetched Members: AttendanceTest, shhmon
+[2024-11-18T03:54:53.931Z] INFO: Members with role: Napocalypse
+[2024-11-18T03:54:53.931Z] INFO: Members with role: Napocalypse

@@ -1,7 +1,4 @@
-<<<<<<< HEAD
 // Description: Production-ready Discord bot with OCR for Plesk deployment
-=======
->>>>>>> test
 const {Client, GatewayIntentBits, Partials} = require('discord.js');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
@@ -62,11 +59,8 @@ if (!fs.existsSync(path.dirname(ATTENDANCE_FILE))) {
 }
 
 let attendanceLog = [];
-<<<<<<< HEAD
-=======
 let names = [];
 
->>>>>>> test
 try {
     if (fs.existsSync(ATTENDANCE_FILE)) {
         attendanceLog = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
@@ -124,62 +118,6 @@ function cleanupOldImages() {
         logger.error('Error cleaning up old images:', error);
     }
 }
-<<<<<<< HEAD
-
-// Run cleanup every hour
-setInterval(cleanupOldImages, 3600000);
-
-client.once('ready', () => {
-    logger.log('Bot is ready and connected to Discord!');
-});
-
-client.on('messageCreate', async (message) => {
-    if (message.author.bot) return;
-
-    if (message.attachments.size > 0) {
-        const attachment = message.attachments.first();
-        const imageUrl = attachment.url;
-        const imagePath = path.join(IMAGES_DIR, `${Date.now()}-${attachment.name}`);
-
-        try {
-            await downloadImage(imageUrl, imagePath);
-            logger.log(`Image downloaded: ${imagePath}`);
-
-            const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
-            const names = extractNames(text);
-            const attendanceEntry = {
-                date: new Date().toISOString(),
-                names,
-                channelId: message.channel.id,
-                guildId: message.guild?.id
-            };
-
-            attendanceLog.push(attendanceEntry);
-            saveAttendance();
-
-            const formattedNames = names.map((name, index) => `${index + 1}. ${name}`).join('\n');
-            await message.reply(names.length > 0
-                ? `Attendance recorded for: \n${formattedNames}`
-                : 'No names were detected in the image.');
-        } catch (error) {
-            logger.error('Error processing image:', error);
-            await message.reply('An error occurred while processing the image. Please try again.');
-        } finally {
-            // Cleanup the image file
-            try {
-                if (fs.existsSync(imagePath)) {
-                    fs.unlinkSync(imagePath);
-                }
-            } catch (error) {
-                logger.error('Error deleting image:', error);
-            }
-        }
-    } else {
-        await message.reply('Please send an image containing the attendance list.');
-    }
-});
-
-=======
 
 // Run cleanup every hour
 setInterval(cleanupOldImages, 3600000);
@@ -261,7 +199,6 @@ client.on('messageCreate', async (message) => {
     }
 });
 
->>>>>>> test
 // API routes with basic security
 const API_KEY = process.env.API_KEY || Math.random().toString(36).substring(7);
 logger.log(`API Key: ${API_KEY}`); // Log this only on startup
@@ -274,13 +211,10 @@ app.use((req, res, next) => {
     next();
 });
 
-<<<<<<< HEAD
-=======
 app.get('/names', (req, res) => {
     res.json(names);
 });
 
->>>>>>> test
 app.get('/attendance', (req, res) => {
     res.json(attendanceLog);
 });
@@ -302,11 +236,7 @@ process.on('unhandledRejection', (error) => {
 });
 
 // Start the bot and API server
-<<<<<<< HEAD
-const PORT = process.env.PORT || 3000;
-=======
 const PORT = process.env.PORT || 5001;
->>>>>>> test
 app.listen(PORT, '127.0.0.1', () => { // Listen only on localhost
     logger.log(`Server running on port ${PORT}`);
 });

@@ -511,3 +511,12 @@ guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 [2024-11-23T02:01:27.892Z] INFO: All members fetched
 [2024-11-23T02:01:27.893Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
 [2024-11-23T02:01:27.894Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T02:08:31.211Z] INFO: Starting bot...
+[2024-11-23T02:08:31.231Z] INFO: API Key: qu9ul8
+[2024-11-23T02:08:31.233Z] INFO: Server running on port 5001
+[2024-11-23T02:08:38.074Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T02:08:38.681Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T02:09:41.461Z] INFO: Fetching all members...
+[2024-11-23T02:09:41.632Z] INFO: All members fetched
+[2024-11-23T02:09:41.633Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T02:09:41.634Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud

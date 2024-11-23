@@ -463,3 +463,31 @@ guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 [2024-11-23T00:57:48.619Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
 [2024-11-23T00:57:48.620Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
 [2024-11-23T00:57:48.620Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T01:09:59.045Z] INFO: Starting bot...
+[2024-11-23T01:09:59.067Z] INFO: API Key: qu9ul8
+[2024-11-23T01:09:59.071Z] INFO: Server running on port 5001
+[2024-11-23T01:10:00.427Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T01:10:00.841Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T01:16:01.804Z] INFO: Starting bot...
+[2024-11-23T01:16:01.823Z] INFO: API Key: qu9ul8
+[2024-11-23T01:16:01.825Z] INFO: Server running on port 5001
+[2024-11-23T01:16:08.486Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T01:16:09.078Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T01:17:18.094Z] INFO: Fetching all members...
+[2024-11-23T01:17:18.345Z] INFO: All members fetched
+[2024-11-23T01:17:18.345Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T01:17:18.346Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T01:17:18.346Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T01:18:01.724Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1732324681238-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-23T01:18:09.405Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1732324688918-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-23T01:20:16.610Z] INFO: Starting bot...
+[2024-11-23T01:20:16.630Z] INFO: API Key: qu9ul8
+[2024-11-23T01:20:16.632Z] INFO: Server running on port 5001
+[2024-11-23T01:20:23.646Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T01:20:24.360Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T01:21:00.818Z] INFO: Fetching all members...
+[2024-11-23T01:21:01.084Z] INFO: All members fetched
+[2024-11-23T01:21:01.085Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T01:21:01.086Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T01:21:01.087Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T01:21:19.337Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1732324878898-d2cd99f1c88c39e0e908e43b655b241b.png

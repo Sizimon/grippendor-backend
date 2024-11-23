@@ -232,7 +232,7 @@ client.on('interactionCreate', async interaction => {
 
         fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
 
-        await interaction.reply(`Configuration saved! Channel: ${channel}, Color: ${color}, Role: ${role}, Icon: ${icon}, Title: ${title}`);
+        await interaction.reply(`Configuration saved! \n Channel: ${channel} \n Color: ${color} \n Role: ${role} \n Icon: ${icon} \n Title: ${title}`);
 
         // Initialize the bot with the new configuration
         await initializeBot();
@@ -243,6 +243,10 @@ client.login(process.env.DISCORD_TOKEN);
 
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
+
+    if (message.channel.id !== config.channel) {
+        return; //Ignore messages from other channels
+    }
 
     if (message.attachments.size > 0) {
         const attachment = message.attachments.first();

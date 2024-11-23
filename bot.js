@@ -1,3 +1,4 @@
+
 // Description: Production-ready Discord bot with OCR for Plesk deployment
 const {Client, GatewayIntentBits, Partials, SlashCommandBuilder, REST, Routes} = require('discord.js');
 const Tesseract = require('tesseract.js');

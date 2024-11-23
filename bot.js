@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 // Description: Production-ready Discord bot with OCR for Plesk deployment
-=======
->>>>>>> test
-const {Client, GatewayIntentBits, Partials} = require('discord.js');
+const {Client, GatewayIntentBits, Partials, SlashCommandBuilder, REST, Routes} = require('discord.js');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
 const path = require('path');
@@ -10,6 +7,14 @@ const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+
+const CONFIG_FILE = path.join(__dirname, 'config.json');
+
+// Load Existing Configuration or Create a new one
+let config = {};
+if(fs.existsSync(CONFIG_FILE)) {
+    config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+}
 
 // Ensure logs directory exists
 const LOG_DIR = path.join(__dirname, 'logs');
@@ -62,11 +67,8 @@ if (!fs.existsSync(path.dirname(ATTENDANCE_FILE))) {
 }
 
 let attendanceLog = [];
-<<<<<<< HEAD
-=======
 let names = [];
 
->>>>>>> test
 try {
     if (fs.existsSync(ATTENDANCE_FILE)) {
         attendanceLog = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
@@ -124,62 +126,32 @@ function cleanupOldImages() {
         logger.error('Error cleaning up old images:', error);
     }
 }
-<<<<<<< HEAD
 
-// Run cleanup every hour
-setInterval(cleanupOldImages, 3600000);
-
-client.once('ready', () => {
-    logger.log('Bot is ready and connected to Discord!');
-});
-
-client.on('messageCreate', async (message) => {
-    if (message.author.bot) return;
-
-    if (message.attachments.size > 0) {
-        const attachment = message.attachments.first();
-        const imageUrl = attachment.url;
-        const imagePath = path.join(IMAGES_DIR, `${Date.now()}-${attachment.name}`);
-
-        try {
-            await downloadImage(imageUrl, imagePath);
-            logger.log(`Image downloaded: ${imagePath}`);
-
-            const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
-            const names = extractNames(text);
-            const attendanceEntry = {
-                date: new Date().toISOString(),
-                names,
-                channelId: message.channel.id,
-                guildId: message.guild?.id
-            };
-
-            attendanceLog.push(attendanceEntry);
-            saveAttendance();
-
-            const formattedNames = names.map((name, index) => `${index + 1}. ${name}`).join('\n');
-            await message.reply(names.length > 0
-                ? `Attendance recorded for: \n${formattedNames}`
-                : 'No names were detected in the image.');
-        } catch (error) {
-            logger.error('Error processing image:', error);
-            await message.reply('An error occurred while processing the image. Please try again.');
-        } finally {
-            // Cleanup the image file
-            try {
-                if (fs.existsSync(imagePath)) {
-                    fs.unlinkSync(imagePath);
-                }
-            } catch (error) {
-                logger.error('Error deleting image:', error);
-            }
-        }
-    } else {
-        await message.reply('Please send an image containing the attendance list.');
-    }
-});
-
-=======
+const commands = [
+    new SlashCommandBuilder()
+        .setName('setup')
+        .setDescription('Setup the bot configuration')
+        .addChannelOption(option =>
+            option.setName('channel')
+                .setDescription('The channel to send attendance messages. (Keep in mind this should be an admin channel)')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('color')
+                .setDescription('The color palette (e.g., #FF0000)')
+                .setRequired(true))
+        .addRoleOption(option =>
+            option.setName('role')
+                .setDescription('The bot will track all members with the role you choose, (i.e default member role)')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('icon')
+                .setDescription('The icon URL for your frontend dashboard')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('title')
+                .setDescription('The title for the frontend dashboard')
+                .setRequired(true)),
+];
 
 // Run cleanup every hour
 setInterval(cleanupOldImages, 3600000);
@@ -187,12 +159,33 @@ setInterval(cleanupOldImages, 3600000);
 client.once('ready', async () => {
     logger.log(`Logged in as ${client.user.tag}`);
 
-    const guild = client.guilds.cache.get('1306969550851407912');
+    const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
+
+    try {
+        await rest.put(
+            Routes.applicationCommands(client.user.id),
+            { body: commands },
+        );
+        logger.log('Successfully registered application (/) commands.');
+    } catch (error) {
+        logger.error('Error registering application (/) commands:', error);
+    }
+});
+
+async function initializeBot() {
+     // Ensure bot is configured
+     if(!config.guild || !config.channel || !config.role) {
+        logger.error('Bot not configured! Please run the /setup command.');
+        return;
+    }
+
+    const guild = client.guilds.cache.get(config.guild);
     if (!guild) {
         logger.error('Guild not found');
         return;
     }
-    const role = guild.roles.cache.find(role => role.name === 'WEBBERS');
+
+    const role = guild.roles.cache.get(config.role);
     if (!role) {
         logger.error('Role not found');
         return;
@@ -208,12 +201,44 @@ client.once('ready', async () => {
         const membersWithRole = members.filter(member => member.roles.cache.has(role.id));
         logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.user.username).join(', ')}`);
 
-        names = membersWithRole.map(member => member.nickname || member.user.username);
+        const names = membersWithRole.map(member => member.nickname || member.user.username);
         logger.log(`Members with role: ${names.join(', ')}`);
     } catch (error) {
         logger.error('Error fetching members:', error);
     }
+}
+
+client.on('interactionCreate', async interaction => {
+    if(!interaction.isCommand()) return;
+
+    const { commandName } = interaction;
+
+    if (commandName === 'setup') {
+        const channel = interaction.options.getChannel('channel');
+        const color = interaction.options.getString('color');
+        const role = interaction.options.getRole('role');
+        const icon = interaction.options.getString('icon');
+        const title = interaction.options.getString('title');
+
+        config = {
+            guild: interaction.guild.id,
+            channel: channel.id,
+            color,
+            role: role.id,
+            icon,
+            title,
+        };
+
+        fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
+
+        await interaction.reply(`Configuration saved! Channel: ${channel}, Color: ${color}, Role: ${role}, Icon: ${icon}, Title: ${title}`);
+
+        // Initialize the bot with the new configuration
+        await initializeBot();
+    }
 });
+
+client.login(process.env.DISCORD_TOKEN);
 
 client.on('messageCreate', async (message) => {
     if (message.author.bot) return;
@@ -261,7 +286,6 @@ client.on('messageCreate', async (message) => {
     }
 });
 
->>>>>>> test
 // API routes with basic security
 const API_KEY = process.env.API_KEY || Math.random().toString(36).substring(7);
 logger.log(`API Key: ${API_KEY}`); // Log this only on startup
@@ -274,13 +298,10 @@ app.use((req, res, next) => {
     next();
 });
 
-<<<<<<< HEAD
-=======
 app.get('/names', (req, res) => {
     res.json(names);
 });
 
->>>>>>> test
 app.get('/attendance', (req, res) => {
     res.json(attendanceLog);
 });
@@ -302,11 +323,7 @@ process.on('unhandledRejection', (error) => {
 });
 
 // Start the bot and API server
-<<<<<<< HEAD
-const PORT = process.env.PORT || 3000;
-=======
 const PORT = process.env.PORT || 5001;
->>>>>>> test
 app.listen(PORT, '127.0.0.1', () => { // Listen only on localhost
     logger.log(`Server running on port ${PORT}`);
 });

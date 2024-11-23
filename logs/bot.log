@@ -334,3 +334,132 @@
 [2024-11-18T03:54:53.930Z] INFO: Fetched Members: AttendanceTest, shhmon
 [2024-11-18T03:54:53.931Z] INFO: Members with role: Napocalypse
 [2024-11-18T03:54:53.931Z] INFO: Members with role: Napocalypse
+[2024-11-22T23:52:51.698Z] INFO: Starting bot...
+[2024-11-22T23:52:51.707Z] INFO: API Key: qu9ul8
+[2024-11-22T23:52:51.711Z] INFO: Server running on port 5001
+[2024-11-22T23:52:52.834Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-22T23:52:52.835Z] INFO: Fetching all members...
+[2024-11-22T23:52:53.019Z] INFO: All members fetched
+[2024-11-22T23:52:53.019Z] INFO: Fetched Members: AttendanceTest, ripi___, _herzog, sirewald, shhmon, voncloudy
+[2024-11-22T23:52:53.020Z] INFO: Members with role: Ripii, Hasrudiin, Ewaldi, Napocalypse, vonCloud
+[2024-11-22T23:52:53.021Z] INFO: Members with role: Ripii, Hasrudiin, Ewaldi, Napocalypse, vonCloud
+[2024-11-23T00:19:17.147Z] INFO: Starting bot...
+[2024-11-23T00:19:17.263Z] INFO: API Key: qu9ul8
+[2024-11-23T00:19:17.280Z] INFO: Server running on port 5001
+[2024-11-23T00:19:23.916Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:19:23.920Z] ERROR: Uncaught Exception: ReferenceError: REST is not defined
+    at Client.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:153:18)
+    at Object.onceWrapper (node:events:634:26)
+    at Client.emit (node:events:519:28)
+    at WebSocketManager.triggerClientReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:381:17)
+    at WebSocketManager.checkShardsReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:364:10)
+    at WebSocketShard.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:194:16)
+    at WebSocketShard.emit (node:events:519:28)
+    at WebSocketShard.checkReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketShard.js:184:12)
+    at WebSocketShard.gotGuild (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketShard.js:158:10)
+    at WebSocketManager.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:234:15)
+[2024-11-23T00:20:30.380Z] INFO: Starting bot...
+[2024-11-23T00:20:30.398Z] INFO: API Key: qu9ul8
+[2024-11-23T00:20:30.400Z] INFO: Server running on port 5001
+[2024-11-23T00:20:37.443Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:20:37.447Z] ERROR: Error registering application (/) commands: ReferenceError: Cannot access 'guild' before initialization
+    at Client.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:157:63)
+    at Object.onceWrapper (node:events:634:26)
+    at Client.emit (node:events:519:28)
+    at WebSocketManager.triggerClientReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:381:17)
+    at WebSocketManager.checkShardsReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:364:10)
+    at WebSocketShard.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:194:16)
+    at WebSocketShard.emit (node:events:519:28)
+    at WebSocketShard.checkReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketShard.js:184:12)
+    at WebSocketShard.gotGuild (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketShard.js:158:10)
+    at WebSocketManager.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:234:15)
+[2024-11-23T00:20:37.450Z] ERROR: Bot not configured! Please run the /setup command. undefined
+[2024-11-23T00:22:38.212Z] INFO: Starting bot...
+[2024-11-23T00:22:38.230Z] INFO: API Key: qu9ul8
+[2024-11-23T00:22:38.233Z] INFO: Server running on port 5001
+[2024-11-23T00:22:45.631Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:22:45.632Z] ERROR: Bot not configured! Please run the /setup command. undefined
+[2024-11-23T00:24:26.140Z] INFO: Starting bot...
+[2024-11-23T00:24:26.158Z] INFO: API Key: qu9ul8
+[2024-11-23T00:24:26.160Z] INFO: Server running on port 5001
+[2024-11-23T00:24:32.955Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:24:32.955Z] ERROR: Bot not configured! Please run the /setup command. undefined
+[2024-11-23T00:28:40.979Z] INFO: Starting bot...
+[2024-11-23T00:28:40.996Z] INFO: API Key: qu9ul8
+[2024-11-23T00:28:40.999Z] INFO: Server running on port 5001
+[2024-11-23T00:28:47.601Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:28:47.602Z] ERROR: Error registering application (/) commands: ReferenceError: Cannot access 'commands' before initialization
+    at Client.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:141:21)
+    at Object.onceWrapper (node:events:634:26)
+    at Client.emit (node:events:519:28)
+    at WebSocketManager.triggerClientReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:381:17)
+    at WebSocketManager.checkShardsReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:364:10)
+    at WebSocketShard.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:194:16)
+    at WebSocketShard.emit (node:events:519:28)
+    at WebSocketShard.checkReady (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketShard.js:184:12)
+    at WebSocketShard.gotGuild (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketShard.js:158:10)
+    at WebSocketManager.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:234:15)
+[2024-11-23T00:28:47.605Z] ERROR: Bot not configured! Please run the /setup command. undefined
+[2024-11-23T00:31:43.983Z] INFO: Starting bot...
+[2024-11-23T00:31:44.001Z] INFO: API Key: qu9ul8
+[2024-11-23T00:31:44.004Z] INFO: Server running on port 5001
+[2024-11-23T00:31:51.500Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:31:51.837Z] ERROR: Error registering application (/) commands: DiscordAPIError[50035]: Invalid Form Body
+guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+    at handleErrors (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:1128:23)
+    at async SequentialHandler.queueRequest (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:959:14)
+    at async _REST.request (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async Client.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:150:9)
+[2024-11-23T00:31:51.843Z] ERROR: Bot not configured! Please run the /setup command. undefined
+[2024-11-23T00:38:44.458Z] INFO: Starting bot...
+[2024-11-23T00:38:44.477Z] INFO: API Key: qu9ul8
+[2024-11-23T00:38:44.479Z] INFO: Server running on port 5001
+[2024-11-23T00:38:51.212Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:38:51.593Z] ERROR: Error registering application (/) commands: DiscordAPIError[50035]: Invalid Form Body
+guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
+    at handleErrors (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:1128:23)
+    at async SequentialHandler.queueRequest (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:959:14)
+    at async _REST.request (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/rest/dist/index.js:1272:22)
+    at async Client.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:150:9)
+[2024-11-23T00:38:51.599Z] ERROR: Bot not configured! Please run the /setup command. undefined
+[2024-11-23T00:41:32.608Z] INFO: Starting bot...
+[2024-11-23T00:41:32.626Z] INFO: API Key: qu9ul8
+[2024-11-23T00:41:32.629Z] INFO: Server running on port 5001
+[2024-11-23T00:41:34.086Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:41:34.489Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T00:41:34.490Z] ERROR: Bot not configured! Please run the /setup command. undefined
+[2024-11-23T00:49:58.666Z] INFO: Starting bot...
+[2024-11-23T00:49:58.692Z] INFO: API Key: qu9ul8
+[2024-11-23T00:49:58.696Z] INFO: Server running on port 5001
+[2024-11-23T00:50:00.536Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:50:01.044Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T00:50:43.950Z] INFO: Fetching all members...
+[2024-11-23T00:50:44.161Z] INFO: All members fetched
+[2024-11-23T00:50:44.162Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T00:50:44.163Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T00:50:44.163Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T00:55:09.119Z] INFO: Starting bot...
+[2024-11-23T00:55:09.137Z] INFO: API Key: qu9ul8
+[2024-11-23T00:55:09.140Z] INFO: Server running on port 5001
+[2024-11-23T00:55:16.339Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:55:16.845Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T00:55:59.928Z] INFO: Fetching all members...
+[2024-11-23T00:56:00.103Z] INFO: All members fetched
+[2024-11-23T00:56:00.104Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T00:56:00.105Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T00:56:00.106Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T00:57:18.571Z] INFO: Starting bot...
+[2024-11-23T00:57:18.589Z] INFO: API Key: qu9ul8
+[2024-11-23T00:57:18.592Z] INFO: Server running on port 5001
+[2024-11-23T00:57:20.006Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T00:57:20.412Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T00:57:48.459Z] INFO: 1306969550851407912
+[2024-11-23T00:57:48.459Z] INFO: Fetching all members...
+[2024-11-23T00:57:48.619Z] INFO: All members fetched
+[2024-11-23T00:57:48.619Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T00:57:48.620Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T00:57:48.620Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud

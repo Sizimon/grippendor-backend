@@ -491,3 +491,23 @@ guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 [2024-11-23T01:21:01.086Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
 [2024-11-23T01:21:01.087Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
 [2024-11-23T01:21:19.337Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1732324878898-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-23T01:44:39.089Z] INFO: Starting bot...
+[2024-11-23T01:44:39.116Z] INFO: API Key: qu9ul8
+[2024-11-23T01:44:39.119Z] INFO: Server running on port 5001
+[2024-11-23T01:44:45.636Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T01:44:46.100Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T01:45:58.907Z] INFO: Fetching all members...
+[2024-11-23T01:45:59.147Z] INFO: All members fetched
+[2024-11-23T01:45:59.147Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T01:45:59.149Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T01:45:59.149Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T01:46:56.661Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1732326416226-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-23T02:00:52.036Z] INFO: Starting bot...
+[2024-11-23T02:00:52.054Z] INFO: API Key: qu9ul8
+[2024-11-23T02:00:52.057Z] INFO: Server running on port 5001
+[2024-11-23T02:00:54.081Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T02:00:54.447Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T02:01:27.661Z] INFO: Fetching all members...
+[2024-11-23T02:01:27.892Z] INFO: All members fetched
+[2024-11-23T02:01:27.893Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T02:01:27.894Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud

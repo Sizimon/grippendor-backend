@@ -202,8 +202,8 @@ async function initializeBot() {
         const membersWithRole = members.filter(member => member.roles.cache.has(role.id));
         logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.user.username).join(', ')}`);
 
-        const names = membersWithRole.map(member => member.nickname || member.user.username);
-        logger.log(`Members with role: ${names.join(', ')}`);
+        names = membersWithRole.map(member => member.nickname || member.user.username);
+        // logger.log(`Members with role: ${names.join(', ')}`);
     } catch (error) {
         logger.error('Error fetching members:', error);
     }
@@ -309,6 +309,10 @@ app.get('/names', (req, res) => {
 
 app.get('/attendance', (req, res) => {
     res.json(attendanceLog);
+});
+
+app.get('/config', (req, res) => {
+    res.json(config);
 });
 
 // Graceful shutdown

@@ -141,8 +141,20 @@ const commands = [
                 .setDescription('The color palette (e.g., #FF0000)')
                 .setRequired(true))
         .addRoleOption(option =>
-            option.setName('role')
+            option.setName('primary_role')
                 .setDescription('The bot will track all members with the role you choose, (i.e default member role)')
+                .setRequired(true))
+        .addRoleOption(option =>
+            option.setName('tank_role')
+                .setDescription('This will track users with your given "Tank" role for the party maker.')
+                .setRequired(true))
+        .addRoleOption(option =>
+            option.setName('healer_role')
+                .setDescription('This will track users with your given "Healer" role for the party maker.')
+                .setRequired(true))
+        .addRoleOption(option =>
+            option.setName('dps_role')
+                .setDescription('This will track users with your given "DPS" role for the party maker.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('icon')
@@ -175,7 +187,7 @@ client.once('ready', async () => {
 
 async function initializeBot() {
      // Ensure bot is configured
-     if(!config.guild || !config.channel || !config.role) {
+     if(!config.guild || !config.channel || !config.primaryRole) {
         logger.error('Bot not configured! Please run the /setup command.');
         return;
     }
@@ -186,11 +198,17 @@ async function initializeBot() {
         return;
     }
 
-    const role = guild.roles.cache.get(config.role);
-    if (!role) {
+    const primaryRole = guild.roles.cache.get(config.primaryRole);
+    if (!primaryRole) {
         logger.error('Role not found');
         return;
     }
+
+    const additionalRoles = [
+        { id: config.tankRole, name: 'Tank' },
+        { id: config.healerRole, name: 'Healer' },
+        { id: config.dpsRole, name: 'DPS' }
+    ]
 
     try {
         logger.log('Fetching all members...');
@@ -199,11 +217,24 @@ async function initializeBot() {
         const members = guild.members.cache;
         logger.log(`Fetched Members: ${members.map(member => member.user.username).join(', ')}`);
         
-        const membersWithRole = members.filter(member => member.roles.cache.has(role.id));
+        const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
         logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.user.username).join(', ')}`);
 
-        names = membersWithRole.map(member => member.nickname || member.user.username);
-        // logger.log(`Members with role: ${names.join(', ')}`);
+        names = membersWithRole.map(member => {
+            const memberRoles = additionalRoles.filter(role => member.roles.cache.has(role.id)).map(role => role.name);
+            if (memberRoles.length > 0) {
+                return {
+                    name: member.nickname || member.user.username,
+                    roles: memberRoles
+                };
+            } else {
+                return {
+                    name: member.nickname || member.user.username,
+                    roles:[]
+                }
+            }
+        });
+        logger.log(`Members with role: ${names.join(', ')}`);
     } catch (error) {
         logger.error('Error fetching members:', error);
     }
@@ -217,7 +248,10 @@ client.on('interactionCreate', async interaction => {
     if (commandName === 'setup') {
         const channel = interaction.options.getChannel('channel');
         const color = interaction.options.getString('color');
-        const role = interaction.options.getRole('role');
+        const primaryRole = interaction.options.getRole('primary_role');
+        const tankRole = interaction.options.getRole('tank_role');
+        const healerRole = interaction.options.getRole('healer_role');
+        const dpsRole = interaction.options.getRole('dps_role');
         const icon = interaction.options.getString('icon');
         const title = interaction.options.getString('title');
 
@@ -225,14 +259,32 @@ client.on('interactionCreate', async interaction => {
             guild: interaction.guild.id,
             channel: channel.id,
             color,
-            role: role.id,
+            primaryRole: primaryRole.id,
+            tankRole: tankRole.id,
+            healerRole: healerRole.id,
+            dpsRole: dpsRole.id,
             icon,
             title,
         };
 
         fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
 
-        await interaction.reply(`Configuration saved! \n Channel: ${channel} \n Color: ${color} \n Role: ${role} \n Icon: ${icon} \n Title: ${title}`);
+        await interaction.reply(`
+            Configuration saved! \n 
+            You can now start using the Guild Manager bot. \n
+            The bot is only usable in the configured channel. (${channel}) \n
+            Your dashboard is customised with the following settings: \n
+            Title: ${title} \n
+            Color: ${color} \n
+            Icon: ${icon} \n
+            \n
+            Your main members will be tracked with the following role: ${primaryRole} \n
+            \n 
+            For the party making functionality, you have set your roles as follows: \n
+            Tank Role: ${tankRole} \n
+            Healer Role: ${healerRole} \n
+            DPS Role: ${dpsRole} \n
+            `);
 
         // Initialize the bot with the new configuration
         await initializeBot();

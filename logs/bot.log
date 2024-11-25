@@ -520,3 +520,94 @@ guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 [2024-11-23T02:09:41.632Z] INFO: All members fetched
 [2024-11-23T02:09:41.633Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
 [2024-11-23T02:09:41.634Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T21:18:39.800Z] INFO: Starting bot...
+[2024-11-23T21:18:39.818Z] INFO: API Key: qu9ul8
+[2024-11-23T21:18:39.821Z] INFO: Server running on port 5001
+[2024-11-23T21:18:46.915Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-23T21:18:47.493Z] INFO: Successfully registered application (/) commands.
+[2024-11-23T21:19:54.249Z] INFO: Fetching all members...
+[2024-11-23T21:19:54.417Z] INFO: All members fetched
+[2024-11-23T21:19:54.418Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-23T21:19:54.419Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-23T21:20:15.342Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1732396814893-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-25T16:17:02.405Z] INFO: Starting bot...
+[2024-11-25T16:17:02.423Z] INFO: API Key: qu9ul8
+[2024-11-25T16:17:02.428Z] INFO: Server running on port 5001
+[2024-11-25T16:17:03.980Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T16:17:04.283Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T16:19:26.737Z] ERROR: Uncaught Exception: ReferenceError: role is not defined
+    at Client.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:253:108)
+    at Client.emit (node:events:519:28)
+    at InteractionCreateAction.handle (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/actions/InteractionCreate.js:97:12)
+    at module.exports [as INTERACTION_CREATE] (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:348:31)
+    at WebSocketManager.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:232:12)
+    at WebSocketManager.emit (/Users/szymonsamus/attendance-tracker-dev/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)
+    at WebSocketShard.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/ws/dist/index.js:1190:51)
+    at WebSocketShard.emit (/Users/szymonsamus/attendance-tracker-dev/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)
+    at WebSocketShard.onMessage (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/ws/dist/index.js:1005:14)
+[2024-11-25T16:21:24.182Z] INFO: Starting bot...
+[2024-11-25T16:21:24.201Z] INFO: API Key: qu9ul8
+[2024-11-25T16:21:24.203Z] INFO: Server running on port 5001
+[2024-11-25T16:21:25.700Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T16:21:26.368Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T16:22:24.982Z] ERROR: Uncaught Exception: ReferenceError: role is not defined
+    at Client.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:253:108)
+    at Client.emit (node:events:519:28)
+    at InteractionCreateAction.handle (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/actions/InteractionCreate.js:97:12)
+    at module.exports [as INTERACTION_CREATE] (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/handlers/INTERACTION_CREATE.js:4:36)
+    at WebSocketManager.handlePacket (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:348:31)
+    at WebSocketManager.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/client/websocket/WebSocketManager.js:232:12)
+    at WebSocketManager.emit (/Users/szymonsamus/attendance-tracker-dev/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)
+    at WebSocketShard.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/ws/dist/index.js:1190:51)
+    at WebSocketShard.emit (/Users/szymonsamus/attendance-tracker-dev/node_modules/@vladfrangu/async_event_emitter/dist/index.cjs:287:31)
+    at WebSocketShard.onMessage (/Users/szymonsamus/attendance-tracker-dev/node_modules/@discordjs/ws/dist/index.js:1005:14)
+[2024-11-25T16:29:04.905Z] INFO: Starting bot...
+[2024-11-25T16:29:04.928Z] INFO: API Key: qu9ul8
+[2024-11-25T16:29:04.931Z] INFO: Server running on port 5001
+[2024-11-25T16:29:06.408Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T16:29:06.802Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T16:34:37.866Z] INFO: Fetching all members...
+[2024-11-25T16:34:38.048Z] INFO: All members fetched
+[2024-11-25T16:34:38.049Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-25T16:34:38.050Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-25T16:39:06.246Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1732552745838-d2cd99f1c88c39e0e908e43b655b241b.png
+[2024-11-25T17:06:13.379Z] INFO: Starting bot...
+[2024-11-25T17:06:13.401Z] INFO: API Key: qu9ul8
+[2024-11-25T17:06:13.404Z] INFO: Server running on port 5001
+[2024-11-25T17:06:20.863Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T17:06:21.617Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T17:06:54.341Z] INFO: Fetching all members...
+[2024-11-25T17:06:54.536Z] INFO: All members fetched
+[2024-11-25T17:06:54.537Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-25T17:06:54.538Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-25T17:39:59.738Z] INFO: Starting bot...
+[2024-11-25T17:39:59.759Z] INFO: API Key: qu9ul8
+[2024-11-25T17:39:59.763Z] INFO: Server running on port 5001
+[2024-11-25T17:40:07.283Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T17:40:08.170Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T17:40:53.095Z] INFO: Fetching all members...
+[2024-11-25T17:40:53.263Z] INFO: All members fetched
+[2024-11-25T17:40:53.263Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-25T17:40:53.264Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-25T17:40:53.265Z] INFO: Members with role: [object Object], Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-25T17:53:40.047Z] INFO: Starting bot...
+[2024-11-25T17:53:40.068Z] INFO: API Key: qu9ul8
+[2024-11-25T17:53:40.071Z] INFO: Server running on port 5001
+[2024-11-25T17:53:46.666Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T17:53:47.159Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T17:54:18.222Z] INFO: Fetching all members...
+[2024-11-25T17:54:18.456Z] INFO: All members fetched
+[2024-11-25T17:54:18.457Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-25T17:54:18.458Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-25T17:54:18.459Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-25T18:41:23.110Z] INFO: Starting bot...
+[2024-11-25T18:41:23.131Z] INFO: API Key: qu9ul8
+[2024-11-25T18:41:23.134Z] INFO: Server running on port 5001
+[2024-11-25T18:41:30.023Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T18:41:30.935Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T18:42:00.737Z] INFO: Fetching all members...
+[2024-11-25T18:42:00.971Z] INFO: All members fetched
+[2024-11-25T18:42:00.972Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-25T18:42:00.973Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-25T18:42:00.973Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]

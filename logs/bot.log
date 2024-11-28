@@ -611,3 +611,108 @@ guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 [2024-11-25T18:42:00.972Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
 [2024-11-25T18:42:00.973Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
 [2024-11-25T18:42:00.973Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-25T18:56:40.300Z] INFO: Starting bot...
+[2024-11-25T18:56:40.324Z] INFO: API Key: qu9ul8
+[2024-11-25T18:56:40.328Z] INFO: Server running on port 5001
+[2024-11-25T18:56:41.695Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-25T18:56:42.102Z] INFO: Successfully registered application (/) commands.
+[2024-11-25T18:58:58.400Z] INFO: Fetching all members...
+[2024-11-25T18:58:58.610Z] INFO: All members fetched
+[2024-11-25T18:58:58.611Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, _herzog, sirewald, voncloudy
+[2024-11-25T18:58:58.613Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-25T18:58:58.613Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:34:01.505Z] INFO: Starting bot...
+[2024-11-28T15:34:01.527Z] INFO: API Key: qu9ul8
+[2024-11-28T15:34:01.531Z] INFO: Server running on port 5001
+[2024-11-28T15:34:09.180Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-28T15:34:09.789Z] INFO: Successfully registered application (/) commands.
+[2024-11-28T15:34:48.311Z] INFO: Fetching all members...
+[2024-11-28T15:34:48.488Z] INFO: All members fetched
+[2024-11-28T15:34:48.489Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:34:48.489Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, vonCloud
+[2024-11-28T15:34:48.490Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:35:03.491Z] INFO: Fetching all members...
+[2024-11-28T15:35:03.854Z] INFO: All members fetched
+[2024-11-28T15:35:03.855Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:35:03.855Z] INFO: Members with role: Napocalypse, Ripii, Hasrudiin, Ewaldi, ifap2handedbby, vonCloud
+[2024-11-28T15:35:03.855Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:35:18.491Z] INFO: Fetching all members...
+[2024-11-28T15:35:18.710Z] INFO: All members fetched
+[2024-11-28T15:35:18.711Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:35:18.711Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-11-28T15:35:18.711Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:35:33.491Z] INFO: Fetching all members...
+[2024-11-28T15:35:33.751Z] INFO: All members fetched
+[2024-11-28T15:35:33.752Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:35:33.752Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-11-28T15:35:33.754Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:35:48.492Z] INFO: Fetching all members...
+[2024-11-28T15:35:48.696Z] INFO: All members fetched
+[2024-11-28T15:35:48.696Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:35:48.696Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-11-28T15:35:48.696Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:36:03.492Z] INFO: Fetching all members...
+[2024-11-28T15:36:03.735Z] INFO: All members fetched
+[2024-11-28T15:36:03.735Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:36:03.736Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-11-28T15:36:03.736Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:36:18.494Z] INFO: Fetching all members...
+[2024-11-28T15:36:18.716Z] INFO: All members fetched
+[2024-11-28T15:36:18.716Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:36:18.716Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-11-28T15:36:18.716Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:36:33.494Z] INFO: Fetching all members...
+[2024-11-28T15:36:33.751Z] INFO: All members fetched
+[2024-11-28T15:36:33.751Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:36:33.751Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-11-28T15:36:33.752Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:36:48.495Z] INFO: Fetching all members...
+[2024-11-28T15:36:48.679Z] INFO: All members fetched
+[2024-11-28T15:36:48.679Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:36:48.679Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-11-28T15:36:48.680Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:37:03.496Z] INFO: Fetching all members...
+[2024-11-28T15:37:03.693Z] INFO: All members fetched
+[2024-11-28T15:37:03.694Z] INFO: Fetched Members: AttendanceTest, shhmon, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-11-28T15:37:03.694Z] INFO: Members with role: Napocalypse, Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, vonCloud, electromanworkslave
+[2024-11-28T15:37:03.694Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:37:21.794Z] INFO: Starting bot...
+[2024-11-28T15:37:21.813Z] INFO: API Key: qu9ul8
+[2024-11-28T15:37:21.815Z] INFO: Server running on port 5001
+[2024-11-28T15:37:28.479Z] INFO: Logged in as AttendanceTest#9258
+[2024-11-28T15:37:29.059Z] INFO: Successfully registered application (/) commands.
+[2024-11-28T15:37:44.061Z] INFO: Fetching all members...
+[2024-11-28T15:37:44.313Z] INFO: All members fetched
+[2024-11-28T15:37:44.313Z] INFO: Fetched Members: AttendanceTest, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-11-28T15:37:44.314Z] INFO: Members with role: Ripii, Hasrudiin, Ewaldi, Napocalypse, vonCloud
+[2024-11-28T15:37:44.315Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:37:59.060Z] INFO: Fetching all members...
+[2024-11-28T15:37:59.265Z] INFO: All members fetched
+[2024-11-28T15:37:59.265Z] INFO: Fetched Members: AttendanceTest, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-11-28T15:37:59.265Z] INFO: Members with role: Ripii, Hasrudiin, Ewaldi, Napocalypse, vonCloud
+[2024-11-28T15:37:59.266Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:38:00.834Z] INFO: Fetching all members...
+[2024-11-28T15:38:01.106Z] INFO: All members fetched
+[2024-11-28T15:38:01.106Z] INFO: Fetched Members: AttendanceTest, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-11-28T15:38:01.106Z] INFO: Members with role: Ripii, Hasrudiin, Ewaldi, Napocalypse, vonCloud
+[2024-11-28T15:38:01.107Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:38:14.060Z] INFO: Fetching all members...
+[2024-11-28T15:38:14.272Z] INFO: All members fetched
+[2024-11-28T15:38:14.273Z] INFO: Fetched Members: AttendanceTest, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-11-28T15:38:14.273Z] INFO: Members with role: Ripii, Hasrudiin, Ewaldi, Napocalypse, vonCloud
+[2024-11-28T15:38:14.273Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:38:29.061Z] INFO: Fetching all members...
+[2024-11-28T15:38:29.268Z] INFO: All members fetched
+[2024-11-28T15:38:29.268Z] INFO: Fetched Members: AttendanceTest, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-11-28T15:38:29.269Z] INFO: Members with role: Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-11-28T15:38:29.269Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:38:44.062Z] INFO: Fetching all members...
+[2024-11-28T15:38:44.308Z] INFO: All members fetched
+[2024-11-28T15:38:44.308Z] INFO: Fetched Members: AttendanceTest, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-11-28T15:38:44.308Z] INFO: Members with role: Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-11-28T15:38:44.308Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-11-28T15:38:59.062Z] INFO: Fetching all members...
+[2024-11-28T15:38:59.371Z] INFO: All members fetched
+[2024-11-28T15:38:59.372Z] INFO: Fetched Members: AttendanceTest, ripi___, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-11-28T15:38:59.372Z] INFO: Members with role: Ripii, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-11-28T15:38:59.372Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]

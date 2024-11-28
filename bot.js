@@ -183,6 +183,10 @@ client.once('ready', async () => {
     } catch (error) {
         logger.error('Error registering application (/) commands:', error);
     }
+
+    setInterval(async () => {
+        await initializeBot();
+    }, 60000);
 });
 
 async function initializeBot() {

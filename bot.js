@@ -1,6 +1,6 @@
 
 // Description: Production-ready Discord bot with OCR for Plesk deployment
-const {Client, GatewayIntentBits, Partials, SlashCommandBuilder, REST, Routes} = require('discord.js');
+const { Client, GatewayIntentBits, Partials, SlashCommandBuilder, REST, Routes } = require('discord.js');
 const Tesseract = require('tesseract.js');
 const fs = require('fs');
 const path = require('path');
@@ -13,7 +13,7 @@ const CONFIG_FILE = path.join(__dirname, 'config.json');
 
 // Load Existing Configuration or Create a new one
 let config = {};
-if(fs.existsSync(CONFIG_FILE)) {
+if (fs.existsSync(CONFIG_FILE)) {
     config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
 }
 
@@ -164,6 +164,14 @@ const commands = [
             option.setName('title')
                 .setDescription('The title for the frontend dashboard')
                 .setRequired(true)),
+
+    new SlashCommandBuilder()
+        .setName('attendance')
+        .setDescription('Upload Image of Usernames to record attendance')
+        .addAttachmentOption(option =>
+            option.setName('images')
+                .setDescription('The image containing the attendance list')
+                .setRequired(true))
 ];
 
 // Run cleanup every hour
@@ -190,8 +198,8 @@ client.once('ready', async () => {
 });
 
 async function initializeBot() {
-     // Ensure bot is configured
-     if(!config.guild || !config.channel || !config.primaryRole) {
+    // Ensure bot is configured
+    if (!config.guild || !config.channel || !config.primaryRole) {
         logger.error('Bot not configured! Please run the /setup command.');
         return;
     }
@@ -220,7 +228,7 @@ async function initializeBot() {
         logger.log('All members fetched');
         const members = guild.members.cache;
         logger.log(`Fetched Members: ${members.map(member => member.user.username).join(', ')}`);
-        
+
         const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
         logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.user.username).join(', ')}`);
 
@@ -234,7 +242,7 @@ async function initializeBot() {
             } else {
                 return {
                     name: member.nickname || member.user.username,
-                    roles:[]
+                    roles: []
                 }
             }
         });
@@ -245,7 +253,7 @@ async function initializeBot() {
 }
 
 client.on('interactionCreate', async interaction => {
-    if(!interaction.isCommand()) return;
+    if (!interaction.isCommand()) return;
 
     const { commandName } = interaction;
 
@@ -292,60 +300,68 @@ client.on('interactionCreate', async interaction => {
 
         // Initialize the bot with the new configuration
         await initializeBot();
-    }
-});
+    } else if (commandName === 'attendance') {
+        const attachments = interaction.options.getAttachment('images');
 
-client.login(process.env.DISCORD_TOKEN);
+        if (!attachments) {
+            await interaction.reply('Please upload an image containing the attendance list.');
+            return;
+        }
 
-client.on('messageCreate', async (message) => {
-    if (message.author.bot) return;
+        await interaction.deferReply();
 
-    if (message.channel.id !== config.channel) {
-        return; //Ignore messages from other channels
-    }
-
-    if (message.attachments.size > 0) {
-        const attachment = message.attachments.first();
-        const imageUrl = attachment.url;
-        const imagePath = path.join(IMAGES_DIR, `${Date.now()}-${attachment.name}`);
+        const imageUrls = [attachments.url];
+        const imagePaths = [];
 
         try {
-            await downloadImage(imageUrl, imagePath);
-            logger.log(`Image downloaded: ${imagePath}`);
+            for (const imageUrl of imageUrls) {
+                const imagePath = path.join(IMAGES_DIR, `${Date.now()}-${path.basename(imageUrl)}`);
+                await downloadImage(imageUrl, imagePath);
+                imagePaths.push(imagePath);
+                logger.log(`Images downloaded: ${imagePath}`);
+            };
 
-            const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
-            const names = extractNames(text);
+            const names = [];
+            for (const imagePath of imagePaths) {
+                const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
+                names.push(...extractNames(text));
+            };
+
             const attendanceEntry = {
                 date: new Date().toISOString(),
                 names,
-                channelId: message.channel.id,
-                guildId: message.guild?.id
+                channelId: interaction.channel.id,
+                guildId: interaction.guild.id
             };
 
             attendanceLog.push(attendanceEntry);
             saveAttendance();
 
             const formattedNames = names.map((name, index) => `${index + 1}. ${name}`).join('\n');
-            await message.reply(names.length > 0
+            await interaction.editReply(names.length > 0
                 ? `Attendance recorded for: \n${formattedNames}`
                 : 'No names were detected in the image.');
         } catch (error) {
             logger.error('Error processing image:', error);
-            await message.reply('An error occurred while processing the image. Please try again.');
+            await message.reply('An error occurred while processing the images. Please try again.');
         } finally {
             // Cleanup the image file
-            try {
-                if (fs.existsSync(imagePath)) {
-                    fs.unlinkSync(imagePath);
+            for (const imagePath of imagePaths) {
+                try {
+                    if (fs.existsSync(imagePath)) {
+                        fs.unlinkSync(imagePath);
+                    }
+                } catch (error) {
+                    logger.error('Error deleting image:', error);
                 }
-            } catch (error) {
-                logger.error('Error deleting image:', error);
             }
         }
     } else {
-        await message.reply('Please send an image containing the attendance list.');
+        await interaction.reply('Please send an image containing the attendance list.');
     }
 });
+
+client.login(process.env.DISCORD_TOKEN);
 
 // API routes with basic security
 const API_KEY = process.env.API_KEY || Math.random().toString(36).substring(7);

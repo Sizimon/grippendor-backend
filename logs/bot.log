@@ -3393,3 +3393,1706 @@ guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 [2024-12-02T18:34:46.252Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
 [2024-12-02T18:34:46.253Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
 [2024-12-02T18:34:46.253Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T15:59:41.643Z] INFO: API Key: qu9ul8
+[2024-12-03T15:59:41.651Z] INFO: Server running on port 5001
+[2024-12-03T15:59:48.662Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T15:59:49.723Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T16:00:39.697Z] INFO: Configuration saved! Channel: <#1309680346580914227>, Color: #FAFF00, Primary Role: <@&1307896233217757255>, Tank Role: <@&1310640789616988230>, Healer Role: <@&1310640837868130354>, DPS Role: <@&1310640748487639040>, Icon: dwa, Title: WOOP
+[2024-12-03T16:03:01.126Z] INFO: API Key: qu9ul8
+[2024-12-03T16:03:01.134Z] INFO: Server running on port 5001
+[2024-12-03T16:03:08.182Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T16:03:09.094Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T16:03:30.322Z] INFO: Configuration saved! Channel: <#1309680346580914227>, Color: #FAFF00, Primary Role: <@&1307896233217757255>, Tank Role: <@&1310640789616988230>, Healer Role: <@&1310640837868130354>, DPS Role: <@&1310640748487639040>, Icon: dwad, Title: WOOP
+[2024-12-03T16:04:59.479Z] INFO: API Key: qu9ul8
+[2024-12-03T16:04:59.487Z] INFO: Server running on port 5001
+[2024-12-03T16:05:07.217Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T16:05:07.895Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T16:05:34.122Z] INFO: Configuration saved! Channel: <#1309680346580914227>, Color: #FAFF00, Primary Role: <@&1307896233217757255>, Tank Role: <@&1310640789616988230>, Healer Role: <@&1310640837868130354>, DPS Role: <@&1310640748487639040>, Icon: dwad, Title: WOOP
+[2024-12-03T16:05:34.708Z] INFO: Fetching all members for guild: 1306969550851407912
+[2024-12-03T16:05:34.908Z] INFO: All members fetched
+[2024-12-03T16:05:34.908Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:05:34.909Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:05:34.910Z] INFO: Member: Napocalypse, Roles: DPS
+[2024-12-03T16:05:34.910Z] INFO: Member: scream4me, Roles: Tank
+[2024-12-03T16:05:34.910Z] INFO: Member: Hasrudiin, Roles: Healer
+[2024-12-03T16:05:34.910Z] INFO: Member: kymel_, Roles: DPS
+[2024-12-03T16:05:34.910Z] INFO: Member: Ewaldi, Roles: Tank
+[2024-12-03T16:05:34.910Z] INFO: Member: ifap2handedbby, Roles: Healer
+[2024-12-03T16:05:34.910Z] INFO: Member: vonCloud, Roles: DPS
+[2024-12-03T16:05:34.910Z] INFO: Member: electromanworkslave, Roles: DPS
+[2024-12-03T16:05:34.910Z] INFO: Members with role: [{"name":"Napocalypse","roles":["DPS"]},{"name":"scream4me","roles":["Tank"]},{"name":"Hasrudiin","roles":["Healer"]},{"name":"kymel_","roles":["DPS"]},{"name":"Ewaldi","roles":["Tank"]},{"name":"ifap2handedbby","roles":["Healer"]},{"name":"vonCloud","roles":["DPS"]},{"name":"electromanworkslave","roles":["DPS"]}]
+[2024-12-03T16:14:45.123Z] INFO: API Key: qu9ul8
+[2024-12-03T16:14:45.129Z] INFO: Server running on port 5001
+[2024-12-03T16:14:46.658Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T16:14:47.043Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T16:15:44.068Z] INFO: Configuration saved! Channel: <#1309680346580914227>, Color: #FAFF00, Primary Role: <@&1307896233217757255>, Tank Role: <@&1310640789616988230>, Healer Role: <@&1310640837868130354>, DPS Role: <@&1310640748487639040>, Icon: dwad, Title: NYX
+[2024-12-03T16:15:44.798Z] INFO: Fetching all members for guild: 1306969550851407912
+[2024-12-03T16:15:44.990Z] INFO: All members fetched
+[2024-12-03T16:15:44.990Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:15:44.991Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:15:44.991Z] INFO: Member: Napocalypse, Roles: DPS
+[2024-12-03T16:15:44.991Z] INFO: Member: scream4me, Roles: Tank
+[2024-12-03T16:15:44.992Z] INFO: Member: Hasrudiin, Roles: Healer
+[2024-12-03T16:15:44.992Z] INFO: Member: kymel_, Roles: DPS
+[2024-12-03T16:15:44.992Z] INFO: Member: Ewaldi, Roles: Tank
+[2024-12-03T16:15:44.992Z] INFO: Member: ifap2handedbby, Roles: Healer
+[2024-12-03T16:15:44.992Z] INFO: Member: vonCloud, Roles: DPS
+[2024-12-03T16:15:44.992Z] INFO: Member: electromanworkslave, Roles: DPS
+[2024-12-03T16:15:44.992Z] INFO: Members with role: [{"name":"Napocalypse","roles":["DPS"]},{"name":"scream4me","roles":["Tank"]},{"name":"Hasrudiin","roles":["Healer"]},{"name":"kymel_","roles":["DPS"]},{"name":"Ewaldi","roles":["Tank"]},{"name":"ifap2handedbby","roles":["Healer"]},{"name":"vonCloud","roles":["DPS"]},{"name":"electromanworkslave","roles":["DPS"]}]
+[2024-12-03T16:16:05.784Z] INFO: Image downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733242565215-Screenshot_2024-11-12_at_20.19.53.png?ex=67508044&is=674f2ec4&hm=2d3738632771ec4c9ccfe6b3d5679fcc6f85270dad516088656cbfa48cf3a084&
+[2024-12-03T16:24:47.047Z] INFO: Fetching all members for guild: 1306969550851407912
+[2024-12-03T16:24:47.260Z] INFO: All members fetched
+[2024-12-03T16:24:47.260Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:24:47.261Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:24:47.261Z] INFO: Member: Napocalypse, Roles: DPS
+[2024-12-03T16:24:47.261Z] INFO: Member: scream4me, Roles: Tank
+[2024-12-03T16:24:47.261Z] INFO: Member: Hasrudiin, Roles: Healer
+[2024-12-03T16:24:47.261Z] INFO: Member: kymel_, Roles: DPS
+[2024-12-03T16:24:47.261Z] INFO: Member: Ewaldi, Roles: Tank
+[2024-12-03T16:24:47.262Z] INFO: Member: ifap2handedbby, Roles: Healer
+[2024-12-03T16:24:47.262Z] INFO: Member: vonCloud, Roles: DPS
+[2024-12-03T16:24:47.262Z] INFO: Member: electromanworkslave, Roles: DPS
+[2024-12-03T16:24:47.262Z] INFO: Members with role: [{"name":"Napocalypse","roles":["DPS"]},{"name":"scream4me","roles":["Tank"]},{"name":"Hasrudiin","roles":["Healer"]},{"name":"kymel_","roles":["DPS"]},{"name":"Ewaldi","roles":["Tank"]},{"name":"ifap2handedbby","roles":["Healer"]},{"name":"vonCloud","roles":["DPS"]},{"name":"electromanworkslave","roles":["DPS"]}]
+[2024-12-03T16:36:44.012Z] INFO: Starting bot...
+[2024-12-03T16:36:44.035Z] INFO: API Key: qu9ul8
+[2024-12-03T16:36:44.039Z] INFO: Server running on port 5001
+[2024-12-03T16:36:46.185Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T16:36:46.631Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T16:37:23.415Z] INFO: Fetching all members...
+[2024-12-03T16:37:23.592Z] INFO: All members fetched
+[2024-12-03T16:37:23.593Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:37:23.594Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:37:23.595Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:37:46.631Z] INFO: Fetching all members...
+[2024-12-03T16:37:47.001Z] INFO: All members fetched
+[2024-12-03T16:37:47.002Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:37:47.002Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:37:47.003Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:38:46.630Z] INFO: Fetching all members...
+[2024-12-03T16:38:46.851Z] INFO: All members fetched
+[2024-12-03T16:38:46.852Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:38:46.852Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:38:46.852Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:39:46.631Z] INFO: Fetching all members...
+[2024-12-03T16:39:46.821Z] INFO: All members fetched
+[2024-12-03T16:39:46.821Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:39:46.821Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:39:46.822Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:40:46.631Z] INFO: Fetching all members...
+[2024-12-03T16:40:46.932Z] INFO: All members fetched
+[2024-12-03T16:40:46.932Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:40:46.932Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:40:46.932Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:41:46.630Z] INFO: Fetching all members...
+[2024-12-03T16:41:48.765Z] INFO: All members fetched
+[2024-12-03T16:41:48.765Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:41:48.766Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:41:48.766Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:42:46.629Z] INFO: Fetching all members...
+[2024-12-03T16:42:46.849Z] INFO: All members fetched
+[2024-12-03T16:42:46.849Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:42:46.850Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:42:46.850Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:43:46.630Z] INFO: Fetching all members...
+[2024-12-03T16:43:46.849Z] INFO: All members fetched
+[2024-12-03T16:43:46.850Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:43:46.850Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:43:46.850Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:44:46.631Z] INFO: Fetching all members...
+[2024-12-03T16:44:46.843Z] INFO: All members fetched
+[2024-12-03T16:44:46.844Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:44:46.844Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:44:46.844Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:45:46.629Z] INFO: Fetching all members...
+[2024-12-03T16:45:46.893Z] INFO: All members fetched
+[2024-12-03T16:45:46.894Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:45:46.894Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:45:46.895Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:46:46.629Z] INFO: Fetching all members...
+[2024-12-03T16:46:46.872Z] INFO: All members fetched
+[2024-12-03T16:46:46.873Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:46:46.873Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:46:46.873Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:47:46.629Z] INFO: Fetching all members...
+[2024-12-03T16:47:46.868Z] INFO: All members fetched
+[2024-12-03T16:47:46.869Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:47:46.869Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:47:46.870Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:48:46.628Z] INFO: Fetching all members...
+[2024-12-03T16:48:46.879Z] INFO: All members fetched
+[2024-12-03T16:48:46.880Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:48:46.880Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:48:46.880Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:49:46.627Z] INFO: Fetching all members...
+[2024-12-03T16:49:46.815Z] INFO: All members fetched
+[2024-12-03T16:49:46.815Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:49:46.815Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:49:46.815Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:50:46.627Z] INFO: Fetching all members...
+[2024-12-03T16:50:46.870Z] INFO: All members fetched
+[2024-12-03T16:50:46.870Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T16:50:46.870Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T16:50:46.870Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:51:42.961Z] INFO: Starting bot...
+[2024-12-03T16:51:42.980Z] INFO: API Key: qu9ul8
+[2024-12-03T16:51:42.983Z] INFO: Server running on port 5001
+[2024-12-03T16:51:47.678Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T16:51:48.168Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T16:52:48.169Z] INFO: Fetching all members...
+[2024-12-03T16:52:48.363Z] INFO: All members fetched
+[2024-12-03T16:52:48.364Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:52:48.365Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:52:48.365Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:53:48.168Z] INFO: Fetching all members...
+[2024-12-03T16:53:48.363Z] INFO: All members fetched
+[2024-12-03T16:53:48.363Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:53:48.364Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:53:48.364Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:54:48.169Z] INFO: Fetching all members...
+[2024-12-03T16:54:48.495Z] INFO: All members fetched
+[2024-12-03T16:54:48.495Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:54:48.495Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:54:48.495Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:55:48.169Z] INFO: Fetching all members...
+[2024-12-03T16:55:48.336Z] INFO: All members fetched
+[2024-12-03T16:55:48.336Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:55:48.336Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:55:48.336Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:56:48.170Z] INFO: Fetching all members...
+[2024-12-03T16:56:48.380Z] INFO: All members fetched
+[2024-12-03T16:56:48.380Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:56:48.381Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:56:48.381Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:57:48.170Z] INFO: Fetching all members...
+[2024-12-03T16:57:48.359Z] INFO: All members fetched
+[2024-12-03T16:57:48.360Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:57:48.360Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:57:48.360Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:58:48.171Z] INFO: Fetching all members...
+[2024-12-03T16:58:48.369Z] INFO: All members fetched
+[2024-12-03T16:58:48.369Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:58:48.370Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:58:48.370Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T16:59:48.171Z] INFO: Fetching all members...
+[2024-12-03T16:59:48.375Z] INFO: All members fetched
+[2024-12-03T16:59:48.375Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T16:59:48.376Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T16:59:48.376Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:00:48.172Z] INFO: Fetching all members...
+[2024-12-03T17:00:48.488Z] INFO: All members fetched
+[2024-12-03T17:00:48.488Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:00:48.488Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:00:48.489Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:01:48.172Z] INFO: Fetching all members...
+[2024-12-03T17:01:48.379Z] INFO: All members fetched
+[2024-12-03T17:01:48.379Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:01:48.379Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:01:48.380Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:02:48.172Z] INFO: Fetching all members...
+[2024-12-03T17:02:48.352Z] INFO: All members fetched
+[2024-12-03T17:02:48.353Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:02:48.353Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:02:48.353Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:03:48.172Z] INFO: Fetching all members...
+[2024-12-03T17:03:48.378Z] INFO: All members fetched
+[2024-12-03T17:03:48.379Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:03:48.379Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:03:48.379Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:04:48.177Z] INFO: Fetching all members...
+[2024-12-03T17:04:48.397Z] INFO: All members fetched
+[2024-12-03T17:04:48.397Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:04:48.397Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:04:48.398Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:05:48.178Z] INFO: Fetching all members...
+[2024-12-03T17:05:48.392Z] INFO: All members fetched
+[2024-12-03T17:05:48.392Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:05:48.393Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:05:48.393Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:06:48.178Z] INFO: Fetching all members...
+[2024-12-03T17:06:48.381Z] INFO: All members fetched
+[2024-12-03T17:06:48.381Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:06:48.381Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:06:48.381Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:07:48.178Z] INFO: Fetching all members...
+[2024-12-03T17:07:48.373Z] INFO: All members fetched
+[2024-12-03T17:07:48.373Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:07:48.373Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:07:48.374Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:08:48.179Z] INFO: Fetching all members...
+[2024-12-03T17:08:48.405Z] INFO: All members fetched
+[2024-12-03T17:08:48.405Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:08:48.405Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:08:48.405Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:09:48.192Z] INFO: Fetching all members...
+[2024-12-03T17:09:48.417Z] INFO: All members fetched
+[2024-12-03T17:09:48.417Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:09:48.417Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:09:48.418Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:10:48.181Z] INFO: Fetching all members...
+[2024-12-03T17:10:48.380Z] INFO: All members fetched
+[2024-12-03T17:10:48.380Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:10:48.380Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:10:48.380Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:11:48.181Z] INFO: Fetching all members...
+[2024-12-03T17:11:48.385Z] INFO: All members fetched
+[2024-12-03T17:11:48.385Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:11:48.385Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:11:48.385Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:12:48.181Z] INFO: Fetching all members...
+[2024-12-03T17:12:48.409Z] INFO: All members fetched
+[2024-12-03T17:12:48.409Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:12:48.409Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:12:48.409Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:13:48.182Z] INFO: Fetching all members...
+[2024-12-03T17:13:48.395Z] INFO: All members fetched
+[2024-12-03T17:13:48.395Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:13:48.396Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:13:48.396Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:14:48.182Z] INFO: Fetching all members...
+[2024-12-03T17:14:48.388Z] INFO: All members fetched
+[2024-12-03T17:14:48.388Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:14:48.388Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:14:48.389Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:15:48.184Z] INFO: Fetching all members...
+[2024-12-03T17:15:48.389Z] INFO: All members fetched
+[2024-12-03T17:15:48.389Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:15:48.390Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:15:48.390Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:16:48.183Z] INFO: Fetching all members...
+[2024-12-03T17:16:48.416Z] INFO: All members fetched
+[2024-12-03T17:16:48.416Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:16:48.416Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:16:48.416Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:17:48.183Z] INFO: Fetching all members...
+[2024-12-03T17:17:48.354Z] INFO: All members fetched
+[2024-12-03T17:17:48.354Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:17:48.354Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:17:48.354Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:18:48.184Z] INFO: Fetching all members...
+[2024-12-03T17:18:48.345Z] INFO: All members fetched
+[2024-12-03T17:18:48.345Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:18:48.346Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:18:48.346Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:19:48.184Z] INFO: Fetching all members...
+[2024-12-03T17:19:48.380Z] INFO: All members fetched
+[2024-12-03T17:19:48.381Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:19:48.381Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:19:48.381Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:20:48.184Z] INFO: Fetching all members...
+[2024-12-03T17:20:48.374Z] INFO: All members fetched
+[2024-12-03T17:20:48.374Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:20:48.374Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:20:48.374Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:21:48.185Z] INFO: Fetching all members...
+[2024-12-03T17:21:48.374Z] INFO: All members fetched
+[2024-12-03T17:21:48.374Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:21:48.374Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:21:48.374Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:22:48.184Z] INFO: Fetching all members...
+[2024-12-03T17:22:48.381Z] INFO: All members fetched
+[2024-12-03T17:22:48.381Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:22:48.381Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:22:48.381Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:23:48.185Z] INFO: Fetching all members...
+[2024-12-03T17:23:48.424Z] INFO: All members fetched
+[2024-12-03T17:23:48.424Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy, electromanworkslave
+[2024-12-03T17:23:48.424Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud, electromanworkslave
+[2024-12-03T17:23:48.424Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:24:13.687Z] INFO: Starting bot...
+[2024-12-03T17:24:13.709Z] INFO: API Key: qu9ul8
+[2024-12-03T17:24:13.712Z] INFO: Server running on port 5001
+[2024-12-03T17:24:21.691Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:24:22.298Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:24:54.554Z] INFO: Fetching all members...
+[2024-12-03T17:24:54.769Z] INFO: All members fetched
+[2024-12-03T17:24:54.769Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:24:54.771Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:24:54.771Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:25:22.299Z] INFO: Fetching all members...
+[2024-12-03T17:25:22.551Z] INFO: All members fetched
+[2024-12-03T17:25:22.551Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:25:22.551Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:25:22.551Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:26:22.299Z] INFO: Fetching all members...
+[2024-12-03T17:26:22.537Z] INFO: All members fetched
+[2024-12-03T17:26:22.537Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:26:22.538Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:26:22.538Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:27:22.300Z] INFO: Fetching all members...
+[2024-12-03T17:27:22.543Z] INFO: All members fetched
+[2024-12-03T17:27:22.544Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:27:22.544Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:27:22.544Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:28:22.301Z] INFO: Fetching all members...
+[2024-12-03T17:28:22.542Z] INFO: All members fetched
+[2024-12-03T17:28:22.543Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:28:22.543Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:28:22.544Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:29:22.302Z] INFO: Fetching all members...
+[2024-12-03T17:29:22.495Z] INFO: All members fetched
+[2024-12-03T17:29:22.495Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:29:22.495Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:29:22.495Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:30:22.302Z] INFO: Fetching all members...
+[2024-12-03T17:30:22.568Z] INFO: All members fetched
+[2024-12-03T17:30:22.568Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:30:22.568Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:30:22.569Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:31:22.303Z] INFO: Fetching all members...
+[2024-12-03T17:31:22.539Z] INFO: All members fetched
+[2024-12-03T17:31:22.540Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:31:22.540Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:31:22.540Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:32:22.304Z] INFO: Fetching all members...
+[2024-12-03T17:32:22.593Z] INFO: All members fetched
+[2024-12-03T17:32:22.593Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:32:22.594Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:32:22.594Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:33:22.305Z] INFO: Fetching all members...
+[2024-12-03T17:33:22.593Z] INFO: All members fetched
+[2024-12-03T17:33:22.596Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:33:22.596Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:33:22.600Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:34:22.305Z] INFO: Fetching all members...
+[2024-12-03T17:34:22.594Z] INFO: All members fetched
+[2024-12-03T17:34:22.595Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:34:22.595Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:34:22.595Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:35:22.305Z] INFO: Fetching all members...
+[2024-12-03T17:35:22.566Z] INFO: All members fetched
+[2024-12-03T17:35:22.566Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:35:22.566Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:35:22.566Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:36:22.305Z] INFO: Fetching all members...
+[2024-12-03T17:36:22.593Z] INFO: All members fetched
+[2024-12-03T17:36:22.593Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:36:22.594Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:36:22.594Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:36:42.914Z] INFO: Starting bot...
+[2024-12-03T17:36:44.271Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:36:44.718Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:41:25.214Z] INFO: Starting bot...
+[2024-12-03T17:41:27.043Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:41:27.653Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:45:44.150Z] INFO: Starting bot...
+[2024-12-03T17:45:45.719Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:45:46.044Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:47:24.677Z] INFO: Starting bot...
+[2024-12-03T17:47:26.159Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:47:26.589Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:49:41.435Z] INFO: Starting bot...
+[2024-12-03T17:49:43.170Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:49:43.775Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:52:18.402Z] INFO: Starting bot...
+[2024-12-03T17:52:19.839Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:52:20.155Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:53:58.304Z] INFO: Starting bot...
+[2024-12-03T17:53:58.323Z] INFO: API Key: qu9ul8
+[2024-12-03T17:53:58.327Z] INFO: Server running on port 5001
+[2024-12-03T17:54:06.287Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T17:54:07.023Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T17:54:23.057Z] INFO: Fetching all members...
+[2024-12-03T17:54:23.384Z] INFO: All members fetched
+[2024-12-03T17:54:23.384Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:54:23.385Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:54:23.385Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:55:07.024Z] INFO: Fetching all members...
+[2024-12-03T17:55:07.249Z] INFO: All members fetched
+[2024-12-03T17:55:07.250Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:55:07.250Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:55:07.251Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:56:07.023Z] INFO: Fetching all members...
+[2024-12-03T17:56:07.200Z] INFO: All members fetched
+[2024-12-03T17:56:07.201Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:56:07.201Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:56:07.201Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:57:07.023Z] INFO: Fetching all members...
+[2024-12-03T17:57:07.228Z] INFO: All members fetched
+[2024-12-03T17:57:07.229Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:57:07.229Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:57:07.229Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:58:07.023Z] INFO: Fetching all members...
+[2024-12-03T17:58:07.335Z] INFO: All members fetched
+[2024-12-03T17:58:07.336Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:58:07.336Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:58:07.336Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T17:59:07.023Z] INFO: Fetching all members...
+[2024-12-03T17:59:07.272Z] INFO: All members fetched
+[2024-12-03T17:59:07.272Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T17:59:07.272Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T17:59:07.272Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T18:00:07.025Z] INFO: Fetching all members...
+[2024-12-03T18:00:07.271Z] INFO: All members fetched
+[2024-12-03T18:00:07.277Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T18:00:07.277Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T18:00:07.278Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T18:00:28.284Z] INFO: Starting bot...
+[2024-12-03T18:00:28.303Z] INFO: API Key: qu9ul8
+[2024-12-03T18:00:28.305Z] INFO: Server running on port 5001
+[2024-12-03T18:00:35.531Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-03T18:00:36.331Z] INFO: Successfully registered application (/) commands.
+[2024-12-03T18:01:36.332Z] INFO: Fetching all members...
+[2024-12-03T18:01:36.559Z] INFO: All members fetched
+[2024-12-03T18:01:36.559Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T18:01:36.560Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T18:01:36.560Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T18:02:36.331Z] INFO: Fetching all members...
+[2024-12-03T18:02:36.740Z] INFO: All members fetched
+[2024-12-03T18:02:36.741Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy, electromanworkslave
+[2024-12-03T18:02:36.741Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud, electromanworkslave
+[2024-12-03T18:02:36.742Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-03T18:03:53.445Z] INFO: Fetching all members...
+[2024-12-03T18:20:11.017Z] INFO: Fetching all members...
+[2024-12-03T18:20:11.020Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T19:26:24.527Z] INFO: Fetching all members...
+[2024-12-03T19:26:24.528Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T19:43:05.946Z] INFO: Fetching all members...
+[2024-12-03T19:43:05.947Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T19:58:33.927Z] INFO: Fetching all members...
+[2024-12-03T19:58:33.927Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T20:15:57.855Z] INFO: Fetching all members...
+[2024-12-03T20:15:57.855Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T20:32:01.836Z] INFO: Fetching all members...
+[2024-12-03T20:32:01.837Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T20:49:47.104Z] INFO: Fetching all members...
+[2024-12-03T20:49:47.105Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T21:06:58.992Z] INFO: Fetching all members...
+[2024-12-03T21:06:58.993Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T21:23:46.038Z] INFO: Fetching all members...
+[2024-12-03T21:23:46.038Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T21:39:19.838Z] INFO: Fetching all members...
+[2024-12-03T21:39:19.838Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T21:54:30.833Z] INFO: Fetching all members...
+[2024-12-03T21:54:30.834Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T22:11:53.064Z] INFO: Fetching all members...
+[2024-12-03T22:11:53.064Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T22:27:23.817Z] INFO: Fetching all members...
+[2024-12-03T22:27:23.817Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T22:43:17.778Z] INFO: Fetching all members...
+[2024-12-03T22:43:17.778Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T23:00:15.961Z] INFO: Fetching all members...
+[2024-12-03T23:00:15.961Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T23:16:01.838Z] INFO: Fetching all members...
+[2024-12-03T23:16:01.838Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T23:31:23.747Z] INFO: Fetching all members...
+[2024-12-03T23:31:23.747Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-03T23:48:30.770Z] INFO: Fetching all members...
+[2024-12-03T23:48:30.770Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T00:03:58.692Z] INFO: Fetching all members...
+[2024-12-04T00:03:58.692Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T00:21:23.889Z] INFO: Fetching all members...
+[2024-12-04T00:21:23.890Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T00:37:18.498Z] INFO: Fetching all members...
+[2024-12-04T00:37:18.499Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T00:54:34.857Z] INFO: Fetching all members...
+[2024-12-04T00:54:34.858Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T01:10:12.450Z] INFO: Fetching all members...
+[2024-12-04T01:10:12.450Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T01:26:19.425Z] INFO: Fetching all members...
+[2024-12-04T01:26:19.425Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T01:44:01.403Z] INFO: Fetching all members...
+[2024-12-04T01:44:01.403Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T01:59:08.380Z] INFO: Fetching all members...
+[2024-12-04T01:59:08.380Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T02:16:06.356Z] INFO: Fetching all members...
+[2024-12-04T02:16:06.356Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T02:33:47.331Z] INFO: Fetching all members...
+[2024-12-04T02:33:47.331Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T02:51:19.691Z] INFO: Fetching all members...
+[2024-12-04T02:51:19.691Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T03:07:00.298Z] INFO: Fetching all members...
+[2024-12-04T03:07:00.299Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T03:23:16.260Z] INFO: Fetching all members...
+[2024-12-04T03:23:16.261Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T03:40:33.333Z] INFO: Fetching all members...
+[2024-12-04T03:40:33.333Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T03:57:27.216Z] INFO: Fetching all members...
+[2024-12-04T03:57:27.217Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T04:13:32.193Z] INFO: Fetching all members...
+[2024-12-04T04:13:32.193Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T04:31:30.166Z] INFO: Fetching all members...
+[2024-12-04T04:31:30.167Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T04:47:09.270Z] INFO: Fetching all members...
+[2024-12-04T04:47:09.271Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T05:03:02.328Z] INFO: Fetching all members...
+[2024-12-04T05:03:02.329Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T05:18:41.390Z] INFO: Fetching all members...
+[2024-12-04T05:18:41.390Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T05:36:12.260Z] INFO: Fetching all members...
+[2024-12-04T05:36:12.260Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T05:51:37.404Z] INFO: Fetching all members...
+[2024-12-04T05:51:37.404Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T06:09:30.421Z] INFO: Fetching all members...
+[2024-12-04T06:09:30.422Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T06:10:30.421Z] INFO: Fetching all members...
+[2024-12-04T06:28:23.223Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T06:28:23.232Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T06:28:23.232Z] INFO: Fetching all members...
+[2024-12-04T06:44:07.084Z] INFO: Fetching all members...
+[2024-12-04T06:44:07.085Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T07:02:27.350Z] INFO: Fetching all members...
+[2024-12-04T07:02:27.350Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T07:18:42.070Z] INFO: Fetching all members...
+[2024-12-04T07:18:42.076Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T07:34:12.971Z] INFO: Fetching all members...
+[2024-12-04T07:34:12.971Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T07:51:39.142Z] INFO: Fetching all members...
+[2024-12-04T07:51:39.143Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T08:07:07.149Z] INFO: Fetching all members...
+[2024-12-04T08:07:07.150Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T08:24:19.151Z] INFO: Fetching all members...
+[2024-12-04T08:24:19.151Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T08:40:48.170Z] INFO: Fetching all members...
+[2024-12-04T08:40:48.170Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T08:57:44.820Z] INFO: Fetching all members...
+[2024-12-04T08:57:44.820Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T09:15:43.815Z] INFO: Fetching all members...
+[2024-12-04T09:15:43.815Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T09:33:38.747Z] INFO: Fetching all members...
+[2024-12-04T09:33:38.748Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T09:49:22.787Z] INFO: Fetching all members...
+[2024-12-04T09:49:22.788Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T10:06:15.703Z] INFO: Fetching all members...
+[2024-12-04T10:06:15.704Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T10:23:03.888Z] INFO: Fetching all members...
+[2024-12-04T10:23:03.888Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T10:38:43.855Z] INFO: Fetching all members...
+[2024-12-04T10:38:43.856Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T10:54:33.828Z] INFO: Fetching all members...
+[2024-12-04T10:54:33.828Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T11:10:13.717Z] INFO: Fetching all members...
+[2024-12-04T11:10:13.718Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T11:27:58.767Z] INFO: Fetching all members...
+[2024-12-04T11:27:58.767Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T11:44:15.685Z] INFO: Fetching all members...
+[2024-12-04T11:44:15.686Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T12:01:47.687Z] INFO: Fetching all members...
+[2024-12-04T12:01:47.687Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T12:19:00.790Z] INFO: Fetching all members...
+[2024-12-04T12:19:00.791Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T12:35:55.829Z] INFO: Fetching all members...
+[2024-12-04T12:35:55.829Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T12:53:07.754Z] INFO: Fetching all members...
+[2024-12-04T12:53:07.754Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T13:10:12.726Z] INFO: Fetching all members...
+[2024-12-04T13:10:12.727Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T13:25:58.655Z] INFO: Fetching all members...
+[2024-12-04T13:25:58.656Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T13:42:55.804Z] INFO: Fetching all members...
+[2024-12-04T13:42:55.804Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T13:59:44.583Z] INFO: Fetching all members...
+[2024-12-04T13:59:44.584Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T14:17:41.354Z] INFO: Fetching all members...
+[2024-12-04T14:17:41.355Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T14:34:50.571Z] INFO: Fetching all members...
+[2024-12-04T14:34:50.571Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T14:39:39.812Z] INFO: Fetching all members...
+[2024-12-04T14:39:39.812Z] ERROR: Error fetching members: Error [GuildMembersTimeout]: Members didn't arrive in time.
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/managers/GuildMemberManager.js:268:16)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T14:40:38.525Z] INFO: Fetching all members...
+[2024-12-04T14:40:43.719Z] INFO: All members fetched
+[2024-12-04T14:40:43.720Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:40:43.720Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:40:43.720Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:40:44.194Z] INFO: All members fetched
+[2024-12-04T14:40:44.194Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:40:44.195Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:40:44.195Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:41:38.522Z] INFO: Fetching all members...
+[2024-12-04T14:41:38.839Z] INFO: All members fetched
+[2024-12-04T14:41:38.840Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:41:38.840Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:41:38.840Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:42:38.520Z] INFO: Fetching all members...
+[2024-12-04T14:42:38.758Z] INFO: All members fetched
+[2024-12-04T14:42:38.759Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:42:38.759Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:42:38.760Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:43:38.518Z] INFO: Fetching all members...
+[2024-12-04T14:43:38.753Z] INFO: All members fetched
+[2024-12-04T14:43:38.753Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:43:38.753Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:43:38.753Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:44:38.516Z] INFO: Fetching all members...
+[2024-12-04T14:44:38.904Z] INFO: All members fetched
+[2024-12-04T14:44:38.905Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:44:38.905Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:44:38.906Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:45:38.514Z] INFO: Fetching all members...
+[2024-12-04T14:45:38.749Z] INFO: All members fetched
+[2024-12-04T14:45:38.749Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:45:38.749Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:45:38.749Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:46:38.511Z] INFO: Fetching all members...
+[2024-12-04T14:46:38.768Z] INFO: All members fetched
+[2024-12-04T14:46:38.768Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:46:38.768Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:46:38.768Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:47:38.510Z] INFO: Fetching all members...
+[2024-12-04T14:47:38.753Z] INFO: All members fetched
+[2024-12-04T14:47:38.753Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:47:38.754Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:47:38.754Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:48:38.509Z] INFO: Fetching all members...
+[2024-12-04T14:48:38.750Z] INFO: All members fetched
+[2024-12-04T14:48:38.750Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:48:38.750Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:48:38.750Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:49:38.508Z] INFO: Fetching all members...
+[2024-12-04T14:49:38.717Z] INFO: All members fetched
+[2024-12-04T14:49:38.717Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:49:38.717Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:49:38.718Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:50:38.506Z] INFO: Fetching all members...
+[2024-12-04T14:50:38.740Z] INFO: All members fetched
+[2024-12-04T14:50:38.741Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:50:38.741Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:50:38.741Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:51:38.504Z] INFO: Fetching all members...
+[2024-12-04T14:51:38.738Z] INFO: All members fetched
+[2024-12-04T14:51:38.740Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:51:38.740Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:51:38.740Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:52:38.503Z] INFO: Fetching all members...
+[2024-12-04T14:52:38.744Z] INFO: All members fetched
+[2024-12-04T14:52:38.744Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:52:38.744Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:52:38.745Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:53:38.503Z] INFO: Fetching all members...
+[2024-12-04T14:53:38.737Z] INFO: All members fetched
+[2024-12-04T14:53:38.737Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:53:38.737Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:53:38.737Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:54:38.500Z] INFO: Fetching all members...
+[2024-12-04T14:54:38.724Z] INFO: All members fetched
+[2024-12-04T14:54:38.724Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:54:38.725Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:54:38.726Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:55:38.738Z] INFO: Fetching all members...
+[2024-12-04T14:55:39.017Z] INFO: All members fetched
+[2024-12-04T14:55:39.017Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:55:39.017Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:55:39.017Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:56:38.738Z] INFO: Fetching all members...
+[2024-12-04T14:56:38.980Z] INFO: All members fetched
+[2024-12-04T14:56:38.981Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:56:38.981Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:56:38.981Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:57:38.739Z] INFO: Fetching all members...
+[2024-12-04T14:57:38.966Z] INFO: All members fetched
+[2024-12-04T14:57:38.966Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:57:38.966Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:57:38.966Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:58:38.738Z] INFO: Fetching all members...
+[2024-12-04T14:58:38.973Z] INFO: All members fetched
+[2024-12-04T14:58:38.974Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:58:38.974Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:58:38.974Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T14:59:38.739Z] INFO: Fetching all members...
+[2024-12-04T14:59:39.018Z] INFO: All members fetched
+[2024-12-04T14:59:39.018Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T14:59:39.019Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T14:59:39.019Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:00:38.739Z] INFO: Fetching all members...
+[2024-12-04T15:00:39.062Z] INFO: All members fetched
+[2024-12-04T15:00:39.063Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T15:00:39.063Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T15:00:39.063Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:10:26.216Z] INFO: Starting bot...
+[2024-12-04T15:10:26.223Z] INFO: API Key: qu9ul8
+[2024-12-04T15:10:26.229Z] INFO: Server running on port 5001
+[2024-12-04T15:10:28.452Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:10:28.868Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:11:28.872Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:12:28.872Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:13:00.511Z] INFO: Starting bot...
+[2024-12-04T15:13:00.514Z] INFO: API Key: qu9ul8
+[2024-12-04T15:13:00.517Z] INFO: Server running on port 5001
+[2024-12-04T15:13:02.334Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:13:02.916Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:14:02.920Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:15:02.920Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:16:02.920Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:17:02.924Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:18:02.923Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:19:02.924Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:20:02.927Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:21:02.929Z] ERROR: Unhandled Rejection: TypeError: Cannot read properties of undefined (reading 'guild')
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:43:17)
+    at Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:46:15)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[2024-12-04T15:21:33.533Z] INFO: Starting bot...
+[2024-12-04T15:21:33.535Z] INFO: API Key: qu9ul8
+[2024-12-04T15:21:33.538Z] INFO: Server running on port 5001
+[2024-12-04T15:21:35.077Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:21:35.417Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:22:13.027Z] INFO: Fetching all members...
+[2024-12-04T15:22:13.344Z] INFO: All members fetched
+[2024-12-04T15:22:13.345Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:22:13.346Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:22:13.346Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:22:35.420Z] INFO: Fetching all members...
+[2024-12-04T15:22:35.620Z] INFO: All members fetched
+[2024-12-04T15:22:35.620Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:22:35.620Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:22:35.621Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:23:35.422Z] INFO: Fetching all members...
+[2024-12-04T15:23:35.651Z] INFO: All members fetched
+[2024-12-04T15:23:35.652Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:23:35.652Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:23:35.653Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:24:35.430Z] INFO: Fetching all members...
+[2024-12-04T15:24:35.652Z] INFO: All members fetched
+[2024-12-04T15:24:35.652Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:24:35.653Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:24:35.653Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:25:35.447Z] INFO: Fetching all members...
+[2024-12-04T15:25:35.674Z] INFO: All members fetched
+[2024-12-04T15:25:35.674Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:25:35.674Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:25:35.674Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:26:35.454Z] INFO: Fetching all members...
+[2024-12-04T15:26:35.713Z] INFO: All members fetched
+[2024-12-04T15:26:35.714Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:26:35.714Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:26:35.714Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:27:35.456Z] INFO: Fetching all members...
+[2024-12-04T15:27:35.667Z] INFO: All members fetched
+[2024-12-04T15:27:35.667Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:27:35.668Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:27:35.668Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:28:35.458Z] INFO: Fetching all members...
+[2024-12-04T15:28:35.680Z] INFO: All members fetched
+[2024-12-04T15:28:35.681Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:28:35.681Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:28:35.682Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:29:35.460Z] INFO: Fetching all members...
+[2024-12-04T15:29:35.704Z] INFO: All members fetched
+[2024-12-04T15:29:35.704Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:29:35.705Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:29:35.705Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:30:35.462Z] INFO: Fetching all members...
+[2024-12-04T15:30:35.669Z] INFO: All members fetched
+[2024-12-04T15:30:35.669Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:30:35.669Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:30:35.670Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:31:35.464Z] INFO: Fetching all members...
+[2024-12-04T15:31:35.698Z] INFO: All members fetched
+[2024-12-04T15:31:35.699Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:31:35.699Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:31:35.699Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:32:35.467Z] INFO: Fetching all members...
+[2024-12-04T15:32:35.752Z] INFO: All members fetched
+[2024-12-04T15:32:35.752Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:32:35.752Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:32:35.752Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:33:35.469Z] INFO: Fetching all members...
+[2024-12-04T15:33:35.681Z] INFO: All members fetched
+[2024-12-04T15:33:35.681Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:33:35.681Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:33:35.681Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:34:35.470Z] INFO: Fetching all members...
+[2024-12-04T15:34:36.021Z] INFO: All members fetched
+[2024-12-04T15:34:36.021Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:34:36.021Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:34:36.021Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:35:35.475Z] INFO: Fetching all members...
+[2024-12-04T15:35:35.676Z] INFO: All members fetched
+[2024-12-04T15:35:35.676Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:35:35.676Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:35:35.676Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:36:17.759Z] INFO: Starting bot...
+[2024-12-04T15:36:17.762Z] INFO: API Key: qu9ul8
+[2024-12-04T15:36:17.765Z] INFO: Server running on port 5001
+[2024-12-04T15:36:19.241Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:36:19.639Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:36:41.986Z] INFO: Fetching all members...
+[2024-12-04T15:36:42.208Z] INFO: All members fetched
+[2024-12-04T15:36:42.209Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:36:42.210Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:36:42.211Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:37:19.645Z] INFO: Fetching all members...
+[2024-12-04T15:37:19.840Z] INFO: All members fetched
+[2024-12-04T15:37:19.840Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:37:19.841Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:37:19.841Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:38:19.644Z] INFO: Fetching all members...
+[2024-12-04T15:38:19.865Z] INFO: All members fetched
+[2024-12-04T15:38:19.866Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:38:19.866Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:38:19.867Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:39:19.646Z] INFO: Fetching all members...
+[2024-12-04T15:39:19.813Z] INFO: All members fetched
+[2024-12-04T15:39:19.814Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:39:19.815Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:39:19.815Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:40:19.649Z] INFO: Fetching all members...
+[2024-12-04T15:40:19.839Z] INFO: All members fetched
+[2024-12-04T15:40:19.839Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:40:19.839Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:40:19.840Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:40:36.624Z] INFO: Starting bot...
+[2024-12-04T15:40:36.628Z] INFO: API Key: qu9ul8
+[2024-12-04T15:40:36.631Z] INFO: Server running on port 5001
+[2024-12-04T15:40:38.565Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:40:39.027Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:40:57.305Z] INFO: Fetching all members...
+[2024-12-04T15:40:57.487Z] INFO: All members fetched
+[2024-12-04T15:40:57.487Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:40:57.488Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:40:57.488Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:41:04.085Z] ERROR: Error fetching config: TypeError: invalid media type
+    at Object.parse (/Users/szymonsamus/attendance-tracker-dev/node_modules/content-type/index.js:126:11)
+    at setCharset (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/utils.js:252:28)
+    at ServerResponse.send (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/response.js:174:32)
+    at ServerResponse.json (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/response.js:278:15)
+    at /Users/szymonsamus/attendance-tracker-dev/bot.js:501:13
+    at Layer.handle [as handle_request] (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/index.js:284:15
+[2024-12-04T15:41:04.114Z] ERROR: Error fetching config: TypeError: invalid media type
+    at Object.parse (/Users/szymonsamus/attendance-tracker-dev/node_modules/content-type/index.js:126:11)
+    at setCharset (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/utils.js:252:28)
+    at ServerResponse.send (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/response.js:174:32)
+    at ServerResponse.json (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/response.js:278:15)
+    at /Users/szymonsamus/attendance-tracker-dev/bot.js:501:13
+    at Layer.handle [as handle_request] (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/route.js:149:13)
+    at Route.dispatch (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/route.js:119:3)
+    at Layer.handle [as handle_request] (/Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/szymonsamus/attendance-tracker-dev/node_modules/express/lib/router/index.js:284:15
+[2024-12-04T15:41:39.045Z] INFO: Fetching all members...
+[2024-12-04T15:41:39.269Z] INFO: All members fetched
+[2024-12-04T15:41:39.270Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:41:39.270Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:41:39.270Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:42:39.045Z] INFO: Fetching all members...
+[2024-12-04T15:42:39.223Z] INFO: All members fetched
+[2024-12-04T15:42:39.223Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:42:39.223Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:42:39.223Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:43:27.464Z] INFO: Starting bot...
+[2024-12-04T15:43:27.467Z] INFO: API Key: qu9ul8
+[2024-12-04T15:43:27.472Z] INFO: Server running on port 5001
+[2024-12-04T15:43:29.386Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:43:29.805Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:44:17.304Z] INFO: Fetching all members...
+[2024-12-04T15:44:17.919Z] INFO: All members fetched
+[2024-12-04T15:44:17.920Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:44:17.921Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:44:17.922Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:44:29.809Z] INFO: Fetching all members...
+[2024-12-04T15:44:30.010Z] INFO: All members fetched
+[2024-12-04T15:44:30.010Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:44:30.010Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:44:30.011Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:45:29.812Z] INFO: Fetching all members...
+[2024-12-04T15:45:30.026Z] INFO: All members fetched
+[2024-12-04T15:45:30.027Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:45:30.027Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:45:30.027Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:46:29.812Z] INFO: Fetching all members...
+[2024-12-04T15:46:30.015Z] INFO: All members fetched
+[2024-12-04T15:46:30.015Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:46:30.016Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:46:30.016Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:47:29.814Z] INFO: Fetching all members...
+[2024-12-04T15:47:29.982Z] INFO: All members fetched
+[2024-12-04T15:47:29.982Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:47:29.983Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:47:29.983Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:48:29.825Z] INFO: Fetching all members...
+[2024-12-04T15:48:30.021Z] INFO: All members fetched
+[2024-12-04T15:48:30.021Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:48:30.021Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:48:30.021Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:49:29.818Z] INFO: Fetching all members...
+[2024-12-04T15:49:30.018Z] INFO: All members fetched
+[2024-12-04T15:49:30.018Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:49:30.019Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:49:30.019Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:50:29.820Z] INFO: Fetching all members...
+[2024-12-04T15:50:30.262Z] INFO: All members fetched
+[2024-12-04T15:50:30.262Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:50:30.262Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:50:30.262Z] INFO: Members with role: [object Object], [object Object], [object Object], [object Object], [object Object], [object Object], [object Object]
+[2024-12-04T15:51:13.618Z] INFO: Starting bot...
+[2024-12-04T15:51:13.622Z] INFO: API Key: qu9ul8
+[2024-12-04T15:51:13.625Z] INFO: Server running on port 5001
+[2024-12-04T15:51:14.817Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:51:15.424Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:51:44.526Z] INFO: Fetching all members...
+[2024-12-04T15:51:44.698Z] INFO: All members fetched
+[2024-12-04T15:51:44.698Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:51:44.699Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:51:44.700Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:52:15.428Z] INFO: Fetching all members...
+[2024-12-04T15:52:15.724Z] INFO: All members fetched
+[2024-12-04T15:52:15.725Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:52:15.725Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:52:15.725Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:53:15.429Z] INFO: Fetching all members...
+[2024-12-04T15:53:15.650Z] INFO: All members fetched
+[2024-12-04T15:53:15.650Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:53:15.650Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:53:15.651Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:54:15.433Z] INFO: Fetching all members...
+[2024-12-04T15:54:15.653Z] INFO: All members fetched
+[2024-12-04T15:54:15.654Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:54:15.654Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:54:15.654Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:55:15.435Z] INFO: Fetching all members...
+[2024-12-04T15:55:15.598Z] INFO: All members fetched
+[2024-12-04T15:55:15.599Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:55:15.599Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:55:15.599Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:56:15.436Z] INFO: Fetching all members...
+[2024-12-04T15:56:15.658Z] INFO: All members fetched
+[2024-12-04T15:56:15.659Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:56:15.659Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:56:15.659Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:57:00.475Z] INFO: Starting bot...
+[2024-12-04T15:57:00.478Z] INFO: API Key: qu9ul8
+[2024-12-04T15:57:00.481Z] INFO: Server running on port 5001
+[2024-12-04T15:57:01.901Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T15:57:02.226Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T15:57:24.693Z] INFO: Fetching all members...
+[2024-12-04T15:57:24.884Z] INFO: All members fetched
+[2024-12-04T15:57:24.884Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:57:24.886Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:57:24.887Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:58:02.230Z] INFO: Fetching all members...
+[2024-12-04T15:58:02.457Z] INFO: All members fetched
+[2024-12-04T15:58:02.457Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:58:02.457Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:58:02.458Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:59:02.233Z] INFO: Fetching all members...
+[2024-12-04T15:59:02.425Z] INFO: All members fetched
+[2024-12-04T15:59:02.426Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T15:59:02.426Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T15:59:02.426Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:00:02.234Z] INFO: Fetching all members...
+[2024-12-04T16:00:02.482Z] INFO: All members fetched
+[2024-12-04T16:00:02.484Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:00:02.485Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:00:02.491Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:01:02.243Z] INFO: Fetching all members...
+[2024-12-04T16:01:02.467Z] INFO: All members fetched
+[2024-12-04T16:01:02.467Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:01:02.467Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:01:02.467Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:02:02.239Z] INFO: Fetching all members...
+[2024-12-04T16:02:02.568Z] INFO: All members fetched
+[2024-12-04T16:02:02.569Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:02:02.569Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:02:02.569Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:03:02.247Z] INFO: Fetching all members...
+[2024-12-04T16:03:02.492Z] INFO: All members fetched
+[2024-12-04T16:03:02.492Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:03:02.492Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:03:02.492Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:04:02.245Z] INFO: Fetching all members...
+[2024-12-04T16:04:02.445Z] INFO: All members fetched
+[2024-12-04T16:04:02.445Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:04:02.446Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:04:02.446Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:05:02.248Z] INFO: Fetching all members...
+[2024-12-04T16:05:02.429Z] INFO: All members fetched
+[2024-12-04T16:05:02.429Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:05:02.429Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:05:02.430Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:06:02.252Z] INFO: Fetching all members...
+[2024-12-04T16:06:02.443Z] INFO: All members fetched
+[2024-12-04T16:06:02.444Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:06:02.444Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:06:02.444Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:07:02.252Z] INFO: Fetching all members...
+[2024-12-04T16:07:02.480Z] INFO: All members fetched
+[2024-12-04T16:07:02.480Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:07:02.480Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:07:02.481Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:08:02.256Z] INFO: Fetching all members...
+[2024-12-04T16:08:02.437Z] INFO: All members fetched
+[2024-12-04T16:08:02.438Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:08:02.438Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:08:02.438Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:09:02.257Z] INFO: Fetching all members...
+[2024-12-04T16:09:02.467Z] INFO: All members fetched
+[2024-12-04T16:09:02.468Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:09:02.468Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:09:02.468Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:10:02.260Z] INFO: Fetching all members...
+[2024-12-04T16:10:02.474Z] INFO: All members fetched
+[2024-12-04T16:10:02.475Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:10:02.475Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:10:02.475Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:11:02.217Z] INFO: Fetching all members...
+[2024-12-04T16:11:02.495Z] INFO: All members fetched
+[2024-12-04T16:11:02.496Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:11:02.496Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:11:02.496Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:12:02.214Z] INFO: Fetching all members...
+[2024-12-04T16:12:02.386Z] INFO: All members fetched
+[2024-12-04T16:12:02.386Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:12:02.386Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:12:02.386Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:13:02.216Z] INFO: Fetching all members...
+[2024-12-04T16:13:02.565Z] INFO: All members fetched
+[2024-12-04T16:13:02.565Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:13:02.565Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:13:02.565Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:14:02.218Z] INFO: Fetching all members...
+[2024-12-04T16:14:02.408Z] INFO: All members fetched
+[2024-12-04T16:14:02.409Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:14:02.409Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:14:02.409Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:15:02.220Z] INFO: Fetching all members...
+[2024-12-04T16:15:02.500Z] INFO: All members fetched
+[2024-12-04T16:15:02.500Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:15:02.501Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:15:02.501Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:16:02.221Z] INFO: Fetching all members...
+[2024-12-04T16:16:02.897Z] INFO: All members fetched
+[2024-12-04T16:16:02.897Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:16:02.897Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:16:02.897Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:17:02.223Z] INFO: Fetching all members...
+[2024-12-04T16:17:02.408Z] INFO: All members fetched
+[2024-12-04T16:17:02.408Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:17:02.409Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:17:02.409Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:18:02.224Z] INFO: Fetching all members...
+[2024-12-04T16:18:02.427Z] INFO: All members fetched
+[2024-12-04T16:18:02.427Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:18:02.427Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:18:02.427Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:19:02.226Z] INFO: Fetching all members...
+[2024-12-04T16:19:02.447Z] INFO: All members fetched
+[2024-12-04T16:19:02.448Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:19:02.448Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:19:02.448Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:20:02.229Z] INFO: Fetching all members...
+[2024-12-04T16:20:02.447Z] INFO: All members fetched
+[2024-12-04T16:20:02.447Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:20:02.447Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:20:02.448Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:21:02.230Z] INFO: Fetching all members...
+[2024-12-04T16:21:02.458Z] INFO: All members fetched
+[2024-12-04T16:21:02.458Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:21:02.458Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:21:02.458Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:22:02.233Z] INFO: Fetching all members...
+[2024-12-04T16:22:02.464Z] INFO: All members fetched
+[2024-12-04T16:22:02.464Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:22:02.464Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:22:02.464Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:22:31.205Z] INFO: Starting bot...
+[2024-12-04T16:22:31.211Z] INFO: API Key: qu9ul8
+[2024-12-04T16:22:31.218Z] INFO: Server running on port 5001
+[2024-12-04T16:22:32.759Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T16:22:33.368Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T16:23:33.372Z] INFO: Fetching all members...
+[2024-12-04T16:23:33.611Z] INFO: All members fetched
+[2024-12-04T16:23:33.612Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-04T16:23:33.612Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-04T16:23:33.613Z] ERROR: Error fetching members: ReferenceError: setNames is not defined
+    at initializeBot (/Users/szymonsamus/attendance-tracker-dev/utils/index.js:91:9)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Timeout._onTimeout (/Users/szymonsamus/attendance-tracker-dev/client.js:52:9)
+[2024-12-04T16:24:32.705Z] INFO: Starting bot...
+[2024-12-04T16:24:32.708Z] INFO: API Key: qu9ul8
+[2024-12-04T16:24:32.711Z] INFO: Server running on port 5001
+[2024-12-04T16:24:34.436Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T16:24:34.854Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T16:24:54.996Z] INFO: Fetching all members...
+[2024-12-04T16:24:55.179Z] INFO: All members fetched
+[2024-12-04T16:24:55.180Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:24:55.181Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:24:55.182Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:25:34.860Z] INFO: Fetching all members...
+[2024-12-04T16:25:35.088Z] INFO: All members fetched
+[2024-12-04T16:25:35.089Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:25:35.089Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:25:35.089Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:26:34.788Z] INFO: Fetching all members...
+[2024-12-04T16:26:35.380Z] INFO: All members fetched
+[2024-12-04T16:26:35.380Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:26:35.380Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:26:35.381Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:27:34.789Z] INFO: Fetching all members...
+[2024-12-04T16:27:35.029Z] INFO: All members fetched
+[2024-12-04T16:27:35.030Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:27:35.030Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:27:35.030Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:28:34.788Z] INFO: Fetching all members...
+[2024-12-04T16:28:35.095Z] INFO: All members fetched
+[2024-12-04T16:28:35.095Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:28:35.095Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:28:35.096Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:29:34.790Z] INFO: Fetching all members...
+[2024-12-04T16:29:34.988Z] INFO: All members fetched
+[2024-12-04T16:29:34.989Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:29:34.989Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:29:34.989Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:30:34.796Z] INFO: Fetching all members...
+[2024-12-04T16:30:34.976Z] INFO: All members fetched
+[2024-12-04T16:30:34.977Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:30:34.977Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:30:34.977Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:31:31.578Z] ERROR: Uncaught Exception: TypeError: Cannot read properties of undefined (reading 'error')
+    at Object.execute (/Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:56:20)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Client.interactionCreate (/Users/szymonsamus/attendance-tracker-dev/events/interactionCreate.js:12:9)
+[2024-12-04T16:31:34.790Z] INFO: Fetching all members...
+[2024-12-04T16:31:35.101Z] INFO: All members fetched
+[2024-12-04T16:31:35.102Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:31:35.102Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:31:35.102Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:32:34.795Z] INFO: Fetching all members...
+[2024-12-04T16:32:34.999Z] INFO: All members fetched
+[2024-12-04T16:32:35.000Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:32:35.000Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:32:35.003Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:33:34.793Z] INFO: Fetching all members...
+[2024-12-04T16:33:35.043Z] INFO: All members fetched
+[2024-12-04T16:33:35.043Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:33:35.044Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:33:35.044Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:33:39.486Z] INFO: Starting bot...
+[2024-12-04T16:33:39.489Z] INFO: API Key: qu9ul8
+[2024-12-04T16:33:39.492Z] INFO: Server running on port 5001
+[2024-12-04T16:33:41.792Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T16:33:42.138Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T16:34:05.131Z] INFO: Fetching all members...
+[2024-12-04T16:34:05.344Z] INFO: All members fetched
+[2024-12-04T16:34:05.345Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:34:05.346Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:34:05.347Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:34:42.140Z] INFO: Fetching all members...
+[2024-12-04T16:34:42.603Z] INFO: All members fetched
+[2024-12-04T16:34:42.603Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:34:42.603Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:34:42.604Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:34:56.238Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733330095816-Screenshot_2024-11-12_at_20.19.53.png?ex=6751d62e&is=675084ae&hm=e8ad417065c5819e25d8b3f5fea73ccfa04dae33197dfaf2185af7e6aa344128&
+[2024-12-04T16:34:56.238Z] ERROR: Error processing image: ReferenceError: Tesseract is not defined
+    at Object.execute (/Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:38:44)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Client.interactionCreate (/Users/szymonsamus/attendance-tracker-dev/events/interactionCreate.js:12:9)
+[2024-12-04T16:34:56.242Z] ERROR: Uncaught Exception: Error [InteractionAlreadyReplied]: The reply to this interaction has already been sent or deferred.
+    at ChatInputCommandInteraction.reply (/Users/szymonsamus/attendance-tracker-dev/node_modules/discord.js/src/structures/interfaces/InteractionResponses.js:105:46)
+    at Object.execute (/Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:58:31)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Client.interactionCreate (/Users/szymonsamus/attendance-tracker-dev/events/interactionCreate.js:12:9)
+[2024-12-04T16:35:42.140Z] INFO: Fetching all members...
+[2024-12-04T16:35:42.330Z] INFO: All members fetched
+[2024-12-04T16:35:42.331Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:35:42.332Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:35:42.333Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:36:42.142Z] INFO: Fetching all members...
+[2024-12-04T16:36:42.329Z] INFO: All members fetched
+[2024-12-04T16:36:42.330Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:36:42.330Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:36:42.334Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:37:19.217Z] INFO: Starting bot...
+[2024-12-04T16:37:19.219Z] INFO: API Key: qu9ul8
+[2024-12-04T16:37:19.223Z] INFO: Server running on port 5001
+[2024-12-04T16:37:20.826Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T16:37:21.433Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T16:38:04.134Z] INFO: Fetching all members...
+[2024-12-04T16:38:04.392Z] INFO: All members fetched
+[2024-12-04T16:38:04.392Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:38:04.393Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:38:04.394Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:38:21.435Z] INFO: Fetching all members...
+[2024-12-04T16:38:21.618Z] INFO: All members fetched
+[2024-12-04T16:38:21.618Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:38:21.618Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:38:21.619Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:38:23.495Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733330302871-Screenshot_2024-11-12_at_20.19.53.png?ex=6751d6fd&is=6750857d&hm=b78d3d39823d222e88bee1ff9522b0087e519c5ee119385af12da717b5a0c12c&
+[2024-12-04T16:39:21.436Z] INFO: Fetching all members...
+[2024-12-04T16:39:21.727Z] INFO: All members fetched
+[2024-12-04T16:39:21.728Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:39:21.728Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:39:21.728Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:40:21.436Z] INFO: Fetching all members...
+[2024-12-04T16:40:21.677Z] INFO: All members fetched
+[2024-12-04T16:40:21.678Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:40:21.678Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:40:21.679Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:41:21.437Z] INFO: Fetching all members...
+[2024-12-04T16:41:21.669Z] INFO: All members fetched
+[2024-12-04T16:41:21.670Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:41:21.670Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:41:21.671Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:42:21.394Z] INFO: Fetching all members...
+[2024-12-04T16:42:21.632Z] INFO: All members fetched
+[2024-12-04T16:42:21.632Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:42:21.633Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:42:21.634Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:43:21.394Z] INFO: Fetching all members...
+[2024-12-04T16:43:21.641Z] INFO: All members fetched
+[2024-12-04T16:43:21.641Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:43:21.642Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:43:21.642Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:44:21.394Z] INFO: Fetching all members...
+[2024-12-04T16:44:21.645Z] INFO: All members fetched
+[2024-12-04T16:44:21.646Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:44:21.646Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:44:21.646Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:45:21.394Z] INFO: Fetching all members...
+[2024-12-04T16:45:21.778Z] INFO: All members fetched
+[2024-12-04T16:45:21.779Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:45:21.779Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:45:21.779Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:46:21.393Z] INFO: Fetching all members...
+[2024-12-04T16:46:21.609Z] INFO: All members fetched
+[2024-12-04T16:46:21.609Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:46:21.609Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:46:21.610Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:47:21.393Z] INFO: Fetching all members...
+[2024-12-04T16:47:21.641Z] INFO: All members fetched
+[2024-12-04T16:47:21.641Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:47:21.642Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:47:21.642Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:48:21.391Z] INFO: Fetching all members...
+[2024-12-04T16:48:21.609Z] INFO: All members fetched
+[2024-12-04T16:48:21.609Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:48:21.609Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:48:21.609Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:49:21.392Z] INFO: Fetching all members...
+[2024-12-04T16:49:21.665Z] INFO: All members fetched
+[2024-12-04T16:49:21.665Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:49:21.666Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:49:21.666Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:50:21.396Z] INFO: Fetching all members...
+[2024-12-04T16:50:21.643Z] INFO: All members fetched
+[2024-12-04T16:50:21.643Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:50:21.644Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:50:21.644Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:51:21.393Z] INFO: Fetching all members...
+[2024-12-04T16:51:21.646Z] INFO: All members fetched
+[2024-12-04T16:51:21.646Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:51:21.646Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:51:21.647Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:52:21.393Z] INFO: Fetching all members...
+[2024-12-04T16:52:21.639Z] INFO: All members fetched
+[2024-12-04T16:52:21.639Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:52:21.640Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:52:21.640Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:53:21.392Z] INFO: Fetching all members...
+[2024-12-04T16:53:21.610Z] INFO: All members fetched
+[2024-12-04T16:53:21.610Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:53:21.610Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:53:21.610Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:54:21.393Z] INFO: Fetching all members...
+[2024-12-04T16:54:21.643Z] INFO: All members fetched
+[2024-12-04T16:54:21.644Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:54:21.644Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:54:21.644Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:55:21.393Z] INFO: Fetching all members...
+[2024-12-04T16:55:21.648Z] INFO: All members fetched
+[2024-12-04T16:55:21.649Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:55:21.649Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:55:21.649Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:56:21.393Z] INFO: Fetching all members...
+[2024-12-04T16:56:21.642Z] INFO: All members fetched
+[2024-12-04T16:56:21.642Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:56:21.643Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:56:21.643Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:57:21.394Z] INFO: Fetching all members...
+[2024-12-04T16:57:21.640Z] INFO: All members fetched
+[2024-12-04T16:57:21.641Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:57:21.641Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:57:21.641Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:58:21.340Z] INFO: Fetching all members...
+[2024-12-04T16:58:21.589Z] INFO: All members fetched
+[2024-12-04T16:58:21.589Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:58:21.590Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:58:21.590Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:59:21.340Z] INFO: Fetching all members...
+[2024-12-04T16:59:21.691Z] INFO: All members fetched
+[2024-12-04T16:59:21.691Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T16:59:21.692Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T16:59:21.692Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:00:21.338Z] INFO: Fetching all members...
+[2024-12-04T17:00:21.577Z] INFO: All members fetched
+[2024-12-04T17:00:21.577Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:00:21.577Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:00:21.577Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:01:21.337Z] INFO: Fetching all members...
+[2024-12-04T17:01:21.586Z] INFO: All members fetched
+[2024-12-04T17:01:21.587Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:01:21.587Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:01:21.587Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:02:21.336Z] INFO: Fetching all members...
+[2024-12-04T17:02:21.599Z] INFO: All members fetched
+[2024-12-04T17:02:21.599Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:02:21.599Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:02:21.600Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:03:21.335Z] INFO: Fetching all members...
+[2024-12-04T17:03:21.598Z] INFO: All members fetched
+[2024-12-04T17:03:21.598Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:03:21.598Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:03:21.599Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:04:21.335Z] INFO: Fetching all members...
+[2024-12-04T17:04:21.587Z] INFO: All members fetched
+[2024-12-04T17:04:21.588Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:04:21.588Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:04:21.588Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:05:21.334Z] INFO: Fetching all members...
+[2024-12-04T17:05:21.584Z] INFO: All members fetched
+[2024-12-04T17:05:21.584Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:05:21.584Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:05:21.584Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:06:21.332Z] INFO: Fetching all members...
+[2024-12-04T17:06:21.541Z] INFO: All members fetched
+[2024-12-04T17:06:21.541Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:06:21.541Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:06:21.542Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:07:21.332Z] INFO: Fetching all members...
+[2024-12-04T17:07:21.588Z] INFO: All members fetched
+[2024-12-04T17:07:21.588Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:07:21.589Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:07:21.589Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:08:21.332Z] INFO: Fetching all members...
+[2024-12-04T17:08:21.586Z] INFO: All members fetched
+[2024-12-04T17:08:21.587Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:08:21.587Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:08:21.587Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:09:21.331Z] INFO: Fetching all members...
+[2024-12-04T17:09:21.563Z] INFO: All members fetched
+[2024-12-04T17:09:21.564Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:09:21.564Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:09:21.564Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:10:21.331Z] INFO: Fetching all members...
+[2024-12-04T17:10:21.585Z] INFO: All members fetched
+[2024-12-04T17:10:21.586Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:10:21.586Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:10:21.586Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:11:21.330Z] INFO: Fetching all members...
+[2024-12-04T17:11:21.586Z] INFO: All members fetched
+[2024-12-04T17:11:21.587Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:11:21.587Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:11:21.587Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:11:46.493Z] INFO: Starting bot...
+[2024-12-04T17:11:46.496Z] INFO: API Key: qu9ul8
+[2024-12-04T17:11:46.499Z] INFO: Server running on port 5001
+[2024-12-04T17:11:48.502Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T17:11:48.939Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T17:12:21.057Z] INFO: Fetching all members...
+[2024-12-04T17:12:21.277Z] INFO: All members fetched
+[2024-12-04T17:12:21.277Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:12:21.278Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:12:21.279Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:12:48.927Z] INFO: Fetching all members...
+[2024-12-04T17:12:49.129Z] INFO: All members fetched
+[2024-12-04T17:12:49.129Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:12:49.129Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:12:49.130Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:12:49.132Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733332368382-Screenshot_2024-11-12_at_20.19.53.png?ex=6751df0f&is=67508d8f&hm=021b7458f25b19896665518ec12b651f9429cf3e6fb9f131018a5191a8a322fd&
+[2024-12-04T17:13:48.924Z] INFO: Fetching all members...
+[2024-12-04T17:13:49.509Z] INFO: All members fetched
+[2024-12-04T17:13:49.509Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:13:49.509Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:13:49.509Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:14:35.958Z] INFO: Starting bot...
+[2024-12-04T17:14:35.961Z] ERROR: Error loading attendance log: TypeError: Assignment to constant variable.
+    at Object.<anonymous> (/Users/szymonsamus/attendance-tracker-dev/bot.js:41:23)
+    at Module._compile (node:internal/modules/cjs/loader:1358:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:174:12)
+    at node:internal/main/run_main_module:28:49
+[2024-12-04T17:14:35.962Z] INFO: API Key: qu9ul8
+[2024-12-04T17:14:35.965Z] INFO: Server running on port 5001
+[2024-12-04T17:14:37.750Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T17:14:38.358Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T17:17:47.861Z] INFO: Starting bot...
+[2024-12-04T17:17:47.864Z] INFO: API Key: qu9ul8
+[2024-12-04T17:17:47.867Z] INFO: Server running on port 5001
+[2024-12-04T17:17:50.054Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-04T17:17:51.183Z] INFO: Successfully registered application (/) commands.
+[2024-12-04T17:18:23.334Z] INFO: Fetching all members...
+[2024-12-04T17:18:23.839Z] INFO: All members fetched
+[2024-12-04T17:18:23.840Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:18:23.841Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:18:23.841Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:18:51.185Z] INFO: Fetching all members...
+[2024-12-04T17:18:51.390Z] INFO: All members fetched
+[2024-12-04T17:18:51.390Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:18:51.390Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:18:51.391Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:19:06.856Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733332746231-Screenshot_2024-11-12_at_20.19.53.png?ex=6751e089&is=67508f09&hm=5a26c35921421d1a1c8f703b27f3dea09c21b83a127f204befd9e9117c729338&
+[2024-12-04T17:19:51.182Z] INFO: Fetching all members...
+[2024-12-04T17:19:51.374Z] INFO: All members fetched
+[2024-12-04T17:19:51.374Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:19:51.374Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:19:51.374Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:20:51.181Z] INFO: Fetching all members...
+[2024-12-04T17:20:51.364Z] INFO: All members fetched
+[2024-12-04T17:20:51.365Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:20:51.365Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:20:51.365Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:21:51.181Z] INFO: Fetching all members...
+[2024-12-04T17:21:51.355Z] INFO: All members fetched
+[2024-12-04T17:21:51.355Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-04T17:21:51.356Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-04T17:21:51.356Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud

@@ -1,13 +1,12 @@
-
-// Description: Production-ready Discord bot with OCR for Plesk deployment
-const { Client, GatewayIntentBits, Partials, SlashCommandBuilder, REST, Routes } = require('discord.js');
-const Tesseract = require('tesseract.js');
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
 const express = require('express');
 const cors = require('cors');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
+const logger = require('./utils/logger');
+const client = require('./client'); // Import the client
+const { saveAttendance, cleanupOldImages, attendanceLog } = require('./utils'); // Import utility functions
+const { getNames } = require('./utils/state');
 
 const CONFIG_FILE = path.join(__dirname, 'config.json');
 
@@ -16,46 +15,16 @@ let config = {};
 if (fs.existsSync(CONFIG_FILE)) {
     config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
 }
+// End
 
-// Ensure logs directory exists
-const LOG_DIR = path.join(__dirname, 'logs');
+// Ensure images directory exists
 const IMAGES_DIR = path.join(__dirname, 'images');
-[LOG_DIR, IMAGES_DIR].forEach(dir => {
-    if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true });
-    }
-});
-
-// Setup logging
-const logStream = fs.createWriteStream(path.join(LOG_DIR, 'bot.log'), { flags: 'a' });
-const logger = {
-    log: (msg) => {
-        const timestamp = new Date().toISOString();
-        logStream.write(`[${timestamp}] INFO: ${msg}\n`);
-        console.log(`[${timestamp}] ${msg}`);
-    },
-    error: (msg, error) => {
-        const timestamp = new Date().toISOString();
-        logStream.write(`[${timestamp}] ERROR: ${msg} ${error?.stack || error}\n`);
-        console.error(`[${timestamp}] ERROR: ${msg}`, error);
-    }
-};
+if (!fs.existsSync(IMAGES_DIR)) {
+    fs.mkdirSync(IMAGES_DIR, { recursive: true });
+}
+// End
 
 logger.log('Starting bot...');
-
-const client = new Client({
-    intents: [
-        GatewayIntentBits.GuildMembers,
-        GatewayIntentBits.Guilds,
-        GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent,
-    ],
-    partials: [
-        Partials.Message,
-        Partials.Channel,
-        Partials.Reaction
-    ]
-});
 
 const app = express();
 app.use(cors());
@@ -67,301 +36,20 @@ if (!fs.existsSync(path.dirname(ATTENDANCE_FILE))) {
     fs.mkdirSync(path.dirname(ATTENDANCE_FILE), { recursive: true });
 }
 
-let attendanceLog = [];
-let names = [];
-
 try {
     if (fs.existsSync(ATTENDANCE_FILE)) {
-        attendanceLog = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
+        const fileData = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
+        attendanceLog.length = 0;
+        attendanceLog.push(...fileData);
     }
 } catch (error) {
     logger.error('Error loading attendance log:', error);
 }
-
-// Save attendance to file
-function saveAttendance() {
-    try {
-        fs.writeFileSync(ATTENDANCE_FILE, JSON.stringify(attendanceLog, null, 2));
-    } catch (error) {
-        logger.error('Error saving attendance log:', error);
-    }
-}
-
-async function downloadImage(url, filepath) {
-    try {
-        const response = await axios({
-            url,
-            method: 'GET',
-            responseType: 'stream',
-            timeout: 10000 // 10 second timeout
-        });
-        return new Promise((resolve, reject) => {
-            response.data.pipe(fs.createWriteStream(filepath))
-                .on('finish', () => resolve())
-                .on('error', e => reject(e));
-        });
-    } catch (error) {
-        throw new Error(`Failed to download image: ${error.message}`);
-    }
-}
-
-function extractNames(text) {
-    return text.split('\n')
-        .map(line => line.trim())
-        .filter(line => line && /^[A-Za-z][A-Za-z\s]{1,50}$/.test(line)); // More robust name detection
-}
-
-// Cleanup old images (older than 1 hour)
-function cleanupOldImages() {
-    try {
-        const files = fs.readdirSync(IMAGES_DIR);
-        const now = Date.now();
-        files.forEach(file => {
-            const filePath = path.join(IMAGES_DIR, file);
-            const stats = fs.statSync(filePath);
-            if (now - stats.mtimeMs > 3600000) { // 1 hour
-                fs.unlinkSync(filePath);
-            }
-        });
-    } catch (error) {
-        logger.error('Error cleaning up old images:', error);
-    }
-}
-
-const commands = [
-    new SlashCommandBuilder()
-        .setName('setup')
-        .setDescription('Setup the bot configuration')
-        .addChannelOption(option =>
-            option.setName('channel')
-                .setDescription('The channel to send attendance messages. (Keep in mind this should be an admin channel)')
-                .setRequired(true))
-        .addStringOption(option =>
-            option.setName('color')
-                .setDescription('The color palette (e.g., #FF0000)')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('primary_role')
-                .setDescription('The bot will track all members with the role you choose, (i.e default member role)')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('tank_role')
-                .setDescription('This will track users with your given "Tank" role for the party maker.')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('healer_role')
-                .setDescription('This will track users with your given "Healer" role for the party maker.')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('dps_role')
-                .setDescription('This will track users with your given "DPS" role for the party maker.')
-                .setRequired(true))
-        .addStringOption(option =>
-            option.setName('icon')
-                .setDescription('The icon URL for your frontend dashboard')
-                .setRequired(true))
-        .addStringOption(option =>
-            option.setName('title')
-                .setDescription('The title for the frontend dashboard')
-                .setRequired(true)),
-
-    new SlashCommandBuilder()
-        .setName('attendance')
-        .setDescription('Upload Image of Usernames to record attendance')
-        .addAttachmentOption(option =>
-            option.setName('images')
-                .setDescription('The image containing the attendance list')
-                .setRequired(true))
-];
+// End
 
 // Run cleanup every hour
 setInterval(cleanupOldImages, 3600000);
-
-client.once('ready', async () => {
-    logger.log(`Logged in as ${client.user.tag}`);
-
-    const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);
-
-    try {
-        await rest.put(
-            Routes.applicationCommands(client.user.id),
-            { body: commands },
-        );
-        logger.log('Successfully registered application (/) commands.');
-    } catch (error) {
-        logger.error('Error registering application (/) commands:', error);
-    }
-
-    setInterval(async () => {
-        await initializeBot();
-    }, 60000);
-});
-
-async function initializeBot() {
-    // Ensure bot is configured
-    if (!config.guild || !config.channel || !config.primaryRole) {
-        logger.error('Bot not configured! Please run the /setup command.');
-        return;
-    }
-
-    const guild = client.guilds.cache.get(config.guild);
-    if (!guild) {
-        logger.error('Guild not found');
-        return;
-    }
-
-    const primaryRole = guild.roles.cache.get(config.primaryRole);
-    if (!primaryRole) {
-        logger.error('Role not found');
-        return;
-    }
-
-    const additionalRoles = [
-        { id: config.tankRole, name: 'Tank' },
-        { id: config.healerRole, name: 'Healer' },
-        { id: config.dpsRole, name: 'DPS' }
-    ]
-
-    try {
-        logger.log('Fetching all members...');
-        await guild.members.fetch();
-        logger.log('All members fetched');
-        const members = guild.members.cache;
-        logger.log(`Fetched Members: ${members.map(member => member.user.username).join(', ')}`);
-
-        const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
-        logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.user.username).join(', ')}`);
-
-        names = membersWithRole.map(member => {
-            const memberRoles = additionalRoles.filter(role => member.roles.cache.has(role.id)).map(role => role.name);
-            if (memberRoles.length > 0) {
-                return {
-                    name: member.nickname || member.user.username,
-                    roles: memberRoles
-                };
-            } else {
-                return {
-                    name: member.nickname || member.user.username,
-                    roles: []
-                }
-            }
-        });
-        logger.log(`Members with role: ${names.join(', ')}`);
-    } catch (error) {
-        logger.error('Error fetching members:', error);
-    }
-}
-
-client.on('interactionCreate', async interaction => {
-    if (!interaction.isCommand()) return;
-
-    const { commandName } = interaction;
-
-    if (commandName === 'setup') {
-        const channel = interaction.options.getChannel('channel');
-        const color = interaction.options.getString('color');
-        const primaryRole = interaction.options.getRole('primary_role');
-        const tankRole = interaction.options.getRole('tank_role');
-        const healerRole = interaction.options.getRole('healer_role');
-        const dpsRole = interaction.options.getRole('dps_role');
-        const icon = interaction.options.getString('icon');
-        const title = interaction.options.getString('title');
-
-        config = {
-            guild: interaction.guild.id,
-            channel: channel.id,
-            color,
-            primaryRole: primaryRole.id,
-            tankRole: tankRole.id,
-            healerRole: healerRole.id,
-            dpsRole: dpsRole.id,
-            icon,
-            title,
-        };
-
-        fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
-
-        await interaction.reply(`
-            Configuration saved! \n 
-            You can now start using the Guild Manager bot. \n
-            The bot is only usable in the configured channel. (${channel}) \n
-            Your dashboard is customised with the following settings: \n
-            Title: ${title} \n
-            Color: ${color} \n
-            Icon: ${icon} \n
-            \n
-            Your main members will be tracked with the following role: ${primaryRole} \n
-            \n 
-            For the party making functionality, you have set your roles as follows: \n
-            Tank Role: ${tankRole} \n
-            Healer Role: ${healerRole} \n
-            DPS Role: ${dpsRole} \n
-            `);
-
-        // Initialize the bot with the new configuration
-        await initializeBot();
-    } else if (commandName === 'attendance') {
-        const attachments = interaction.options.getAttachment('images');
-
-        if (!attachments) {
-            await interaction.reply('Please upload an image containing the attendance list.');
-            return;
-        }
-
-        await interaction.deferReply();
-
-        const imageUrls = [attachments.url];
-        const imagePaths = [];
-
-        try {
-            for (const imageUrl of imageUrls) {
-                const imagePath = path.join(IMAGES_DIR, `${Date.now()}-${path.basename(imageUrl)}`);
-                await downloadImage(imageUrl, imagePath);
-                imagePaths.push(imagePath);
-                logger.log(`Images downloaded: ${imagePath}`);
-            };
-
-            const names = [];
-            for (const imagePath of imagePaths) {
-                const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
-                names.push(...extractNames(text));
-            };
-
-            const attendanceEntry = {
-                date: new Date().toISOString(),
-                names,
-                channelId: interaction.channel.id,
-                guildId: interaction.guild.id
-            };
-
-            attendanceLog.push(attendanceEntry);
-            saveAttendance();
-
-            const formattedNames = names.map((name, index) => `${index + 1}. ${name}`).join('\n');
-            await interaction.editReply(names.length > 0
-                ? `Attendance recorded for: \n${formattedNames}`
-                : 'No names were detected in the image.');
-        } catch (error) {
-            logger.error('Error processing image:', error);
-            await message.reply('An error occurred while processing the images. Please try again.');
-        } finally {
-            // Cleanup the image file
-            for (const imagePath of imagePaths) {
-                try {
-                    if (fs.existsSync(imagePath)) {
-                        fs.unlinkSync(imagePath);
-                    }
-                } catch (error) {
-                    logger.error('Error deleting image:', error);
-                }
-            }
-        }
-    } else {
-        await interaction.reply('Please send an image containing the attendance list.');
-    }
-});
-
-client.login(process.env.DISCORD_TOKEN);
+// End
 
 // API routes with basic security
 const API_KEY = process.env.API_KEY || Math.random().toString(36).substring(7);
@@ -376,7 +64,7 @@ app.use((req, res, next) => {
 });
 
 app.get('/names', (req, res) => {
-    res.json(names);
+    res.json(getNames());
 });
 
 app.get('/attendance', (req, res) => {
@@ -384,8 +72,20 @@ app.get('/attendance', (req, res) => {
 });
 
 app.get('/config', (req, res) => {
-    res.json(config);
+    try {
+        if (fs.existsSync(CONFIG_FILE)) {
+            config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+        }
+        res.setHeader('Content-Type', 'application/json');   
+        res.setHeader('Cache-Control', 'no-store');
+        res.json(config);
+    } catch (error) {
+        logger.error('Error fetching config:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
 });
+// End
+
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
@@ -402,6 +102,7 @@ process.on('uncaughtException', (error) => {
 process.on('unhandledRejection', (error) => {
     logger.error('Unhandled Rejection:', error);
 });
+// End
 
 // Start the bot and API server
 const PORT = process.env.PORT || 5001;
@@ -413,3 +114,4 @@ client.login(process.env.DISCORD_TOKEN).catch(error => {
     logger.error('Failed to login to Discord:', error);
     process.exit(1);
 });
+// End

@@ -1,8 +1,20 @@
 const { SlashCommandBuilder } = require('discord.js');
+const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
 const { initializeBot } = require('../utils/index.js'); // Import initializeBot
 const CONFIG_FILE = path.join(__dirname, '..', 'config.json');
+
+// Create a new PostgreSQL client
+const dbClient = new Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+})
+
+dbClient.connect();
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -62,27 +74,82 @@ module.exports = {
             title,
         };
 
-        fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
+        const query = `
+            INSERT INTO guilds (guild, channel, color, primaryRole, tankRole, healerRole, dpsRole, icon, title)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            ON CONFLICT (guild) 
+            DO UPDATE SET channel = EXCLUDED.channel,
+                          color = EXCLUDED.color,
+                          primaryRole = EXCLUDED.primaryRole,
+                          tankRole = EXCLUDED.tankRole,
+                          healerRole = EXCLUDED.healerRole,
+                          dpsRole = EXCLUDED.dpsRole,
+                          icon = EXCLUDED.icon,
+                          title = EXCLUDED.title,
+                          updated_at = CURRENT_TIMESTAMP;
+        `;
+        const values = [
+            config.guild,
+            config.channel,
+            config.color,
+            config.primaryRole,
+            config.tankRole,
+            config.healerRole,
+            config.dpsRole,
+            config.icon,
+            config.title
+        ];
 
-        await interaction.reply(`
-            Configuration saved! \n 
-            You can now start using the Guild Manager bot. \n
-            The bot is only usable in the configured channel. (${channel}) \n
-            Your dashboard is customised with the following settings: \n
-            Title: ${title} \n
-            Color: ${color} \n
-            Icon: ${icon} \n
-            \n
-            Your main members will be tracked with the following role: ${primaryRole} \n
-            \n 
-            For the party making functionality, you have set your roles as follows: \n
-            Tank Role: ${tankRole} \n
-            Healer Role: ${healerRole} \n
-            DPS Role: ${dpsRole} \n
-        `);
+        try {
+            await dbClient.query(query, values);
+            const dashboardUrl = `http://localhost:3000/${config.guild}`;
+            fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
+            await interaction.reply(`
+                Configuration saved! \n 
+                You can now start using the Guild Manager bot. \n
+                The bot is only usable in the configured channel. (${channel}) \n
+                Your dashboard is customised with the following settings: \n
+                Title: ${title} \n
+                Color: ${color} \n
+                Icon: ${icon} \n
+                \n
+                Your main members will be tracked with the following role: ${primaryRole} \n
+                \n 
+                For the party making functionality, you have set your roles as follows: \n
+                Tank Role: ${tankRole} \n
+                Healer Role: ${healerRole} \n
+                DPS Role: ${dpsRole} \n
+                \n
+                ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}
+            `);
+            const client = require('../client');
+            await initializeBot(client, config);
+        } catch (error) {
+            console.error('Error saving guild configuration:', error);
+            await interaction.reply('An error occurred while saving the configuration. Please try again.');
+        }
+
+        //  fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
+
+        // await interaction.reply(`
+        //     Configuration saved! \n 
+        //     You can now start using the Guild Manager bot. \n
+        //     The bot is only usable in the configured channel. (${channel}) \n
+        //     Your dashboard is customised with the following settings: \n
+        //     Title: ${title} \n
+        //     Color: ${color} \n
+        //     Icon: ${icon} \n
+        //     \n
+        //     Your main members will be tracked with the following role: ${primaryRole} \n
+        //     \n 
+        //     For the party making functionality, you have set your roles as follows: \n
+        //     Tank Role: ${tankRole} \n
+        //     Healer Role: ${healerRole} \n
+        //     DPS Role: ${dpsRole} \n
+        // `);
 
         // Initialize the bot with the new configuration
-        const client = require('../client');
-        await initializeBot(client, config);
+        // const client = require('../client');
+        // await initializeBot(client, config);
     }
 };

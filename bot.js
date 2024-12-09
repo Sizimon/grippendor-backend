@@ -7,15 +7,49 @@ const logger = require('./utils/logger');
 const client = require('./client'); // Import the client
 const { saveAttendance, cleanupOldImages, attendanceLog } = require('./utils'); // Import utility functions
 const { getNames } = require('./utils/state');
+const { Client } = require('pg');
 
-const CONFIG_FILE = path.join(__dirname, 'config.json');
+// Create a new PostgreSQL client
+const dbClient = new Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+});
 
-// Load Existing Configuration or Create a new one
-let config = {};
-if (fs.existsSync(CONFIG_FILE)) {
-    config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+dbClient.connect();
+
+// const CONFIG_FILE = path.join(__dirname, 'config.json');
+
+// // Load Existing Configuration or Create a new one
+// let config = {};
+// if (fs.existsSync(CONFIG_FILE)) {
+//     config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+// }
+// // End
+
+async function loadConfig(guildId) {
+    if (!guildId || isNaN(guildId)) {
+        logger.error('Invalid guild ID:', guildId);
+        return null;
+    }
+
+    const query = 'SELECT * FROM guilds WHERE guild = $1';
+    const values = [guildId];
+    try {
+        const res = await dbClient.query(query, values);
+        if (res.rows.length > 0) {
+            return res.rows[0];
+        } else {
+            logger.error('Config not found for guild:', guildId);
+            return null;
+        }
+    } catch (error) {
+        logger.error('Error loading config from database:', error);
+        return null;
+    }
 }
-// End
 
 // Ensure images directory exists
 const IMAGES_DIR = path.join(__dirname, 'images');
@@ -71,18 +105,28 @@ app.get('/attendance', (req, res) => {
     res.json(attendanceLog);
 });
 
-app.get('/config', (req, res) => {
-    try {
-        if (fs.existsSync(CONFIG_FILE)) {
-            config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
-        }
-        res.setHeader('Content-Type', 'application/json');   
-        res.setHeader('Cache-Control', 'no-store');
-        res.json(config);
-    } catch (error) {
-        logger.error('Error fetching config:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+app.get('/config/:guildId', async (req, res) => {
+    const guildId = req.params.guildId;
+    if (!guildId || isNaN(guildId)) {
+        return res.status(400).json({ error: 'Invalid guild ID' });
     }
+    const config = await loadConfig(guildId);
+    if (config) {
+        res.json(config);
+    } else {
+        res.status(404).json({ error: 'Config not found' });
+    }
+    // try {
+    //     if (fs.existsSync(CONFIG_FILE)) {
+    //         config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
+    //     }
+    //     res.setHeader('Content-Type', 'application/json');   
+    //     res.setHeader('Cache-Control', 'no-store');
+    //     res.json(config);
+    // } catch (error) {
+    //     logger.error('Error fetching config:', error);
+    //     res.status(500).json({ error: 'Internal Server Error' });
+    // }
 });
 // End
 

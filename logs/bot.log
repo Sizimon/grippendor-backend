@@ -5640,3 +5640,984 @@ guild_id[NUMBER_TYPE_COERCE]: Value "undefined" is not snowflake.
 [2024-12-09T17:49:58.756Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
 [2024-12-09T17:49:58.757Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
 [2024-12-09T17:49:58.757Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:30:01.889Z] INFO: Starting bot...
+[2024-12-10T13:30:01.897Z] INFO: API Key: qu9ul8
+[2024-12-10T13:30:01.900Z] INFO: Server running on port 5001
+[2024-12-10T13:30:03.615Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-10T13:30:04.220Z] INFO: Successfully registered application (/) commands.
+[2024-12-10T13:31:04.223Z] INFO: Fetching all members...
+[2024-12-10T13:31:04.425Z] INFO: All members fetched
+[2024-12-10T13:31:04.425Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:31:04.426Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:31:04.426Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:32:04.219Z] INFO: Fetching all members...
+[2024-12-10T13:32:04.451Z] INFO: All members fetched
+[2024-12-10T13:32:04.452Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:32:04.452Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:32:04.452Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:33:04.219Z] INFO: Fetching all members...
+[2024-12-10T13:33:04.495Z] INFO: All members fetched
+[2024-12-10T13:33:04.495Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:33:04.495Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:33:04.495Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:34:04.216Z] INFO: Fetching all members...
+[2024-12-10T13:34:04.465Z] INFO: All members fetched
+[2024-12-10T13:34:04.466Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:34:04.466Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:34:04.467Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:35:04.216Z] INFO: Fetching all members...
+[2024-12-10T13:35:04.468Z] INFO: All members fetched
+[2024-12-10T13:35:04.469Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:35:04.469Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:35:04.469Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:36:04.214Z] INFO: Fetching all members...
+[2024-12-10T13:36:04.468Z] INFO: All members fetched
+[2024-12-10T13:36:04.469Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:36:04.469Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:36:04.469Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:37:04.211Z] INFO: Fetching all members...
+[2024-12-10T13:37:04.443Z] INFO: All members fetched
+[2024-12-10T13:37:04.444Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:37:04.444Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:37:04.444Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:38:04.210Z] INFO: Fetching all members...
+[2024-12-10T13:38:04.391Z] INFO: All members fetched
+[2024-12-10T13:38:04.392Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:38:04.392Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:38:04.392Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:39:04.209Z] INFO: Fetching all members...
+[2024-12-10T13:39:04.427Z] INFO: All members fetched
+[2024-12-10T13:39:04.427Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:39:04.427Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:39:04.427Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:40:04.209Z] INFO: Fetching all members...
+[2024-12-10T13:40:04.430Z] INFO: All members fetched
+[2024-12-10T13:40:04.431Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:40:04.431Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:40:04.431Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:41:04.206Z] INFO: Fetching all members...
+[2024-12-10T13:41:04.400Z] INFO: All members fetched
+[2024-12-10T13:41:04.400Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:41:04.400Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:41:04.404Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:42:04.205Z] INFO: Fetching all members...
+[2024-12-10T13:42:04.501Z] INFO: All members fetched
+[2024-12-10T13:42:04.501Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:42:04.501Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:42:04.501Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:43:04.204Z] INFO: Fetching all members...
+[2024-12-10T13:43:04.387Z] INFO: All members fetched
+[2024-12-10T13:43:04.387Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:43:04.387Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:43:04.388Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:44:04.204Z] INFO: Fetching all members...
+[2024-12-10T13:44:04.434Z] INFO: All members fetched
+[2024-12-10T13:44:04.434Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:44:04.434Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:44:04.434Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:45:04.202Z] INFO: Fetching all members...
+[2024-12-10T13:45:04.441Z] INFO: All members fetched
+[2024-12-10T13:45:04.442Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:45:04.442Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:45:04.442Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:46:04.202Z] INFO: Fetching all members...
+[2024-12-10T13:46:04.512Z] INFO: All members fetched
+[2024-12-10T13:46:04.513Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:46:04.513Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:46:04.513Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:47:04.199Z] INFO: Fetching all members...
+[2024-12-10T13:47:04.435Z] INFO: All members fetched
+[2024-12-10T13:47:04.435Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:47:04.436Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:47:04.436Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:48:04.208Z] INFO: Fetching all members...
+[2024-12-10T13:48:04.440Z] INFO: All members fetched
+[2024-12-10T13:48:04.441Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:48:04.441Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:48:04.441Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:49:04.195Z] INFO: Fetching all members...
+[2024-12-10T13:49:04.463Z] INFO: All members fetched
+[2024-12-10T13:49:04.463Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:49:04.464Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:49:04.464Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:50:04.195Z] INFO: Fetching all members...
+[2024-12-10T13:50:04.486Z] INFO: All members fetched
+[2024-12-10T13:50:04.486Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:50:04.487Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:50:04.487Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:51:04.193Z] INFO: Fetching all members...
+[2024-12-10T13:51:04.422Z] INFO: All members fetched
+[2024-12-10T13:51:04.423Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:51:04.423Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:51:04.423Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:52:04.191Z] INFO: Fetching all members...
+[2024-12-10T13:52:04.465Z] INFO: All members fetched
+[2024-12-10T13:52:04.465Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:52:04.465Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:52:04.466Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:53:04.190Z] INFO: Fetching all members...
+[2024-12-10T13:53:04.399Z] INFO: All members fetched
+[2024-12-10T13:53:04.399Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:53:04.399Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:53:04.399Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:54:04.190Z] INFO: Fetching all members...
+[2024-12-10T13:54:04.419Z] INFO: All members fetched
+[2024-12-10T13:54:04.420Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:54:04.420Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:54:04.420Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:55:04.188Z] INFO: Fetching all members...
+[2024-12-10T13:55:04.420Z] INFO: All members fetched
+[2024-12-10T13:55:04.420Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:55:04.420Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:55:04.420Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:56:04.185Z] INFO: Fetching all members...
+[2024-12-10T13:56:04.465Z] INFO: All members fetched
+[2024-12-10T13:56:04.465Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:56:04.465Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:56:04.466Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:57:04.184Z] INFO: Fetching all members...
+[2024-12-10T13:57:04.422Z] INFO: All members fetched
+[2024-12-10T13:57:04.422Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:57:04.422Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:57:04.422Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:58:04.182Z] INFO: Fetching all members...
+[2024-12-10T13:58:04.381Z] INFO: All members fetched
+[2024-12-10T13:58:04.381Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:58:04.381Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:58:04.381Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:59:04.180Z] INFO: Fetching all members...
+[2024-12-10T13:59:04.436Z] INFO: All members fetched
+[2024-12-10T13:59:04.436Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T13:59:04.436Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T13:59:04.436Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:00:04.179Z] INFO: Fetching all members...
+[2024-12-10T14:00:04.432Z] INFO: All members fetched
+[2024-12-10T14:00:04.432Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:00:04.432Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:00:04.432Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:01:04.177Z] INFO: Fetching all members...
+[2024-12-10T14:01:04.421Z] INFO: All members fetched
+[2024-12-10T14:01:04.422Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:01:04.422Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:01:04.422Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:02:04.175Z] INFO: Fetching all members...
+[2024-12-10T14:02:04.420Z] INFO: All members fetched
+[2024-12-10T14:02:04.420Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:02:04.420Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:02:04.420Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:03:04.174Z] INFO: Fetching all members...
+[2024-12-10T14:03:04.407Z] INFO: All members fetched
+[2024-12-10T14:03:04.407Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:03:04.407Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:03:04.407Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:04:04.172Z] INFO: Fetching all members...
+[2024-12-10T14:04:04.366Z] INFO: All members fetched
+[2024-12-10T14:04:04.367Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:04:04.367Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:04:04.367Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:05:04.170Z] INFO: Fetching all members...
+[2024-12-10T14:05:04.418Z] INFO: All members fetched
+[2024-12-10T14:05:04.418Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:05:04.418Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:05:04.419Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:06:04.168Z] INFO: Fetching all members...
+[2024-12-10T14:06:04.379Z] INFO: All members fetched
+[2024-12-10T14:06:04.380Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:06:04.380Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:06:04.380Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:07:04.167Z] INFO: Fetching all members...
+[2024-12-10T14:07:04.374Z] INFO: All members fetched
+[2024-12-10T14:07:04.375Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:07:04.375Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:07:04.375Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:08:04.166Z] INFO: Fetching all members...
+[2024-12-10T14:08:04.375Z] INFO: All members fetched
+[2024-12-10T14:08:04.376Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:08:04.376Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:08:04.376Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:09:04.164Z] INFO: Fetching all members...
+[2024-12-10T14:09:04.343Z] INFO: All members fetched
+[2024-12-10T14:09:04.343Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:09:04.343Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:09:04.343Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:10:04.163Z] INFO: Fetching all members...
+[2024-12-10T14:10:04.398Z] INFO: All members fetched
+[2024-12-10T14:10:04.398Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:10:04.398Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:10:04.398Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:11:04.161Z] INFO: Fetching all members...
+[2024-12-10T14:11:04.394Z] INFO: All members fetched
+[2024-12-10T14:11:04.394Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:11:04.394Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:11:04.395Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:12:04.159Z] INFO: Fetching all members...
+[2024-12-10T14:12:04.377Z] INFO: All members fetched
+[2024-12-10T14:12:04.377Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:12:04.378Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:12:04.378Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:13:04.218Z] INFO: Fetching all members...
+[2024-12-10T14:13:04.450Z] INFO: All members fetched
+[2024-12-10T14:13:04.450Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:13:04.450Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:13:04.451Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:14:04.217Z] INFO: Fetching all members...
+[2024-12-10T14:14:04.489Z] INFO: All members fetched
+[2024-12-10T14:14:04.490Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:14:04.490Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:14:04.490Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:15:04.216Z] INFO: Fetching all members...
+[2024-12-10T14:15:04.418Z] INFO: All members fetched
+[2024-12-10T14:15:04.418Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:15:04.418Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:15:04.419Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:16:04.216Z] INFO: Fetching all members...
+[2024-12-10T14:16:04.436Z] INFO: All members fetched
+[2024-12-10T14:16:04.436Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:16:04.436Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:16:04.436Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:17:04.216Z] INFO: Fetching all members...
+[2024-12-10T14:17:04.462Z] INFO: All members fetched
+[2024-12-10T14:17:04.463Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:17:04.463Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:17:04.463Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:18:04.215Z] INFO: Fetching all members...
+[2024-12-10T14:18:04.481Z] INFO: All members fetched
+[2024-12-10T14:18:04.481Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:18:04.481Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:18:04.481Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:19:04.216Z] INFO: Fetching all members...
+[2024-12-10T14:19:04.513Z] INFO: All members fetched
+[2024-12-10T14:19:04.514Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:19:04.514Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:19:04.514Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:20:04.215Z] INFO: Fetching all members...
+[2024-12-10T14:20:04.498Z] INFO: All members fetched
+[2024-12-10T14:20:04.498Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:20:04.499Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:20:04.499Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:21:04.216Z] INFO: Fetching all members...
+[2024-12-10T14:21:04.472Z] INFO: All members fetched
+[2024-12-10T14:21:04.473Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:21:04.473Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:21:04.473Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:22:04.216Z] INFO: Fetching all members...
+[2024-12-10T14:22:04.489Z] INFO: All members fetched
+[2024-12-10T14:22:04.490Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:22:04.490Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:22:04.490Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:23:04.214Z] INFO: Fetching all members...
+[2024-12-10T14:23:04.504Z] INFO: All members fetched
+[2024-12-10T14:23:04.505Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:23:04.505Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:23:04.505Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:24:04.214Z] INFO: Fetching all members...
+[2024-12-10T14:24:04.454Z] INFO: All members fetched
+[2024-12-10T14:24:04.455Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:24:04.455Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:24:04.455Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:25:04.214Z] INFO: Fetching all members...
+[2024-12-10T14:25:04.597Z] INFO: All members fetched
+[2024-12-10T14:25:04.597Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:25:04.598Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:25:04.598Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:26:04.214Z] INFO: Fetching all members...
+[2024-12-10T14:26:04.584Z] INFO: All members fetched
+[2024-12-10T14:26:04.584Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:26:04.584Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:26:04.584Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:27:04.213Z] INFO: Fetching all members...
+[2024-12-10T14:27:04.442Z] INFO: All members fetched
+[2024-12-10T14:27:04.443Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-10T14:27:04.443Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-10T14:27:04.443Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:38:40.658Z] INFO: Starting bot...
+[2024-12-11T13:38:40.663Z] INFO: API Key: qu9ul8
+[2024-12-11T13:38:40.667Z] INFO: Server running on port 5001
+[2024-12-11T13:38:42.411Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T13:38:42.734Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T13:39:42.736Z] INFO: Fetching all members...
+[2024-12-11T13:39:42.905Z] INFO: All members fetched
+[2024-12-11T13:39:42.906Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:39:42.906Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:39:42.907Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:40:42.733Z] INFO: Fetching all members...
+[2024-12-11T13:40:42.936Z] INFO: All members fetched
+[2024-12-11T13:40:42.937Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:40:42.937Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:40:42.937Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:41:42.731Z] INFO: Fetching all members...
+[2024-12-11T13:41:43.361Z] INFO: All members fetched
+[2024-12-11T13:41:43.362Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:41:43.362Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:41:43.363Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:42:42.730Z] INFO: Fetching all members...
+[2024-12-11T13:42:42.915Z] INFO: All members fetched
+[2024-12-11T13:42:42.915Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:42:42.916Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:42:42.916Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:43:42.727Z] INFO: Fetching all members...
+[2024-12-11T13:43:42.979Z] INFO: All members fetched
+[2024-12-11T13:43:42.979Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:43:42.979Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:43:42.980Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:44:42.725Z] INFO: Fetching all members...
+[2024-12-11T13:44:42.952Z] INFO: All members fetched
+[2024-12-11T13:44:42.953Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:44:42.953Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:44:42.953Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:45:42.722Z] INFO: Fetching all members...
+[2024-12-11T13:45:43.368Z] INFO: All members fetched
+[2024-12-11T13:45:43.368Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:45:43.368Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:45:43.368Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:46:42.720Z] INFO: Fetching all members...
+[2024-12-11T13:46:42.973Z] INFO: All members fetched
+[2024-12-11T13:46:42.974Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:46:42.974Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:46:42.974Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:47:42.719Z] INFO: Fetching all members...
+[2024-12-11T13:47:42.958Z] INFO: All members fetched
+[2024-12-11T13:47:42.958Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:47:42.958Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:47:42.959Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:48:42.716Z] INFO: Fetching all members...
+[2024-12-11T13:48:42.919Z] INFO: All members fetched
+[2024-12-11T13:48:42.919Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:48:42.919Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:48:42.919Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:49:42.714Z] INFO: Fetching all members...
+[2024-12-11T13:49:42.958Z] INFO: All members fetched
+[2024-12-11T13:49:42.958Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:49:42.958Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:49:42.958Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:50:42.713Z] INFO: Fetching all members...
+[2024-12-11T13:50:42.941Z] INFO: All members fetched
+[2024-12-11T13:50:42.942Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:50:42.942Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:50:42.942Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:51:42.711Z] INFO: Fetching all members...
+[2024-12-11T13:51:42.894Z] INFO: All members fetched
+[2024-12-11T13:51:42.894Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:51:42.894Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:51:42.894Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:52:42.776Z] INFO: Fetching all members...
+[2024-12-11T13:52:42.982Z] INFO: All members fetched
+[2024-12-11T13:52:42.982Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:52:42.982Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:52:42.982Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:53:42.774Z] INFO: Fetching all members...
+[2024-12-11T13:53:43.008Z] INFO: All members fetched
+[2024-12-11T13:53:43.008Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:53:43.009Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:53:43.009Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:54:42.773Z] INFO: Fetching all members...
+[2024-12-11T13:54:42.979Z] INFO: All members fetched
+[2024-12-11T13:54:42.979Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:54:42.980Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:54:42.980Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:55:42.771Z] INFO: Fetching all members...
+[2024-12-11T13:55:43.296Z] INFO: All members fetched
+[2024-12-11T13:55:43.297Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:55:43.297Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:55:43.297Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:56:42.770Z] INFO: Fetching all members...
+[2024-12-11T13:56:43.004Z] INFO: All members fetched
+[2024-12-11T13:56:43.005Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:56:43.005Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:56:43.005Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:57:42.768Z] INFO: Fetching all members...
+[2024-12-11T13:57:42.990Z] INFO: All members fetched
+[2024-12-11T13:57:42.990Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:57:42.990Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:57:42.991Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:58:42.767Z] INFO: Fetching all members...
+[2024-12-11T13:58:42.977Z] INFO: All members fetched
+[2024-12-11T13:58:42.977Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:58:42.977Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:58:42.977Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:59:42.766Z] INFO: Fetching all members...
+[2024-12-11T13:59:42.978Z] INFO: All members fetched
+[2024-12-11T13:59:42.978Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T13:59:42.978Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T13:59:42.978Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:00:42.764Z] INFO: Fetching all members...
+[2024-12-11T14:00:43.429Z] INFO: All members fetched
+[2024-12-11T14:00:43.429Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T14:00:43.430Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:00:43.430Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:01:42.764Z] INFO: Fetching all members...
+[2024-12-11T14:01:43.006Z] INFO: All members fetched
+[2024-12-11T14:01:43.006Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T14:01:43.006Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:01:43.006Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:02:42.763Z] INFO: Fetching all members...
+[2024-12-11T14:02:42.994Z] INFO: All members fetched
+[2024-12-11T14:02:42.995Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T14:02:42.995Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:02:42.995Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:03:42.760Z] INFO: Fetching all members...
+[2024-12-11T14:03:42.993Z] INFO: All members fetched
+[2024-12-11T14:03:42.993Z] INFO: Fetched Members: AttendanceTest, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, shhmon, voncloudy
+[2024-12-11T14:03:42.993Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:03:42.993Z] INFO: Members with role: scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, Napocalypse, vonCloud
+[2024-12-11T14:04:03.817Z] INFO: Starting bot...
+[2024-12-11T14:04:03.822Z] INFO: API Key: qu9ul8
+[2024-12-11T14:04:03.825Z] INFO: Server running on port 5001
+[2024-12-11T14:04:06.189Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T14:04:06.691Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T14:04:51.033Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733925890285-Screenshot_2024-11-12_at_20.19.53.png?ex=675aed81&is=67599c01&hm=d0b7fde27762badac4bef69e8d71d26f7f806042c9d714e9902dc95605823d20&
+[2024-12-11T14:04:51.750Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T14:04:51.751Z] ERROR: Error processing image: TypeError: logger.warn is not a function
+    at /Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:73:28
+    at Array.map (<anonymous>)
+    at Object.execute (/Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:69:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Client.interactionCreate (/Users/szymonsamus/attendance-tracker-dev/events/interactionCreate.js:12:9)
+[2024-12-11T14:05:06.693Z] INFO: Fetching all members...
+[2024-12-11T14:05:06.946Z] INFO: All members fetched
+[2024-12-11T14:05:06.947Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:05:06.949Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:05:06.949Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:05:39.184Z] INFO: Starting bot...
+[2024-12-11T14:05:39.187Z] INFO: API Key: qu9ul8
+[2024-12-11T14:05:39.190Z] INFO: Server running on port 5001
+[2024-12-11T14:05:40.460Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T14:05:40.864Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T14:06:03.846Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733925963240-Screenshot_2024-11-12_at_20.19.53.png?ex=675aedca&is=67599c4a&hm=87c0ab37b7df7e5e711e1757fa64cc3748db89c7e3b63478f2e2fe48c35bba33&
+[2024-12-11T14:06:04.544Z] ERROR: Error processing image: TypeError: Cannot read properties of undefined (reading 'id')
+    at /Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:70:58
+    at Array.map (<anonymous>)
+    at Object.execute (/Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:69:45)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Client.interactionCreate (/Users/szymonsamus/attendance-tracker-dev/events/interactionCreate.js:12:9)
+[2024-12-11T14:06:40.866Z] INFO: Fetching all members...
+[2024-12-11T14:06:41.050Z] INFO: All members fetched
+[2024-12-11T14:06:41.050Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:06:41.050Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:06:41.051Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:06:57.876Z] INFO: Starting bot...
+[2024-12-11T14:06:57.879Z] INFO: API Key: qu9ul8
+[2024-12-11T14:06:57.881Z] INFO: Server running on port 5001
+[2024-12-11T14:06:59.725Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T14:07:00.055Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T14:07:14.175Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733926033723-Screenshot_2024-11-12_at_20.19.53.png?ex=675aee10&is=67599c90&hm=794321bc30612712c668b862290e37ff1456b56ff52df490e6ca63ffdbcb5a21&
+[2024-12-11T14:07:14.912Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T14:07:14.912Z] INFO: User ID for vonCloud: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: vonCloud
+[2024-12-11T14:07:14.912Z] INFO: User ID for Ripii: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: Ripii
+[2024-12-11T14:07:14.912Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T14:07:14.912Z] INFO: User ID for Ewaldi: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: Ewaldi
+[2024-12-11T14:07:14.912Z] INFO: User ID for TOMYLO: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: TOMYLO
+[2024-12-11T14:07:14.912Z] INFO: User ID for Liable: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: Liable
+[2024-12-11T14:07:14.912Z] INFO: User ID for Cor: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: Cor
+[2024-12-11T14:07:14.912Z] INFO: User ID for MasterNipp: undefined
+[2024-12-11T14:07:14.912Z] INFO: User ID not found for name: MasterNipp
+[2024-12-11T14:08:00.031Z] INFO: Fetching all members...
+[2024-12-11T14:08:00.188Z] INFO: All members fetched
+[2024-12-11T14:08:00.188Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:08:00.189Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:08:00.190Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:09:00.018Z] INFO: Fetching all members...
+[2024-12-11T14:09:00.207Z] INFO: All members fetched
+[2024-12-11T14:09:00.207Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:09:00.208Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:09:00.209Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:10:00.019Z] INFO: Fetching all members...
+[2024-12-11T14:10:00.235Z] INFO: All members fetched
+[2024-12-11T14:10:00.235Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:10:00.235Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:10:00.236Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:11:00.016Z] INFO: Fetching all members...
+[2024-12-11T14:11:00.172Z] INFO: All members fetched
+[2024-12-11T14:11:00.172Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:11:00.172Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:11:00.172Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:11:06.523Z] INFO: Starting bot...
+[2024-12-11T14:11:06.525Z] INFO: API Key: qu9ul8
+[2024-12-11T14:11:06.528Z] INFO: Server running on port 5001
+[2024-12-11T14:11:08.547Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T14:11:09.152Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T14:11:25.361Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733926284823-Screenshot_2024-11-12_at_20.19.53.png?ex=675aef0b&is=67599d8b&hm=595542e142649741f17c57641ce00eaf762ced0f0a3df8b204c9777ee71bfbd1&
+[2024-12-11T14:11:26.111Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T14:11:26.112Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T14:11:26.112Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T14:11:26.112Z] INFO: User ID for Ripii: undefined
+[2024-12-11T14:11:26.112Z] INFO: User ID not found for name: Ripii
+[2024-12-11T14:11:26.112Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T14:11:26.112Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T14:11:26.112Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T14:11:26.112Z] INFO: User ID for TOMYLO: undefined
+[2024-12-11T14:11:26.112Z] INFO: User ID not found for name: TOMYLO
+[2024-12-11T14:11:26.112Z] INFO: User ID for Liable: undefined
+[2024-12-11T14:11:26.112Z] INFO: User ID not found for name: Liable
+[2024-12-11T14:11:26.112Z] INFO: User ID for Cor: undefined
+[2024-12-11T14:11:26.112Z] INFO: User ID not found for name: Cor
+[2024-12-11T14:11:26.112Z] INFO: User ID for MasterNipp: undefined
+[2024-12-11T14:11:26.112Z] INFO: User ID not found for name: MasterNipp
+[2024-12-11T14:12:09.155Z] INFO: Fetching all members...
+[2024-12-11T14:12:09.671Z] INFO: All members fetched
+[2024-12-11T14:12:09.672Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:12:09.673Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:12:09.674Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:13:09.152Z] INFO: Fetching all members...
+[2024-12-11T14:13:09.434Z] INFO: All members fetched
+[2024-12-11T14:13:09.434Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:13:09.434Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:13:09.435Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:14:09.151Z] INFO: Fetching all members...
+[2024-12-11T14:14:09.401Z] INFO: All members fetched
+[2024-12-11T14:14:09.401Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:14:09.403Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:14:09.403Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:15:09.149Z] INFO: Fetching all members...
+[2024-12-11T14:15:09.440Z] INFO: All members fetched
+[2024-12-11T14:15:09.440Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:15:09.441Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:15:09.441Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:16:09.148Z] INFO: Fetching all members...
+[2024-12-11T14:16:09.392Z] INFO: All members fetched
+[2024-12-11T14:16:09.392Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:16:09.392Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:16:09.393Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:17:08.269Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733926627654-Screenshot_2024-12-11_at_15.16.46.png?ex=675af062&is=67599ee2&hm=ce2391440582382bc4f0f2f3be9e3a4686bf07f62269d8f4645ae46f90dcdd6b&
+[2024-12-11T14:17:08.922Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T14:17:08.922Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T14:17:08.922Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T14:17:08.922Z] INFO: User ID for Ripii: undefined
+[2024-12-11T14:17:08.922Z] INFO: User ID not found for name: Ripii
+[2024-12-11T14:17:08.922Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T14:17:08.922Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T14:17:08.922Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T14:17:08.922Z] INFO: User ID for Napocalypse: 519658224312516609
+[2024-12-11T14:17:09.144Z] INFO: Fetching all members...
+[2024-12-11T14:17:09.426Z] INFO: All members fetched
+[2024-12-11T14:17:09.426Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:17:09.426Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:17:09.426Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:18:09.143Z] INFO: Fetching all members...
+[2024-12-11T14:18:09.409Z] INFO: All members fetched
+[2024-12-11T14:18:09.410Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:18:09.410Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:18:09.413Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:19:09.141Z] INFO: Fetching all members...
+[2024-12-11T14:19:09.382Z] INFO: All members fetched
+[2024-12-11T14:19:09.382Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:19:09.382Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:19:09.384Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:20:09.139Z] INFO: Fetching all members...
+[2024-12-11T14:20:09.389Z] INFO: All members fetched
+[2024-12-11T14:20:09.390Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:20:09.390Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:20:09.390Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:21:09.139Z] INFO: Fetching all members...
+[2024-12-11T14:21:09.374Z] INFO: All members fetched
+[2024-12-11T14:21:09.374Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:21:09.375Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:21:09.375Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:22:09.134Z] INFO: Fetching all members...
+[2024-12-11T14:22:09.345Z] INFO: All members fetched
+[2024-12-11T14:22:09.345Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:22:09.346Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:22:09.347Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:23:09.135Z] INFO: Fetching all members...
+[2024-12-11T14:23:09.357Z] INFO: All members fetched
+[2024-12-11T14:23:09.358Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:23:09.358Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:23:09.358Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:24:09.130Z] INFO: Fetching all members...
+[2024-12-11T14:24:09.351Z] INFO: All members fetched
+[2024-12-11T14:24:09.351Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:24:09.351Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:24:09.352Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:25:09.130Z] INFO: Fetching all members...
+[2024-12-11T14:25:09.377Z] INFO: All members fetched
+[2024-12-11T14:25:09.377Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:25:09.378Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:25:09.378Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:26:09.128Z] INFO: Fetching all members...
+[2024-12-11T14:26:09.347Z] INFO: All members fetched
+[2024-12-11T14:26:09.347Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:26:09.347Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:26:09.347Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:27:09.124Z] INFO: Fetching all members...
+[2024-12-11T14:27:09.347Z] INFO: All members fetched
+[2024-12-11T14:27:09.348Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:27:09.348Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:27:09.348Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:28:09.125Z] INFO: Fetching all members...
+[2024-12-11T14:28:09.319Z] INFO: All members fetched
+[2024-12-11T14:28:09.319Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:28:09.320Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:28:09.320Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:29:09.122Z] INFO: Fetching all members...
+[2024-12-11T14:29:09.397Z] INFO: All members fetched
+[2024-12-11T14:29:09.397Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:29:09.398Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:29:09.398Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:30:09.121Z] INFO: Fetching all members...
+[2024-12-11T14:30:09.397Z] INFO: All members fetched
+[2024-12-11T14:30:09.398Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:30:09.398Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:30:09.398Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:30:44.037Z] INFO: Starting bot...
+[2024-12-11T14:30:44.043Z] INFO: API Key: qu9ul8
+[2024-12-11T14:30:44.046Z] INFO: Server running on port 5001
+[2024-12-11T14:30:45.396Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T14:30:45.795Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T14:31:01.082Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733927460452-Screenshot_2024-12-11_at_15.16.46.png?ex=675af3a3&is=6759a223&hm=c93a7fd5ab62c4af2463cf0a087f52cd603e01e88f644dc00333afd10be8a0a0&
+[2024-12-11T14:31:01.709Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T14:31:01.710Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T14:31:01.711Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T14:31:01.711Z] INFO: User ID for Ripii: undefined
+[2024-12-11T14:31:01.711Z] INFO: User ID not found for name: Ripii
+[2024-12-11T14:31:01.711Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T14:31:01.711Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T14:31:01.711Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T14:31:01.711Z] INFO: User ID for Napocalypse: 519658224312516609
+[2024-12-11T14:31:01.718Z] ERROR: Error processing image: error: null value in column "username" of relation "attendance" violates not-null constraint
+    at /Users/szymonsamus/attendance-tracker-dev/node_modules/pg/lib/client.js:535:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:94:17)
+    at async Client.interactionCreate (/Users/szymonsamus/attendance-tracker-dev/events/interactionCreate.js:12:9)
+[2024-12-11T14:31:45.795Z] INFO: Fetching all members...
+[2024-12-11T14:31:46.034Z] INFO: All members fetched
+[2024-12-11T14:31:46.034Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:31:46.035Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:31:46.036Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:32:19.289Z] INFO: Starting bot...
+[2024-12-11T14:32:19.291Z] INFO: API Key: qu9ul8
+[2024-12-11T14:32:19.293Z] INFO: Server running on port 5001
+[2024-12-11T14:32:20.937Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T14:32:21.548Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T14:32:41.544Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733927561156-Screenshot_2024-12-11_at_15.16.46.png?ex=675af408&is=6759a288&hm=692edff935f8354a862678b8405670ce8475742518f583ced19b4b9f13b1cb9e&
+[2024-12-11T14:32:42.089Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T14:32:42.089Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T14:32:42.089Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T14:32:42.089Z] INFO: User ID for Ripii: undefined
+[2024-12-11T14:32:42.089Z] INFO: User ID not found for name: Ripii
+[2024-12-11T14:32:42.089Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T14:32:42.089Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T14:32:42.089Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T14:32:42.089Z] INFO: User ID for Napocalypse: 519658224312516609
+[2024-12-11T14:33:21.552Z] INFO: Fetching all members...
+[2024-12-11T14:33:21.756Z] INFO: All members fetched
+[2024-12-11T14:33:21.757Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:33:21.758Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:33:21.759Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:34:21.546Z] INFO: Fetching all members...
+[2024-12-11T14:34:21.715Z] INFO: All members fetched
+[2024-12-11T14:34:21.715Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:34:21.715Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:34:21.715Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:35:21.543Z] INFO: Fetching all members...
+[2024-12-11T14:35:21.748Z] INFO: All members fetched
+[2024-12-11T14:35:21.748Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:35:21.748Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:35:21.749Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:36:21.543Z] INFO: Fetching all members...
+[2024-12-11T14:36:22.116Z] INFO: All members fetched
+[2024-12-11T14:36:22.116Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:36:22.116Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:36:22.116Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:37:21.541Z] INFO: Fetching all members...
+[2024-12-11T14:37:21.721Z] INFO: All members fetched
+[2024-12-11T14:37:21.721Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:37:21.722Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:37:21.722Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:38:21.539Z] INFO: Fetching all members...
+[2024-12-11T14:38:21.742Z] INFO: All members fetched
+[2024-12-11T14:38:21.742Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:38:21.743Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:38:21.743Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:39:21.536Z] INFO: Fetching all members...
+[2024-12-11T14:39:21.751Z] INFO: All members fetched
+[2024-12-11T14:39:21.752Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:39:21.752Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:39:21.752Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:40:21.534Z] INFO: Fetching all members...
+[2024-12-11T14:40:21.696Z] INFO: All members fetched
+[2024-12-11T14:40:21.696Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:40:21.697Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:40:21.697Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:41:21.533Z] INFO: Fetching all members...
+[2024-12-11T14:41:21.711Z] INFO: All members fetched
+[2024-12-11T14:41:21.712Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:41:21.712Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:41:21.712Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:41:57.189Z] INFO: Starting bot...
+[2024-12-11T14:41:57.194Z] INFO: API Key: qu9ul8
+[2024-12-11T14:41:57.196Z] INFO: Server running on port 5001
+[2024-12-11T14:41:58.696Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T14:41:59.072Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T14:42:21.502Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733928140884-Screenshot_2024-12-11_at_15.16.46.png?ex=675af64b&is=6759a4cb&hm=1121de5ebcba4b3e8d3f25d851ce31d9b83aead42dba970ddec54250ffe10e56&
+[2024-12-11T14:42:22.074Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T14:42:22.074Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T14:42:22.074Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T14:42:22.074Z] INFO: User ID for Ripii: undefined
+[2024-12-11T14:42:22.074Z] INFO: User ID not found for name: Ripii
+[2024-12-11T14:42:22.075Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T14:42:22.075Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T14:42:22.075Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T14:42:22.075Z] INFO: User ID for Napocalypse: 519658224312516609
+[2024-12-11T14:42:59.075Z] INFO: Fetching all members...
+[2024-12-11T14:42:59.300Z] INFO: All members fetched
+[2024-12-11T14:42:59.300Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:42:59.302Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:42:59.304Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:43:59.073Z] INFO: Fetching all members...
+[2024-12-11T14:43:59.288Z] INFO: All members fetched
+[2024-12-11T14:43:59.289Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:43:59.289Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:43:59.289Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:44:59.070Z] INFO: Fetching all members...
+[2024-12-11T14:44:59.283Z] INFO: All members fetched
+[2024-12-11T14:44:59.283Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:44:59.286Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:44:59.286Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:45:59.068Z] INFO: Fetching all members...
+[2024-12-11T14:45:59.365Z] INFO: All members fetched
+[2024-12-11T14:45:59.365Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:45:59.365Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:45:59.365Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:46:59.065Z] INFO: Fetching all members...
+[2024-12-11T14:46:59.410Z] INFO: All members fetched
+[2024-12-11T14:46:59.411Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:46:59.411Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:46:59.411Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:47:59.066Z] INFO: Fetching all members...
+[2024-12-11T14:47:59.269Z] INFO: All members fetched
+[2024-12-11T14:47:59.269Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:47:59.269Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:47:59.270Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:48:59.062Z] INFO: Fetching all members...
+[2024-12-11T14:48:59.267Z] INFO: All members fetched
+[2024-12-11T14:48:59.267Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:48:59.268Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:48:59.268Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:49:59.060Z] INFO: Fetching all members...
+[2024-12-11T14:49:59.247Z] INFO: All members fetched
+[2024-12-11T14:49:59.247Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:49:59.248Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:49:59.248Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:50:59.057Z] INFO: Fetching all members...
+[2024-12-11T14:50:59.286Z] INFO: All members fetched
+[2024-12-11T14:50:59.286Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:50:59.287Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:50:59.287Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:51:59.054Z] INFO: Fetching all members...
+[2024-12-11T14:51:59.218Z] INFO: All members fetched
+[2024-12-11T14:51:59.218Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:51:59.218Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:51:59.218Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:52:59.059Z] INFO: Fetching all members...
+[2024-12-11T14:52:59.231Z] INFO: All members fetched
+[2024-12-11T14:52:59.232Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:52:59.232Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:52:59.233Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:53:59.066Z] INFO: Fetching all members...
+[2024-12-11T14:53:59.268Z] INFO: All members fetched
+[2024-12-11T14:53:59.269Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:53:59.269Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:53:59.270Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:54:59.066Z] INFO: Fetching all members...
+[2024-12-11T14:54:59.289Z] INFO: All members fetched
+[2024-12-11T14:54:59.289Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:54:59.290Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:54:59.290Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:55:59.062Z] INFO: Fetching all members...
+[2024-12-11T14:55:59.324Z] INFO: All members fetched
+[2024-12-11T14:55:59.325Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:55:59.325Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:55:59.325Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:56:59.061Z] INFO: Fetching all members...
+[2024-12-11T14:56:59.251Z] INFO: All members fetched
+[2024-12-11T14:56:59.251Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:56:59.251Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:56:59.251Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:57:59.060Z] INFO: Fetching all members...
+[2024-12-11T14:57:59.282Z] INFO: All members fetched
+[2024-12-11T14:57:59.282Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:57:59.282Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:57:59.282Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:58:59.059Z] INFO: Fetching all members...
+[2024-12-11T14:58:59.230Z] INFO: All members fetched
+[2024-12-11T14:58:59.230Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:58:59.230Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:58:59.230Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:59:59.058Z] INFO: Fetching all members...
+[2024-12-11T14:59:59.276Z] INFO: All members fetched
+[2024-12-11T14:59:59.276Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T14:59:59.277Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T14:59:59.277Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:00:59.056Z] INFO: Fetching all members...
+[2024-12-11T15:00:59.237Z] INFO: All members fetched
+[2024-12-11T15:00:59.237Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:00:59.237Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:00:59.238Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:01:59.054Z] INFO: Fetching all members...
+[2024-12-11T15:01:59.264Z] INFO: All members fetched
+[2024-12-11T15:01:59.264Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:01:59.265Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:01:59.265Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:02:59.052Z] INFO: Fetching all members...
+[2024-12-11T15:02:59.234Z] INFO: All members fetched
+[2024-12-11T15:02:59.234Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:02:59.234Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:02:59.234Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:03:19.674Z] INFO: Starting bot...
+[2024-12-11T15:03:19.679Z] INFO: API Key: qu9ul8
+[2024-12-11T15:03:19.682Z] INFO: Server running on port 5001
+[2024-12-11T15:03:21.319Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T15:03:21.684Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T15:03:35.141Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733929414525-Screenshot_2024-12-11_at_15.16.46.png?ex=675afb45&is=6759a9c5&hm=4c4df37ad6828c4e9328c78e4f82aaaefb0903489a7250a16a3d440c5d1b3485&
+[2024-12-11T15:03:35.672Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T15:03:35.672Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T15:03:35.672Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T15:03:35.672Z] INFO: User ID for Ripii: undefined
+[2024-12-11T15:03:35.672Z] INFO: User ID not found for name: Ripii
+[2024-12-11T15:03:35.672Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T15:03:35.672Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T15:03:35.673Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T15:03:35.673Z] INFO: User ID for Napocalypse: 519658224312516609
+[2024-12-11T15:03:35.680Z] ERROR: Error processing image: error: column "guild" of relation "attendance" does not exist
+    at /Users/szymonsamus/attendance-tracker-dev/node_modules/pg/lib/client.js:535:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Object.execute (/Users/szymonsamus/attendance-tracker-dev/commands/attendance.js:107:17)
+    at async Client.interactionCreate (/Users/szymonsamus/attendance-tracker-dev/events/interactionCreate.js:12:9)
+[2024-12-11T15:04:21.685Z] INFO: Fetching all members...
+[2024-12-11T15:04:21.866Z] INFO: All members fetched
+[2024-12-11T15:04:21.867Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:04:21.867Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:04:21.867Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:05:21.684Z] INFO: Fetching all members...
+[2024-12-11T15:05:21.951Z] INFO: All members fetched
+[2024-12-11T15:05:21.952Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:05:21.953Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:05:21.953Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:05:27.988Z] INFO: Starting bot...
+[2024-12-11T15:05:27.990Z] INFO: API Key: qu9ul8
+[2024-12-11T15:05:27.993Z] INFO: Server running on port 5001
+[2024-12-11T15:05:29.728Z] INFO: Logged in as AttendanceTest#9258
+[2024-12-11T15:05:30.216Z] INFO: Successfully registered application (/) commands.
+[2024-12-11T15:05:41.707Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733929540780-Screenshot_2024-12-11_at_15.16.46.png?ex=675afbc3&is=6759aa43&hm=2d6db63e92898eab68f53567fbac18d80cd63224ed59ae793b4a53c6800089c8&
+[2024-12-11T15:05:42.286Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T15:05:42.286Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T15:05:42.287Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T15:05:42.287Z] INFO: User ID for Ripii: undefined
+[2024-12-11T15:05:42.287Z] INFO: User ID not found for name: Ripii
+[2024-12-11T15:05:42.287Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T15:05:42.287Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T15:05:42.287Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T15:05:42.287Z] INFO: User ID for Napocalypse: 519658224312516609
+[2024-12-11T15:06:30.218Z] INFO: Fetching all members...
+[2024-12-11T15:06:30.474Z] INFO: All members fetched
+[2024-12-11T15:06:30.474Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:06:30.476Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:06:30.476Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:07:30.214Z] INFO: Fetching all members...
+[2024-12-11T15:07:30.446Z] INFO: All members fetched
+[2024-12-11T15:07:30.447Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:07:30.447Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:07:30.447Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:08:30.213Z] INFO: Fetching all members...
+[2024-12-11T15:08:30.604Z] INFO: All members fetched
+[2024-12-11T15:08:30.605Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:08:30.605Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:08:30.605Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:09:30.249Z] INFO: Fetching all members...
+[2024-12-11T15:09:30.483Z] INFO: All members fetched
+[2024-12-11T15:09:30.483Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:09:30.483Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:09:30.483Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:10:30.248Z] INFO: Fetching all members...
+[2024-12-11T15:10:30.480Z] INFO: All members fetched
+[2024-12-11T15:10:30.480Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:10:30.481Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:10:30.481Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:11:30.248Z] INFO: Fetching all members...
+[2024-12-11T15:11:30.476Z] INFO: All members fetched
+[2024-12-11T15:11:30.476Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:11:30.476Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:11:30.477Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:12:30.248Z] INFO: Fetching all members...
+[2024-12-11T15:12:30.466Z] INFO: All members fetched
+[2024-12-11T15:12:30.466Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:12:30.467Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:12:30.467Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:13:30.246Z] INFO: Fetching all members...
+[2024-12-11T15:13:30.464Z] INFO: All members fetched
+[2024-12-11T15:13:30.464Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:13:30.465Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:13:30.465Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:14:02.777Z] INFO: Images downloaded: /Users/szymonsamus/attendance-tracker-dev/images/1733930042158-Screenshot_2024-12-11_at_15.16.46.png?ex=675afdb9&is=6759ac39&hm=a7933cadebed5ef852e724255d161ae68aaa25bdd2284e459abdfc1225134fb6&
+[2024-12-11T15:14:03.385Z] INFO: User ID for Hissingen: undefined
+[2024-12-11T15:14:03.386Z] INFO: User ID not found for name: Hissingen
+[2024-12-11T15:14:03.386Z] INFO: User ID for vonCloud: 1274175297335590934
+[2024-12-11T15:14:03.386Z] INFO: User ID for Ripii: undefined
+[2024-12-11T15:14:03.387Z] INFO: User ID not found for name: Ripii
+[2024-12-11T15:14:03.387Z] INFO: User ID for LordLucky: undefined
+[2024-12-11T15:14:03.387Z] INFO: User ID not found for name: LordLucky
+[2024-12-11T15:14:03.387Z] INFO: User ID for Ewaldi: 283998029038616576
+[2024-12-11T15:14:03.387Z] INFO: User ID for Napocalypse: 519658224312516609
+[2024-12-11T15:14:30.245Z] INFO: Fetching all members...
+[2024-12-11T15:14:30.468Z] INFO: All members fetched
+[2024-12-11T15:14:30.468Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:14:30.469Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:14:30.469Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:15:30.243Z] INFO: Fetching all members...
+[2024-12-11T15:15:30.475Z] INFO: All members fetched
+[2024-12-11T15:15:30.475Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:15:30.476Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:15:30.476Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:16:30.242Z] INFO: Fetching all members...
+[2024-12-11T15:16:30.448Z] INFO: All members fetched
+[2024-12-11T15:16:30.448Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:16:30.451Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:16:30.451Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:17:30.241Z] INFO: Fetching all members...
+[2024-12-11T15:17:30.516Z] INFO: All members fetched
+[2024-12-11T15:17:30.516Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:17:30.516Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:17:30.516Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:18:30.239Z] INFO: Fetching all members...
+[2024-12-11T15:18:30.478Z] INFO: All members fetched
+[2024-12-11T15:18:30.478Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:18:30.478Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:18:30.478Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:19:30.248Z] INFO: Fetching all members...
+[2024-12-11T15:19:30.463Z] INFO: All members fetched
+[2024-12-11T15:19:30.464Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:19:30.464Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:19:30.464Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:20:30.247Z] INFO: Fetching all members...
+[2024-12-11T15:20:30.523Z] INFO: All members fetched
+[2024-12-11T15:20:30.523Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:20:30.524Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:20:30.524Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:21:30.246Z] INFO: Fetching all members...
+[2024-12-11T15:21:30.596Z] INFO: All members fetched
+[2024-12-11T15:21:30.596Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:21:30.597Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:21:30.597Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:22:30.245Z] INFO: Fetching all members...
+[2024-12-11T15:22:30.511Z] INFO: All members fetched
+[2024-12-11T15:22:30.511Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:22:30.512Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:22:30.512Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:23:30.244Z] INFO: Fetching all members...
+[2024-12-11T15:23:30.665Z] INFO: All members fetched
+[2024-12-11T15:23:30.666Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:23:30.666Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:23:30.667Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:24:30.235Z] INFO: Fetching all members...
+[2024-12-11T15:24:30.450Z] INFO: All members fetched
+[2024-12-11T15:24:30.450Z] INFO: Fetched Members: AttendanceTest, shhmon, scream4me, _herzog, kymel_, sirewald, ifap2handedbby, voncloudy
+[2024-12-11T15:24:30.450Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud
+[2024-12-11T15:24:30.451Z] INFO: Members with role: Napocalypse, scream4me, Hasrudiin, kymel_, Ewaldi, ifap2handedbby, vonCloud

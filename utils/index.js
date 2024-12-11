@@ -4,21 +4,21 @@ const axios = require('axios');
 const logger = require('./logger');
 const { setNames } = require('./state');
 
-const ATTENDANCE_FILE = path.join(__dirname, '..', 'data', 'attendance.json');
+// const ATTENDANCE_FILE = path.join(__dirname, '..', 'data', 'attendance.json');
 const IMAGES_DIR = path.join(__dirname, '..', 'images');
 
-let attendanceLog = [];
-if (fs.existsSync(ATTENDANCE_FILE)) {
-    attendanceLog = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
-}
+// let attendanceLog = [];
+// if (fs.existsSync(ATTENDANCE_FILE)) {
+//     attendanceLog = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
+// }
 
-function saveAttendance() {
-    try {
-        fs.writeFileSync(ATTENDANCE_FILE, JSON.stringify(attendanceLog, null, 2));
-    } catch (error) {
-        logger.error('Error saving attendance log:', error);
-    }
-}
+// function saveAttendance() {
+//     try {
+//         fs.writeFileSync(ATTENDANCE_FILE, JSON.stringify(attendanceLog, null, 2));
+//     } catch (error) {
+//         logger.error('Error saving attendance log:', error);
+//     }
+// }
 
 async function downloadImage(url, filepath) {
     const response = await axios({
@@ -112,11 +112,11 @@ function cleanupOldImages() {
 }
 
 module.exports = {
-    saveAttendance,
+    // saveAttendance,
     downloadImage,
     extractNames,
     initializeBot,
-    attendanceLog,
+    // attendanceLog,
     IMAGES_DIR,
     cleanupOldImages,
 };

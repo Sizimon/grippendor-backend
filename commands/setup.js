@@ -128,28 +128,5 @@ module.exports = {
             console.error('Error saving guild configuration:', error);
             await interaction.reply('An error occurred while saving the configuration. Please try again.');
         }
-
-        //  fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
-
-        // await interaction.reply(`
-        //     Configuration saved! \n 
-        //     You can now start using the Guild Manager bot. \n
-        //     The bot is only usable in the configured channel. (${channel}) \n
-        //     Your dashboard is customised with the following settings: \n
-        //     Title: ${title} \n
-        //     Color: ${color} \n
-        //     Icon: ${icon} \n
-        //     \n
-        //     Your main members will be tracked with the following role: ${primaryRole} \n
-        //     \n 
-        //     For the party making functionality, you have set your roles as follows: \n
-        //     Tank Role: ${tankRole} \n
-        //     Healer Role: ${healerRole} \n
-        //     DPS Role: ${dpsRole} \n
-        // `);
-
-        // Initialize the bot with the new configuration
-        // const client = require('../client');
-        // await initializeBot(client, config);
     }
 };

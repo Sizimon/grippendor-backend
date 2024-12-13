@@ -78,17 +78,6 @@ module.exports = {
             }).filter(entry => entry !== null);
 
             for (const entry of attendanceEntries) {
-                // Insert or update the user in the Users table
-                const userQuery = `
-                    INSERT INTO Users (user_id, username, total_count)
-                    VALUES ($1, $2, 1)
-                    ON CONFLICT (user_id)
-                    DO UPDATE SET total_count = Users.total_count + 1,
-                                  updated_at = CURRENT_TIMESTAMP;
-                `;
-                const userValues = [entry.user_id, entry.username];
-                await dbClient.query(userQuery, userValues);
-
                 // Insert or update the attendance record in the Attendance table
                 const attendanceQuery = `
                     INSERT INTO Attendance (guild_id, user_id, username, date, occurrence_counter)
@@ -101,14 +90,14 @@ module.exports = {
                 await dbClient.query(attendanceQuery, attendanceValues);
 
                 // Insert or update the guild-user relationship in the GuildUsers table
-                const guildUserQuery = `
-                    INSERT INTO GuildUsers (guild, user_id)
-                    VALUES ($1, $2)
-                    ON CONFLICT (guild, user_id)
-                    DO NOTHING;
+                const updateGuildUserQuery = `
+                UPDATE GuildUsers
+                SET total_count = total_count + 1,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE guild = $1 AND user_id = $2;
                 `;
-                const guildUserValues = [entry.guild_id, entry.user_id];
-                await dbClient.query(guildUserQuery, guildUserValues);
+                const updateGuildUserValues = [entry.guild_id, entry.user_id];
+                await dbClient.query(updateGuildUserQuery, updateGuildUserValues);
             }
 
             const formattedMatchedNames = matchedNames.map((name, index) => `${index + 1}. ${name}`).join('\n');

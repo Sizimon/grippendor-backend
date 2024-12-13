@@ -20,15 +20,6 @@ const dbClient = new Client({
 
 dbClient.connect();
 
-// const CONFIG_FILE = path.join(__dirname, 'config.json');
-
-// // Load Existing Configuration or Create a new one
-// let config = {};
-// if (fs.existsSync(CONFIG_FILE)) {
-//     config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
-// }
-// // End
-
 async function loadConfig(guildId) {
     if (!guildId || isNaN(guildId)) {
         logger.error('Invalid guild ID:', guildId);
@@ -63,23 +54,6 @@ logger.log('Starting bot...');
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-// Store attendance in file instead of memory
-const ATTENDANCE_FILE = path.join(__dirname, 'data', 'attendance.json');
-if (!fs.existsSync(path.dirname(ATTENDANCE_FILE))) {
-    fs.mkdirSync(path.dirname(ATTENDANCE_FILE), { recursive: true });
-}
-
-try {
-    if (fs.existsSync(ATTENDANCE_FILE)) {
-        const fileData = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
-        attendanceLog.length = 0;
-        attendanceLog.push(...fileData);
-    }
-} catch (error) {
-    logger.error('Error loading attendance log:', error);
-}
-// End
 
 // Run cleanup every hour
 setInterval(cleanupOldImages, 3600000);
@@ -116,17 +90,6 @@ app.get('/config/:guildId', async (req, res) => {
     } else {
         res.status(404).json({ error: 'Config not found' });
     }
-    // try {
-    //     if (fs.existsSync(CONFIG_FILE)) {
-    //         config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
-    //     }
-    //     res.setHeader('Content-Type', 'application/json');   
-    //     res.setHeader('Cache-Control', 'no-store');
-    //     res.json(config);
-    // } catch (error) {
-    //     logger.error('Error fetching config:', error);
-    //     res.status(500).json({ error: 'Internal Server Error' });
-    // }
 });
 // End
 

@@ -3,22 +3,20 @@ const path = require('path');
 const axios = require('axios');
 const logger = require('./logger');
 const { setNames } = require('./state');
+const { Client } = require('pg');
 
-// const ATTENDANCE_FILE = path.join(__dirname, '..', 'data', 'attendance.json');
+// PostgreSQL client
+const dbClient = new Client({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+});
+
+dbClient.connect();
+
 const IMAGES_DIR = path.join(__dirname, '..', 'images');
-
-// let attendanceLog = [];
-// if (fs.existsSync(ATTENDANCE_FILE)) {
-//     attendanceLog = JSON.parse(fs.readFileSync(ATTENDANCE_FILE, 'utf8'));
-// }
-
-// function saveAttendance() {
-//     try {
-//         fs.writeFileSync(ATTENDANCE_FILE, JSON.stringify(attendanceLog, null, 2));
-//     } catch (error) {
-//         logger.error('Error saving attendance log:', error);
-//     }
-// }
 
 async function downloadImage(url, filepath) {
     const response = await axios({
@@ -68,11 +66,57 @@ async function initializeBot(client, config) {
         logger.log('Fetching all members...');
         await guild.members.fetch();
         logger.log('All members fetched');
+
         const members = guild.members.cache;
-        logger.log(`Fetched Members: ${members.map(member => member.user.username).join(', ')}`);
+        logger.log(`Fetched Members: ${members.map(member => member.user ? member.user.username : 'undefined').join(', ')}`);
 
         const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
-        logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.user.username).join(', ')}`);
+        logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.displayName).join(', ')}`);
+
+        for (const [id, member] of membersWithRole) {
+            const userId = id;
+            const username = member.nickname || member.displayName;
+            
+            if(!userId || !username) {
+                logger.error('Invalid user ID or username:', userId, username);
+                continue;
+            }
+
+            logger.log(`Updating user: ${userId}, ${username}`);
+
+            const userQuery = `
+                INSERT INTO Users (user_id, username, updated_at)
+                VALUES ($1, $2, CURRENT_TIMESTAMP)
+                ON CONFLICT (user_id)
+                DO UPDATE SET username = EXCLUDED.username,
+                              updated_at = CURRENT_TIMESTAMP;
+            `;
+            const userValues = [userId, username];
+            await dbClient.query(userQuery, userValues);
+
+            const guildUserQuery = `
+                INSERT INTO GuildUsers (guild, user_id, username, total_count, updated_at)
+                VALUES ($1, $2, $3, 0, CURRENT_TIMESTAMP)
+                ON CONFLICT (guild, user_id)
+                DO UPDATE SET username = EXCLUDED.username,
+                              updated_at = CURRENT_TIMESTAMP;
+            `;
+            const guildUserValues = [guild.id, userId, username];
+            await dbClient.query(guildUserQuery, guildUserValues);
+        }
+
+        // Remove users from the database if they no longer have the primary role
+        const allUserIds = members.map(member => member.id);
+        const userIdsWithRole = membersWithRole.map(member => member.id);
+        const userIdsToRemove = allUserIds.filter(id => !userIdsWithRole.includes(id));
+
+        for (const userId of userIdsToRemove) {
+            const deleteGuildUserQuery = `
+                DELETE FROM GuildUsers
+                WHERE guild = $1 AND user_id = $2;
+            `;
+            await dbClient.query(deleteGuildUserQuery, [guild.id, userId]);
+        }
 
         const names = membersWithRole.map(member => {
             const memberRoles = additionalRoles.filter(role => member.roles.cache.has(role.id)).map(role => role.name);

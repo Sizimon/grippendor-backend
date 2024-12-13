@@ -47,7 +47,7 @@ client.once('ready', async () => {
         config = JSON.parse(fs.readFileSync(CONFIG_FILE, 'utf8'));
     }
 
-    // Periodically run initialization to check for new members
+    // Periodically run initialization to check for new members (also dictates how fast data is fetched on startup)
     setInterval(async () => {
         const { initializeBot } = require('./utils/index.js'); // Import initializeBot here to avoid circular dependency
         await initializeBot(client, config);

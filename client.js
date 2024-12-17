@@ -51,7 +51,7 @@ client.once('ready', async () => {
     setInterval(async () => {
         const { initializeBot } = require('./utils/index.js'); // Import initializeBot here to avoid circular dependency
         await initializeBot(client, config);
-    }, 60000);
+    }, 10000);
 });
 
 // Import and use the interactionCreate event handler

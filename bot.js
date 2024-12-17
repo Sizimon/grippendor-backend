@@ -5,7 +5,7 @@ const path = require('path');
 require('dotenv').config();
 const logger = require('./utils/logger');
 const client = require('./client'); // Import the client
-const { saveAttendance, cleanupOldImages, attendanceLog } = require('./utils'); // Import utility functions
+const { cleanupOldImages } = require('./utils'); // Import utility functions
 const { getNames } = require('./utils/state');
 const { Client } = require('pg');
 

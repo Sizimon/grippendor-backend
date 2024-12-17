@@ -76,8 +76,12 @@ async function initializeBot(client, config) {
         for (const [id, member] of membersWithRole) {
             const userId = id;
             const username = member.nickname || member.displayName;
-            
-            if(!userId || !username) {
+
+            const hasTankRole = member.roles.cache.has(config.tankRole);
+            const hasHealerRole = member.roles.cache.has(config.healerRole);
+            const hasDpsRole = member.roles.cache.has(config.dpsRole);
+
+            if (!userId || !username) {
                 logger.error('Invalid user ID or username:', userId, username);
                 continue;
             }
@@ -95,43 +99,78 @@ async function initializeBot(client, config) {
             await dbClient.query(userQuery, userValues);
 
             const guildUserQuery = `
-                INSERT INTO GuildUsers (guild, user_id, username, total_count, updated_at)
-                VALUES ($1, $2, $3, 0, CURRENT_TIMESTAMP)
+                INSERT INTO GuildUsers (guild, user_id, username, total_count, updated_at, tank, healer, dps)
+                VALUES ($1, $2, $3, 0, CURRENT_TIMESTAMP, $4, $5, $6)
                 ON CONFLICT (guild, user_id)
                 DO UPDATE SET username = EXCLUDED.username,
-                              updated_at = CURRENT_TIMESTAMP;
+                              updated_at = CURRENT_TIMESTAMP,
+                              tank = EXCLUDED.tank,
+                              healer = EXCLUDED.healer,
+                              dps = EXCLUDED.dps;
             `;
-            const guildUserValues = [guild.id, userId, username];
+            const guildUserValues = [guild.id, userId, username, hasTankRole, hasHealerRole, hasDpsRole];
             await dbClient.query(guildUserQuery, guildUserValues);
         }
 
         // Remove users from the database if they no longer have the primary role
         const allUserIds = members.map(member => member.id);
         const userIdsWithRole = membersWithRole.map(member => member.id);
-        const userIdsToRemove = allUserIds.filter(id => !userIdsWithRole.includes(id));
+        const userIdsToRemove = await dbClient.query(`
+            SELECT user_id FROM GuildUsers WHERE guild = $1 AND user_id NOT IN (${userIdsWithRole.map(id => `'${id}'`).join(', ')})
+        `, [guild.id]);
 
-        for (const userId of userIdsToRemove) {
+        for (const { user_id } of userIdsToRemove.rows) {
             const deleteGuildUserQuery = `
-                DELETE FROM GuildUsers
-                WHERE guild = $1 AND user_id = $2;
-            `;
-            await dbClient.query(deleteGuildUserQuery, [guild.id, userId]);
+            DELETE FROM GuildUsers
+            WHERE guild = $1 AND user_id = $2;
+        `;
+            await dbClient.query(deleteGuildUserQuery, [guild.id, user_id]);
         }
+        // const allUserIds = members.map(member => member.id);
+        // const userIdsWithRole = membersWithRole.map(member => member.id);
+        // const userIdsToRemove = allUserIds.filter(id => !userIdsWithRole.includes(id));
 
-        const names = membersWithRole.map(member => {
-            const memberRoles = additionalRoles.filter(role => member.roles.cache.has(role.id)).map(role => role.name);
-            if (memberRoles.length > 0) {
-                return {
-                    name: member.nickname || member.user.username,
-                    roles: memberRoles
-                };
-            } else {
-                return {
-                    name: member.nickname || member.user.username,
-                    roles: []
-                };
-            }
+        // for (const userId of userIdsToRemove) {
+        //     const deleteGuildUserQuery = `
+        //         DELETE FROM GuildUsers
+        //         WHERE guild = $1 AND user_id = $2;
+        //     `;
+        //     await dbClient.query(deleteGuildUserQuery, [guild.id, userId]);
+        // }
+
+        const guildUsers = await dbClient.query(`
+                SELECT user_id, username, username, tank, healer, dps FROM GuildUsers WHERE guild = $1
+            `, [guild.id]);
+
+        const names = guildUsers.rows.map(user => {
+            const roles = [];
+            if (user.tank) roles.push('Tank');
+            if (user.healer) roles.push('Healer');
+            if (user.dps) roles.push('DPS');
+            return {
+                name: user.username,
+                roles: roles
+            };
         });
+
+        logger.log(names);
+        logger.log(names.map(member => member.name).join(', '));
+        logger.log(names.map(member => member.roles).join(', '));
+
+        // const names = membersWithRole.map(member => {
+        //     const memberRoles = additionalRoles.filter(role => member.roles.cache.has(role.id)).map(role => role.name);
+        //     if (memberRoles.length > 0) {
+        //         return {
+        //             name: member.nickname || member.user.username,
+        //             roles: memberRoles
+        //         };
+        //     } else {
+        //         return {
+        //             name: member.nickname || member.user.username,
+        //             roles: []
+        //         };
+        //     }
+        // });
         setNames(names);
         logger.log(`Members with role: ${names.map(member => member.name).join(', ')}`);
     } catch (error) {
@@ -156,11 +195,9 @@ function cleanupOldImages() {
 }
 
 module.exports = {
-    // saveAttendance,
     downloadImage,
     extractNames,
     initializeBot,
-    // attendanceLog,
     IMAGES_DIR,
     cleanupOldImages,
 };

@@ -42,6 +42,31 @@ async function loadConfig(guildId) {
     }
 }
 
+
+
+async function loadAttendanceLog(guildId) {
+    if (!guildId || isNaN(guildId)) {
+        logger.error('Invalid guild ID:', guildId);
+        return null;
+    }
+
+    const query = 'SELECT * FROM Attendance WHERE guild_id = $1';
+    const values = [guildId];
+
+    try {
+        const res = await dbClient.query(query, values);
+        if (res.rows.length > 0) {
+            return res.rows;
+        } else {
+            logger.error('Attendance log not found for guild:', guildId);
+            return null;
+        }
+    } catch (error) {
+        logger.error('Error loading attendance log from database:', error);
+        return null;
+    }
+}
+
 // Ensure images directory exists
 const IMAGES_DIR = path.join(__dirname, 'images');
 if (!fs.existsSync(IMAGES_DIR)) {
@@ -72,11 +97,20 @@ app.use((req, res, next) => {
 });
 
 app.get('/names', (req, res) => {
-    res.json(getNames());
+    res.json(getNames()); 
 });
 
-app.get('/attendance', (req, res) => {
-    res.json(attendanceLog);
+app.get('/attendance/:guildId', async (req, res) => {
+    const guildId = req.params.guildId;
+    if (!guildId || isNaN(guildId)) {
+        return res.status(400).json({ error: 'Invalid guild ID' });
+    }
+    const attendance = await loadAttendanceLog(guildId);
+    if (attendance) {
+        res.json(attendance);
+    } else {
+        res.status(404).json({ error: 'Attendance log not found' });
+    }
 });
 
 app.get('/config/:guildId', async (req, res) => {

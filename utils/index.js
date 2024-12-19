@@ -126,17 +126,6 @@ async function initializeBot(client, config) {
         `;
             await dbClient.query(deleteGuildUserQuery, [guild.id, user_id]);
         }
-        // const allUserIds = members.map(member => member.id);
-        // const userIdsWithRole = membersWithRole.map(member => member.id);
-        // const userIdsToRemove = allUserIds.filter(id => !userIdsWithRole.includes(id));
-
-        // for (const userId of userIdsToRemove) {
-        //     const deleteGuildUserQuery = `
-        //         DELETE FROM GuildUsers
-        //         WHERE guild = $1 AND user_id = $2;
-        //     `;
-        //     await dbClient.query(deleteGuildUserQuery, [guild.id, userId]);
-        // }
 
         const guildUsers = await dbClient.query(`
                 SELECT user_id, username, username, tank, healer, dps FROM GuildUsers WHERE guild = $1
@@ -153,24 +142,6 @@ async function initializeBot(client, config) {
             };
         });
 
-        logger.log(names);
-        logger.log(names.map(member => member.name).join(', '));
-        logger.log(names.map(member => member.roles).join(', '));
-
-        // const names = membersWithRole.map(member => {
-        //     const memberRoles = additionalRoles.filter(role => member.roles.cache.has(role.id)).map(role => role.name);
-        //     if (memberRoles.length > 0) {
-        //         return {
-        //             name: member.nickname || member.user.username,
-        //             roles: memberRoles
-        //         };
-        //     } else {
-        //         return {
-        //             name: member.nickname || member.user.username,
-        //             roles: []
-        //         };
-        //     }
-        // });
         setNames(names);
         logger.log(`Members with role: ${names.map(member => member.name).join(', ')}`);
     } catch (error) {

@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const { initializeBot } = require('../utils/index.js'); // Import initializeBot
 const CONFIG_FILE = path.join(__dirname, '..', 'config.json');
+const bcrypt = require('bcrypt');
 
 // Create a new PostgreSQL client
 const dbClient = new Client({
@@ -51,6 +52,10 @@ module.exports = {
         .addStringOption(option =>
             option.setName('title')
                 .setDescription('The title for the frontend dashboard')
+                .setRequired(true))
+        .addStringOption(option =>
+            option.setName('password')
+                .setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)')
                 .setRequired(true)),
     async execute(interaction) {
         const channel = interaction.options.getChannel('channel');
@@ -61,6 +66,12 @@ module.exports = {
         const dpsRole = interaction.options.getRole('dps_role');
         const icon = interaction.options.getString('icon');
         const title = interaction.options.getString('title');
+        const password = interaction.options.getString('password');
+
+        // Hash the password using bcrypt
+
+        const saltRounds = 10;
+        const hashedPassword = await bcrypt.hash(password, saltRounds);
 
         const config = {
             guild: interaction.guild.id,
@@ -72,11 +83,12 @@ module.exports = {
             dpsRole: dpsRole.id,
             icon,
             title,
+            password: hashedPassword
         };
 
         const query = `
-            INSERT INTO guilds (guild, channel, color, primaryRole, tankRole, healerRole, dpsRole, icon, title)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+            INSERT INTO guilds (guild, channel, color, primaryRole, tankRole, healerRole, dpsRole, icon, title, password)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
             ON CONFLICT (guild) 
             DO UPDATE SET channel = EXCLUDED.channel,
                           color = EXCLUDED.color,
@@ -86,6 +98,7 @@ module.exports = {
                           dpsRole = EXCLUDED.dpsRole,
                           icon = EXCLUDED.icon,
                           title = EXCLUDED.title,
+                          password = EXCLUDED.password,
                           updated_at = CURRENT_TIMESTAMP;
         `;
         const values = [
@@ -97,7 +110,8 @@ module.exports = {
             config.healerRole,
             config.dpsRole,
             config.icon,
-            config.title
+            config.title,
+            config.password
         ];
 
         try {

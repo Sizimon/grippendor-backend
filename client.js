@@ -49,9 +49,9 @@ client.once('ready', async () => {
 
     // Periodically run initialization to check for new members (also dictates how fast data is fetched on startup)
     setInterval(async () => {
-        const { initializeBot } = require('./utils/index.js'); // Import initializeBot here to avoid circular dependency
-        await initializeBot(client, config);
-    }, 10000);
+    const { initializeBot } = require('./utils/index.js'); // Import initializeBot here to avoid circular dependency
+    await initializeBot(client, config);
+}, 10000); // Run every 60 seconds
 });
 
 // Import and use the interactionCreate event handler

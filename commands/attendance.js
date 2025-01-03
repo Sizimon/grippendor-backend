@@ -22,20 +22,42 @@ module.exports = {
         .setName('attendance')
         .setDescription('Upload Image of Usernames to record attendance')
         .addAttachmentOption(option =>
-            option.setName('images')
+            option.setName('image1')
                 .setDescription('The image containing the attendance list')
-                .setRequired(true)),
+                .setRequired(true))
+        .addAttachmentOption(option =>
+            option.setName('image2')
+                .setDescription('The image containing the attendance list')
+                .setRequired(false))
+        .addAttachmentOption(option =>
+            option.setName('image3')
+                .setDescription('The image containing the attendance list')
+                .setRequired(false))
+        .addAttachmentOption(option =>
+            option.setName('image4')
+                .setDescription('The image containing the attendance list')
+                .setRequired(false))
+        .addAttachmentOption(option =>
+            option.setName('image5')
+                .setDescription('The image containing the attendance list')
+                .setRequired(false)),
     async execute(interaction) {
-        const attachments = interaction.options.getAttachment('images');
+        const attachments = [
+            interaction.options.getAttachment('image1'),
+            interaction.options.getAttachment('image2'),
+            interaction.options.getAttachment('image3'),
+            interaction.options.getAttachment('image4'),
+            interaction.options.getAttachment('image5')
+        ].filter(attachment => attachment !== null);
 
-        if (!attachments) {
+        if (attachments === 0) {
             await interaction.reply('Please upload an image containing the attendance list.');
             return;
         }
 
         await interaction.deferReply();
 
-        const imageUrls = [attachments.url];
+        const imageUrls = attachments.map(attachment => attachment.url);
         const imagePaths = [];
 
         try {
@@ -46,10 +68,16 @@ module.exports = {
                 logger.log(`Images downloaded: ${imagePath}`);
             }
 
-            const names = [];
+            const names = new Set();
             for (const imagePath of imagePaths) {
                 const { data: { text } } = await Tesseract.recognize(imagePath, 'eng');
-                names.push(...extractNames(text));
+                const extractedNames = extractNames(text);
+                extractedNames.forEach(name => names.add(name));
+            }
+
+            if (names.size === 0) {
+                await interaction.editReply('No names were detected in the image.');
+                return;
             }
 
             await interaction.guild.members.fetch();
@@ -60,7 +88,7 @@ module.exports = {
             });
 
             const matchedNames = [];
-            const attendanceEntries = names.map(name => {
+            const attendanceEntries = Array.from(names).map(name => {
                 const userId = memberMap.get(name.toLowerCase());
                 logger.log(`User ID for ${name}: ${userId}`);
                 if (!userId) {
@@ -72,10 +100,15 @@ module.exports = {
                     guild_id: interaction.guild.id,
                     user_id: userId,
                     username: name,
-                    date: new Date().toISOString(),
+                    date: new Date().toISOString(), // Use only the date part
                     occurrence_counter: 1
                 };
             }).filter(entry => entry !== null);
+
+            if (attendanceEntries.length === 0) {
+                await interaction.editReply('No names were detected in the image.');
+                return;
+            }
 
             for (const entry of attendanceEntries) {
                 // Insert or update the attendance record in the Attendance table

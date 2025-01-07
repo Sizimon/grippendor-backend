@@ -11,8 +11,13 @@ const logger = require('./utils/logger');
 const client = require('./client'); // Import the client
 const { cleanupOldImages } = require('./utils'); // Import utility functions
 const { getNames } = require('./utils/state');
+const { initializeBot } = require('./utils/index.js');
+const { loadConfig, loadAttendanceLog } = require('./utils/loaders.js')
 const { Client } = require('pg');
-const exp = require('constants');
+
+const app = express();
+app.use(cors());
+app.use(express.json()); // Parse JSON bodies
 
 // Create a new PostgreSQL client
 const dbClient = new Client({
@@ -25,53 +30,6 @@ const dbClient = new Client({
 
 dbClient.connect();
 
-async function loadConfig(guildId) {
-    if (!guildId || isNaN(guildId)) {
-        logger.error('Invalid guild ID:', guildId);
-        return null;
-    }
-
-    const query = 'SELECT * FROM guilds WHERE guild = $1';
-    const values = [guildId];
-    try {
-        const res = await dbClient.query(query, values);
-        if (res.rows.length > 0) {
-            return res.rows[0];
-        } else {
-            logger.error('Config not found for guild:', guildId);
-            return null;
-        }
-    } catch (error) {
-        logger.error('Error loading config from database:', error);
-        return null;
-    }
-}
-
-
-
-async function loadAttendanceLog(guildId) {
-    if (!guildId || isNaN(guildId)) {
-        logger.error('Invalid guild ID:', guildId);
-        return null;
-    }
-
-    const query = 'SELECT * FROM Attendance WHERE guild_id = $1';
-    const values = [guildId];
-
-    try {
-        const res = await dbClient.query(query, values);
-        if (res.rows.length > 0) {
-            return res.rows;
-        } else {
-            logger.error('Attendance log not found for guild:', guildId);
-            return null;
-        }
-    } catch (error) {
-        logger.error('Error loading attendance log from database:', error);
-        return null;
-    }
-}
-
 // Ensure images directory exists
 const IMAGES_DIR = path.join(__dirname, 'images');
 if (!fs.existsSync(IMAGES_DIR)) {
@@ -81,30 +39,20 @@ if (!fs.existsSync(IMAGES_DIR)) {
 
 logger.log('Starting bot...');
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-
 const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
 
 // Run cleanup every hour
 setInterval(cleanupOldImages, 3600000);
 // End
 
-// API routes with basic security
-// const API_KEY = process.env.API_KEY || Math.random().toString(36).substring(7);
-// logger.log(`API Key: ${API_KEY}`); // Log this only on startup
-
-// app.use((req, res, next) => {
-//     const providedKey = req.headers['x-api-key'];
-//     if (!providedKey || providedKey !== API_KEY) {
-//         return res.status(401).json({ error: 'Unauthorized' });
-//     }
-//     next();
-// });
-
 app.post('/login', async (req, res) => {
+    logger.log('Login request received');
+    console.log(req.body);
+
     const { guildId, password } = req.body;
+    console.log(guildId)
+    console.log(password)
+
     try {
         const query = 'SELECT password FROM guilds WHERE guild = $1';
         const values = [guildId];
@@ -113,6 +61,18 @@ app.post('/login', async (req, res) => {
             const hashedPassword = result.rows[0].password;
             const isMatch = await bcrypt.compare(password, hashedPassword);
             if (isMatch) {
+                const config = await loadConfig(guildId);
+                console.log(config)
+
+                if(!config) {
+                    logger.error('Config not found for guild:', guildId);
+                    return res.status(500).json({ success: false, error: 'Config failed.' });
+                }
+
+                // Initialize bot for the guild
+                await initializeBot(client, config);
+                console.log(`Bot initialized for guild ${guildId}`);
+
                 const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '1h' });
                 res.json({ success: true, token });
             } else {

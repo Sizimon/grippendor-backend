@@ -2,7 +2,7 @@ const { SlashCommandBuilder } = require('discord.js');
 const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
-const { initializeBot } = require('../utils/index.js'); // Import initializeBot
+// const { initializeBot } = require('../utils/index.js'); // Import initializeBot
 const CONFIG_FILE = path.join(__dirname, '..', 'config.json');
 const bcrypt = require('bcrypt');
 
@@ -117,7 +117,7 @@ module.exports = {
         try {
             await dbClient.query(query, values);
             const dashboardUrl = `http://localhost:3000/${config.guild}`;
-            fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
+            // fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
             await interaction.reply(`
                 Configuration saved! \n 
                 You can now start using the Guild Manager bot. \n
@@ -136,8 +136,8 @@ module.exports = {
                 \n
                 ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}
             `);
-            const client = require('../client');
-            await initializeBot(client, config);
+            // const client = require('../client');
+            // await initializeBot(client, config);
         } catch (error) {
             console.error('Error saving guild configuration:', error);
             await interaction.reply('An error occurred while saving the configuration. Please try again.');

@@ -64,7 +64,7 @@ function extractNames(text) {
 
 async function initializeBot(client, config) {
     // Ensure bot is configured
-    if (!config.guild || !config.channel || !config.primaryRole) {
+    if (!config.guild || !config.channel || !config.primaryrole) {
         logger.error('Bot not configured! Please run the /setup command.');
         return;
     }
@@ -75,7 +75,7 @@ async function initializeBot(client, config) {
         return;
     }
 
-    const primaryRole = guild.roles.cache.get(config.primaryRole);
+    const primaryRole = guild.roles.cache.get(config.primaryrole);
     if (!primaryRole) {
         logger.error('Role not found');
         return;
@@ -102,9 +102,9 @@ async function initializeBot(client, config) {
             const userId = id;
             const username = member.nickname || member.displayName;
 
-            const hasTankRole = member.roles.cache.has(config.tankRole);
-            const hasHealerRole = member.roles.cache.has(config.healerRole);
-            const hasDpsRole = member.roles.cache.has(config.dpsRole);
+            const hasTankRole = member.roles.cache.has(config.tankrole);
+            const hasHealerRole = member.roles.cache.has(config.healerrole);
+            const hasDpsRole = member.roles.cache.has(config.dpsrole);
 
             if (!userId || !username) {
                 logger.error('Invalid user ID or username:', userId, username);

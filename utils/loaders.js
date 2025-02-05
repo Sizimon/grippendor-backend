@@ -55,7 +55,31 @@ async function loadAttendanceLog(guildId) {
     }
 }
 
+async function loadGuildUsers(guildId) {
+    if (!guildId || isNaN(guildId)) {
+        logger.error('Invalid guild ID:', guildId);
+        return null;
+    }
+
+    const query = 'SELECT * FROM GuildUsers WHERE guild = $1';
+    const values = [guildId];
+
+    try {
+        const res = await dbClient.query(query, values);
+        if (res.rows.length > 0) {
+            return res.rows;
+        } else {
+            logger.error('Guild members not found for guild:', guildId);
+            return null;
+        }
+    } catch (error) {
+        logger.error('Error loading names from database:', error);
+        return null;
+    }
+}
+
 module.exports = {
     loadConfig,
     loadAttendanceLog,
+    loadGuildUsers,
 };

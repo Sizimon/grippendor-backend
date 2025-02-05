@@ -9,14 +9,13 @@ const jwt = require('jsonwebtoken');
 
 const logger = require('./utils/logger');
 const client = require('./client'); // Import the client
-const { cleanupOldImages } = require('./utils'); // Import utility functions
-const { getNames } = require('./utils/state');
+const { cleanupOldImages } = require('./utils'); 
 const { initializeBot } = require('./utils/index.js');
-const { loadConfig, loadAttendanceLog } = require('./utils/loaders.js')
+const { loadConfig, loadAttendanceLog, loadGuildUsers } = require('./utils/loaders.js')
 const { Client } = require('pg');
 
 const app = express();
-app.use(cors());
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json()); // Parse JSON bodies
 
 // Create a new PostgreSQL client
@@ -38,7 +37,6 @@ if (!fs.existsSync(IMAGES_DIR)) {
 // End
 
 logger.log('Starting bot...');
-
 const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
 
 // Run cleanup every hour
@@ -47,11 +45,7 @@ setInterval(cleanupOldImages, 3600000);
 
 app.post('/login', async (req, res) => {
     logger.log('Login request received');
-    console.log(req.body);
-
     const { guildId, password } = req.body;
-    console.log(guildId)
-    console.log(password)
 
     try {
         const query = 'SELECT password FROM guilds WHERE guild = $1';
@@ -62,17 +56,13 @@ app.post('/login', async (req, res) => {
             const isMatch = await bcrypt.compare(password, hashedPassword);
             if (isMatch) {
                 const config = await loadConfig(guildId);
-                console.log(config)
-
                 if(!config) {
                     logger.error('Config not found for guild:', guildId);
                     return res.status(500).json({ success: false, error: 'Config failed.' });
                 }
-
                 // Initialize bot for the guild
                 await initializeBot(client, config);
                 console.log(`Bot initialized for guild ${guildId}`);
-
                 const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '1h' });
                 res.json({ success: true, token });
             } else {
@@ -99,17 +89,33 @@ function authenticateToken(req, res, next) {
     });
 }
 
-app.get('/names/:guildId', authenticateToken, (req, res) => {
+app.get('/names/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
     }
-    const names = getNames(guildId);
-    if (names) {
-        res.json(names);
-    } else {
-        res.status(404).json({ error: 'Names not found' });
-    } 
+    try {
+        const guildUsers = await loadGuildUsers(guildId);
+        if (guildUsers) {
+            const names = guildUsers.map(user => {
+                const roles = [];
+                if (user.tank) roles.push('Tank');
+                if (user.healer) roles.push('Healer');
+                if (user.dps) roles.push('DPS');
+                return {
+                    name: user.username,
+                    roles: roles
+                };
+            });
+            res.json(names);
+            console.log('Names fetched:', names);
+        } else {
+            res.status(404).json({ error: 'Names not found' });
+        }
+    } catch (error) {
+        logger.error('Error fetching names:', error);
+        res.status(500).json({ error: 'Failed to fetch names' });
+    }
 });
 
 app.get('/attendance/:guildId', authenticateToken, async (req, res) => {

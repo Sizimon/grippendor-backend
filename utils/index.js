@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 const logger = require('./logger');
-const { setNames } = require('./state');
 const { Client } = require('pg');
 
 // PostgreSQL client
@@ -152,23 +151,23 @@ async function initializeBot(client, config) {
             await dbClient.query(deleteGuildUserQuery, [guild.id, user_id]);
         }
 
-        const guildUsers = await dbClient.query(`
-                SELECT user_id, username, username, tank, healer, dps FROM GuildUsers WHERE guild = $1
-            `, [guild.id]);
+        // const guildUsers = await dbClient.query(`
+        //         SELECT user_id, username, username, tank, healer, dps FROM GuildUsers WHERE guild = $1
+        //     `, [guild.id]);
 
-        const names = guildUsers.rows.map(user => {
-            const roles = [];
-            if (user.tank) roles.push('Tank');
-            if (user.healer) roles.push('Healer');
-            if (user.dps) roles.push('DPS');
-            return {
-                name: user.username,
-                roles: roles
-            };
-        });
+        // const names = guildUsers.rows.map(user => {
+        //     const roles = [];
+        //     if (user.tank) roles.push('Tank');
+        //     if (user.healer) roles.push('Healer');
+        //     if (user.dps) roles.push('DPS');
+        //     return {
+        //         name: user.username,
+        //         roles: roles
+        //     };
+        // });
 
-        setNames(names);
-        logger.log(`Members with role: ${names.map(member => member.name).join(', ')}`);
+        // setNames(names);
+        // logger.log(`Members with role: ${names.map(member => member.name).join(', ')}`);
     } catch (error) {
         logger.error('Error fetching members:', error);
     }

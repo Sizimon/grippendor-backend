@@ -17,7 +17,7 @@ async function loadConfig(guildId) {
         return null;
     }
     try {
-        const query = 'SELECT * FROM guilds WHERE guild = $1';
+        const query = 'SELECT * FROM guilds WHERE id = $1';
         const values = [guildId];
         const result = await dbClient.query(query, values);
         if (result.rows.length > 0) {
@@ -61,7 +61,7 @@ async function loadGuildUsers(guildId) {
         return null;
     }
 
-    const query = 'SELECT * FROM GuildUsers WHERE guild = $1';
+    const query = 'SELECT * FROM GuildUsers WHERE guild_id = $1';
     const values = [guildId];
 
     try {

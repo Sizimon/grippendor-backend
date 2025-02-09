@@ -63,28 +63,21 @@ function extractNames(text) {
 
 async function initializeBot(client, config) {
     // Ensure bot is configured
-    if (!config.guild || !config.channel || !config.primaryrole) {
-        logger.error('Bot not configured! Please run the /setup command.');
-        return;
-    }
-
-    const guild = client.guilds.cache.get(config.guild);
+    const guild = client.guilds.cache.get(config.id);
     if (!guild) {
-        logger.error('Guild not found');
+        console.log('Guild not found', config.id);
         return;
     }
 
-    const primaryRole = guild.roles.cache.get(config.primaryrole);
+    const primaryRole = guild.roles.cache.get(config.primary_role);
     if (!primaryRole) {
         logger.error('Role not found');
         return;
     }
 
-    const additionalRoles = [
-        { id: config.tankRole, name: 'Tank' },
-        { id: config.healerRole, name: 'Healer' },
-        { id: config.dpsRole, name: 'DPS' }
-    ];
+    const rolesQuery = 'SELECT role_name, role_id FROM roles WHERE guild_id = $1';
+    const rolesResult = await dbClient.query(rolesQuery, [config.id]);
+    const additionalRoles = rolesResult.rows;
 
     try {
         logger.log('Fetching all members...');
@@ -100,10 +93,6 @@ async function initializeBot(client, config) {
         for (const [id, member] of membersWithRole) {
             const userId = id;
             const username = member.nickname || member.displayName;
-
-            const hasTankRole = member.roles.cache.has(config.tankrole);
-            const hasHealerRole = member.roles.cache.has(config.healerrole);
-            const hasDpsRole = member.roles.cache.has(config.dpsrole);
 
             if (!userId || !username) {
                 logger.error('Invalid user ID or username:', userId, username);
@@ -123,51 +112,47 @@ async function initializeBot(client, config) {
             await dbClient.query(userQuery, userValues);
 
             const guildUserQuery = `
-                INSERT INTO GuildUsers (guild, user_id, username, total_count, updated_at, tank, healer, dps)
-                VALUES ($1, $2, $3, 0, CURRENT_TIMESTAMP, $4, $5, $6)
-                ON CONFLICT (guild, user_id)
+                INSERT INTO GuildUsers (guild_id, user_id, username, total_count, updated_at)
+                VALUES ($1, $2, $3, 0, CURRENT_TIMESTAMP)
+                ON CONFLICT (guild_id, user_id)
                 DO UPDATE SET username = EXCLUDED.username,
-                              updated_at = CURRENT_TIMESTAMP,
-                              tank = EXCLUDED.tank,
-                              healer = EXCLUDED.healer,
-                              dps = EXCLUDED.dps;
+                              updated_at = CURRENT_TIMESTAMP;
             `;
-            const guildUserValues = [guild.id, userId, username, hasTankRole, hasHealerRole, hasDpsRole];
+            const guildUserValues = [guild.id, userId, username];
             await dbClient.query(guildUserQuery, guildUserValues);
+
+            const roleStatus = additionalRoles.map(role => ({
+                roleName: role.role_name,
+                hasRole: member.roles.cache.has(role.role_id)
+            }));
+
+            // Insert roles for each user
+            for (const roles of roleStatus) {
+                const additionalRoleQuery = `
+                    INSERT INTO GuildUserRoles (guild_id, user_id, role_name, has_role)
+                    VALUES ($1, $2, $3, $4)
+                    ON CONFLICT (guild_id, user_id, role_name)
+                    DO UPDATE SET has_role = EXCLUDED.has_role;
+                `;
+                const additialRoleValues = [guild.id, userId, roles.roleName, roles.hasRole];
+                await dbClient.query(additionalRoleQuery, additialRoleValues);
+            }
         }
 
         // Remove users from the database if they no longer have the primary role
-        const allUserIds = members.map(member => member.id);
+        // const allUserIds = members.map(member => member.id);
         const userIdsWithRole = membersWithRole.map(member => member.id);
         const userIdsToRemove = await dbClient.query(`
-            SELECT user_id FROM GuildUsers WHERE guild = $1 AND user_id NOT IN (${userIdsWithRole.map(id => `'${id}'`).join(', ')})
+            SELECT user_id FROM GuildUsers WHERE guild_id = $1 AND user_id NOT IN (${userIdsWithRole.map(id => `'${id}'`).join(', ')})
         `, [guild.id]);
 
         for (const { user_id } of userIdsToRemove.rows) {
             const deleteGuildUserQuery = `
             DELETE FROM GuildUsers
-            WHERE guild = $1 AND user_id = $2;
+            WHERE guild_id = $1 AND user_id = $2;
         `;
             await dbClient.query(deleteGuildUserQuery, [guild.id, user_id]);
         }
-
-        // const guildUsers = await dbClient.query(`
-        //         SELECT user_id, username, username, tank, healer, dps FROM GuildUsers WHERE guild = $1
-        //     `, [guild.id]);
-
-        // const names = guildUsers.rows.map(user => {
-        //     const roles = [];
-        //     if (user.tank) roles.push('Tank');
-        //     if (user.healer) roles.push('Healer');
-        //     if (user.dps) roles.push('DPS');
-        //     return {
-        //         name: user.username,
-        //         roles: roles
-        //     };
-        // });
-
-        // setNames(names);
-        // logger.log(`Members with role: ${names.map(member => member.name).join(', ')}`);
     } catch (error) {
         logger.error('Error fetching members:', error);
     }

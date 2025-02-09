@@ -48,7 +48,7 @@ app.post('/login', async (req, res) => {
     const { guildId, password } = req.body;
 
     try {
-        const query = 'SELECT password FROM guilds WHERE guild = $1';
+        const query = 'SELECT password FROM guilds WHERE id = $1';
         const values = [guildId];
         const result = await dbClient.query(query, values);
         if (result.rows.length > 0) {
@@ -104,7 +104,8 @@ app.get('/names/:guildId', authenticateToken, async (req, res) => {
                 if (user.dps) roles.push('DPS');
                 return {
                     name: user.username,
-                    roles: roles
+                    roles: roles,
+                    counter: user.total_count
                 };
             });
             res.json(names);

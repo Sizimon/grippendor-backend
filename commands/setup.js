@@ -1,10 +1,8 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { Client } = require('pg');
-const fs = require('fs');
-const path = require('path');
-// const { initializeBot } = require('../utils/index.js'); // Import initializeBot
-const CONFIG_FILE = path.join(__dirname, '..', 'config.json');
 const bcrypt = require('bcrypt');
+
+// const { execute } = require('./attendance');
 
 // Create a new PostgreSQL client
 const dbClient = new Client({
@@ -17,59 +15,62 @@ const dbClient = new Client({
 
 dbClient.connect();
 
+
+const setupCommand = new SlashCommandBuilder()
+    .setName('setup')
+    .setDescription('Setup the bot configuration')
+    .addChannelOption(option =>
+        option.setName('channel')
+            .setDescription('The channel to send attendance messages. (Keep in mind this should be an admin channel)')
+            .setRequired(true))
+    .addStringOption(option =>
+        option.setName('color')
+            .setDescription('The color palette (e.g., #FF0000)')
+            .setRequired(true))
+    .addRoleOption(option =>
+        option.setName('primary_role')
+            .setDescription('The bot will track all members with the role you choose, (i.e default member role)')
+            .setRequired(true))
+    .addStringOption(option =>
+        option.setName('icon')
+            .setDescription('The icon URL for your frontend dashboard')
+            .setRequired(true))
+    .addStringOption(option =>
+        option.setName('title')
+            .setDescription('The title for the frontend dashboard')
+            .setRequired(true))
+    .addStringOption(option =>
+        option.setName('password')
+            .setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)')
+            .setRequired(true));
+
+// Add additional role options
+for (let i = 1; i <= 10; i++) {
+    setupCommand.addRoleOption(option =>
+        option.setName(`additional_role_${i}`)
+            .setDescription(`Additional role ${i}`)
+            .setRequired(false));
+}
+
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('setup')
-        .setDescription('Setup the bot configuration')
-        .addChannelOption(option =>
-            option.setName('channel')
-                .setDescription('The channel to send attendance messages. (Keep in mind this should be an admin channel)')
-                .setRequired(true))
-        .addStringOption(option =>
-            option.setName('color')
-                .setDescription('The color palette (e.g., #FF0000)')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('primary_role')
-                .setDescription('The bot will track all members with the role you choose, (i.e default member role)')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('tank_role')
-                .setDescription('This will track users with your given "Tank" role for the party maker.')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('healer_role')
-                .setDescription('This will track users with your given "Healer" role for the party maker.')
-                .setRequired(true))
-        .addRoleOption(option =>
-            option.setName('dps_role')
-                .setDescription('This will track users with your given "DPS" role for the party maker.')
-                .setRequired(true))
-        .addStringOption(option =>
-            option.setName('icon')
-                .setDescription('The icon URL for your frontend dashboard')
-                .setRequired(true))
-        .addStringOption(option =>
-            option.setName('title')
-                .setDescription('The title for the frontend dashboard')
-                .setRequired(true))
-        .addStringOption(option =>
-            option.setName('password')
-                .setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)')
-                .setRequired(true)),
+    data: setupCommand,
     async execute(interaction) {
         const channel = interaction.options.getChannel('channel');
         const color = interaction.options.getString('color');
         const primaryRole = interaction.options.getRole('primary_role');
-        const tankRole = interaction.options.getRole('tank_role');
-        const healerRole = interaction.options.getRole('healer_role');
-        const dpsRole = interaction.options.getRole('dps_role');
         const icon = interaction.options.getString('icon');
         const title = interaction.options.getString('title');
         const password = interaction.options.getString('password');
 
-        // Hash the password using bcrypt
+        const additionalRoles = [];
+        for (let i = 1; i <= 10; i++) {
+            const role = interaction.options.getRole(`additional_role_${i}`);
+            if (role) {
+                additionalRoles.push(role);
+            }
+        }
 
+        // Hash the password using bcrypt
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
@@ -78,62 +79,56 @@ module.exports = {
             channel: channel.id,
             color,
             primaryRole: primaryRole.id,
-            tankRole: tankRole.id,
-            healerRole: healerRole.id,
-            dpsRole: dpsRole.id,
             icon,
             title,
             password: hashedPassword
         };
 
-        const query = `
-            INSERT INTO guilds (guild, channel, color, primaryRole, tankRole, healerRole, dpsRole, icon, title, password)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
-            ON CONFLICT (guild) 
-            DO UPDATE SET channel = EXCLUDED.channel,
-                          color = EXCLUDED.color,
-                          primaryRole = EXCLUDED.primaryRole,
-                          tankRole = EXCLUDED.tankRole,
-                          healerRole = EXCLUDED.healerRole,
-                          dpsRole = EXCLUDED.dpsRole,
-                          icon = EXCLUDED.icon,
-                          title = EXCLUDED.title,
-                          password = EXCLUDED.password,
-                          updated_at = CURRENT_TIMESTAMP;
+        const guildConfigQuery = `
+            INSERT INTO guilds (id, channel, color, primary_role, icon, title, password, created_at, updated_at)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+            ON CONFLICT (id) DO UPDATE
+            SET channel = EXCLUDED.channel,
+                color = EXCLUDED.color,
+                primary_role = EXCLUDED.primary_role,
+                icon = EXCLUDED.icon,
+                title = EXCLUDED.title,
+                password = EXCLUDED.password,
+                updated_at = CURRENT_TIMESTAMP;
         `;
-        const values = [
+
+        const guildConfigValues = [
             config.guild,
             config.channel,
             config.color,
             config.primaryRole,
-            config.tankRole,
-            config.healerRole,
-            config.dpsRole,
             config.icon,
             config.title,
             config.password
         ];
 
         try {
-            await dbClient.query(query, values);
+            await dbClient.query(guildConfigQuery, guildConfigValues);
+            const rolesInsertQuery = `
+                INSERT INTO roles (guild_id, role_name, role_id)
+                VALUES ($1, $2, $3)
+                ON CONFLICT (guild_id, role_id) DO NOTHING;
+            `;
+            for (const role of additionalRoles) {
+                const roleValues = [interaction.guild.id, role.name, role.id];
+                await dbClient.query(rolesInsertQuery, roleValues);
+            }
             const dashboardUrl = `http://localhost:3000/${config.guild}`;
-            // fs.writeFileSync(CONFIG_FILE, JSON.stringify(config, null, 2));
             await interaction.reply(`
-                Configuration saved! \n 
-                You can now start using the Guild Manager bot. \n
+                Configuration saved! \n
+                You can now start using the Guild Manager bot. 
                 The bot is only usable in the configured channel. (${channel}) \n
-                Your dashboard is customised with the following settings: \n
-                Title: ${title} \n
-                Color: ${color} \n
-                Icon: ${icon} \n
-                \n
-                Your main members will be tracked with the following role: ${primaryRole} \n
-                \n 
-                For the party making functionality, you have set your roles as follows: \n
-                Tank Role: ${tankRole} \n
-                Healer Role: ${healerRole} \n
-                DPS Role: ${dpsRole} \n
-                \n
+                Your dashboard is customised with the following settings:
+                Title: ${title}
+                Default Dashboard Color: ${color}
+                Your Dashboard Icon: ${icon} \n
+                Your main members will be tracked with the following role: ${primaryRole}
+                Setup complete with ${additionalRoles.length} additional roles. \n
                 ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}
             `);
             // const client = require('../client');

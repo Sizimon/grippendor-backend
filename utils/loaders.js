@@ -78,8 +78,32 @@ async function loadGuildUsers(guildId) {
     }
 }
 
+async function loadGuildUserRoles(guildId) {
+    if (!guildId || isNaN(guildId)) {
+        logger.error('Invalid guild ID:', guildId);
+        return null;
+    }
+
+    const query = 'SELECT * FROM GuildUserRoles WHERE guild_id = $1';
+    const values = [guildId];
+
+    try {
+        const res = await dbClient.query(query, values);
+        if (res.rows.length > 0) {
+            return res.rows;
+        } else {
+            logger.error('Guild user roles not found for guild:', guildId);
+            return null;
+        }
+    } catch (error) {
+        logger.error('Error loading user roles from database:', error);
+        return null;
+    }
+}
+
 module.exports = {
     loadConfig,
     loadAttendanceLog,
     loadGuildUsers,
+    loadGuildUserRoles,
 };

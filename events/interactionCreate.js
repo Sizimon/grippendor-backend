@@ -1,7 +1,7 @@
 const setupCommand = require('../commands/setup');
 const attendanceCommand = require('../commands/attendance');
 const createEventCommand = require('../commands/createEvent');
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const { EmbedBuilder } = require('discord.js');
 const  { Client } = require('pg');
 
 const dbClient = new Client({
@@ -17,11 +17,13 @@ dbClient.connect();
 
 module.exports = async function interactionCreate(interaction) {
     if (interaction.isButton()) {
+        const member = interaction.member;
+        const nickname = member.nickname
         const [action, eventId] = interaction.customId.split('_');
         if (action !== 'attend' && action !== 'decline') return;
 
         const userId = interaction.user.id;
-        const username = interaction.user.nickname || interaction.user.username;
+        const username = nickname || interaction.user.username;
         const response = action === 'attend' ? 'yes' : 'no';
 
         // Store the user's response in the database

@@ -11,7 +11,7 @@ const logger = require('./utils/logger');
 const client = require('./client'); // Import the client
 const { cleanupOldImages } = require('./utils'); 
 const { initializeBot } = require('./utils/index.js');
-const { loadConfig, loadAttendanceLog, loadGuildUsers } = require('./utils/loaders.js')
+const { loadConfig, loadAttendanceLog, loadGuildUsers, loadGuildUserRoles } = require('./utils/loaders.js')
 const { Client } = require('pg');
 
 const app = express();
@@ -62,7 +62,7 @@ app.post('/login', async (req, res) => {
                 }
                 // Initialize bot for the guild
                 await initializeBot(client, config);
-                console.log(`Bot initialized for guild ${guildId}`);
+                //console.log(`Bot initialized for guild ${guildId}`);
                 const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '1h' });
                 res.json({ success: true, token });
             } else {
@@ -89,33 +89,35 @@ function authenticateToken(req, res, next) {
     });
 }
 
-app.get('/names/:guildId', authenticateToken, async (req, res) => {
+app.get('/userdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
     }
     try {
         const guildUsers = await loadGuildUsers(guildId);
-        if (guildUsers) {
-            const names = guildUsers.map(user => {
-                const roles = [];
-                if (user.tank) roles.push('Tank');
-                if (user.healer) roles.push('Healer');
-                if (user.dps) roles.push('DPS');
+        const guildUserRoles = await loadGuildUserRoles(guildId);
+        //console.log('Guild Users:', guildUsers);
+        //console.log('Guild User Roles:', guildUserRoles)
+        if (guildUsers && guildUserRoles) {
+            const userdata = guildUsers.map(user => {
+                const roles = guildUserRoles
+                    .filter(role => role.user_id === user.user_id && role.has_role)
+                    .map(role => role.role_name);
                 return {
                     name: user.username,
-                    roles: roles,
-                    counter: user.total_count
+                    counter: user.total_count,
+                    roles: roles
                 };
             });
-            res.json(names);
-            console.log('Names fetched:', names);
+            res.json(userdata);
+            //console.log('Names and roles fetched:', userdata);
         } else {
-            res.status(404).json({ error: 'Names not found' });
+            res.status(404).json({ error: 'Names or roles not found' });
         }
     } catch (error) {
-        logger.error('Error fetching names:', error);
-        res.status(500).json({ error: 'Failed to fetch names' });
+        logger.error('Error fetching names and roles:', error);
+        res.status(500).json({ error: 'Failed to fetch names and roles' });
     }
 });
 

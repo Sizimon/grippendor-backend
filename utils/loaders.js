@@ -1,5 +1,6 @@
 const { Client } = require('pg');
 const logger = require('./logger');
+const { EmbedBuilder } = require('discord.js');
 
 const dbClient = new Client({
     user: process.env.DB_USER,
@@ -101,9 +102,63 @@ async function loadGuildUserRoles(guildId) {
     }
 }
 
+async function checkUpcomingEvents(client) {
+    const query = `
+        SELECT DISTINCT e.id AS event_id, e.name, e.event_date, e.guild_id, u.user_id, u.username
+        FROM events e
+        JOIN event_attendance ea ON e.id = ea.event_id
+        JOIN guildusers u ON ea.user_id = u.user_id
+        WHERE e.guild_id = u.guild_id
+        AND e.event_date BETWEEN NOW() AND NOW() + INTERVAL '1 hour'
+        AND ea.response = 'yes'
+        AND ea.reminder_sent = FALSE;
+    `;
+    try {
+        const res = await dbClient.query(query);
+        if (res.rows.length > 0) {
+            for (const row of res.rows) {
+                await sendReminder(client, row.user_id, row.username, row.name, row.event_date);
+                // Mark the reminder as sent.
+                const updateQuery = `
+                    UPDATE event_attendance
+                    SET reminder_sent=TRUE
+                    WHERE event_id=$1 AND user_id=$2;
+                `;
+                await dbClient.query(updateQuery, [row.event_id, row.user_id]);
+            }
+        }
+    } catch (error) {
+        console.error('Error checking upcoming events:', error);
+    }
+}
+
+async function sendReminder(client, userId, username, eventName, eventDate) {
+    try {
+        const user = await client.users.fetch(userId);
+        const reminderEmber = new EmbedBuilder()
+            .setColor('#0099ff')
+            .setTitle(`Reminder for Event: ${eventName}`)
+            .setDescription(
+                `Hey ${username},\n 
+                Don't forget about the event "${eventName}"!\n
+                This event is taking place at ${eventDate}!`)
+            .setFooter({ text:'GripendorBot', iconURL: client.user.avatarURL()});
+        // const reminderMessage = `Hey ${username}, don't forget about the event "${eventName}" happening at ${eventDate}!`;
+        await user.send({ embeds: [reminderEmber] });
+        console.log('Reminder sent to:', username);
+    } catch (error) {
+        console.error('Error sending reminder:', error);
+    }
+}
+
+// async function loadEventData(guildId) {
+
+// }
+
 module.exports = {
     loadConfig,
     loadAttendanceLog,
     loadGuildUsers,
     loadGuildUserRoles,
+    checkUpcomingEvents,
 };

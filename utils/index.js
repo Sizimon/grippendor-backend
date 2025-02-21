@@ -15,6 +15,7 @@ const dbClient = new Client({
 
 dbClient.connect();
 
+
 // IMAGE INTERACTIONS
 
 const IMAGES_DIR = path.join(__dirname, '..', 'images');
@@ -59,7 +60,6 @@ function extractNames(text) {
 }
 
 // END OCR INTERACTIONS
-
 
 async function initializeBot(client, config) {
     // Ensure bot is configured

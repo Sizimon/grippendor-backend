@@ -83,17 +83,3 @@ module.exports = async function interactionCreate(interaction) {
         }
     }
 };
-
-// module.exports = async function interactionCreate(interaction) {
-//     if (!interaction.isCommand()) return;
-
-//     const { commandName } = interaction;
-
-//     if (commandName === 'setup') {
-//         await setupCommand.execute(interaction);
-//     } else if (commandName === 'attendance') {
-//         await attendanceCommand.execute(interaction);
-//     } else if (commandName === 'create-event') {
-//         await createEventCommand.execute(interaction);
-//     }
-// };

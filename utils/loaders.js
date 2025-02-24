@@ -151,9 +151,69 @@ async function sendReminder(client, userId, username, eventName, eventDate) {
     }
 }
 
-// async function loadEventData(guildId) {
+async function loadEventData(guildId) {
+    const query = 'SELECT * FROM events WHERE guild_id = $1';
+    const values = [guildId];
 
-// }
+    try {
+        const res = await dbClient.query(query, values);
+        if (res.rows.length > 0) {
+            return res.rows;
+        } else {
+            logger.error('No events found for guild:', guildId);
+            return null;
+        }
+    } catch (error) {
+        logger.error('Error loading events from database:', error);
+        return null;
+    }
+}
+
+async function loadEventUserData(eventId, guildId) {
+    // OLD const query = `
+    //     SELECT u.user_id, u.username, r.role_name
+    //     FROM event_attendance ea
+    //     JOIN guildusers u ON ea.user_id = u.user_id
+    //     LEFT JOIN guilduserroles gur ON u.user_id = gur.user_id
+    //     LEFT JOIN roles r ON gur.role_id = r.role_id
+    //     WHERE ea.event_id = $1
+    //     AND u.guild_id = $2
+    //     AND ea.response = 'yes';
+    // `;
+    // PREVIOUS WORKING const query = `
+    //     SELECT u.user_id, u.username, gur.role_name
+    //     FROM event_attendance ea
+    //     JOIN guildusers u ON ea.user_id = u.user_id
+    //     LEFT JOIN guilduserroles gur ON u.user_id = gur.user_id AND u.guild_id = gur.guild_id
+    //     WHERE ea.event_id = $1
+    //     AND u.guild_id = $2
+    //     AND ea.response = 'yes'
+    //     AND gur.has_role = TRUE;
+    // `;
+    const query = `
+        SELECT u.user_id, u.username, array_agg(gur.role_name) AS roles
+        FROM event_attendance ea
+        JOIN guildusers u ON ea.user_id = u.user_id
+        LEFT JOIN guilduserroles gur ON u.user_id = gur.user_id AND u.guild_id = gur.guild_id
+        WHERE ea.event_id = $1
+        AND u.guild_id = $2
+        AND ea.response = 'yes'
+        AND gur.has_role = TRUE
+        GROUP BY u.user_id, u.username;
+    `;
+    try {
+        const res = await dbClient.query(query, [eventId, guildId]);
+        const eventData = res.rows.map(row => ({
+            user_id: row.user_id,
+            name: row.username,
+            roles: row.roles,
+        }));
+        return eventData
+    } catch (error) {
+        console.error('Error loading event user data:', error);
+        return [];
+    }
+}
 
 module.exports = {
     loadConfig,
@@ -161,4 +221,6 @@ module.exports = {
     loadGuildUsers,
     loadGuildUserRoles,
     checkUpcomingEvents,
+    loadEventData,
+    loadEventUserData,
 };

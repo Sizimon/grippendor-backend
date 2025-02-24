@@ -9,9 +9,9 @@ const jwt = require('jsonwebtoken');
 
 const logger = require('./utils/logger');
 const client = require('./client'); // Import the client
-const { cleanupOldImages } = require('./utils'); 
+const { cleanupOldImages } = require('./utils');
 const { initializeBot } = require('./utils/index.js');
-const { loadConfig, loadAttendanceLog, loadGuildUsers, loadGuildUserRoles } = require('./utils/loaders.js')
+const { loadConfig, loadAttendanceLog, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadEventData } = require('./utils/loaders.js')
 const { Client } = require('pg');
 
 const app = express();
@@ -56,7 +56,7 @@ app.post('/login', async (req, res) => {
             const isMatch = await bcrypt.compare(password, hashedPassword);
             if (isMatch) {
                 const config = await loadConfig(guildId);
-                if(!config) {
+                if (!config) {
                     logger.error('Config not found for guild:', guildId);
                     return res.status(500).json({ success: false, error: 'Config failed.' });
                 }
@@ -88,6 +88,19 @@ function authenticateToken(req, res, next) {
         next();
     });
 }
+
+app.get('/config/:guildId', authenticateToken, async (req, res) => {
+    const guildId = req.params.guildId;
+    if (!guildId || isNaN(guildId)) {
+        return res.status(400).json({ error: 'Invalid guild ID' });
+    }
+    const config = await loadConfig(guildId);
+    if (config) {
+        res.json(config);
+    } else {
+        res.status(404).json({ error: 'Config not found' });
+    }
+});
 
 app.get('/userdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
@@ -121,6 +134,27 @@ app.get('/userdata/:guildId', authenticateToken, async (req, res) => {
     }
 });
 
+app.get('/eventdata/:guildId', authenticateToken, async (req, res) => {
+    const guildId = req.params.guildId;
+    if (!guildId || isNaN(guildId)) {
+        return res.status(400).json({ error: 'Invalid guild ID' });
+    }
+
+    try {
+        const events = await loadEventData(guildId);
+        if (events && events.length > 0) {
+            const latestEvent = events[events.length - 1];
+            const eventUserData = await loadEventUserData(latestEvent.id, guildId);
+            res.json({ events, latestEventUserData: eventUserData });
+        } else {
+            res.status(404).json({ error: 'Events not found' });
+        }
+    } catch (error) {
+        logger.error('Error fetching events:', error);
+        res.status(500).json({ error: 'Failed to fetch events' });
+    }
+});
+
 app.get('/attendance/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
@@ -131,19 +165,6 @@ app.get('/attendance/:guildId', authenticateToken, async (req, res) => {
         res.json(attendance);
     } else {
         res.status(404).json({ error: 'Attendance log not found' });
-    }
-});
-
-app.get('/config/:guildId', authenticateToken, async (req, res) => {
-    const guildId = req.params.guildId;
-    if (!guildId || isNaN(guildId)) {
-        return res.status(400).json({ error: 'Invalid guild ID' });
-    }
-    const config = await loadConfig(guildId);
-    if (config) {
-        res.json(config);
-    } else {
-        res.status(404).json({ error: 'Config not found' });
     }
 });
 // End

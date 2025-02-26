@@ -47,27 +47,27 @@ module.exports = {
         .setDescription('Create an event')
         .addStringOption(option =>
             option.setName('name')
-                .setDescription('The name of the event')
+                .setDescription('Name of the Event/Mission.')
                 .setRequired(true))
         .addChannelOption(option =>
             option.setName('channel')
-                .setDescription('The channel to send event notifications')
+                .setDescription('The channel in which the Event/Mission will be posted.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('description')
-                .setDescription('The description of the event')
+                .setDescription('The description of the Event/Mission')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('date')
-                .setDescription('The date of the event (YYYY-MM-DD)')
+                .setDescription('The date of the Event/Mission in this format: (YYYY-MM-DD)')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('time')
-                .setDescription('The time of the event (HH:MM in 24-hour format)')
+                .setDescription('The time of the Event/Mission: (HH:MM in 24-hour format)')
                 .setRequired(true))
         .addStringOption(option => 
             option.setName('timezone')
-                .setDescription('Your timezone')
+                .setDescription('Your timezone in UTC format.')
                 .setRequired(true)
                 .addChoices(timeZones.map(tz => ({ name: tz.label, value: tz.value })))),
     async execute(interaction) {
@@ -131,8 +131,17 @@ module.exports = {
                             new ButtonBuilder()
                                 .setCustomId(`decline_${eventId}`)
                                 .setLabel('❌')
-                                .setStyle(ButtonStyle.Danger)
-                        )]
+                                .setStyle(ButtonStyle.Danger),
+                            new ButtonBuilder()
+                                .setCustomId(`cancel_${eventId}`)
+                                .setLabel('Cancel Event')
+                                .setStyle(ButtonStyle.Secondary),
+                            new ButtonBuilder()
+                                .setCustomId(`finish_${eventId}`)
+                                .setLabel('Finish Event')
+                                .setStyle(ButtonStyle.Primary)
+                    )
+                ]
             });
             console.log('Event Message ID:', eventMessage.id);
 

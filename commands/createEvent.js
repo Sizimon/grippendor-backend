@@ -13,6 +13,23 @@ const dbClient = new Client({
 
 dbClient.connect();
 
+const missionTypes = [
+    {label: "Infiltration", value: "Infiltration"}, 
+    {label: "Extraction", value: "Extraction"}, 
+    {label: "Escort", value: "Escort"},
+    {label: "Reconnaissance", value: "Reconnaissance"},
+    {label: "Sabotage", value: "Sabotage"},
+    {label: "Search & Rescue", value: "Search & Rescue"},
+    {label: "Defence", value: "Defence"},
+    {label: "Capture & Hold", value: "Capture & Hold"},
+    {label: "Elimination", value: "Elimination"},
+    {label: "Supply Run", value: "Supply Run"},
+    {label: "HVT Securement", value: "HVT Securement"},
+    {label: "Survival", value: "Survival"},
+    {label: "Counter Insurgency", value: "Counter Insurgency"},
+    {label: "Other", value: "Other"}
+];
+
 const timeZones = [
     { label: 'UTC-12:00', value: 'Etc/GMT+12' },
     { label: 'UTC-11:00', value: 'Etc/GMT+11' },
@@ -45,6 +62,11 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-event')
         .setDescription('Create an event')
+        .addStringOption(option => 
+            option.setName('type')
+                .setDescription('Select Mission Type.')
+                .setRequired(true)
+                .addChoices(missionTypes.map(mt => ({ name: mt.label, value: mt.value }))))
         .addStringOption(option =>
             option.setName('name')
                 .setDescription('Name of the Event/Mission.')
@@ -53,9 +75,13 @@ module.exports = {
             option.setName('channel')
                 .setDescription('The channel in which the Event/Mission will be posted.')
                 .setRequired(true))
+        .addStringOption(option => 
+            option.setName('summary')
+                .setDescription('A brief summary of the Event/Mission. (250 characters max)')
+                .setRequired(true))
         .addStringOption(option =>
             option.setName('description')
-                .setDescription('The description of the Event/Mission')
+                .setDescription('A full briefing of the Event/Mission.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('date')
@@ -71,12 +97,20 @@ module.exports = {
                 .setRequired(true)
                 .addChoices(timeZones.map(tz => ({ name: tz.label, value: tz.value })))),
     async execute(interaction) {
+        const type = interaction.options.getString('type');
         const name = interaction.options.getString('name');
         const channel = interaction.options.getChannel('channel');
+        const summary = interaction.options.getString('summary');
         const description = interaction.options.getString('description');
         const date = interaction.options.getString('date');
         const time = interaction.options.getString('time');
         const timezone = interaction.options.getString('timezone');
+
+        // Validate summary length
+        if (summary.length > 250) {
+            await interaction.reply({ content: 'The summary must be 250 characters or less.', ephemeral: true });
+            return;
+        }
 
         const eventDateTimeLocal = new Date(`${date}T${time}:00`);
         const eventDateTimeUTC = new Date(eventDateTimeLocal.toLocaleString('en-US', { timeZone: timezone }));
@@ -86,16 +120,18 @@ module.exports = {
         try {
             console.log('Inserting event into DB....')
             const eventQuery = `
-            INSERT INTO events (guild_id, name, channel_id, description, event_date)
-            VALUES ($1, $2, $3, $4, $5)
+            INSERT INTO events (guild_id, type, name, channel_id, summary, description, event_date)
+            VALUES ($1, $2, $3, $4, $5, $6, $7)
             ON CONFLICT (guild_id, name) DO UPDATE
-            SET channel_id = EXCLUDED.channel_id,
+            SET type = EXCLUDED.type,
+                channel_id = EXCLUDED.channel_id,
+                summary = EXCLUDED.summary,
                 description = EXCLUDED.description,
                 event_date = EXCLUDED.event_date,
                 updated_at = CURRENT_TIMESTAMP
             RETURNING id;
             `;
-            const eventValues = [interaction.guild.id, name, channel.id, description, eventDateTimeUTC];
+            const eventValues = [interaction.guild.id, type, name, channel.id, summary, description, eventDateTimeUTC];
             console.log('Event Query:', eventQuery);
             console.log('Event Values:', eventValues);
 
@@ -111,13 +147,17 @@ module.exports = {
             
             const eventEmbed = new EmbedBuilder()
                 .setTitle(name)
-                .setDescription(description)
+                .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
+                .setDescription(summary)
+                .setThumbnail('https://media.discordapp.net/attachments/1337393468326023241/1337395709665873960/DCC_Logo.png?ex=67c83fd0&is=67c6ee50&hm=6e168061cf4ffe112dd8301418ba008cad2696601913156b2ff3401d5abdba24&=&format=webp&quality=lossless&width=1752&height=1012')
                 .addFields(
+                    { name: 'Mission Type:', value: type, inline: true },
                     { name: '🕒 Date and Time', value: new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short', timeZone: timezone }).format(eventDateTimeLocal), inline: false },
                     { name: '✅ Yes', value: '\u200B', inline: true },
                     { name: '❌ No', value: '\u200B', inline: true }
                 )
                 .setColor('#0099ff')
+                .setURL('https://szymonsamus.dev/guild-tracker/placeholder')
                 .setFooter({ text:'React with ✅ if you can attend, ❌ if you cannot attend.' });
             
             const eventMessage = await channel.send({

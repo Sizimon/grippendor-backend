@@ -1,5 +1,4 @@
 const setupCommand = require('../commands/setup');
-const attendanceCommand = require('../commands/attendance');
 const createEventCommand = require('../commands/createEvent');
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
 const { Client } = require('pg');

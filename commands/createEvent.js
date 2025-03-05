@@ -14,20 +14,20 @@ const dbClient = new Client({
 dbClient.connect();
 
 const missionTypes = [
-    {label: "Infiltration", value: "Infiltration"}, 
-    {label: "Extraction", value: "Extraction"}, 
-    {label: "Escort", value: "Escort"},
-    {label: "Reconnaissance", value: "Reconnaissance"},
-    {label: "Sabotage", value: "Sabotage"},
-    {label: "Search & Rescue", value: "Search & Rescue"},
-    {label: "Defence", value: "Defence"},
-    {label: "Capture & Hold", value: "Capture & Hold"},
-    {label: "Elimination", value: "Elimination"},
-    {label: "Supply Run", value: "Supply Run"},
-    {label: "HVT Securement", value: "HVT Securement"},
-    {label: "Survival", value: "Survival"},
-    {label: "Counter Insurgency", value: "Counter Insurgency"},
-    {label: "Other", value: "Other"}
+    { label: "Infiltration", value: "Infiltration" },
+    { label: "Extraction", value: "Extraction" },
+    { label: "Escort", value: "Escort" },
+    { label: "Reconnaissance", value: "Reconnaissance" },
+    { label: "Sabotage", value: "Sabotage" },
+    { label: "Search & Rescue", value: "Search & Rescue" },
+    { label: "Defence", value: "Defence" },
+    { label: "Capture & Hold", value: "Capture & Hold" },
+    { label: "Elimination", value: "Elimination" },
+    { label: "Supply Run", value: "Supply Run" },
+    { label: "HVT Securement", value: "HVT Securement" },
+    { label: "Survival", value: "Survival" },
+    { label: "Counter Insurgency", value: "Counter Insurgency" },
+    { label: "Other", value: "Other" }
 ];
 
 const timeZones = [
@@ -62,7 +62,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-event')
         .setDescription('Create an event')
-        .addStringOption(option => 
+        .addStringOption(option =>
             option.setName('type')
                 .setDescription('Select Mission Type.')
                 .setRequired(true)
@@ -75,7 +75,7 @@ module.exports = {
             option.setName('channel')
                 .setDescription('The channel in which the Event/Mission will be posted.')
                 .setRequired(true))
-        .addStringOption(option => 
+        .addStringOption(option =>
             option.setName('summary')
                 .setDescription('A brief summary of the Event/Mission. (250 characters max)')
                 .setRequired(true))
@@ -91,11 +91,27 @@ module.exports = {
             option.setName('time')
                 .setDescription('The time of the Event/Mission: (HH:MM in 24-hour format)')
                 .setRequired(true))
-        .addStringOption(option => 
+        .addStringOption(option =>
             option.setName('timezone')
                 .setDescription('Your timezone in UTC format.')
                 .setRequired(true)
-                .addChoices(timeZones.map(tz => ({ name: tz.label, value: tz.value })))),
+                .addChoices(timeZones.map(tz => ({ name: tz.label, value: tz.value }))))
+        .addAttachmentOption(option =>
+            option.setName('thumbnail_url')
+                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+                .setRequired(true))
+        .addAttachmentOption(option =>
+            option.setName('briefing_url')
+                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+                .setRequired(false))
+        .addAttachmentOption(option =>
+            option.setName('briefing_url_2')
+                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+                .setRequired(false))
+        .addAttachmentOption(option =>
+            option.setName('briefing_url_3')
+                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+                .setRequired(false)),
     async execute(interaction) {
         const type = interaction.options.getString('type');
         const name = interaction.options.getString('name');
@@ -105,6 +121,12 @@ module.exports = {
         const date = interaction.options.getString('date');
         const time = interaction.options.getString('time');
         const timezone = interaction.options.getString('timezone');
+        const thumbnail = interaction.options.getAttachment('thumbnail_url');
+        const images = [
+            interaction.options.getAttachment('briefing_url'),
+            interaction.options.getAttachment('briefing_url_2'),
+            interaction.options.getAttachment('briefing_url_3')
+        ].filter(image => image !== null);
 
         // Validate summary length
         if (summary.length > 250) {
@@ -118,20 +140,26 @@ module.exports = {
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 
         try {
+            // Collect image URLs from Discord
+            const thumbnailUrl = thumbnail.url;
+            const imageUrls = images.map(image => image.url);
+
             console.log('Inserting event into DB....')
             const eventQuery = `
-            INSERT INTO events (guild_id, type, name, channel_id, summary, description, event_date)
-            VALUES ($1, $2, $3, $4, $5, $6, $7)
+            INSERT INTO events (guild_id, type, name, channel_id, summary, description, event_date, thumbnail_url, image_urls)
+            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
             ON CONFLICT (guild_id, name) DO UPDATE
             SET type = EXCLUDED.type,
                 channel_id = EXCLUDED.channel_id,
                 summary = EXCLUDED.summary,
                 description = EXCLUDED.description,
                 event_date = EXCLUDED.event_date,
+                thumbnail_url = EXCLUDED.thumbnail_url,
+                image_urls = EXCLUDED.image_urls,
                 updated_at = CURRENT_TIMESTAMP
             RETURNING id;
             `;
-            const eventValues = [interaction.guild.id, type, name, channel.id, summary, description, eventDateTimeUTC];
+            const eventValues = [interaction.guild.id, type, name, channel.id, summary, description, eventDateTimeUTC, JSON.stringify(thumbnailUrl), JSON.stringify(imageUrls)];
             console.log('Event Query:', eventQuery);
             console.log('Event Values:', eventValues);
 
@@ -144,7 +172,7 @@ module.exports = {
 
             const eventId = result.rows[0].id;
             console.log('Event ID:', eventId);
-            
+
             const eventEmbed = new EmbedBuilder()
                 .setTitle(name)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
@@ -158,28 +186,32 @@ module.exports = {
                 )
                 .setColor('#0099ff')
                 .setURL('https://szymonsamus.dev/guild-tracker/placeholder')
-                .setFooter({ text:'React with ✅ if you can attend, ❌ if you cannot attend.' });
-            
+                .setFooter({ text: 'React with ✅ if you can attend, ❌ if you cannot attend.' });
+
+            if (thumbnailUrl) {
+                eventEmbed.setImage(thumbnailUrl);
+            }
+
             const eventMessage = await channel.send({
                 embeds: [eventEmbed],
                 components: [
                     new ActionRowBuilder().addComponents(
-                            new ButtonBuilder()
-                                .setCustomId(`attend_${eventId}`)
-                                .setLabel('✅')
-                                .setStyle(ButtonStyle.Success),
-                            new ButtonBuilder()
-                                .setCustomId(`decline_${eventId}`)
-                                .setLabel('❌')
-                                .setStyle(ButtonStyle.Danger),
-                            new ButtonBuilder()
-                                .setCustomId(`cancel_${eventId}`)
-                                .setLabel('Cancel Event')
-                                .setStyle(ButtonStyle.Secondary),
-                            new ButtonBuilder()
-                                .setCustomId(`finish_${eventId}`)
-                                .setLabel('Finish Event')
-                                .setStyle(ButtonStyle.Primary)
+                        new ButtonBuilder()
+                            .setCustomId(`attend_${eventId}`)
+                            .setLabel('✅')
+                            .setStyle(ButtonStyle.Success),
+                        new ButtonBuilder()
+                            .setCustomId(`decline_${eventId}`)
+                            .setLabel('❌')
+                            .setStyle(ButtonStyle.Danger),
+                        new ButtonBuilder()
+                            .setCustomId(`cancel_${eventId}`)
+                            .setLabel('Cancel Event')
+                            .setStyle(ButtonStyle.Secondary),
+                        new ButtonBuilder()
+                            .setCustomId(`finish_${eventId}`)
+                            .setLabel('Finish Event')
+                            .setStyle(ButtonStyle.Primary)
                     )
                 ]
             });

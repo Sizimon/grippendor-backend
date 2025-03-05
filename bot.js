@@ -9,9 +9,8 @@ const jwt = require('jsonwebtoken');
 
 const logger = require('./utils/logger');
 const client = require('./client'); // Import the client
-const { cleanupOldImages } = require('./utils');
 const { initializeBot } = require('./utils/index.js');
-const { loadConfig, loadAttendanceLog, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadEventData } = require('./utils/loaders.js')
+const { loadConfig, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadEventData } = require('./utils/loaders.js')
 const { Client } = require('pg');
 
 const app = express();
@@ -38,10 +37,6 @@ if (!fs.existsSync(IMAGES_DIR)) {
 
 logger.log('Starting bot...');
 const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
-
-// Run cleanup every hour
-setInterval(cleanupOldImages, 3600000);
-// End
 
 app.post('/login', async (req, res) => {
     logger.log('Login request received');
@@ -155,18 +150,6 @@ app.get('/eventdata/:guildId', authenticateToken, async (req, res) => {
     }
 });
 
-app.get('/attendance/:guildId', authenticateToken, async (req, res) => {
-    const guildId = req.params.guildId;
-    if (!guildId || isNaN(guildId)) {
-        return res.status(400).json({ error: 'Invalid guild ID' });
-    }
-    const attendance = await loadAttendanceLog(guildId);
-    if (attendance) {
-        res.json(attendance);
-    } else {
-        res.status(404).json({ error: 'Attendance log not found' });
-    }
-});
 // End
 
 

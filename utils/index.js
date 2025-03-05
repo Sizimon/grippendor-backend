@@ -15,52 +15,6 @@ const dbClient = new Client({
 
 dbClient.connect();
 
-
-// IMAGE INTERACTIONS
-
-const IMAGES_DIR = path.join(__dirname, '..', 'images');
-
-async function downloadImage(url, filepath) {
-    const response = await axios({
-        url,
-        method: 'GET',
-        responseType: 'stream'
-    });
-    return new Promise((resolve, reject) => {
-        response.data.pipe(fs.createWriteStream(filepath))
-            .on('finish', () => resolve())
-            .on('error', e => reject(e));
-    });
-}
-
-function cleanupOldImages() {
-    try {
-        const files = fs.readdirSync(IMAGES_DIR);
-        const now = Date.now();
-        files.forEach(file => {
-            const filePath = path.join(IMAGES_DIR, file);
-            const stats = fs.statSync(filePath);
-            if (now - stats.mtimeMs > 3600000) { // 1 hour
-                fs.unlinkSync(filePath);
-            }
-        });
-    } catch (error) {
-        logger.error('Error cleaning up old images:', error);
-    }
-}
-
-// END IMAGE INTERACTIONS
-
-// OCR INTERACTIONS
-
-function extractNames(text) {
-    return text.split('\n')
-        .map(line => line.trim())
-        .filter(line => line && /^[A-Za-z][A-Za-z\s]{1,50}$/.test(line)); // More robust name detection
-}
-
-// END OCR INTERACTIONS
-
 async function initializeBot(client, config) {
     // Ensure bot is configured
     const guild = client.guilds.cache.get(config.id);
@@ -159,9 +113,5 @@ async function initializeBot(client, config) {
 }
 
 module.exports = {
-    downloadImage,
-    extractNames,
     initializeBot,
-    IMAGES_DIR,
-    cleanupOldImages,
 };

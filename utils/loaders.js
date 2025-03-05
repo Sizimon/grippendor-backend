@@ -33,29 +33,6 @@ async function loadConfig(guildId) {
     }
 }
 
-async function loadAttendanceLog(guildId) {
-    if (!guildId || isNaN(guildId)) {
-        logger.error('Invalid guild ID:', guildId);
-        return null;
-    }
-
-    const query = 'SELECT * FROM Attendance WHERE guild_id = $1';
-    const values = [guildId];
-
-    try {
-        const res = await dbClient.query(query, values);
-        if (res.rows.length > 0) {
-            return res.rows;
-        } else {
-            logger.error('Attendance log not found for guild:', guildId);
-            return null;
-        }
-    } catch (error) {
-        logger.error('Error loading attendance log from database:', error);
-        return null;
-    }
-}
-
 async function loadGuildUsers(guildId) {
     if (!guildId || isNaN(guildId)) {
         logger.error('Invalid guild ID:', guildId);
@@ -170,26 +147,6 @@ async function loadEventData(guildId) {
 }
 
 async function loadEventUserData(eventId, guildId) {
-    // OLD const query = `
-    //     SELECT u.user_id, u.username, r.role_name
-    //     FROM event_attendance ea
-    //     JOIN guildusers u ON ea.user_id = u.user_id
-    //     LEFT JOIN guilduserroles gur ON u.user_id = gur.user_id
-    //     LEFT JOIN roles r ON gur.role_id = r.role_id
-    //     WHERE ea.event_id = $1
-    //     AND u.guild_id = $2
-    //     AND ea.response = 'yes';
-    // `;
-    // PREVIOUS WORKING const query = `
-    //     SELECT u.user_id, u.username, gur.role_name
-    //     FROM event_attendance ea
-    //     JOIN guildusers u ON ea.user_id = u.user_id
-    //     LEFT JOIN guilduserroles gur ON u.user_id = gur.user_id AND u.guild_id = gur.guild_id
-    //     WHERE ea.event_id = $1
-    //     AND u.guild_id = $2
-    //     AND ea.response = 'yes'
-    //     AND gur.has_role = TRUE;
-    // `;
     const query = `
         SELECT u.user_id, u.username, array_agg(gur.role_name) AS roles
         FROM event_attendance ea
@@ -217,7 +174,6 @@ async function loadEventUserData(eventId, guildId) {
 
 module.exports = {
     loadConfig,
-    loadAttendanceLog,
     loadGuildUsers,
     loadGuildUserRoles,
     checkUpcomingEvents,

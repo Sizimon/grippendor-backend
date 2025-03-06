@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  bot-backend:
+    image: shhmon/bot-backend:latest
+    container_name: bot-backend
+    environment:
+      - DB_USER=${DB_USER}
+      - DB_HOST=bot-database
+      - DB_NAME=${DB_NAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=5432
+      - SECRET_KEY=${SECRET_KEY}
+      - DISCORD_TOKEN=${DISCORD_TOKEN}
+    ports:
+      - "5003:5003"
+    depends_on:
+      - bot-database
+
+  bot-database:
+    image: postgres:13
+    container_name: bot-database
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:

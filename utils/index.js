@@ -1,6 +1,3 @@
-const fs = require('fs');
-const path = require('path');
-const axios = require('axios');
 const logger = require('./logger');
 const { Client } = require('pg');
 
@@ -16,13 +13,14 @@ const dbClient = new Client({
 dbClient.connect();
 
 async function initializeBot(client, config) {
-    // Ensure bot is configured
+    // Get the guild from the client cache and check it exists
     const guild = client.guilds.cache.get(config.id);
     if (!guild) {
         console.log('Guild not found', config.id);
         return;
     }
 
+    // Get the primary role from the guild config data and check it exists
     const primaryRole = guild.roles.cache.get(config.primary_role);
     if (!primaryRole) {
         logger.error('Role not found');

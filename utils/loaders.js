@@ -120,7 +120,6 @@ async function sendReminder(client, userId, username, eventName, eventDate) {
                 Don't forget about the event "${eventName}"!\n
                 This event is taking place at ${eventDate}!`)
             .setFooter({ text:'GripendorBot', iconURL: client.user.avatarURL()});
-        // const reminderMessage = `Hey ${username}, don't forget about the event "${eventName}" happening at ${eventDate}!`;
         await user.send({ embeds: [reminderEmber] });
         console.log('Reminder sent to:', username);
     } catch (error) {

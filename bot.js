@@ -1,17 +1,19 @@
 const express = require('express');
 const cors = require('cors');
+const { Client } = require('pg');
 const fs = require('fs');
 const path = require('path');
 require('dotenv').config();
 
+// SECURITY UTILITIES
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+//END
 
 const logger = require('./utils/logger');
-const client = require('./client'); // Import the client
-const { initializeBot } = require('./utils/index.js');
-const { loadConfig, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadEventData } = require('./utils/loaders.js')
-const { Client } = require('pg');
+const client = require('./client'); // Import the discord client (Located client.js)
+const { initializeBot } = require('./utils/index.js'); 
+const { loadConfig, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadEventData } = require('./utils/loaders.js') // Data loading functions
 
 const app = express();
 app.use(cors({ origin: 'http://localhost:3000' }));
@@ -25,15 +27,8 @@ const dbClient = new Client({
     password: process.env.DB_PASSWORD,
     port: process.env.DB_PORT,
 });
-
 dbClient.connect();
-
-// Ensure images directory exists
-const IMAGES_DIR = path.join(__dirname, 'images');
-if (!fs.existsSync(IMAGES_DIR)) {
-    fs.mkdirSync(IMAGES_DIR, { recursive: true });
-}
-// End
+// END
 
 logger.log('Starting bot...');
 const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
@@ -57,7 +52,6 @@ app.post('/login', async (req, res) => {
                 }
                 // Initialize bot for the guild
                 await initializeBot(client, config);
-                //console.log(`Bot initialized for guild ${guildId}`);
                 const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '1h' });
                 res.json({ success: true, token });
             } else {
@@ -105,8 +99,6 @@ app.get('/userdata/:guildId', authenticateToken, async (req, res) => {
     try {
         const guildUsers = await loadGuildUsers(guildId);
         const guildUserRoles = await loadGuildUserRoles(guildId);
-        //console.log('Guild Users:', guildUsers);
-        //console.log('Guild User Roles:', guildUserRoles)
         if (guildUsers && guildUserRoles) {
             const userdata = guildUsers.map(user => {
                 const roles = guildUserRoles
@@ -119,7 +111,6 @@ app.get('/userdata/:guildId', authenticateToken, async (req, res) => {
                 };
             });
             res.json(userdata);
-            //console.log('Names and roles fetched:', userdata);
         } else {
             res.status(404).json({ error: 'Names or roles not found' });
         }

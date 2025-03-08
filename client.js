@@ -1,4 +1,19 @@
 const { Client, GatewayIntentBits, Partials, REST, Routes } = require('discord.js');
+const { loadConfig } = require('./utils/loaders');
+const {initializeBot} = require('./utils/index');
+
+const { Client: PgClient } = require('pg');
+// PostgreSQL client
+const dbClient = new PgClient({
+    user: process.env.DB_USER,
+    host: process.env.DB_HOST,
+    database: process.env.DB_NAME,
+    password: process.env.DB_PASSWORD,
+    port: process.env.DB_PORT,
+});
+
+dbClient.connect();
+
 const fs = require('fs');
 const path = require('path');
 const logger = require('./utils/logger');
@@ -42,6 +57,23 @@ client.once('ready', async () => {
         logger.log('Successfully registered application (/) commands.');
     } catch (error) {
         logger.error('Error registering application (/) commands:', error);
+    }
+
+    try {
+        const query = 'SELECT * FROM guilds';
+        const result = await dbClient.query(query);
+
+        if (result.rows.length > 0) {
+            for (const config of result.rows) {
+                console.log('Initializing bot for guild:', config.id);
+                await initializeBot(client, config);
+                console.log('Bot initialized for guild:', config.id);
+            }
+        } else {
+            console.log('No guilds found in the database');
+        }
+    } catch (error) {
+        console.error('Error initializing bot for guilds:', error);
     }
 
     cron.schedule('* * * * *', () => {

@@ -37,10 +37,10 @@ async function initializeBot(client, config) {
         logger.log('All members fetched');
 
         const members = guild.members.cache;
-        logger.log(`Fetched Members: ${members.map(member => member.user ? member.user.username : 'undefined').join(', ')}`);
+        // logger.log(`Fetched Members: ${members.map(member => member.user ? member.user.username : 'undefined').join(', ')}`);
 
         const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
-        logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.displayName).join(', ')}`);
+        // logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.displayName).join(', ')}`);
 
         for (const [id, member] of membersWithRole) {
             const userId = id;
@@ -51,7 +51,7 @@ async function initializeBot(client, config) {
                 continue;
             }
 
-            logger.log(`Updating user: ${userId}, ${username}`);
+            // logger.log(`Updating user: ${userId}, ${username}`);
 
             const userQuery = `
                 INSERT INTO Users (user_id, username, updated_at)
@@ -92,7 +92,6 @@ async function initializeBot(client, config) {
         }
 
         // Remove users from the database if they no longer have the primary role
-        // const allUserIds = members.map(member => member.id);
         const userIdsWithRole = membersWithRole.map(member => member.id);
         const userIdsToRemove = await dbClient.query(`
             SELECT user_id FROM GuildUsers WHERE guild_id = $1 AND user_id NOT IN (${userIdsWithRole.map(id => `'${id}'`).join(', ')})

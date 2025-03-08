@@ -45,13 +45,6 @@ app.post('/login', async (req, res) => {
             const hashedPassword = result.rows[0].password;
             const isMatch = await bcrypt.compare(password, hashedPassword);
             if (isMatch) {
-                const config = await loadConfig(guildId);
-                if (!config) {
-                    logger.error('Config not found for guild:', guildId);
-                    return res.status(500).json({ success: false, error: 'Config failed.' });
-                }
-                // Initialize bot for the guild
-                await initializeBot(client, config);
                 const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '1h' });
                 res.json({ success: true, token });
             } else {

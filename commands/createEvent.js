@@ -185,7 +185,6 @@ module.exports = {
                     { name: '❌ No', value: '\u200B', inline: true }
                 )
                 .setColor('#0099ff')
-                .setURL('https://szymonsamus.dev/guild-tracker/placeholder')
                 .setFooter({ text: 'React with ✅ if you can attend, ❌ if you cannot attend.' });
 
             if (thumbnailUrl) {

@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
+const { initializeBot } = require('../utils/index.js');
 const { Client } = require('pg');
 const bcrypt = require('bcrypt');
 
@@ -131,8 +132,8 @@ module.exports = {
                 Setup complete with ${additionalRoles.length} additional roles. \n
                 ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}
             `);
-            // const client = require('../client');
-            // await initializeBot(client, config);
+            const client = require('../client');
+            await initializeBot(client, config);
         } catch (error) {
             console.error('Error saving guild configuration:', error);
             await interaction.reply('An error occurred while saving the configuration. Please try again.');

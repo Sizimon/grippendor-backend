@@ -69,38 +69,49 @@ module.exports = async function interactionCreate(interaction) {
 
             // Send an ephemeral reply to the user
             await interaction.reply({ content: `You have indicated your attendance as ${response === 'yes' ? 'Yes' : 'No'}.`, ephemeral: true });
-        } else if (action === 'cancel') {
-            // Handle event cancellation
-            const modal = new ModalBuilder()
-                .setCustomId(`confirm_${eventId}`)
-                .setTitle('Confirm Event Cancellation')
-                .addComponents(
-                    new ActionRowBuilder().addComponents(
-                        new TextInputBuilder()
-                            .setCustomId('confirmation')
-                            .setLabel('Type "CONFIRM" to cancel the event.')
-                            .setStyle(TextInputStyle.Short)
-                            .setPlaceholder('CONFIRM')
-                            .setRequired(true)
-                    )
-                );
-            await interaction.showModal(modal);
-        } else if (action === 'finish') {
-            // Handle event completion
-            const modal = new ModalBuilder()
-                .setCustomId(`debrief_${eventId}`)
-                .setTitle('Event Debriefing')
-                .addComponents(
-                    new ActionRowBuilder().addComponents(
-                        new TextInputBuilder()
-                            .setCustomId('debrief')
-                            .setLabel('Debriefing')
-                            .setStyle(TextInputStyle.Paragraph)
-                            .setPlaceholder('Enter details about how your Event/Mission went...')
-                            .setRequired(true)
-                    )
-                );
-            await interaction.showModal(modal);
+        } else if (action === 'cancel' || action === 'finish') {
+            // Check if the user is a moderator
+            const requiredRole = '1337158089459367936';
+            const hasPermission = member.roles.cache.has(requiredRole);
+
+            if (!hasPermission) {
+                return await interaction.reply({ content: 'You do not have permission to perform this action.', ephemeral: true });
+            }
+
+            if (action === 'cancel') {
+
+                // Handle event cancellation
+                const modal = new ModalBuilder()
+                    .setCustomId(`confirm_${eventId}`)
+                    .setTitle('Confirm Event Cancellation')
+                    .addComponents(
+                        new ActionRowBuilder().addComponents(
+                            new TextInputBuilder()
+                                .setCustomId('confirmation')
+                                .setLabel('Type "CONFIRM" to cancel the event.')
+                                .setStyle(TextInputStyle.Short)
+                                .setPlaceholder('CONFIRM')
+                                .setRequired(true)
+                        )
+                    );
+                await interaction.showModal(modal);
+            } else if (action === 'finish') {
+                // Handle event completion
+                const modal = new ModalBuilder()
+                    .setCustomId(`debrief_${eventId}`)
+                    .setTitle('Event Debriefing')
+                    .addComponents(
+                        new ActionRowBuilder().addComponents(
+                            new TextInputBuilder()
+                                .setCustomId('debrief')
+                                .setLabel('Debriefing')
+                                .setStyle(TextInputStyle.Paragraph)
+                                .setPlaceholder('Enter details about how your Event/Mission went...')
+                                .setRequired(true)
+                        )
+                    );
+                await interaction.showModal(modal);
+            }
         }
     } else if (interaction.isModalSubmit()) {
         const [action, eventId] = interaction.customId.split('_');

@@ -1,5 +1,4 @@
 const { Client, GatewayIntentBits, Partials, REST, Routes } = require('discord.js');
-const { loadConfig } = require('./utils/loaders');
 const {initializeBot} = require('./utils/index');
 
 const { Client: PgClient } = require('pg');

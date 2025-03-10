@@ -1,6 +1,7 @@
 const { Client } = require('pg');
 const logger = require('./logger');
 const { EmbedBuilder } = require('discord.js');
+const moment = require('moment-timezone');
 
 const dbClient = new Client({
     user: process.env.DB_USER,
@@ -94,6 +95,7 @@ async function checkUpcomingEvents(client) {
         const res = await dbClient.query(query);
         if (res.rows.length > 0) {
             for (const row of res.rows) {
+                console.log(`Sending reminder to ${row.username} for event ${row.name}`);
                 await sendReminder(client, row.user_id, row.username, row.name, row.event_date);
                 // Mark the reminder as sent.
                 const updateQuery = `
@@ -102,7 +104,10 @@ async function checkUpcomingEvents(client) {
                     WHERE event_id=$1 AND user_id=$2;
                 `;
                 await dbClient.query(updateQuery, [row.event_id, row.user_id]);
+                console.log(`Updated reminder status for user ${row.username} and event ${row.name}`);
             }
+        } else {
+            console.log('No upcoming events found.');
         }
     } catch (error) {
         console.error('Error checking upcoming events:', error);
@@ -112,13 +117,14 @@ async function checkUpcomingEvents(client) {
 async function sendReminder(client, userId, username, eventName, eventDate) {
     try {
         const user = await client.users.fetch(userId);
+        const eventDateUNIX = moment(eventDate).unix();
         const reminderEmber = new EmbedBuilder()
             .setColor('#0099ff')
             .setTitle(`Reminder for Event: ${eventName}`)
             .setDescription(
                 `Hey ${username},\n 
                 Don't forget about the event "${eventName}"!\n
-                This event is taking place at ${eventDate}!`)
+                This event is taking place at <t:${eventDateUNIX}:f> (This Date & Time is displayed in your local time!)`)
             .setFooter({ text:'GripendorBot', iconURL: client.user.avatarURL()});
         await user.send({ embeds: [reminderEmber] });
         console.log('Reminder sent to:', username);

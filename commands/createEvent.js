@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('discord.js');
 const { Client } = require('pg');
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const moment = require('moment-timezone');
 
 // PostgreSQL client
 const dbClient = new Client({
@@ -134,8 +135,10 @@ module.exports = {
             return;
         }
 
-        const eventDateTimeLocal = new Date(`${date}T${time}:00`);
-        const eventDateTimeUTC = new Date(eventDateTimeLocal.toLocaleString('en-US', { timeZone: timezone }));
+        const eventDateTimeLocal = moment.tz(`${date} ${time}`, timezone);
+        console.log(`Local Event DateTime: ${eventDateTimeLocal.format()}`)
+        const eventDateTimeUTC = eventDateTimeLocal.utc().format();
+        console.log(`UTC Event DateTime: ${eventDateTimeUTC}`)
 
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 
@@ -173,6 +176,15 @@ module.exports = {
             const eventId = result.rows[0].id;
             console.log('Event ID:', eventId);
 
+
+            // FETCH THE DATE OF THE EVENT FROM THE DATABASE (NECESSARY AS THE EVENT DATE IS STORED IN UTC)
+            const eventDateFetch = await dbClient.query('SELECT event_date FROM events WHERE id = $1', [eventId]);
+            const eventDate = eventDateFetch.rows[0].event_date;
+            console.log('Event Date:', eventDate);
+            const eventDateUNIX = moment(eventDate).unix();
+            console.log('Event Date UNIX:', eventDateUNIX);
+            // END
+
             const eventEmbed = new EmbedBuilder()
                 .setTitle(name)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
@@ -180,7 +192,7 @@ module.exports = {
                 .setThumbnail('https://media.discordapp.net/attachments/1337393468326023241/1337395709665873960/DCC_Logo.png?ex=67c83fd0&is=67c6ee50&hm=6e168061cf4ffe112dd8301418ba008cad2696601913156b2ff3401d5abdba24&=&format=webp&quality=lossless&width=1752&height=1012')
                 .addFields(
                     { name: 'Mission Type:', value: type, inline: true },
-                    { name: '🕒 Date and Time', value: new Intl.DateTimeFormat('en-US', { dateStyle: 'full', timeStyle: 'short', timeZone: timezone }).format(eventDateTimeLocal), inline: false },
+                    { name: '🕒 Date and Time', value: `<t:${eventDateUNIX}:f> (This Date & Time is displayed in your local time!)`, inline: false },
                     { name: '✅ Yes', value: '\u200B', inline: true },
                     { name: '❌ No', value: '\u200B', inline: true }
                 )

@@ -12,7 +12,6 @@ const jwt = require('jsonwebtoken');
 
 const logger = require('./utils/logger');
 const client = require('./client'); // Import the discord client (Located client.js)
-const { initializeBot } = require('./utils/index.js'); 
 const { loadConfig, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadEventData } = require('./utils/loaders.js') // Data loading functions
 
 const app = express();
@@ -33,7 +32,7 @@ dbClient.connect();
 logger.log('Starting bot...');
 const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
 
-app.post('/login', async (req, res) => {
+app.post('/bot-backend/login', async (req, res) => {
     logger.log('Login request received');
     const { guildId, password } = req.body;
 
@@ -71,7 +70,7 @@ function authenticateToken(req, res, next) {
     });
 }
 
-app.get('/config/:guildId', authenticateToken, async (req, res) => {
+app.get('/bot-backend/config/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -84,7 +83,7 @@ app.get('/config/:guildId', authenticateToken, async (req, res) => {
     }
 });
 
-app.get('/userdata/:guildId', authenticateToken, async (req, res) => {
+app.get('/bot-backend/userdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -113,7 +112,7 @@ app.get('/userdata/:guildId', authenticateToken, async (req, res) => {
     }
 });
 
-app.get('/eventdata/:guildId', authenticateToken, async (req, res) => {
+app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -137,27 +136,27 @@ app.get('/eventdata/:guildId', authenticateToken, async (req, res) => {
 // End
 
 
-// Graceful shutdown
-process.on('SIGTERM', () => {
-    logger.log('SIGTERM received. Shutting down gracefully...');
-    saveAttendance();
-    client.destroy();
-    process.exit(0);
-});
+// // Graceful shutdown
+// process.on('SIGTERM', () => {
+//     logger.log('SIGTERM received. Shutting down gracefully...');
+//     saveAttendance();
+//     client.destroy();
+//     process.exit(0);
+// });
 
-process.on('uncaughtException', (error) => {
-    logger.error('Uncaught Exception:', error);
-});
+// process.on('uncaughtException', (error) => {
+//     logger.error('Uncaught Exception:', error);
+// });
 
-process.on('unhandledRejection', (error) => {
-    logger.error('Unhandled Rejection:', error);
-});
+// process.on('unhandledRejection', (error) => {
+//     logger.error('Unhandled Rejection:', error);
+// });
 // End
 
 // Start the bot and API server
-const PORT = process.env.PORT || 5001;
-app.listen(PORT, '127.0.0.1', () => { // Listen only on localhost
-    logger.log(`Server running on port ${PORT}`);
+const PORT = process.env.PORT || 5003;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 });
 
 client.login(process.env.DISCORD_TOKEN).catch(error => {

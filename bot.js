@@ -135,24 +135,6 @@ app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) =
 
 // End
 
-
-// // Graceful shutdown
-// process.on('SIGTERM', () => {
-//     logger.log('SIGTERM received. Shutting down gracefully...');
-//     saveAttendance();
-//     client.destroy();
-//     process.exit(0);
-// });
-
-// process.on('uncaughtException', (error) => {
-//     logger.error('Uncaught Exception:', error);
-// });
-
-// process.on('unhandledRejection', (error) => {
-//     logger.error('Unhandled Rejection:', error);
-// });
-// End
-
 // Start the bot and API server
 const PORT = process.env.PORT || 5003;
 app.listen(PORT, '0.0.0.0', () => {

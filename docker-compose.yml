@@ -15,7 +15,8 @@ services:
     ports:
       - "5003:5003"
     depends_on:
-      - bot-database
+      bot-database:
+        condition: service_healthy
 
   bot-database:
     image: postgres:13
@@ -28,6 +29,11 @@ services:
       - "5432:5432"
     volumes:
       - pgdata:/var/lib/postgresql/data
-
+      - /home/ec2-user/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_NAME}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 volumes:
   pgdata:

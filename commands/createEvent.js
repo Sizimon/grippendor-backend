@@ -3,6 +3,16 @@ const { Client } = require('pg');
 const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const moment = require('moment-timezone');
 
+const cloudinary = require('cloudinary').v2;
+const fs = require('fs');
+const path = require('path');
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret: process.env.CLOUDINARY_API_SECRET
+});
+
 // PostgreSQL client
 const dbClient = new Client({
     user: process.env.DB_USER,
@@ -58,6 +68,11 @@ const timeZones = [
     { label: 'UTC+11:00', value: 'Etc/GMT-11' },
     { label: 'UTC+12:00', value: 'Etc/GMT-12' },
 ];
+
+async function uploadImageToCloudinary(imageUrl) {
+    const result = await cloudinary.uploader.upload(imageUrl, { folder: 'discord-events' });
+    return result.secure_url;
+}
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -143,9 +158,15 @@ module.exports = {
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 
         try {
-            // Collect image URLs from Discord
-            const thumbnailUrl = thumbnail.url;
-            const imageUrls = images.map(image => image.url);
+            // Collect image URLs from Discord and upload to Cloudinary
+            const thumbnailUrl = await uploadImageToCloudinary(thumbnail.url);
+            const imageUrls = await Promise.all(images.map(async (image) => {
+                const imagePath = path.join(__dirname, 'temp', image.name);
+                await image.attachment.download(imagePath);
+                const cloudinaryUrl = await uploadImageToCloudinary(imagePath);
+                fs.unlinkSync(imagePath); // Delete the temporary file
+                return cloudinaryUrl;
+            }));
 
             console.log('Inserting event into DB....')
             const eventQuery = `

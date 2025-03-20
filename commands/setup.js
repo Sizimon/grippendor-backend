@@ -56,6 +56,13 @@ for (let i = 1; i <= 10; i++) {
 module.exports = {
     data: setupCommand,
     async execute(interaction) {
+        if (!interaction.member.permissions.has('Administrator')) {
+            return await interaction.reply({
+                content: 'You do not have the permission to use this command.',
+                ephemeral: true,
+            });
+        }
+
         const channel = interaction.options.getChannel('channel');
         const color = interaction.options.getString('color');
         const primaryRole = interaction.options.getRole('primary_role');

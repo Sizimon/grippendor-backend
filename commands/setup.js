@@ -133,13 +133,9 @@ module.exports = {
                 ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}
             `);
             //TEST BLOCK
-            const reFetchGuildDataQuery = `
-                SELECT * FROM Guilds 
-                WHERE guild_id = $1
-            `;
+            const reFetchGuildDataQuery = 'SELECT * FROM guilds WHERE id = $1';
             const values = [config.guild]
-            
-            const result = await dbClient.query(reFetchGuildDataQuery, values)
+            const result = await dbClient.query(reFetchGuildDataQuery, values);
             //TEST BLOCK
             const client = require('../client');
             await initializeBot(client, result.rows[0]); //TEST BLOCK (CHANGE RESULT BACK TO CONFIG IF FAIL)

@@ -137,7 +137,9 @@ module.exports = {
                 SELECT * FROM Guilds 
                 WHERE guild_id = $1
             `;
-            const result = await dbClient.query(reFetchGuildDataQuery, [config.guild])
+            const values = [config.guild]
+            
+            const result = await dbClient.query(reFetchGuildDataQuery, values)
             //TEST BLOCK
             const client = require('../client');
             await initializeBot(client, result.rows[0]); //TEST BLOCK (CHANGE RESULT BACK TO CONFIG IF FAIL)

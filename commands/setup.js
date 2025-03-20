@@ -132,8 +132,15 @@ module.exports = {
                 Setup complete with ${additionalRoles.length} additional roles. \n
                 ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}
             `);
+            //TEST BLOCK
+            const reFetchGuildDataQuery = `
+            SELECT * FROM Guilds 
+            WHERE guild_id = $1
+            `;
+            const result = dbClient.query(reFetchGuildDataQuery, config.guild)
+            //TEST BLOCK
             const client = require('../client');
-            await initializeBot(client, config);
+            await initializeBot(client, result); //TEST BLOCK (CHANGE RESULT BACK TO CONFIG IF FAIL)
         } catch (error) {
             console.error('Error saving guild configuration:', error);
             await interaction.reply('An error occurred while saving the configuration. Please try again.');

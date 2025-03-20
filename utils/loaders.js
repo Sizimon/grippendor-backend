@@ -107,7 +107,7 @@ async function checkUpcomingEvents(client) {
                 console.log(`Updated reminder status for user ${row.username} and event ${row.name}`);
             }
         } else {
-            console.log('No upcoming events found.');
+            return
         }
     } catch (error) {
         console.error('Error checking upcoming events:', error);

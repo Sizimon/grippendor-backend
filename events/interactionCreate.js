@@ -71,7 +71,7 @@ module.exports = async function interactionCreate(interaction) {
             await interaction.reply({ content: `You have indicated your attendance as ${response === 'yes' ? 'Yes' : 'No'}.`, ephemeral: true });
         } else if (action === 'cancel' || action === 'finish') {
             // Check if the user is a moderator
-            const requiredRole = '1337158089459367936';
+            const requiredRole = '1337158089459367936'; // !!! CHANGE TO DYNAMIC VALUE IN THE FUTURE !!!
             const hasPermission = member.roles.cache.has(requiredRole);
 
             if (!hasPermission) {
@@ -148,3 +148,4 @@ module.exports = async function interactionCreate(interaction) {
         }
     };
 };
+

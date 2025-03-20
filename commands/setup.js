@@ -137,10 +137,10 @@ module.exports = {
             SELECT * FROM Guilds 
             WHERE guild_id = $1
             `;
-            const result = dbClient.query(reFetchGuildDataQuery, config.guild)
+            const result = dbClient.query(reFetchGuildDataQuery, [config.guild])
             //TEST BLOCK
             const client = require('../client');
-            await initializeBot(client, result); //TEST BLOCK (CHANGE RESULT BACK TO CONFIG IF FAIL)
+            await initializeBot(client, result.rows[0]); //TEST BLOCK (CHANGE RESULT BACK TO CONFIG IF FAIL)
         } catch (error) {
             console.error('Error saving guild configuration:', error);
             await interaction.reply('An error occurred while saving the configuration. Please try again.');

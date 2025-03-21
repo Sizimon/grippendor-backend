@@ -1,28 +1,10 @@
-const { SlashCommandBuilder } = require('discord.js');
-const { Client } = require('pg');
-const { EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
-const moment = require('moment-timezone');
-
-const cloudinary = require('cloudinary').v2;
 const fs = require('fs');
 const path = require('path');
-
-cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_API_KEY,
-    api_secret: process.env.CLOUDINARY_API_SECRET
-});
-
-// PostgreSQL client
-const dbClient = new Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-
-dbClient.connect();
+const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
+const moment = require('moment-timezone');
+const cloudinary = require('../utils/cloudinary.js')
+const db = require('../utils/db.js')
+const eventService = require('../services/eventService.js')
 
 const missionTypes = [
     { label: "Infiltration", value: "Infiltration" },
@@ -70,8 +52,13 @@ const timeZones = [
 ];
 
 async function uploadImageToCloudinary(imageUrl) {
-    const result = await cloudinary.uploader.upload(imageUrl, { folder: 'discord-events' });
-    return result.secure_url;
+    try {
+        const result = await cloudinary.uploader.upload(imageUrl, { folder: 'discord-events' });
+        return result.secure_url;
+    } catch (error) {
+        console.error('Error uploading image to Cloudinary', error);
+        throw error;
+    }
 }
 
 module.exports = {
@@ -150,10 +137,11 @@ module.exports = {
             return;
         }
 
+
+        // CONVERTS THE INPUT DATE / TIME WITH MOMENT, THEN CONVERTS THAT INTO UTC FOR THE DB
         const eventDateTimeLocal = moment.tz(`${date} ${time}`, timezone);
-        console.log(`Local Event DateTime: ${eventDateTimeLocal.format()}`)
         const eventDateTimeUTC = eventDateTimeLocal.utc().format();
-        console.log(`UTC Event DateTime: ${eventDateTimeUTC}`)
+        // END
 
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 
@@ -162,44 +150,42 @@ module.exports = {
             const thumbnailUrl = await uploadImageToCloudinary(thumbnail.url);
             const imageUrls = await Promise.all(images.map(async (image) => {
                 const imagePath = path.join(__dirname, 'temp', image.name);
-                await image.attachment.download(imagePath);
-                const cloudinaryUrl = await uploadImageToCloudinary(imagePath);
-                fs.unlinkSync(imagePath); // Delete the temporary file
-                return cloudinaryUrl;
+                try {
+                    await image.attachment.download(imagePath);
+                    const cloudinaryUrl = await uploadImageToCloudinary(imagePath);
+                    return cloudinaryUrl;
+                } finally {
+                    if (fs.existsSync(imagePath)) {
+                        fs.unlinkSync(imagePath); // Ensure the file is deleted
+                    }
+                }
             }));
 
+            const event = {
+                guildId: interaction.guild.id,
+                type: type,
+                name: name,
+                channelId: channel,
+                summary: summary,
+                description: description,
+                eventDate: eventDateTimeUTC,
+                thumbnailUrl: thumbnailUrl,
+                imageUrls: JSON.stringify(imageUrls)  // POSSIBLE ERROR HERE
+            };
+
             console.log('Inserting event into DB....')
-            const eventQuery = `
-            INSERT INTO events (guild_id, type, name, channel_id, summary, description, event_date, thumbnail_url, image_urls)
-            VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
-            ON CONFLICT (guild_id, name) DO UPDATE
-            SET type = EXCLUDED.type,
-                channel_id = EXCLUDED.channel_id,
-                summary = EXCLUDED.summary,
-                description = EXCLUDED.description,
-                event_date = EXCLUDED.event_date,
-                thumbnail_url = EXCLUDED.thumbnail_url,
-                image_urls = EXCLUDED.image_urls,
-                updated_at = CURRENT_TIMESTAMP
-            RETURNING id;
-            `;
-            const eventValues = [interaction.guild.id, type, name, channel.id, summary, description, eventDateTimeUTC, JSON.stringify(thumbnailUrl), JSON.stringify(imageUrls)];
-            console.log('Event Query:', eventQuery);
-            console.log('Event Values:', eventValues);
+            const createdEventId = await eventService.createEvent(event);
+            console.log('Created Event with the ID:', createdEventId);
 
-            const result = await dbClient.query(eventQuery, eventValues);
-            console.log('Result:', result);
-
-            if (result.rows.length === 0) {
-                throw new Error('Failed to create event');
+            if (!createdEventId) {
+                throw new Error('Failed to create event in the database');
             }
 
-            const eventId = result.rows[0].id;
+            const eventId = createdEventId;
             console.log('Event ID:', eventId);
 
-
             // FETCH THE DATE OF THE EVENT FROM THE DATABASE (NECESSARY AS THE EVENT DATE IS STORED IN UTC)
-            const eventDateFetch = await dbClient.query('SELECT event_date FROM events WHERE id = $1', [eventId]);
+            const eventDateFetch = await db.query('SELECT event_date FROM events WHERE id = $1', [eventId]);
             const eventDate = eventDateFetch.rows[0].event_date;
             console.log('Event Date:', eventDate);
             const eventDateUNIX = moment(eventDate).unix();
@@ -254,7 +240,7 @@ module.exports = {
                 SET message_id = $1
                 WHERE id = $2;
             `;
-            await dbClient.query(updateEventQuery, [eventMessage.id, eventId]);
+            await db.query(updateEventQuery, [eventMessage.id, eventId]);
 
             await interaction.editReply({ content: 'Event created successfully!', ephemeral: true });
         } catch (error) {

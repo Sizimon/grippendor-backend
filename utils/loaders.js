@@ -1,17 +1,7 @@
-const { Client } = require('pg');
 const logger = require('./logger');
 const { EmbedBuilder } = require('discord.js');
 const moment = require('moment-timezone');
-
-const dbClient = new Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-
-dbClient.connect();
+const db = require('./db.js')
 
 async function loadConfig(guildId) {
     if (!guildId || isNaN(guildId)) {
@@ -21,7 +11,7 @@ async function loadConfig(guildId) {
     try {
         const query = 'SELECT * FROM guilds WHERE id = $1';
         const values = [guildId];
-        const result = await dbClient.query(query, values);
+        const result = await db.query(query, values);
         if (result.rows.length > 0) {
             return result.rows[0];
         } else {
@@ -44,9 +34,9 @@ async function loadGuildUsers(guildId) {
     const values = [guildId];
 
     try {
-        const res = await dbClient.query(query, values);
-        if (res.rows.length > 0) {
-            return res.rows;
+        const result = await db.query(query, values);
+        if (result.rows.length > 0) {
+            return result.rows;
         } else {
             logger.error('Guild members not found for guild:', guildId);
             return null;
@@ -67,9 +57,9 @@ async function loadGuildUserRoles(guildId) {
     const values = [guildId];
 
     try {
-        const res = await dbClient.query(query, values);
-        if (res.rows.length > 0) {
-            return res.rows;
+        const result = await db.query(query, values);
+        if (result.rows.length > 0) {
+            return result.rows;
         } else {
             logger.error('Guild user roles not found for guild:', guildId);
             return null;
@@ -92,9 +82,9 @@ async function checkUpcomingEvents(client) {
         AND ea.reminder_sent = FALSE;
     `;
     try {
-        const res = await dbClient.query(query);
-        if (res.rows.length > 0) {
-            for (const row of res.rows) {
+        const result = await db.query(query);
+        if (result.rows.length > 0) {
+            for (const row of result.rows) {
                 console.log(`Sending reminder to ${row.username} for event ${row.name}`);
                 await sendReminder(client, row.user_id, row.username, row.name, row.event_date);
                 // Mark the reminder as sent.
@@ -103,7 +93,7 @@ async function checkUpcomingEvents(client) {
                     SET reminder_sent=TRUE
                     WHERE event_id=$1 AND user_id=$2;
                 `;
-                await dbClient.query(updateQuery, [row.event_id, row.user_id]);
+                await db.query(updateQuery, [row.event_id, row.user_id]);
                 console.log(`Updated reminder status for user ${row.username} and event ${row.name}`);
             }
         } else {
@@ -138,9 +128,9 @@ async function loadEventData(guildId) {
     const values = [guildId];
 
     try {
-        const res = await dbClient.query(query, values);
-        if (res.rows.length > 0) {
-            return res.rows;
+        const result = await db.query(query, values);
+        if (result.rows.length > 0) {
+            return result.rows;
         } else {
             logger.error('No events found for guild:', guildId);
             return null;
@@ -164,8 +154,8 @@ async function loadEventUserData(eventId, guildId) {
         GROUP BY u.user_id, u.username;
     `;
     try {
-        const res = await dbClient.query(query, [eventId, guildId]);
-        const eventData = res.rows.map(row => ({
+        const result = await db.query(query, [eventId, guildId]);
+        const eventData = result.rows.map(row => ({
             user_id: row.user_id,
             name: row.username,
             roles: row.roles,

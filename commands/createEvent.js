@@ -165,7 +165,7 @@ module.exports = {
                 guildId: interaction.guild.id,
                 type: type,
                 name: name,
-                channelId: channel,
+                channelId: channel.id,
                 summary: summary,
                 description: description,
                 eventDate: eventDateTimeUTC,

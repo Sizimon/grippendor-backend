@@ -72,7 +72,7 @@ module.exports = {
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('summary')
-                .setDescription('A brief summary of the Event/Mission. (250 characters max)')
+                .setDescription('A brief summary of the Event/Mission. (MAXIMUM: 50 Characters)')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('description')
@@ -123,22 +123,48 @@ module.exports = {
             interaction.options.getAttachment('briefing_url_3')
         ].filter(image => image !== null);
 
-        // Validate summary length
+        // !!! VALIDATION CHECKS !!!
         if (summary.length > 250) {
             await interaction.reply({ content: 'The summary must be 250 characters or less.', ephemeral: true });
             return;
         }
 
+        if (name.length > 50) {
+            await interaction.reply({ content: 'The name must be 50 characters or less.', ephemeral: true });
+            return;
+        }
+
+        // Check the date was entered correctly
+        if (date) {
+            const dateRegex = /^\d{4}-\d{2}\d{2}$/;
+            if (!dateRegex.test(date)) {
+                await interaction.reply({
+                    content: 'Invalid date format. Please use the format YYYY-MM-DD.',
+                    ephemeral: true,
+                });
+                return;
+            }
+        }
+
+        // Validate that the date itself is correct
+        const isValidDate = moment(date, 'YYYY-MM-DD', true).isValid();
+        if (!isValidDate) {
+            await interaction.reply({
+                content: 'The date you have entered is invalid.',
+                ephemeral: true,
+            });
+            return;
+        }
 
         // CONVERTS THE INPUT DATE / TIME WITH MOMENT, THEN CONVERTS THAT INTO UTC FOR THE DB
         const eventDateTimeLocal = moment.tz(`${date} ${time}`, timezone);
         const eventDateTimeUTC = eventDateTimeLocal.utc().format();
         // END
 
+
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 
         const tempDir = path.join(__dirname, 'temp');
-
         // Ensure a temp directory for images exists
         if (!fs.existsSync(tempDir)) {
             fs.mkdirSync(tempDir, { recursive: true });  // Create if doesnt exist

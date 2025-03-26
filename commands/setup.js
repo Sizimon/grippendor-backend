@@ -16,7 +16,7 @@ const setupCommand = new SlashCommandBuilder()
     .addStringOption(option => option.setName('color').setDescription('The color palette (e.g., #FF0000)').setRequired(true))
     .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard').setRequired(true))
     .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
-    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAXIMUM SIZE: 400x400px)')).setRequired(false)
+    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAXIMUM SIZE: 400x400px)').setRequired(false))
     .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true));
     
     // .addStringOption(option => option.setName('icon').setDescription('The icon URL for your frontend dashboard').setRequired(true))

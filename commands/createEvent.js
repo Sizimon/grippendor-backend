@@ -136,10 +136,21 @@ module.exports = {
 
         // Check the date was entered correctly
         if (date) {
-            const dateRegex = /^\d{4}-\d{2}\d{2}$/;
+            const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
             if (!dateRegex.test(date)) {
                 await interaction.reply({
                     content: 'Invalid date format. Please use the format YYYY-MM-DD.',
+                    ephemeral: true,
+                });
+                return;
+            }
+        }
+
+        if (time) {
+            const timeRegex = /^\d{2}:\d{2}$/;
+            if (!timeRegex.test(time)) {
+                await interaction.reply({
+                    contend: 'Invalid time format. Please use the format HH:MM.',
                     ephemeral: true,
                 });
                 return;
@@ -151,6 +162,16 @@ module.exports = {
         if (!isValidDate) {
             await interaction.reply({
                 content: 'The date you have entered is invalid.',
+                ephemeral: true,
+            });
+            return;
+        }
+
+        // Validate that the time itself is correct
+        const isValidTime = moment(time, 'HH:mm', true).isValid();
+        if (!isValidTime) {
+            await interaction.reply({
+                content: 'The time you have entered is invalid.',
                 ephemeral: true,
             });
             return;

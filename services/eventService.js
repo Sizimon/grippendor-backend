@@ -7,16 +7,6 @@ const db = require('../utils/db')
  * @returns {string|null} - The ID of the created or updated event, or null if no rows were affected.
  */
 
-
-// function validateEvent(event) {
-//     if (!event.guildId || !event.type || !event.name || !event.channelId || !event.eventDate) {
-//         throw new Error('Missing required event fields');
-//     }
-//     if (!Array.isArray(event.imageUrls)) {
-//         throw new Error('imageUrls must be an array');
-//     }
-// }
-
 async function createEvent(event) {
     const query = `
         INSERT INTO events (guild_id, type, name, channel_id, summary, description, event_date, thumbnail_url, image_urls)

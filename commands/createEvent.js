@@ -1,3 +1,4 @@
+const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
@@ -151,12 +152,30 @@ module.exports = {
             const imageUrls = await Promise.all(images.map(async (image) => {
                 const imagePath = path.join(__dirname, 'temp', image.name);
                 try {
-                    await image.attachment.download(imagePath);
+                    // Download the image from the URL (using stream to avoid storing image in memory)
+                    const response = await axios({
+                        method: 'get',
+                        url: image.url,
+                        responseType: 'stream',
+                    });
+
+                    // Create the writable stream to save file locally
+                    const writer = fs.createWriteStream(imagePath);
+                    response.data.pipe(writer);
+
+                    // Wait for file to finish writing (with error handling)
+                    await new Promise((resolve, reject) => {
+                        writer.on('finish', resolve);
+                        writer.on('error', reject);
+                    });
+
+                    // Upload to Cloudinary
                     const cloudinaryUrl = await uploadImageToCloudinary(imagePath);
                     return cloudinaryUrl;
                 } finally {
+                    // Ensure the file is deleted
                     if (fs.existsSync(imagePath)) {
-                        fs.unlinkSync(imagePath); // Ensure the file is deleted
+                        fs.unlinkSync(imagePath); 
                     }
                 }
             }));

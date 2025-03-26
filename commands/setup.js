@@ -1,7 +1,10 @@
+const axios = require('axios');
+const sharp = require('sharp'); // Library for checking metadata of attachments
 const { SlashCommandBuilder } = require('discord.js');
 const { initializeBot } = require('../utils/index.js');
 const bcrypt = require('bcrypt');
-const db = require('../utils/db.js')
+const db = require('../utils/db.js');
+const cloudinary = require('../utils/cloudinary.js');
 
 const guildService = require('../services/guildService.js')
 const roleService = require('../services/roleService.js')
@@ -11,10 +14,13 @@ const setupCommand = new SlashCommandBuilder()
     .setDescription('Setup the bot configuration')
     .addChannelOption(option => option.setName('channel').setDescription('The channel to send attendance messages. (Keep in mind this should be an admin channel)').setRequired(true))
     .addStringOption(option => option.setName('color').setDescription('The color palette (e.g., #FF0000)').setRequired(true))
-    .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true))
-    .addStringOption(option => option.setName('icon').setDescription('The icon URL for your frontend dashboard').setRequired(true))
     .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard').setRequired(true))
-    .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true));
+    .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
+    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAXIMUM SIZE: 400x400px)')).setRequired(false)
+    .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true));
+    
+    // .addStringOption(option => option.setName('icon').setDescription('The icon URL for your frontend dashboard').setRequired(true))
+    
 
 // Add additional role options
 for (let i = 1; i <= 10; i++) {
@@ -37,9 +43,40 @@ module.exports = {
         const channel = interaction.options.getChannel('channel');
         const color = interaction.options.getString('color');
         const primaryRole = interaction.options.getRole('primary_role');
-        const icon = interaction.options.getString('icon');
         const title = interaction.options.getString('title');
         const password = interaction.options.getString('password');
+        const icon = interaction.options.getAttachment('icon');
+
+
+        // Validate if Icon is correct size
+        if (icon) {
+            try {
+                const response = await axios({
+                    method: 'get',
+                    url: icon.url,
+                    repsonseType: 'arraybuffer',
+                });
+
+                // Use sharp to inspect image dimensions
+                const imageBuffer = Buffer.from(response.data);
+                const metadata = await sharp(imageBuffer).metadata();
+
+                // Image size validation
+                if (metadata.width > 400 || metadata.height > 400) {
+                    return await interaction.reply({
+                        content: 'Size of icon is too large. Icon must be 400x400px maximum.'
+                    });
+                }
+            } catch (error) {
+                console.error('Error validating icon size:', error);
+                return await interaction.reply({
+                    content: 'An error occured while validating the icon. Please try again.',
+                    ephemeral: true,
+                })
+            }
+        }
+
+
 
         const additionalRoles = [];
         for (let i = 1; i <= 10; i++) {
@@ -53,17 +90,29 @@ module.exports = {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        const config = {
-            guild: interaction.guild.id,
-            channel: channel.id,
-            color,
-            primaryRole: primaryRole.id,
-            icon,
-            title,
-            password: hashedPassword
-        };
+        // const config = {
+        //     guild: interaction.guild.id,
+        //     channel: channel.id,
+        //     color,
+        //     primaryRole: primaryRole.id,
+        //     icon: iconUrl,
+        //     title,
+        //     password: hashedPassword
+        // };
 
         try {
+            const iconUrl = await uploadImageToCloudinary(icon.url);
+
+            const config = {
+                guild: interaction.guild.id,
+                channel: channel.id,
+                color,
+                primaryRole: primaryRole.id,
+                icon: iconUrl,
+                title,
+                password: hashedPassword
+            };
+
             await guildService.saveGuildConfig(config);
             for (const role of additionalRoles) {
                 await roleService.saveRole(interaction.guild.id, role.name, role.id);

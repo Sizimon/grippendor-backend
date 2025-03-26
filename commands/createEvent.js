@@ -262,7 +262,7 @@ module.exports = {
             await interaction.editReply({ content: 'Event created successfully!', ephemeral: true });
         } catch (error) {
             console.error(error);
-            await interaction.editReply({ content: 'There was an error creating the event.', ephemeral: true });
+            await interaction.editReply({ content: `There was an error creating the event: ${error}`, ephemeral: true });
         }
     }
 }

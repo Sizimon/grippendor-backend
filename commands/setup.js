@@ -17,7 +17,7 @@ const setupCommand = new SlashCommandBuilder()
     .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard (MAXIMUM: 25 Characters)').setRequired(true))
     .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
     .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true))
-    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAXIMUM SIZE: 400x400px)').setRequired(false));
+    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAX SIZE: 400x400px | ALLOWED FORMATS: .jpg, .png, .webp, .svg)').setRequired(false));
     
     // .addStringOption(option => option.setName('icon').setDescription('The icon URL for your frontend dashboard').setRequired(true))
     
@@ -54,7 +54,7 @@ module.exports = {
                 const response = await axios({
                     method: 'get',
                     url: icon.url,
-                    repsonseType: 'arraybuffer',
+                    repsonseType: 'arrayBuffer',
                 });
 
                 // Use sharp to inspect image dimensions
@@ -70,7 +70,7 @@ module.exports = {
             } catch (error) {
                 console.error('Error validating icon size:', error);
                 return await interaction.reply({
-                    content: 'An error occured while validating the icon. Please try again.',
+                    content: `An error occured while validating the icon: ${error}`,
                     ephemeral: true,
                 })
             }

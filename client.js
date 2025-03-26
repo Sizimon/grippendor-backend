@@ -53,6 +53,15 @@ client.once('ready', async () => {
             Routes.applicationCommands(client.user.id),
             { body: commands },
         );
+
+        const guildId = process.env.TEST_GUILD_ID;
+        if (guildId) {
+            await rest.put(
+                Routes.applicationGuildCommands(client.user.id, guildId),
+                { body: commands },
+            );
+            logger.log(`Successfully registered guild-specific commands for testing at Guild ID: ${guildId}`);
+        }
         logger.log('Successfully registered application (/) commands.');
     } catch (error) {
         logger.error('Error registering application (/) commands:', error);

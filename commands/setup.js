@@ -51,15 +51,31 @@ module.exports = {
         // Validate if Icon is correct size
         if (icon) {
             try {
+                // Validate the image format
+                const validFormats = ['jpg', 'jpeg', 'png', 'webp', 'svg'];
+                const fileExtension = icon.name.split('.').pop().toLowerCase();
+
+                if (!validFormats.includes(fileExtension)) {
+                    return await interaction.reply({
+                        content:  `Unsupported image format. Please upload an image in one of the following formats: ${validFormats.join(', ')}`,
+                        ephemeral: true,
+                    })
+                }
+
                 const response = await axios({
                     method: 'get',
                     url: icon.url,
                     responseType: 'arrayBuffer',
                 });
 
+                console.log('Response headers:', response.headers);
+                console.log('Response content type:', response.headers['content-type']);
+
                 // Use sharp to inspect image dimensions
                 const imageBuffer = Buffer.from(response.data);
                 const metadata = await sharp(imageBuffer).metadata();
+
+                console.log('Image Metadata:', metadata)
 
                 // Image size validation
                 if (metadata.width > 400 || metadata.height > 400) {

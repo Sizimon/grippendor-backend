@@ -65,7 +65,7 @@ module.exports = {
                 const response = await axios({
                     method: 'get',
                     url: icon.url,
-                    responseType: 'arrayBuffer',
+                    responseType: 'arraybuffer',
                 });
 
                 console.log('Response headers:', response.headers);

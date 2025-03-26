@@ -146,11 +146,18 @@ module.exports = {
 
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 
+        const tempDir = path.join(__dirname, 'temp');
+
+        // Ensure a temp directory for images exists
+        if (!fs.existsSync(tempDir)) {
+            fs.mkdirSync(tempDir, { recursive: true });  // Create if doesnt exist
+        }
+
         try {
             // Collect image URLs from Discord and upload to Cloudinary
             const thumbnailUrl = await uploadImageToCloudinary(thumbnail.url);
             const imageUrls = await Promise.all(images.map(async (image) => {
-                const imagePath = path.join(__dirname, 'temp', image.name);
+                const imagePath = path.join(tempDir, image.name);
                 try {
                     // Download the image from the URL (using stream to avoid storing image in memory)
                     const response = await axios({

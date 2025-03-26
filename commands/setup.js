@@ -54,7 +54,7 @@ module.exports = {
                 const response = await axios({
                     method: 'get',
                     url: icon.url,
-                    repsonseType: 'arrayBuffer',
+                    responseType: 'arrayBuffer',
                 });
 
                 // Use sharp to inspect image dimensions

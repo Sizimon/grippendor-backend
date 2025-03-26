@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { SlashCommandBuilder, EmbedBuilder, ActionRowBuilder, ButtonBuilder, ButtonStyle } = require('discord.js');
 const moment = require('moment-timezone');
-const cloudinary = require('../utils/cloudinary.js')
+const { uploadImageToCloudinary } = require('../utils/cloudinary.js')
 const db = require('../utils/db.js')
 const eventService = require('../services/eventService.js')
 
@@ -52,15 +52,6 @@ const timeZones = [
     { label: 'UTC+12:00', value: 'Etc/GMT-12' },
 ];
 
-async function uploadImageToCloudinary(imageUrl) {
-    try {
-        const result = await cloudinary.uploader.upload(imageUrl, { folder: 'discord-events' });
-        return result.secure_url;
-    } catch (error) {
-        console.error('Error uploading image to Cloudinary', error);
-        throw error;
-    }
-}
 
 module.exports = {
     data: new SlashCommandBuilder()

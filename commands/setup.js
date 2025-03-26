@@ -1,10 +1,10 @@
 const axios = require('axios');
 const sharp = require('sharp'); // Library for checking metadata of attachments
-const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { initializeBot } = require('../utils/index.js');
 const bcrypt = require('bcrypt');
 const db = require('../utils/db.js');
-const cloudinary = require('../utils/cloudinary.js');
+const { uploadImageToCloudinary } = require('../utils/cloudinary.js');
 
 const guildService = require('../services/guildService.js')
 const roleService = require('../services/roleService.js')
@@ -12,9 +12,9 @@ const roleService = require('../services/roleService.js')
 const setupCommand = new SlashCommandBuilder()
     .setName('setup')
     .setDescription('Setup the bot configuration')
-    .addChannelOption(option => option.setName('channel').setDescription('The channel to send attendance messages. (Keep in mind this should be an admin channel)').setRequired(true))
+    .addChannelOption(option => option.setName('channel').setDescription('Default Bot Channel (Should be a admin channel)').setRequired(true))
     .addStringOption(option => option.setName('color').setDescription('The color palette (e.g., #FF0000)').setRequired(true))
-    .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard').setRequired(true))
+    .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard (MAXIMUM: 25 Characters)').setRequired(true))
     .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
     .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAXIMUM SIZE: 400x400px)').setRequired(false))
     .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true));
@@ -76,6 +76,15 @@ module.exports = {
             }
         }
 
+        // Validate Title Length
+        if (title.length > 25) {
+            await interaction.reply({
+                content: 'The title for your server dashboard is too long! (MAXIMUM: 25 Characters)',
+                ephemeral: true
+            });
+            return;
+        }
+
 
 
         const additionalRoles = [];
@@ -100,6 +109,8 @@ module.exports = {
         //     password: hashedPassword
         // };
 
+        await interaction.reply({ content: 'Initiating Setup...', ephemeral: true });
+
         try {
             const iconUrl = await uploadImageToCloudinary(icon.url);
 
@@ -118,31 +129,38 @@ module.exports = {
                 await roleService.saveRole(interaction.guild.id, role.name, role.id);
             };
             const dashboardUrl = `http://szymonsamus.dev/bot-dashboard/`;
-            await interaction.reply({
-                content: `
-                Configuration saved! \n
-                You can now start using the Guild Manager bot. 
-                The bot is only usable in the configured channel. (${channel}) \n
-                Your dashboard is customised with the following settings:
-                Title: ${title}
-                Default Dashboard Color: ${color}
-                Your Dashboard Icon: ${icon} \n
-                Your main members will be tracked with the following role: ${primaryRole}
-                Setup complete with ${additionalRoles.length} additional roles. \n
-                ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}
-                `,
-                ephemeral: true,
-            });
-            //TEST BLOCK
+            const setupEmbed = new EmbedBuilder()
+                .setTitle(title)
+                .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
+                .setDescription(`Configuration saved! \n
+                    You can now start using the Gripendor Bot. 
+                    The bot's default channel has been set to: (${channel}) \n
+                    Your dashboard is customised with the following settings:
+                    Title: ${title}
+                    Default Dashboard Color: ${color}
+                    Your Dashboard Icon URL: ${iconUrl} \n
+                    Your main members will be tracked with the following role: ${primaryRole}
+                    Setup complete with ${additionalRoles.length} additional roles. \n
+                    ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}`)
+            if (iconUrl) {
+                setupEmbed.setThumbnail(iconUrl);
+            }
+
+            await channel.send({
+                embeds: [setupEmbed]
+            })
+            
+            
             const reFetchGuildDataQuery = 'SELECT * FROM guilds WHERE id = $1';
             const values = [config.guild]
             const result = await db.query(reFetchGuildDataQuery, values);
-            //TEST BLOCK
+            
             const client = require('../client');
-            await initializeBot(client, result.rows[0]); //TEST BLOCK (CHANGE RESULT BACK TO CONFIG IF FAIL)
+            await initializeBot(client, result.rows[0]);
+            await interaction.editReply({ content: 'Setup Completed Successfully', ephemeral: true }); 
         } catch (error) {
             console.error('Error saving guild configuration:', error);
-            await interaction.reply('An error occurred while saving the configuration. Please try again.');
+            await interaction.editReply({ content: `An error has occured during the setup process: ${error}`, ephemeral: true });
         }
     }
 };

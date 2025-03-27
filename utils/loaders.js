@@ -62,7 +62,7 @@ async function loadGuildUserRoles(guildId) {
             return result.rows;
         } else {
             logger.error('Guild user roles not found for guild:', guildId);
-            return null;
+            return [];
         }
     } catch (error) {
         logger.error('Error loading user roles from database:', error);

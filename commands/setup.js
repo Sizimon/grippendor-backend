@@ -46,7 +46,7 @@ module.exports = {
         const title = interaction.options.getString('title');
         const password = interaction.options.getString('password');
         const icon = interaction.options.getAttachment('icon');
-
+        let iconUrl = null;
 
         // Validate if Icon is correct size
         if (icon) {
@@ -68,14 +68,9 @@ module.exports = {
                     responseType: 'arraybuffer',
                 });
 
-                console.log('Response headers:', response.headers);
-                console.log('Response content type:', response.headers['content-type']);
-
                 // Use sharp to inspect image dimensions
                 const imageBuffer = Buffer.from(response.data);
                 const metadata = await sharp(imageBuffer).metadata();
-
-                console.log('Image Metadata:', metadata)
 
                 // Image size validation
                 if (metadata.width > 400 || metadata.height > 400) {
@@ -83,6 +78,8 @@ module.exports = {
                         content: 'Size of icon is too large. Icon must be 400x400px maximum.'
                     });
                 }
+
+                iconUrl = await uploadImageToCloudinary(icon.url);
             } catch (error) {
                 console.error('Error validating icon size:', error);
                 return await interaction.reply({
@@ -101,7 +98,7 @@ module.exports = {
             return;
         }
 
-
+        // END VALIDATION
 
         const additionalRoles = [];
         for (let i = 1; i <= 10; i++) {
@@ -115,21 +112,9 @@ module.exports = {
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
 
-        // const config = {
-        //     guild: interaction.guild.id,
-        //     channel: channel.id,
-        //     color,
-        //     primaryRole: primaryRole.id,
-        //     icon: iconUrl,
-        //     title,
-        //     password: hashedPassword
-        // };
-
         await interaction.reply({ content: 'Initiating Setup...', ephemeral: true });
 
         try {
-            const iconUrl = await uploadImageToCloudinary(icon.url);
-
             const config = {
                 guild: interaction.guild.id,
                 channel: channel.id,

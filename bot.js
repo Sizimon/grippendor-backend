@@ -91,6 +91,7 @@ app.get('/bot-backend/userdata/:guildId', authenticateToken, async (req, res) =>
     try {
         const guildUsers = await loadGuildUsers(guildId);
         const guildUserRoles = await loadGuildUserRoles(guildId);
+
         if (guildUsers && guildUserRoles) {
             const userdata = guildUsers.map(user => {
                 const roles = guildUserRoles
@@ -99,7 +100,7 @@ app.get('/bot-backend/userdata/:guildId', authenticateToken, async (req, res) =>
                 return {
                     name: user.username,
                     counter: user.total_count,
-                    roles: roles
+                    roles: roles.length > 0 ? roles : [],
                 };
             });
             res.json(userdata);

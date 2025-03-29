@@ -1,7 +1,7 @@
 const setupCommand = require('../commands/setup');
 const createEventCommand = require('../commands/createEvent');
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
-const db = require('./db.js')
+const db = require('../utils/db')
 const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
 
 module.exports = async function interactionCreate(interaction) {

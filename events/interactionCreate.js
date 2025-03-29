@@ -60,8 +60,19 @@ module.exports = async function interactionCreate(interaction) {
             // Send an ephemeral reply to the user
             await interaction.reply({ content: `You have indicated your attendance as ${response === 'yes' ? 'Yes' : 'No'}.`, ephemeral: true });
         } else if (action === 'cancel' || action === 'finish') {
-            // Check if the user is a moderator
-            const requiredRole = '1337158089459367936'; // !!! CHANGE TO DYNAMIC VALUE IN THE FUTURE !!!
+            // Check if the user is an admin
+            const getAdminRoleQuery = `
+                SELECT admin_role
+                FROM guilds
+                WHERE guild_id = $1
+            `;
+            const adminSearchResult = await db.query(getAdminRoleQuery, [interaction.guild.id]);
+            if (adminSearchResult.rows.length === 0) {
+                return await interaction.reply({
+                    content: 'Could not find the admin role.', ephemeral: true
+                });
+            }
+            const requiredRole = adminSearchResult.rows[0].admin_role;
             const hasPermission = member.roles.cache.has(requiredRole);
 
             if (!hasPermission) {

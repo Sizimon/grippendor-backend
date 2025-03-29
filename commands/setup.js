@@ -13,17 +13,15 @@ const setupCommand = new SlashCommandBuilder()
     .setName('setup')
     .setDescription('Setup the bot configuration')
     .addChannelOption(option => option.setName('channel').setDescription('Default Bot Channel (Should be a admin channel)').setRequired(true))
+    .addRoleOption(option => option.setName('admin_role').setDescription('This role grants use of bot admin permissions.').setRequired(true))
+    .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true))
     .addStringOption(option => option.setName('color').setDescription('The color palette (e.g., #FF0000)').setRequired(true))
     .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard (MAXIMUM: 25 Characters)').setRequired(true))
     .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
-    .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true))
     .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAX SIZE: 400x400px | ALLOWED FORMATS: .jpg, .png, .webp, .svg)').setRequired(false));
-    
-    // .addStringOption(option => option.setName('icon').setDescription('The icon URL for your frontend dashboard').setRequired(true))
-    
 
 // Add additional role options
-for (let i = 1; i <= 10; i++) {
+for (let i = 1; i <= 30; i++) {
     setupCommand.addRoleOption(option =>
         option.setName(`additional_role_${i}`)
             .setDescription(`Additional role ${i}`)
@@ -43,6 +41,7 @@ module.exports = {
         const channel = interaction.options.getChannel('channel');
         const color = interaction.options.getString('color');
         const primaryRole = interaction.options.getRole('primary_role');
+        const adminRole = interaction.option.getRole('admin_role');
         const title = interaction.options.getString('title');
         const password = interaction.options.getString('password');
         const icon = interaction.options.getAttachment('icon');
@@ -101,7 +100,7 @@ module.exports = {
         // END VALIDATION
 
         const additionalRoles = [];
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= 30; i++) {
             const role = interaction.options.getRole(`additional_role_${i}`);
             if (role) {
                 additionalRoles.push(role);
@@ -120,6 +119,7 @@ module.exports = {
                 channel: channel.id,
                 color,
                 primaryRole: primaryRole.id,
+                adminRole: adminRole.id,
                 icon: iconUrl,
                 title,
                 password: hashedPassword

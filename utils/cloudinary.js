@@ -23,7 +23,30 @@ async function uploadImageToCloudinary(imageUrl) {
     }
 }
 
+
+// DELETE IMAGES RELATED TO EVENT IF EVENT IS DELETES --- TESTING!
+async function deleteImagesFromCloudinary(imageUrls) {
+    try {
+        // Extract public IDs from the URLs
+        const publicIds = imageUrls.map(url => {
+            const parts = url.split('/');
+            const publicIdWithExtension = parts[parts.length - 1]; // e.g., "image_name.jpg"
+            return publicIdWithExtension.split('.')[0]; // Extract "image_name" (without extension)
+        });
+
+        // Delete the images using their public IDs
+        if (publicIds.length > 0) {
+            await cloudinary.api.delete_resources(publicIds);
+            console.log(`Deleted images from Cloudinary: ${publicIds.join(', ')}`);
+        }
+    } catch (error) {
+        console.error('Error deleting images from Cloudinary', error);
+        throw error;
+    }
+}
+
 module.exports = {
     uploadImageToCloudinary,
+    deleteImagesFromCloudinary,
 }
     

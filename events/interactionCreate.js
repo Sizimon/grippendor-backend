@@ -1,18 +1,8 @@
 const setupCommand = require('../commands/setup');
 const createEventCommand = require('../commands/createEvent');
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
-const { Client } = require('pg');
-
-const dbClient = new Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-
-dbClient.connect();
-
+const db = require('./db.js')
+import { deleteImagesFromCloudinary } from '../utils/cloudinary';
 
 module.exports = async function interactionCreate(interaction) {
     if (interaction.isButton()) {
@@ -31,7 +21,7 @@ module.exports = async function interactionCreate(interaction) {
                 VALUES ($1, $2, $3, $4)
                 ON CONFLICT (event_id, user_id) DO UPDATE SET response = EXCLUDED.response;
             `;
-            await dbClient.query(eventAttendanceQuery, [eventId, userId, username, response]);
+            await db.query(eventAttendanceQuery, [eventId, userId, username, response]);
 
             // Fetch the updated attendance lists
             const eventAttendanceResult = await dbClient.query(`
@@ -79,7 +69,6 @@ module.exports = async function interactionCreate(interaction) {
             }
 
             if (action === 'cancel') {
-
                 // Handle event cancellation
                 const modal = new ModalBuilder()
                     .setCustomId(`confirm_${eventId}`)
@@ -119,10 +108,34 @@ module.exports = async function interactionCreate(interaction) {
         if (action === 'confirm') {
             const confirmation = interaction.fields.getTextInputValue('confirmation');
             if (confirmation === 'CONFIRM') {
-                await interaction.message.delete();
-                const deleteEventQuery = 'DELETE FROM events WHERE id = $1';
-                await dbClient.query(deleteEventQuery, [eventId]);
-                await interaction.reply({ content: 'Event has been canceled and removed from the database.', ephemeral: true });
+                try {
+                    const getImageUrlsQuery = `
+                    SELECT thumbnail_url, image_urls
+                    FROM events
+                    WHERE id = $1;
+                `;
+                    const result = await db.query(getImageUrlsQuery, [eventId]);
+
+                    if (result.rows.lenght > 0) {
+                        const { thumbnail_url, image_urls } = result.rows[0]
+
+                        const allImageUrls = [thumbnail_url, ...(image_urls || [])].filter(url => url);
+
+                        await deleteImagesFromCloudinary(allImageUrls);
+                    }
+
+                    const deleteEventQuery = 'DELETE FROM events WHERE id = $1';
+                    await db.query(deleteEventQuery, [eventId]);
+                    await interaction.message.delete();
+                    await interaction.reply({ content: 'Event has been canceled and removed from the database.', ephemeral: true });
+                } catch (error) {
+                    console.error('Error deleting event or images:', error);
+                    await interaction.reply({
+                        content: `There has been an error with deleting the images from Cloudinary. ${error}`,
+                        ephemeral: true
+                    });
+
+                }
             } else {
                 await interaction.reply({ content: 'Event cancellation has failed', ephemeral: true });
             }
@@ -133,7 +146,7 @@ module.exports = async function interactionCreate(interaction) {
                     SET debrief = $1
                     WHERE id = $2;
                 `;
-            await dbClient.query(updateEventQuery, [debrief, eventId]);
+            await db.query(updateEventQuery, [debrief, eventId]);
             await interaction.reply({ content: 'Event has been finished and debriefing has been saved.', ephemeral: true });
         }
     } else if (interaction.isCommand()) {

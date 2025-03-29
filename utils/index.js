@@ -1,16 +1,5 @@
 const logger = require('./logger');
-const { Client } = require('pg');
-
-// PostgreSQL client
-const dbClient = new Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-
-dbClient.connect();
+const db = require('./db.js')
 
 async function initializeBot(client, config) {
     // Get the guild from the client cache and check it exists
@@ -28,7 +17,7 @@ async function initializeBot(client, config) {
     }
 
     const rolesQuery = 'SELECT role_name, role_id FROM roles WHERE guild_id = $1';
-    const rolesResult = await dbClient.query(rolesQuery, [config.id]);
+    const rolesResult = await db.query(rolesQuery, [config.id]);
     const additionalRoles = rolesResult.rows;
 
     try {
@@ -61,7 +50,7 @@ async function initializeBot(client, config) {
                               updated_at = CURRENT_TIMESTAMP;
             `;
             const userValues = [userId, username];
-            await dbClient.query(userQuery, userValues);
+            await db.query(userQuery, userValues);
 
             const guildUserQuery = `
                 INSERT INTO GuildUsers (guild_id, user_id, username, total_count, updated_at)
@@ -71,7 +60,7 @@ async function initializeBot(client, config) {
                               updated_at = CURRENT_TIMESTAMP;
             `;
             const guildUserValues = [guild.id, userId, username];
-            await dbClient.query(guildUserQuery, guildUserValues);
+            await db.query(guildUserQuery, guildUserValues);
 
             const roleStatus = additionalRoles.map(role => ({
                 roleName: role.role_name,
@@ -87,13 +76,13 @@ async function initializeBot(client, config) {
                     DO UPDATE SET has_role = EXCLUDED.has_role;
                 `;
                 const additialRoleValues = [guild.id, userId, roles.roleName, roles.hasRole];
-                await dbClient.query(additionalRoleQuery, additialRoleValues);
+                await db.query(additionalRoleQuery, additialRoleValues);
             }
         }
 
         // Remove users from the database if they no longer have the primary role
         const userIdsWithRole = membersWithRole.map(member => member.id);
-        const userIdsToRemove = await dbClient.query(`
+        const userIdsToRemove = await db.query(`
             SELECT user_id FROM GuildUsers WHERE guild_id = $1 AND user_id NOT IN (${userIdsWithRole.map(id => `'${id}'`).join(', ')})
         `, [guild.id]);
 
@@ -102,7 +91,7 @@ async function initializeBot(client, config) {
             DELETE FROM GuildUsers
             WHERE guild_id = $1 AND user_id = $2;
         `;
-            await dbClient.query(deleteGuildUserQuery, [guild.id, user_id]);
+            await db.query(deleteGuildUserQuery, [guild.id, user_id]);
         }
     } catch (error) {
         logger.error('Error fetching members:', error);

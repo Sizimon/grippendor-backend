@@ -2,7 +2,7 @@ const setupCommand = require('../commands/setup');
 const createEventCommand = require('../commands/createEvent');
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
 const db = require('./db.js')
-import { deleteImagesFromCloudinary } from '../utils/cloudinary';
+const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
 
 module.exports = async function interactionCreate(interaction) {
     if (interaction.isButton()) {

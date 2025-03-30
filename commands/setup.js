@@ -7,7 +7,7 @@ const db = require('../utils/db.js');
 const { uploadImageToCloudinary } = require('../utils/cloudinary.js');
 
 const guildService = require('../services/guildService.js')
-const roleService = require('../services/roleService.js')
+// const roleService = require('../services/roleService.js')
 
 const colorChoices = [
     { label: 'Dirty Sand (#818316)', value: '#9C3E00' },
@@ -30,12 +30,12 @@ const setupCommand = new SlashCommandBuilder()
     .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. Try to use a .PNG image with transparent background for the best visual appeal. (MAX SIZE: 400x400px)').setRequired(false));
 
 // Add additional role options
-for (let i = 1; i <= 15; i++) {
-    setupCommand.addRoleOption(option =>
-        option.setName(`additional_role_${i}`)
-            .setDescription(`Additional role ${i}`)
-            .setRequired(false));
-}
+// for (let i = 1; i <= 15; i++) {
+//     setupCommand.addRoleOption(option =>
+//         option.setName(`additional_role_${i}`)
+//             .setDescription(`Additional role ${i}`)
+//             .setRequired(false));
+// }
 
 module.exports = {
     data: setupCommand,
@@ -108,13 +108,13 @@ module.exports = {
 
         // END VALIDATION
 
-        const additionalRoles = [];
-        for (let i = 1; i <= 15; i++) {
-            const role = interaction.options.getRole(`additional_role_${i}`);
-            if (role) {
-                additionalRoles.push(role);
-            }
-        }
+        // const additionalRoles = [];
+        // for (let i = 1; i <= 15; i++) {
+        //     const role = interaction.options.getRole(`additional_role_${i}`);
+        //     if (role) {
+        //         additionalRoles.push(role);
+        //     }
+        // }
 
         // Hash the password using bcrypt
         const saltRounds = 10;
@@ -135,9 +135,9 @@ module.exports = {
             };
 
             await guildService.saveGuildConfig(config);
-            for (const role of additionalRoles) {
-                await roleService.saveRole(interaction.guild.id, role.name, role.id);
-            };
+            // for (const role of additionalRoles) {
+            //     await roleService.saveRole(interaction.guild.id, role.name, role.id);
+            // };
             const dashboardUrl = `http://szymonsamus.dev/bot-dashboard/`;
             const setupEmbed = new EmbedBuilder()
                 .setTitle(title)

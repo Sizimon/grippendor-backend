@@ -21,7 +21,7 @@ const setupCommand = new SlashCommandBuilder()
     .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAX SIZE: 400x400px | ALLOWED FORMATS: .jpg, .png, .webp, .svg)').setRequired(false));
 
 // Add additional role options
-for (let i = 1; i <= 30; i++) {
+for (let i = 1; i <= 15; i++) {
     setupCommand.addRoleOption(option =>
         option.setName(`additional_role_${i}`)
             .setDescription(`Additional role ${i}`)
@@ -100,7 +100,7 @@ module.exports = {
         // END VALIDATION
 
         const additionalRoles = [];
-        for (let i = 1; i <= 30; i++) {
+        for (let i = 1; i <= 15; i++) {
             const role = interaction.options.getRole(`additional_role_${i}`);
             if (role) {
                 additionalRoles.push(role);

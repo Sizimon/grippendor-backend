@@ -9,16 +9,25 @@ const { uploadImageToCloudinary } = require('../utils/cloudinary.js');
 const guildService = require('../services/guildService.js')
 const roleService = require('../services/roleService.js')
 
+const colorChoices = [
+    { label: 'Dirty Sand (#818316)', value: '#9C3E00' },
+    { label: 'Dark Amber (#9C3E00)', value: '#9C3E00' },
+    { label: 'Dusty Green (#7AAC6C)', value: '#7AAC6C' },
+    { label: 'Deep Teal (#015958)', value: '#015958' },
+    { label: 'Maroon (#800000)', value: '#800000' },
+    { label: 'Barossa (#400036)', value: '#400036' },
+]
+
 const setupCommand = new SlashCommandBuilder()
     .setName('setup')
     .setDescription('Setup the bot configuration')
     .addChannelOption(option => option.setName('channel').setDescription('Default Bot Channel (Should be a admin channel)').setRequired(true))
     .addRoleOption(option => option.setName('admin_role').setDescription('This role grants use of bot admin permissions.').setRequired(true))
     .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true))
-    .addStringOption(option => option.setName('color').setDescription('The color palette (e.g., #FF0000)').setRequired(true))
+    .addStringOption(option => option.setName('color').setDescription('Choose your color scheme.').setRequired(true).addChoices(colorChoices.map(cc => ({ name: cc.label, value: cc.value }))))
     .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard (MAXIMUM: 25 Characters)').setRequired(true))
     .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
-    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAX SIZE: 400x400px | ALLOWED FORMATS: .jpg, .png, .webp, .svg)').setRequired(false));
+    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. Try to use a .PNG image with transparent background for the best visual appeal. (MAX SIZE: 400x400px)').setRequired(false));
 
 // Add additional role options
 for (let i = 1; i <= 15; i++) {

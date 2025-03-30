@@ -64,7 +64,7 @@ module.exports = async function interactionCreate(interaction) {
             const getAdminRoleQuery = `
                 SELECT admin_role
                 FROM guilds
-                WHERE guild_id = $1
+                WHERE id = $1
             `;
             const adminSearchResult = await db.query(getAdminRoleQuery, [interaction.guild.id]);
             if (adminSearchResult.rows.length === 0) {

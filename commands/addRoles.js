@@ -3,7 +3,7 @@ const db = require('../utils/db.js');
 const roleService = require('../services/roleService.js');
 
 const addRolesCommand = new SlashCommandBuilder()
-    .setName('Add Roles')
+    .setName('add-roles')
     .setDescription('Add additional roles. (These roles can be used for partymaking functionality)')
 for (let i = 1; i <= 15; i++) {
     addRolesCommand.addRoleOption(option =>

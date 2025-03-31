@@ -9,7 +9,7 @@ for (let i = 1; i <= 15; i++) {
     addRolesCommand.addRoleOption(option =>
         option.setName(`additional_role_${i}`)
             .setDescription(`Additional role ${i}`)
-            .setRequired(true));
+            .setRequired(false));
 }
 
 

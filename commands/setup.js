@@ -27,7 +27,7 @@ const setupCommand = new SlashCommandBuilder()
     .addStringOption(option => option.setName('color').setDescription('Choose your color scheme.').setRequired(true).addChoices(colorChoices.map(cc => ({ name: cc.label, value: cc.value }))))
     .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard (MAXIMUM: 25 Characters)').setRequired(true))
     .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
-    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. Try to use a .PNG image with transparent background for the best visual appeal. (MAX SIZE: 400x400px)').setRequired(false));
+    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAXIMUM 400x400px) (OPTIMAL: .PNG WITH TRANSPARENT BACKGROUND)').setRequired(false));
 
 // Add additional role options
 // for (let i = 1; i <= 15; i++) {

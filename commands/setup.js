@@ -145,11 +145,15 @@ module.exports = {
                 .setDescription(`Configuration saved! \n
                     You can now start using the Gripendor Bot. 
                     The bot's default channel has been set to: (${channel}) \n
+                    The basic commands are:
+                    /setup | Setup the bot according to server configurations / change the bot configurations.
+                    /add-roles | Add trackable roles to users, for use in the party maker / other features.
+                    /create-event | Create an event for users with an attendance list. \n
                     Your dashboard is customised with the following settings:
                     Title: ${title}
                     Default Dashboard Color: ${color}
-                    Your Dashboard Icon URL: ${iconUrl} \n
-                    Your main members will be tracked with the following role: ${primaryRole}
+                    Server membership tracked through the following role: ${primaryRole} \n
+                    Your Dashboard Icon URL: ${iconUrl} 
                     ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}`)
             if (iconUrl) {
                 setupEmbed.setThumbnail(iconUrl);

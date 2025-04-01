@@ -115,7 +115,7 @@ app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) =
     try {
         const events = await loadEventData(guildId);
         if (events && events.length > 0) {
-            res.json({ events });
+            res.json(events);
         } else {
             res.status(404).json({ error: 'Events not found' });
         }

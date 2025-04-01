@@ -16,6 +16,12 @@ for (let i = 1; i <= 15; i++) {
 module.exports = {
     data: addRolesCommand,
     async execute(interaction) {
+        await interaction.reply({
+            content: 'Adding roles...',
+            ephemeral: true
+        });
+
+
         const getAdminRoleQuery = `
                         SELECT admin_role
                         FROM guilds
@@ -23,7 +29,7 @@ module.exports = {
                     `;
         const adminSearchResult = await db.query(getAdminRoleQuery, [interaction.guild.id]);
         if (adminSearchResult.rows.length === 0) {
-            return await interaction.reply({
+            return await interaction.editReply({
                 content: 'Could not find the admin role.', ephemeral: true
             });
         }
@@ -31,7 +37,7 @@ module.exports = {
         const hasPermission = interaction.member.roles.cache.has(requiredRole);
 
         if (!hasPermission) {
-            return await interaction.reply({ content: 'You do not have permission to perform this action.', ephemeral: true });
+            return await interaction.editReply({ content: 'You do not have permission to perform this action.', ephemeral: true });
         }
 
         const additionalRoles = [];
@@ -63,12 +69,30 @@ module.exports = {
                     WHERE id = $1
             `;
             const result = await db.query(checkChannelQuery, [interaction.guild.id])
-            const channel = result.rows[0]
+            const channelId = result.rows[0]?.channel;
+
+            if (!channelId) {
+                return await interaction.editReply({
+                    content: 'Could not find the configured channel to send the embed.',
+                });
+            }
+
+            const channel = interaction.guild.channels.cache.get(channelId);
+            if (!channel) {
+                return await interaction.editReply({
+                    content: 'The configured channel is invalid or no longer exists.',
+                });
+            }
 
             await channel.send({
                 embeds: [addRolesEmbed]
             });
+
+            await interaction.editReply({
+                content: 'Roles have been successfully added!'
+            })
         } catch (error) {
+            console.error('Error adding roles:', error);
             await interaction.reply({
                 content: `Something went wrong. ${error}`,
                 ephemeral: true

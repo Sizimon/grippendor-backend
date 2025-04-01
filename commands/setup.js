@@ -47,6 +47,8 @@ module.exports = {
             });
         }
 
+        await interaction.reply({ content: 'Initiating Setup...', ephemeral: true });
+
         const channel = interaction.options.getChannel('channel');
         const color = interaction.options.getString('color');
         const primaryRole = interaction.options.getRole('primary_role');
@@ -64,7 +66,7 @@ module.exports = {
                 const fileExtension = icon.name.split('.').pop().toLowerCase();
 
                 if (!validFormats.includes(fileExtension)) {
-                    return await interaction.reply({
+                    return await interaction.editReply({
                         content:  `Unsupported image format. Please upload an image in one of the following formats: ${validFormats.join(', ')}`,
                         ephemeral: true,
                     })
@@ -82,7 +84,7 @@ module.exports = {
 
                 // Image size validation
                 if (metadata.width > 400 || metadata.height > 400) {
-                    return await interaction.reply({
+                    return await interaction.editReply({
                         content: 'Size of icon is too large. Icon must be 400x400px maximum.'
                     });
                 }
@@ -90,7 +92,7 @@ module.exports = {
                 iconUrl = await uploadImageToCloudinary(icon.url);
             } catch (error) {
                 console.error('Error validating icon size:', error);
-                return await interaction.reply({
+                return await interaction.editReply({
                     content: `An error occured while validating the icon: ${error}`,
                     ephemeral: true,
                 })
@@ -99,7 +101,7 @@ module.exports = {
 
         // Validate Title Length
         if (title.length > 25) {
-            await interaction.reply({
+            await interaction.editReply({
                 content: 'The title for your server dashboard is too long! (MAXIMUM: 25 Characters)',
                 ephemeral: true
             });
@@ -119,8 +121,6 @@ module.exports = {
         // Hash the password using bcrypt
         const saltRounds = 10;
         const hashedPassword = await bcrypt.hash(password, saltRounds);
-
-        await interaction.reply({ content: 'Initiating Setup...', ephemeral: true });
 
         try {
             const config = {
@@ -150,7 +150,6 @@ module.exports = {
                     Default Dashboard Color: ${color}
                     Your Dashboard Icon URL: ${iconUrl} \n
                     Your main members will be tracked with the following role: ${primaryRole}
-                    Setup complete with ${additionalRoles.length} additional roles. \n
                     ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}`)
             if (iconUrl) {
                 setupEmbed.setThumbnail(iconUrl);

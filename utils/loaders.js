@@ -130,6 +130,7 @@ async function loadEventData(guildId) {
     try {
         const result = await db.query(query, values);
         if (result.rows.length > 0) {
+            console.log('Query Result:', result.rows);
             return result.rows;
         } else {
             logger.error('No events found for guild:', guildId);

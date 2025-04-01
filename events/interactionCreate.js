@@ -25,7 +25,7 @@ module.exports = async function interactionCreate(interaction) {
             await db.query(eventAttendanceQuery, [eventId, userId, username, response]);
 
             // Fetch the updated attendance lists
-            const eventAttendanceResult = await dbClient.query(`
+            const eventAttendanceResult = await db.query(`
                 SELECT username, response FROM event_attendance WHERE event_id = $1;
             `, [eventId]);
 

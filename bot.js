@@ -70,6 +70,7 @@ function authenticateToken(req, res, next) {
     });
 }
 
+//Endpoint for loading the guild
 app.get('/bot-backend/config/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
@@ -83,6 +84,7 @@ app.get('/bot-backend/config/:guildId', authenticateToken, async (req, res) => {
     }
 });
 
+//Endpoint for loading guild user data.
 app.get('/bot-backend/userdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
@@ -113,6 +115,8 @@ app.get('/bot-backend/userdata/:guildId', authenticateToken, async (req, res) =>
     }
 });
 
+
+//Endpoint to fetch event data
 app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
@@ -122,15 +126,40 @@ app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) =
     try {
         const events = await loadEventData(guildId);
         if (events && events.length > 0) {
-            const latestEvent = events[events.length - 1];
-            const eventUserData = await loadEventUserData(latestEvent.id, guildId);
-            res.json({ events, latestEventUserData: eventUserData });
+
+            res.json({ events });
         } else {
             res.status(404).json({ error: 'Events not found' });
         }
     } catch (error) {
         logger.error('Error fetching events:', error);
         res.status(500).json({ error: 'Failed to fetch events' });
+    }
+});
+
+//Endpoint to fetch users for party making for selected event
+app.get('/bot-backend/eventuserdata/:guildId/:eventId', authenticateToken, async (req, res) => {
+    const guildId = req.params.guildId;
+    const eventId = req.params.eventId;
+
+    if (!guildId || isNaN(guildId)) {
+        return res.status(400).json({ error: 'Invalid guild ID' });
+    }
+
+    if (!eventId || isNaN(eventId)) {
+        return res.status(400).json({ error: 'Invalid event ID' });
+    }
+
+    try {
+        const eventUserData = await loadEventUserData(eventId, guildId);
+        if (eventUserData) {
+            res.json({ eventUserData });
+        } else {
+            res.status(404).json({ error: 'Event user data not found.'});
+        }
+    } catch (error) {
+        console.error('Error fetching event user data:', error);
+        res.status(500).json({ error: 'Failed to fetch event user data.' });
     }
 });
 

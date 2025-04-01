@@ -16,12 +16,10 @@ for (let i = 1; i <= 15; i++) {
 module.exports = {
     data: addRolesCommand,
     async execute(interaction) {
-        console.log('Starting command...')
         await interaction.reply({
             content: 'Adding roles...',
             ephemeral: true
         });
-
 
         const getAdminRoleQuery = `
                         SELECT admin_role
@@ -34,7 +32,6 @@ module.exports = {
                 content: 'Could not find the admin role.', ephemeral: true
             });
         }
-        console.log('Admin role query result:', adminSearchResult.rows);
         const requiredRole = adminSearchResult.rows[0].admin_role;
         const hasPermission = interaction.member.roles.cache.has(requiredRole);
 
@@ -49,7 +46,6 @@ module.exports = {
                 additionalRoles.push(role);
             }
         }
-        console.log('Additional Roles:', additionalRoles)
 
         if (additionalRoles.length === 0) {
             return await interaction.editReply({
@@ -70,7 +66,7 @@ module.exports = {
                 .setTitle('Successfully added new roles.')
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(`You have added a total of: ${additionalRoles.length} new roles. \n
-                    Here is a breakdown of the roles you added: ${rolesDescription}
+                    Here is a breakdown of the roles you added: \n ${rolesDescription}
                     `);
             
             const checkChannelQuery = `
@@ -86,8 +82,6 @@ module.exports = {
                     content: 'Could not find the configured channel to send the embed.',
                 });
             }
-
-            console.log('Channel from congif:', channelId)
 
             const channel = interaction.guild.channels.cache.get(channelId);
             if (!channel) {

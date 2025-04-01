@@ -1,5 +1,6 @@
 const setupCommand = require('../commands/setup');
 const createEventCommand = require('../commands/createEvent');
+const addRolesCommand = require('../commands/addRoles')
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
 const db = require('../utils/db')
 const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
@@ -165,8 +166,8 @@ module.exports = async function interactionCreate(interaction) {
 
         if (commandName === 'setup') {
             await setupCommand.execute(interaction);
-        } else if (commandName === 'attendance') {
-            await attendanceCommand.execute(interaction);
+        } else if (commandName === 'add-roles') {
+            await addRolesCommand.execute(interaction);
         } else if (commandName === 'create-event') {
             await createEventCommand.execute(interaction);
         }

@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { Client } = require('pg');
-const fs = require('fs');
-const path = require('path');
+const db = require('./utils/db')
 require('dotenv').config();
 
 // SECURITY UTILITIES
@@ -18,15 +16,6 @@ const app = express();
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json()); // Parse JSON bodies
 
-// Create a new PostgreSQL client
-const dbClient = new Client({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-dbClient.connect();
 // END
 
 logger.log('Starting bot...');
@@ -39,7 +28,7 @@ app.post('/bot-backend/login', async (req, res) => {
     try {
         const query = 'SELECT password FROM guilds WHERE id = $1';
         const values = [guildId];
-        const result = await dbClient.query(query, values);
+        const result = await db.query(query, values);
         if (result.rows.length > 0) {
             const hashedPassword = result.rows[0].password;
             const isMatch = await bcrypt.compare(password, hashedPassword);
@@ -126,7 +115,6 @@ app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) =
     try {
         const events = await loadEventData(guildId);
         if (events && events.length > 0) {
-
             res.json({ events });
         } else {
             res.status(404).json({ error: 'Events not found' });

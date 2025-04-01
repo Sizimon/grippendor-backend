@@ -1,18 +1,6 @@
 const { Client, GatewayIntentBits, Partials, REST, Routes } = require('discord.js');
 const {initializeBot} = require('./utils/index');
-
-const { Client: PgClient } = require('pg');
-// PostgreSQL client
-const dbClient = new PgClient({
-    user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
-    port: process.env.DB_PORT,
-});
-
-dbClient.connect();
-
+const db = require('./utils/db')
 const fs = require('fs');
 const path = require('path');
 const logger = require('./utils/logger');
@@ -69,7 +57,7 @@ client.once('ready', async () => {
 
     try {
         const query = 'SELECT * FROM guilds';
-        const result = await dbClient.query(query);
+        const result = await db.query(query);
 
         if (result.rows.length > 0) {
             for (const config of result.rows) {

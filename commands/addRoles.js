@@ -16,6 +16,7 @@ for (let i = 1; i <= 15; i++) {
 module.exports = {
     data: addRolesCommand,
     async execute(interaction) {
+        console.log('Starting command...')
         await interaction.reply({
             content: 'Adding roles...',
             ephemeral: true
@@ -33,6 +34,7 @@ module.exports = {
                 content: 'Could not find the admin role.', ephemeral: true
             });
         }
+        console.log('Admin role query result:', adminSearchResult.rows);
         const requiredRole = adminSearchResult.rows[0].admin_role;
         const hasPermission = interaction.member.roles.cache.has(requiredRole);
 
@@ -46,6 +48,14 @@ module.exports = {
             if (role) {
                 additionalRoles.push(role);
             }
+        }
+        console.log('Additional Roles:', additionalRoles)
+
+        if (additionalRoles.length === 0) {
+            return await interaction.editReply({
+                content: 'No valid roles were provided.', 
+                ephemeral: true
+            });
         }
 
         try {
@@ -77,6 +87,8 @@ module.exports = {
                 });
             }
 
+            console.log('Channel from congif:', channelId)
+
             const channel = interaction.guild.channels.cache.get(channelId);
             if (!channel) {
                 return await interaction.editReply({
@@ -93,7 +105,7 @@ module.exports = {
             })
         } catch (error) {
             console.error('Error adding roles:', error);
-            await interaction.reply({
+            await interaction.editReply({
                 content: `Something went wrong. ${error}`,
                 ephemeral: true
             });

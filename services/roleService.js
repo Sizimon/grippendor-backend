@@ -21,7 +21,7 @@ async function getRolesByGuild(guildId) {
 async function askForRoleCounts(interaction, partySize, selectedRoles, presetName, gameSelection) {
     const modal = new ModalBuilder()
         .setCustomId('role_counts_modal')
-        .setTitle(`Specify Role Counts (Maximum total count: ${partySize} per party)`);
+        .setTitle(`Specify Roles: Maximum ${partySize} total.`);
     
     selectedRoles.forEach((role, index) => {
         const input = new TextInputBuilder()

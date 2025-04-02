@@ -124,13 +124,18 @@ module.exports = {
         ].filter(image => image !== null);
 
         // !!! VALIDATION CHECKS !!!
+        if (name.length > 50) {
+            await interaction.reply({ content: 'The name must be 50 characters or less.', ephemeral: true });
+            return;
+        }
+
         if (summary.length > 250) {
             await interaction.reply({ content: 'The summary must be 250 characters or less.', ephemeral: true });
             return;
         }
 
-        if (name.length > 50) {
-            await interaction.reply({ content: 'The name must be 50 characters or less.', ephemeral: true });
+        if (description.length > 2000) {
+            await interaction.reply({ content: 'The description must be 2000 characters or less.', ephemeral: true });
             return;
         }
 

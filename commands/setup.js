@@ -9,12 +9,12 @@ const { uploadImageToCloudinary } = require('../utils/cloudinary.js');
 const guildService = require('../services/guildService.js')
 
 const colorChoices = [
-    { label: 'Dirty Sand (#818316)', value: '#9C3E00' },
-    { label: 'Dark Amber (#9C3E00)', value: '#9C3E00' },
-    { label: 'Dusty Green (#7AAC6C)', value: '#7AAC6C' },
-    { label: 'Deep Teal (#015958)', value: '#015958' },
-    { label: 'Maroon (#800000)', value: '#800000' },
-    { label: 'Barossa (#400036)', value: '#400036' },
+    { label: 'Sandy Brown (#F19143)', value: '#F19143' },
+    { label: 'Light Sea Blue (#00B9AE)', value: '#00B9AE' },
+    { label: 'Dusty Green (#8FAD88)', value: '#8FAD88' },
+    { label: 'Malachite (#32E875)', value: '#32E875' },
+    { label: 'Rojo Red (#DD0426)', value: '#DD0426' },
+    { label: 'Flax (#F5DD90)', value: '#F5DD90' },
 ]
 
 const setupCommand = new SlashCommandBuilder()

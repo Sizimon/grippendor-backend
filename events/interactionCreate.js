@@ -1,6 +1,7 @@
 const setupCommand = require('../commands/setup');
 const createEventCommand = require('../commands/createEvent');
-const addRolesCommand = require('../commands/addRoles')
+const addRolesCommand = require('../commands/addRoles');
+const createPresetCommand = require('../commands/createPreset');
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
 const db = require('../utils/db')
 const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
@@ -218,7 +219,7 @@ module.exports = async function interactionCreate(interaction) {
         } else if (commandName === 'create-event') {
             await createEventCommand.execute(interaction);
         } else if (commandName === 'create-preset') {
-            await createEventCommand.execute(interaction);
+            await createPresetCommand.execute(interaction);
         }
     };
 };

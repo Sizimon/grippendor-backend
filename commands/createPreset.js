@@ -17,10 +17,7 @@ for (i = 0; i < 10; i++) {
 module.exports = {
     data: createPresetCommand,
     async execute(interaction) {
-        await interaction.reply({
-            content: 'Creating preset...',
-            ephemeral: true
-        });
+        await interaction.deferReply({ ephemeral: true });
 
         // Verify that the command user has the required role!
         const getAdminRoleQuery = `
@@ -74,12 +71,7 @@ module.exports = {
                 ephemeral: true,
             });
         }
-
-        await interaction.editReply({
-            content: `You selected ${selectedRoles.length} roles. Now, specify how many members you want for each role.`,
-            ephemeral: true,
-        })
-
+        
         await askForRoleCounts(interaction, partySize, selectedRoles, presetName, gameSelection);
     }
 }

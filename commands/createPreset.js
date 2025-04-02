@@ -69,13 +69,13 @@ module.exports = {
         }
 
         if (selectedRoles.length === 0) {
-            return interaction.reply({
+            return interaction.editReply({
                 content: 'You must select at least one role to create a preset.',
                 ephemeral: true,
             });
         }
 
-        await interaction.reply({
+        await interaction.editReply({
             content: `You selected ${selectedRoles.length} roles. Now, specify how many members you want for each role.`,
             ephemeral: true,
         })

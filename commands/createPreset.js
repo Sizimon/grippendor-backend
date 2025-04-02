@@ -17,8 +17,6 @@ for (i = 0; i < 10; i++) {
 module.exports = {
     data: createPresetCommand,
     async execute(interaction) {
-        await interaction.deferReply({ ephemeral: true });
-
         // Verify that the command user has the required role!
         const getAdminRoleQuery = `
                                 SELECT admin_role
@@ -27,7 +25,7 @@ module.exports = {
                             `;
         const adminSearchResult = await db.query(getAdminRoleQuery, [interaction.guild.id]);
         if (adminSearchResult.rows.length === 0) {
-            return await interaction.editReply({
+            return await interaction.reply({
                 content: 'Could not find the admin role.', ephemeral: true
             });
         }
@@ -35,7 +33,7 @@ module.exports = {
         const hasPermission = interaction.member.roles.cache.has(requiredRole);
 
         if (!hasPermission) {
-            return await interaction.editReply({ content: 'You do not have permission to perform this action.', ephemeral: true });
+            return await interaction.reply({ content: 'You do not have permission to perform this action.', ephemeral: true });
         }
 
         const partySize = interaction.options.getInteger('party-size');
@@ -43,14 +41,14 @@ module.exports = {
         const gameSelection = interaction.options.getRole('game-selection');
 
         if (partySize < 2 || partySize > 10) {
-            return interaction.editReply({
+            return interaction.reply({
                 content: 'Party size must be between 2 and 10.',
                 ephemeral: true,
             });
         }
 
         if (presetName.length > 40) {
-            return interaction.editReply({
+            return interaction.reply({
                 content: 'Preset name must be less than 20 characters.',
                 ephemeral: true,
             });
@@ -66,12 +64,12 @@ module.exports = {
         }
 
         if (selectedRoles.length === 0) {
-            return interaction.editReply({
+            return interaction.reply({
                 content: 'You must select at least one role to create a preset.',
                 ephemeral: true,
             });
         }
-        
+
         await askForRoleCounts(interaction, partySize, selectedRoles, presetName, gameSelection);
     }
 }

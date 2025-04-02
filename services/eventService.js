@@ -9,10 +9,10 @@ const db = require('../utils/db')
 
 async function createEvent(event) {
     const query = `
-        INSERT INTO events (guild_id, type, name, channel_id, summary, description, event_date, thumbnail_url, image_urls)
+        INSERT INTO events (guild_id, game_name, name, channel_id, summary, description, event_date, thumbnail_url, image_urls)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         ON CONFLICT (guild_id, name) DO UPDATE
-        SET type = EXCLUDED.type,
+        SET game_name = EXCLUDED.game_name,
             channel_id = EXCLUDED.channel_id,
             summary = EXCLUDED.summary,
             description = EXCLUDED.description,
@@ -24,7 +24,7 @@ async function createEvent(event) {
     `;
     const values = [
         event.guildId,
-        event.type,
+        event.gameName,
         event.name,
         event.channelId,
         event.summary,

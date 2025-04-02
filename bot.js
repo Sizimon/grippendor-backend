@@ -151,6 +151,26 @@ app.get('/bot-backend/eventuserdata/:guildId/:eventId', authenticateToken, async
     }
 });
 
+app.get('/bot-backend/presets/:guildId', authenticateToken, async (req, res) => {
+    const guildId = req.params.guildId;
+    if (!guildId || isNaN(guildId)) {
+        return res.status(400).json({ error: 'Invalid guild ID' });
+    }
+    try {
+        const query = 'SELECT * FROM presets WHERE guild_id = $1';
+        const values = [guildId];
+        const result = await db.query(query, values);
+        if (result.rows.length > 0) {
+            res.json(result.rows);
+        } else {
+            res.status(404).json({ error: 'No presets found for this guild.' });
+        }
+    } catch (error) {
+        logger.error('Error fetching presets:', error);
+        res.status(500).json({ error: 'Failed to fetch presets.' });
+    }
+});
+
 // End
 
 // Start the bot and API server

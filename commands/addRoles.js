@@ -21,6 +21,7 @@ module.exports = {
             ephemeral: true
         });
 
+        // Verify that the command user has the required role!
         const getAdminRoleQuery = `
                         SELECT admin_role
                         FROM guilds

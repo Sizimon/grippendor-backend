@@ -7,23 +7,6 @@ const { uploadImageToCloudinary } = require('../utils/cloudinary.js')
 const db = require('../utils/db.js')
 const eventService = require('../services/eventService.js')
 
-const missionTypes = [
-    { label: "Infiltration", value: "Infiltration" },
-    { label: "Extraction", value: "Extraction" },
-    { label: "Escort", value: "Escort" },
-    { label: "Reconnaissance", value: "Reconnaissance" },
-    { label: "Sabotage", value: "Sabotage" },
-    { label: "Search & Rescue", value: "Search & Rescue" },
-    { label: "Defence", value: "Defence" },
-    { label: "Capture & Hold", value: "Capture & Hold" },
-    { label: "Elimination", value: "Elimination" },
-    { label: "Supply Run", value: "Supply Run" },
-    { label: "HVT Securement", value: "HVT Securement" },
-    { label: "Survival", value: "Survival" },
-    { label: "Counter Insurgency", value: "Counter Insurgency" },
-    { label: "Other", value: "Other" }
-];
-
 const timeZones = [
     { label: 'UTC-12:00', value: 'Etc/GMT+12' },
     { label: 'UTC-11:00', value: 'Etc/GMT+11' },
@@ -57,11 +40,10 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-event')
         .setDescription('Create an event')
-        .addStringOption(option =>
-            option.setName('type')
-                .setDescription('Select Mission Type.')
-                .setRequired(true)
-                .addChoices(missionTypes.map(mt => ({ name: mt.label, value: mt.value }))))
+        .addRoleOption(option => 
+            option.setName('game_name')
+                .setDescription('Select the game for the event.')
+                .setRequired(true))
         .addStringOption(option =>
             option.setName('name')
                 .setDescription('Name of the Event/Mission.')
@@ -108,7 +90,28 @@ module.exports = {
                 .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
                 .setRequired(false)),
     async execute(interaction) {
-        const type = interaction.options.getString('type');
+        await interaction.reply({ content: 'Creating event...', ephemeral: true });
+
+        // Verify that the command user has the required role!
+        const getAdminRoleQuery = `
+                                SELECT admin_role
+                                FROM guilds
+                                WHERE id = $1
+                            `;
+        const adminSearchResult = await db.query(getAdminRoleQuery, [interaction.guild.id]);
+        if (adminSearchResult.rows.length === 0) {
+            return await interaction.editReply({
+                content: 'Could not find the admin role.', ephemeral: true
+            });
+        }
+        const requiredRole = adminSearchResult.rows[0].admin_role;
+        const hasPermission = interaction.member.roles.cache.has(requiredRole);
+
+        if (!hasPermission) {
+            return await interaction.editReply({ content: 'You do not have permission to perform this action.', ephemeral: true });
+        }
+
+        const gameName = interaction.options.getRole('game_name');
         const name = interaction.options.getString('name');
         const channel = interaction.options.getChannel('channel');
         const summary = interaction.options.getString('summary');
@@ -187,9 +190,6 @@ module.exports = {
         const eventDateTimeUTC = eventDateTimeLocal.utc().format();
         // END
 
-
-        await interaction.reply({ content: 'Creating event...', ephemeral: true });
-
         const tempDir = path.join(__dirname, 'temp');
         // Ensure a temp directory for images exists
         if (!fs.existsSync(tempDir)) {
@@ -225,21 +225,21 @@ module.exports = {
                 } finally {
                     // Ensure the file is deleted
                     if (fs.existsSync(imagePath)) {
-                        fs.unlinkSync(imagePath); 
+                        fs.unlinkSync(imagePath);
                     }
                 }
             }));
 
             const event = {
                 guildId: interaction.guild.id,
-                type: type,
+                gameName: gameName.id,
                 name: name,
                 channelId: channel.id,
                 summary: summary,
                 description: description,
                 eventDate: eventDateTimeUTC,
                 thumbnailUrl: thumbnailUrl,
-                imageUrls: JSON.stringify(imageUrls)  // POSSIBLE ERROR HERE
+                imageUrls: JSON.stringify(imageUrls),
             };
 
             console.log('Inserting event into DB....')
@@ -262,7 +262,7 @@ module.exports = {
             // END
 
             const eventEmbed = new EmbedBuilder()
-                .setTitle(name)
+                .setTitle(`${gameName.name} Event: ${name}`)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(summary)
                 .setThumbnail('https://media.discordapp.net/attachments/1337393468326023241/1337395709665873960/DCC_Logo.png?ex=67c83fd0&is=67c6ee50&hm=6e168061cf4ffe112dd8301418ba008cad2696601913156b2ff3401d5abdba24&=&format=webp&quality=lossless&width=1752&height=1012')

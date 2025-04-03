@@ -15,6 +15,17 @@ module.exports = async function interactionCreate(interaction) {
         const [action, eventId] = interaction.customId.split('_');
 
         if (action === 'attend' || action === 'decline') {
+            const eventGameQuery = `
+                SELECT game_name FROM events WHERE id = $1;
+            `;
+            const eventGameResult = await db.query(eventGameQuery, [eventId]);
+            const gameRole = eventGameResult.rows[0].game_name;
+            if (!member.roles.cache.has(gameRole)) {
+                return await interaction.reply({
+                    content: `You need to have the ${gameRole} role to RSVP for this event.`,
+                    ephemeral: true
+                });
+            }
             const userId = interaction.user.id;
             const username = nickname || interaction.user.username;
             const response = action === 'attend' ? 'yes' : 'no';

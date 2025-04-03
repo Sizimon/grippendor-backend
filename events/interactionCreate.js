@@ -19,8 +19,16 @@ module.exports = async function interactionCreate(interaction) {
                 SELECT game_name FROM events WHERE id = $1;
             `;
             const eventGameResult = await db.query(eventGameQuery, [eventId]);
+            if (eventGameResult.rows.length === 0) {
+                return await interaction.reply({
+                    content: 'Event not found.', ephemeral: true
+                });
+            }
             const gameRole = eventGameResult.rows[0].game_name;
+            console.log('Game Role:', gameRole);
+
             if (!member.roles.cache.has(gameRole)) {
+                console.log('User does not have the required role:', gameRole);
                 return await interaction.reply({
                     content: `You need to have the ${gameRole} role to RSVP for this event.`,
                     ephemeral: true
@@ -186,7 +194,7 @@ module.exports = async function interactionCreate(interaction) {
 
                 console.log('Processing modal inputs...');
                 for (let i = 0; i < selectedRoles.length; i++) {
-                    const count = interaction.fields.getTextInputValue(`role_count_${i}`);
+                    const count = interaction.fields.getTextInputValue(`role_count_${i + 1}`);
                     console.log(`Role ${selectedRoles[i].name} count input:`, count);
 
                     if (!count || isNaN(parseInt(count, 10))) {

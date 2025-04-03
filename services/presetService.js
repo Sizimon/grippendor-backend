@@ -1,7 +1,8 @@
 const db = require('../utils/db.js');
 
 async function savePreset(guildId, presetName, gameRoleName, gameRoleId, partySize, rolesWithCounts) {
-    const query = `
+    try {
+        const query = `
         INSERT INTO presets (guild_id, preset_name, game_role_name, game_role_id, party_size, data)
         VALUES ($1, $2, $3, $4, $5, $6)
         ON CONFLICT (guild_id, preset_name) DO UPDATE
@@ -11,15 +12,19 @@ async function savePreset(guildId, presetName, gameRoleName, gameRoleId, partySi
             game_role_id = EXCLUDED.game_role_id,
             created_at = NOW();
     `;
-    const values = [
-        guildId,
-        presetName,
-        gameRoleName,
-        gameRoleId,
-        partySize,
-        JSON.stringify({ roles: rolesWithCounts }),
-    ];
-    await db.query(query, values);
+        const values = [
+            guildId,
+            presetName,
+            gameRoleName,
+            gameRoleId,
+            partySize,
+            JSON.stringify({ roles: rolesWithCounts }),
+        ];
+        await db.query(query, values);
+    } catch (error) {
+        console.error('Error saving preset:', error);
+        throw error;
+    }
 }
 
 module.exports = {

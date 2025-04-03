@@ -5,6 +5,7 @@ const createPresetCommand = require('../commands/createPreset');
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
 const db = require('../utils/db')
 const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
+const { parse } = require('dotenv');
 
 module.exports = async function interactionCreate(interaction) {
     if (interaction.isButton()) {
@@ -165,7 +166,8 @@ module.exports = async function interactionCreate(interaction) {
 
         // Modal for selecting preset role quantities.
     } else if (interaction.isModalSubmit() && interaction.customId === 'role_counts_modal') {
-        const { savePreset } = require('../services/presetService.js');
+        try {
+            const { savePreset } = require('../services/presetService.js');
         const { partySize, presetName, gameSelection, selectedRoles } = interaction.client.presetData;
         const roleCounts = [];
         let totalCount = 0;
@@ -173,6 +175,12 @@ module.exports = async function interactionCreate(interaction) {
         // Collect role counts from the modal inputs
         for (let i = 0; i < selectedRoles.length; i++) {
             const count = interaction.fields.getTextInputValue(`role_count_${i}`);
+            if (!count || isNaN(parseInt(count, 10))) {
+                return interaction.reply({
+                    content: `Invalid input for ${selectedRoles[i].name}. Please enter a valid number.`,
+                    ephemeral: true,
+                });
+            }
             if (count) {
                 const parsedCount = parseInt(count, 10);
                 totalCount += parsedCount;
@@ -207,8 +215,14 @@ module.exports = async function interactionCreate(interaction) {
             Game Selection: ${gameSelection.name} \n
             Party Size: ${partySize} \n`,
             ephemeral: true,
-        })
-
+        });
+        } catch (error) {
+            console.error('Error processing modal submission:', error);
+            await interaction.reply({
+                content: 'An error occurred while processing your request. Please try again later.',
+                ephemeral: true,
+            });
+        }
     } else if (interaction.isCommand()) {
         const { commandName } = interaction;
 

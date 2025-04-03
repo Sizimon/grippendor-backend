@@ -25,7 +25,7 @@ async function askForRoleCounts(interaction, partySize, selectedRoles, presetNam
     
     selectedRoles.forEach((role, index) => {
         const input = new TextInputBuilder()
-            .setCustomId(`role_count_${index}`)
+            .setCustomId(`role_count_${index + 1}`)
             .setLabel(`How many ${role.name} per party?`)
             .setStyle(TextInputStyle.Short)
             .setRequired(true);

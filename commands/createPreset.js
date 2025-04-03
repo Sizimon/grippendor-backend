@@ -49,7 +49,7 @@ module.exports = {
 
         if (presetName.length > 40) {
             return interaction.reply({
-                content: 'Preset name must be less than 20 characters.',
+                content: 'Preset name must be less than 40 characters.',
                 ephemeral: true,
             });
         }

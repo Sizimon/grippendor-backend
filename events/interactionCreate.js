@@ -120,109 +120,108 @@ module.exports = async function interactionCreate(interaction) {
     } else if (interaction.isModalSubmit()) {
         const [action, eventId] = interaction.customId.split('_');
 
-        if (action === 'confirm') {
-            const confirmation = interaction.fields.getTextInputValue('confirmation');
-            if (confirmation === 'CONFIRM') {
-                try {
-                    const getImageUrlsQuery = `
-                    SELECT thumbnail_url, image_urls
-                    FROM events
-                    WHERE id = $1;
-                `;
-                    const result = await db.query(getImageUrlsQuery, [eventId]);
+        try {
+            if (action === 'confirm') {
+                const confirmation = interaction.fields.getTextInputValue('confirmation');
+                if (confirmation === 'CONFIRM') {
+                    try {
+                        const getImageUrlsQuery = `
+                        SELECT thumbnail_url, image_urls
+                        FROM events
+                        WHERE id = $1;
+                    `;
+                        const result = await db.query(getImageUrlsQuery, [eventId]);
 
-                    if (result.rows.length > 0) {
-                        const { thumbnail_url, image_urls } = result.rows[0]
+                        if (result.rows.length > 0) {
+                            const { thumbnail_url, image_urls } = result.rows[0]
 
-                        const allImageUrls = [thumbnail_url, ...(image_urls || [])].filter(url => url);
+                            const allImageUrls = [thumbnail_url, ...(image_urls || [])].filter(url => url);
 
-                        await deleteImagesFromCloudinary(allImageUrls);
+                            await deleteImagesFromCloudinary(allImageUrls);
+                        }
+
+                        const deleteEventQuery = 'DELETE FROM events WHERE id = $1';
+                        await db.query(deleteEventQuery, [eventId]);
+                        await interaction.message.delete();
+                        await interaction.reply({ content: 'Event has been canceled and removed from the database.', ephemeral: true });
+                    } catch (error) {
+                        console.error('Error deleting event or images:', error);
+                        await interaction.reply({
+                            content: `There has been an error with deleting the images from Cloudinary. ${error}`,
+                            ephemeral: true
+                        });
+
+                    }
+                } else {
+                    await interaction.reply({ content: 'Event cancellation has failed', ephemeral: true });
+                }
+            } else if (action === 'debrief') {
+                const debrief = interaction.fields.getTextInputValue('debrief');
+                const updateEventQuery = `
+                        UPDATE events
+                        SET debrief = $1
+                        WHERE id = $2;
+                    `;
+                await db.query(updateEventQuery, [debrief, eventId]);
+                await interaction.reply({ content: 'Event has been finished and debriefing has been saved.', ephemeral: true });
+
+            } else if (interaction.customId === 'role_counts_modal') {
+                console.log('Deferring reply for role_counts_modal...');
+                await interaction.deferReply({ ephemeral: true });
+
+                const { partySize, presetName, gameSelection, selectedRoles } = interaction.client.presetData;
+                const roleCounts = [];
+                let totalCount = 0;
+
+                console.log('Processing modal inputs...');
+                for (let i = 0; i < selectedRoles.length; i++) {
+                    const count = interaction.fields.getTextInputValue(`role_count_${i}`);
+                    console.log(`Role ${selectedRoles[i].name} count input:`, count);
+
+                    if (!count || isNaN(parseInt(count, 10))) {
+                        console.error(`Invalid input for role ${selectedRoles[i].name}:`, count);
+                        return interaction.editReply({
+                            content: `Invalid input for ${selectedRoles[i].name}. Please enter a valid number.`,
+                            ephemeral: true,
+                        });
                     }
 
-                    const deleteEventQuery = 'DELETE FROM events WHERE id = $1';
-                    await db.query(deleteEventQuery, [eventId]);
-                    await interaction.message.delete();
-                    await interaction.reply({ content: 'Event has been canceled and removed from the database.', ephemeral: true });
-                } catch (error) {
-                    console.error('Error deleting event or images:', error);
-                    await interaction.reply({
-                        content: `There has been an error with deleting the images from Cloudinary. ${error}`,
-                        ephemeral: true
+                    const parsedCount = parseInt(count, 10);
+                    totalCount += parsedCount;
+                    roleCounts.push({
+                        roleName: selectedRoles[i].name,
+                        roleId: selectedRoles[i].id,
+                        count: parsedCount,
                     });
-
                 }
-            } else {
-                await interaction.reply({ content: 'Event cancellation has failed', ephemeral: true });
-            }
-        } else if (action === 'debrief') {
-            const debrief = interaction.fields.getTextInputValue('debrief');
-            const updateEventQuery = `
-                    UPDATE events
-                    SET debrief = $1
-                    WHERE id = $2;
-                `;
-            await db.query(updateEventQuery, [debrief, eventId]);
-            await interaction.reply({ content: 'Event has been finished and debriefing has been saved.', ephemeral: true });
-        }
 
-        // Modal for selecting preset role quantities.
-    } else if (interaction.isModalSubmit() && interaction.customId === 'role_counts_modal') {
-        try {
-            console.log('Deferring reply for role_counts_modal...');
-            await interaction.deferReply({ ephemeral: true });
-    
-            const { partySize, presetName, gameSelection, selectedRoles } = interaction.client.presetData;
-            const roleCounts = [];
-            let totalCount = 0;
-    
-            console.log('Processing modal inputs...');
-            for (let i = 0; i < selectedRoles.length; i++) {
-                const count = interaction.fields.getTextInputValue(`role_count_${i}`);
-                console.log(`Role ${selectedRoles[i].name} count input:`, count);
-    
-                if (!count || isNaN(parseInt(count, 10))) {
-                    console.error(`Invalid input for role ${selectedRoles[i].name}:`, count);
+                console.log('Total count of roles:', totalCount);
+                console.log('Party size:', partySize);
+
+                if (totalCount > partySize) {
+                    console.error(`Total count (${totalCount}) exceeds party size (${partySize}).`);
                     return interaction.editReply({
-                        content: `Invalid input for ${selectedRoles[i].name}. Please enter a valid number.`,
+                        content: `The total count of roles exceeds the party size of ${partySize}. Please adjust the counts.`,
                         ephemeral: true,
                     });
                 }
-    
-                const parsedCount = parseInt(count, 10);
-                totalCount += parsedCount;
-                roleCounts.push({
-                    roleName: selectedRoles[i].name,
-                    roleId: selectedRoles[i].id,
-                    count: parsedCount,
-                });
-            }
-    
-            console.log('Total count of roles:', totalCount);
-            console.log('Party size:', partySize);
-    
-            if (totalCount > partySize) {
-                console.error(`Total count (${totalCount}) exceeds party size (${partySize}).`);
-                return interaction.editReply({
-                    content: `The total count of roles exceeds the party size of ${partySize}. Please adjust the counts.`,
+
+                console.log('Saving preset...');
+                await savePreset(interaction.guild.id, presetName, gameSelection.name, gameSelection.id, partySize, roleCounts);
+
+                interaction.client.presetData = null; // Clear the preset data after saving
+                console.log('Preset saved successfully.');
+
+                await interaction.editReply({
+                    content: `Preset "${presetName}" has been created successfully! \n
+                Game Selection: ${gameSelection.name} \n
+                Party Size: ${partySize} \n`,
                     ephemeral: true,
                 });
             }
-    
-            console.log('Saving preset...');
-            await savePreset(interaction.guild.id, presetName, gameSelection.name, gameSelection.id, partySize, roleCounts);
-    
-            interaction.client.presetData = null; // Clear the preset data after saving
-            console.log('Preset saved successfully.');
-    
-            await interaction.editReply({
-                content: `Preset "${presetName}" has been created successfully! \n
-                Game Selection: ${gameSelection.name} \n
-                Party Size: ${partySize} \n`,
-                ephemeral: true,
-            });
         } catch (error) {
             console.error('Error processing modal submission:', error);
-    
+
             if (interaction.replied || interaction.deferred) {
                 console.error('Interaction already replied or deferred. Cannot send another reply.');
             } else {
@@ -232,6 +231,7 @@ module.exports = async function interactionCreate(interaction) {
                 });
             }
         }
+        // Modal for selecting preset role quantities.
     } else if (interaction.isCommand()) {
         const { commandName } = interaction;
 

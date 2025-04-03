@@ -262,7 +262,7 @@ module.exports = {
             // END
 
             const eventEmbed = new EmbedBuilder()
-                .setTitle(`${gameName.name} Event: ${name}`)
+                .setTitle(`GAME:${gameName.name} | EVENT: ${name}`)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(summary)
                 .setThumbnail('https://media.discordapp.net/attachments/1337393468326023241/1337395709665873960/DCC_Logo.png?ex=67c83fd0&is=67c6ee50&hm=6e168061cf4ffe112dd8301418ba008cad2696601913156b2ff3401d5abdba24&=&format=webp&quality=lossless&width=1752&height=1012')

@@ -167,55 +167,56 @@ module.exports = async function interactionCreate(interaction) {
         // Modal for selecting preset role quantities.
     } else if (interaction.isModalSubmit() && interaction.customId === 'role_counts_modal') {
         try {
+            await interaction.deferReply({ ephemeral: true });
             const { savePreset } = require('../services/presetService.js');
-        const { partySize, presetName, gameSelection, selectedRoles } = interaction.client.presetData;
-        const roleCounts = [];
-        let totalCount = 0;
+            const { partySize, presetName, gameSelection, selectedRoles } = interaction.client.presetData;
+            const roleCounts = [];
+            let totalCount = 0;
 
-        // Collect role counts from the modal inputs
-        for (let i = 0; i < selectedRoles.length; i++) {
-            const count = interaction.fields.getTextInputValue(`role_count_${i}`);
-            if (!count || isNaN(parseInt(count, 10))) {
+            // Collect role counts from the modal inputs
+            for (let i = 0; i < selectedRoles.length; i++) {
+                const count = interaction.fields.getTextInputValue(`role_count_${i}`);
+                if (!count || isNaN(parseInt(count, 10))) {
+                    return interaction.reply({
+                        content: `Invalid input for ${selectedRoles[i].name}. Please enter a valid number.`,
+                        ephemeral: true,
+                    });
+                }
+                if (count) {
+                    const parsedCount = parseInt(count, 10);
+                    totalCount += parsedCount;
+                    roleCounts.push({
+                        roleName: selectedRoles[i].name,
+                        roleId: selectedRoles[i].id,
+                        count: parseInt(count, 10),
+                    });
+                }
+            }
+
+            if (totalCount > partySize) {
                 return interaction.reply({
-                    content: `Invalid input for ${selectedRoles[i].name}. Please enter a valid number.`,
+                    content: `The total count of roles exceeds the party size of ${partySize}. Please adjust the counts.`,
                     ephemeral: true,
                 });
             }
-            if (count) {
-                const parsedCount = parseInt(count, 10);
-                totalCount += parsedCount;
-                roleCounts.push({
-                    roleName: selectedRoles[i].name,
-                    roleId: selectedRoles[i].id,
-                    count: parseInt(count, 10),
-                });
-            }
-        }
 
-        if (totalCount > partySize) {
-            return interaction.reply({
-                content: `The total count of roles exceeds the party size of ${partySize}. Please adjust the counts.`,
-                ephemeral: true,
-            });
-        }
+            console.log('Preset Data:', {
+                presetName,
+                gameSelectionName: gameSelection.name,
+                gameSelectionId: gameSelection.id,
+                partySize,
+                roles: roleCounts,
+            })
 
-        console.log('Preset Data:', {
-            presetName,
-            gameSelectionName: gameSelection.name,
-            gameSelectionId: gameSelection.id,
-            partySize,
-            roles: roleCounts,
-        })
+            await savePreset(interaction.guild.id, presetName, gameSelection.name, gameSelection.id, partySize, roleCounts);
 
-        await savePreset(interaction.guild.id, presetName, gameSelection.name, gameSelection.id, partySize, roleCounts);
-        
-        await interaction.reply({
-            content: 
-            `Preset "${presetName}" has been created successfully! \n
+            await interaction.reply({
+                content:
+                    `Preset "${presetName}" has been created successfully! \n
             Game Selection: ${gameSelection.name} \n
             Party Size: ${partySize} \n`,
-            ephemeral: true,
-        });
+                ephemeral: true,
+            });
         } catch (error) {
             console.error('Error processing modal submission:', error);
             await interaction.reply({

@@ -267,7 +267,7 @@ module.exports = {
                 .setDescription(summary)
                 .setThumbnail('https://media.discordapp.net/attachments/1337393468326023241/1337395709665873960/DCC_Logo.png?ex=67c83fd0&is=67c6ee50&hm=6e168061cf4ffe112dd8301418ba008cad2696601913156b2ff3401d5abdba24&=&format=webp&quality=lossless&width=1752&height=1012')
                 .addFields(
-                    { name: 'Game:', value: gameName, inline: true },
+                    { name: 'Game:', value: gameName.name, inline: true },
                     { name: '🕒 Date and Time', value: `<t:${eventDateUNIX}:f> (This Date & Time is displayed in your local time!)`, inline: false },
                     { name: '✅ Yes', value: '\u200B', inline: true },
                     { name: '❌ No', value: '\u200B', inline: true }

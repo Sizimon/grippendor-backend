@@ -128,17 +128,17 @@ module.exports = {
 
         // !!! VALIDATION CHECKS !!!
         if (name.length > 50) {
-            await interaction.reply({ content: 'The name must be 50 characters or less.', ephemeral: true });
+            await interaction.editReply({ content: 'The name must be 50 characters or less.', ephemeral: true });
             return;
         }
 
         if (summary.length > 250) {
-            await interaction.reply({ content: 'The summary must be 250 characters or less.', ephemeral: true });
+            await interaction.editReply({ content: 'The summary must be 250 characters or less.', ephemeral: true });
             return;
         }
 
         if (description.length > 2000) {
-            await interaction.reply({ content: 'The description must be 2000 characters or less.', ephemeral: true });
+            await interaction.editReply({ content: 'The description must be 2000 characters or less.', ephemeral: true });
             return;
         }
 
@@ -146,7 +146,7 @@ module.exports = {
         if (date) {
             const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
             if (!dateRegex.test(date)) {
-                await interaction.reply({
+                await interaction.editReply({
                     content: 'Invalid date format. Please use the format YYYY-MM-DD.',
                     ephemeral: true,
                 });
@@ -157,7 +157,7 @@ module.exports = {
         if (time) {
             const timeRegex = /^\d{2}:\d{2}$/;
             if (!timeRegex.test(time)) {
-                await interaction.reply({
+                await interaction.editReply({
                     contend: 'Invalid time format. Please use the format HH:MM.',
                     ephemeral: true,
                 });
@@ -168,7 +168,7 @@ module.exports = {
         // Validate that the date itself is correct
         const isValidDate = moment(date, 'YYYY-MM-DD', true).isValid();
         if (!isValidDate) {
-            await interaction.reply({
+            await interaction.editReply({
                 content: 'The date you have entered is invalid.',
                 ephemeral: true,
             });
@@ -178,7 +178,7 @@ module.exports = {
         // Validate that the time itself is correct
         const isValidTime = moment(time, 'HH:mm', true).isValid();
         if (!isValidTime) {
-            await interaction.reply({
+            await interaction.editReply({
                 content: 'The time you have entered is invalid.',
                 ephemeral: true,
             });

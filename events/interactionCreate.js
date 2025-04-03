@@ -5,6 +5,7 @@ const createPresetCommand = require('../commands/createPreset');
 const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputBuilder } = require('discord.js');
 const db = require('../utils/db')
 const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
+const { savePreset } = require('../services/presetService');
 const { parse } = require('dotenv');
 
 module.exports = async function interactionCreate(interaction) {
@@ -130,7 +131,7 @@ module.exports = async function interactionCreate(interaction) {
                 `;
                     const result = await db.query(getImageUrlsQuery, [eventId]);
 
-                    if (result.rows.lenght > 0) {
+                    if (result.rows.length > 0) {
                         const { thumbnail_url, image_urls } = result.rows[0]
 
                         const allImageUrls = [thumbnail_url, ...(image_urls || [])].filter(url => url);
@@ -167,62 +168,69 @@ module.exports = async function interactionCreate(interaction) {
         // Modal for selecting preset role quantities.
     } else if (interaction.isModalSubmit() && interaction.customId === 'role_counts_modal') {
         try {
+            console.log('Deferring reply for role_counts_modal...');
             await interaction.deferReply({ ephemeral: true });
-            const { savePreset } = require('../services/presetService.js');
+    
             const { partySize, presetName, gameSelection, selectedRoles } = interaction.client.presetData;
             const roleCounts = [];
             let totalCount = 0;
-
-            // Collect role counts from the modal inputs
+    
+            console.log('Processing modal inputs...');
             for (let i = 0; i < selectedRoles.length; i++) {
                 const count = interaction.fields.getTextInputValue(`role_count_${i}`);
+                console.log(`Role ${selectedRoles[i].name} count input:`, count);
+    
                 if (!count || isNaN(parseInt(count, 10))) {
-                    return interaction.reply({
+                    console.error(`Invalid input for role ${selectedRoles[i].name}:`, count);
+                    return interaction.editReply({
                         content: `Invalid input for ${selectedRoles[i].name}. Please enter a valid number.`,
                         ephemeral: true,
                     });
                 }
-                if (count) {
-                    const parsedCount = parseInt(count, 10);
-                    totalCount += parsedCount;
-                    roleCounts.push({
-                        roleName: selectedRoles[i].name,
-                        roleId: selectedRoles[i].id,
-                        count: parseInt(count, 10),
-                    });
-                }
+    
+                const parsedCount = parseInt(count, 10);
+                totalCount += parsedCount;
+                roleCounts.push({
+                    roleName: selectedRoles[i].name,
+                    roleId: selectedRoles[i].id,
+                    count: parsedCount,
+                });
             }
-
+    
+            console.log('Total count of roles:', totalCount);
+            console.log('Party size:', partySize);
+    
             if (totalCount > partySize) {
-                return interaction.reply({
+                console.error(`Total count (${totalCount}) exceeds party size (${partySize}).`);
+                return interaction.editReply({
                     content: `The total count of roles exceeds the party size of ${partySize}. Please adjust the counts.`,
                     ephemeral: true,
                 });
             }
-
-            console.log('Preset Data:', {
-                presetName,
-                gameSelectionName: gameSelection.name,
-                gameSelectionId: gameSelection.id,
-                partySize,
-                roles: roleCounts,
-            })
-
+    
+            console.log('Saving preset...');
             await savePreset(interaction.guild.id, presetName, gameSelection.name, gameSelection.id, partySize, roleCounts);
-
-            await interaction.reply({
-                content:
-                    `Preset "${presetName}" has been created successfully! \n
-            Game Selection: ${gameSelection.name} \n
-            Party Size: ${partySize} \n`,
+    
+            interaction.client.presetData = null; // Clear the preset data after saving
+            console.log('Preset saved successfully.');
+    
+            await interaction.editReply({
+                content: `Preset "${presetName}" has been created successfully! \n
+                Game Selection: ${gameSelection.name} \n
+                Party Size: ${partySize} \n`,
                 ephemeral: true,
             });
         } catch (error) {
             console.error('Error processing modal submission:', error);
-            await interaction.reply({
-                content: 'An error occurred while processing your request. Please try again later.',
-                ephemeral: true,
-            });
+    
+            if (interaction.replied || interaction.deferred) {
+                console.error('Interaction already replied or deferred. Cannot send another reply.');
+            } else {
+                await interaction.reply({
+                    content: 'An error occurred while processing your request. Please try again later.',
+                    ephemeral: true,
+                });
+            }
         }
     } else if (interaction.isCommand()) {
         const { commandName } = interaction;

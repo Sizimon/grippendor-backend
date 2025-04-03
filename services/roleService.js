@@ -30,7 +30,7 @@ async function askForRoleCounts(interaction, partySize, selectedRoles, presetNam
             .setStyle(TextInputStyle.Short)
             .setRequired(true);
 
-        modal.addComponents(new ActionRowBuilder().addComponents(input));
+        modal.addComponents(new ActionRowBuilder().addComponents(input)); // Read more about this.
     });
 
     interaction.client.presetData = {

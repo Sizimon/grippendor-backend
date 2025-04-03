@@ -9,7 +9,7 @@ const createPresetCommand = new SlashCommandBuilder()
     .addStringOption(option => option.setName('preset-name').setDescription('Input a name for your preset (NAME MUST BE DISTINCT | 40 CHARACTERS MAXIMUM).').setRequired(true))
     .addRoleOption(option =>
         option.setName('game-selection').setDescription('Select the role for the game you would like to create the preset.').setRequired(true))
-for (i = 0; i < 10; i++) {
+for (i = 1; i < 10; i++) {
     createPresetCommand.addRoleOption(option =>
         option.setName(`preset_role_${i}`).setDescription(`Select role ${i} for the preset.`).setRequired(false));
 }
@@ -56,7 +56,7 @@ module.exports = {
 
         // Collect selected roles
         const selectedRoles = [];
-        for (let i = 0; i < 10; i++) {
+        for (let i = 1; i < 10; i++) {
             const role = interaction.options.getRole(`preset_role_${i}`);
             if (role) {
                 selectedRoles.push(role);

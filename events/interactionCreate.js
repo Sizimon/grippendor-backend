@@ -174,7 +174,7 @@ module.exports = async function interactionCreate(interaction) {
                 let totalCount = 0;
 
                 console.log('Processing modal inputs...');
-                for (let i = 0; i < selectedRoles.length; i++) {
+                for (let i = 1; i < selectedRoles.length; i++) {
                     const count = interaction.fields.getTextInputValue(`role_count_${i}`);
                     console.log(`Role ${selectedRoles[i].name} count input:`, count);
 

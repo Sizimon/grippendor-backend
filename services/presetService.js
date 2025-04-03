@@ -20,6 +20,10 @@ async function savePreset(guildId, presetName, gameRoleName, gameRoleId, partySi
             partySize,
             JSON.stringify({ roles: rolesWithCounts }),
         ];
+
+        console.log('Executing query:', query);
+        console.log('With values:', values);
+
         await db.query(query, values);
     } catch (error) {
         console.error('Error saving preset:', error);

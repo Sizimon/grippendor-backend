@@ -30,7 +30,7 @@ module.exports = async function interactionCreate(interaction) {
             if (!member.roles.cache.has(gameRole)) {
                 console.log('User does not have the required role:', gameRole);
                 return await interaction.reply({
-                    content: `You need to have the ${gameRole} role to RSVP for this event.`,
+                    content: `You need to have the required game role to RSVP for this event. Please check your roles and try again.`,
                     ephemeral: true
                 });
             }

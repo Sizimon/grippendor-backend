@@ -140,6 +140,7 @@ app.get('/bot-backend/eventuserdata/:guildId/:eventId', authenticateToken, async
 
     try {
         const eventUserData = await loadEventUserData(eventId, guildId);
+        console.log('Event user data:', eventUserData);
         if (eventUserData) {
             res.json({ eventUserData });
         } else {

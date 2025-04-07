@@ -31,8 +31,8 @@ async function deleteImagesFromCloudinary(imageUrls) {
         // Extract public IDs from the URLs
         const publicIds = imageUrls.map(url => {
             const parts = url.split('/');
-            const folderAndPublicId = parts.slice(parts.length - 2).join('/'); // e.g., "discord-events/vck915a58ci7czqpgt7y.png"
-            const publicId = folderAndPublicId.split('.')[0]; // e.g., "image_name"
+            const folderAndPublicId = parts.slice(parts.length - 2).join('/'); // e.g., "discord-events/vck915a58ci7czqpgt7y.png" to specify the folder
+            const publicId = folderAndPublicId.split('.')[0]; // remove the file extension"
             console.log(`Extracted public ID from URL "${url}":`, publicId);
             return publicId;
         });

@@ -27,17 +27,22 @@ async function uploadImageToCloudinary(imageUrl) {
 // DELETE IMAGES RELATED TO EVENT IF EVENT IS DELETES --- TESTING!
 async function deleteImagesFromCloudinary(imageUrls) {
     try {
+        console.log('Recieved images for deletion:', imageUrls);
         // Extract public IDs from the URLs
         const publicIds = imageUrls.map(url => {
             const parts = url.split('/');
             const publicIdWithExtension = parts[parts.length - 1]; // e.g., "image_name.jpg"
-            return publicIdWithExtension.split('.')[0]; // Extract "image_name" (without extension)
+            const publicId = publicIdWithExtension.split('.')[0]; // e.g., "image_name"
+            console.log(`Extracted public ID from URL "${url}":`, publicId);
+            return publicId;
         });
 
         // Delete the images using their public IDs
         if (publicIds.length > 0) {
-            await cloudinary.api.delete_resources(publicIds);
+            const result = await cloudinary.api.delete_resources(publicIds);
+            // await cloudinary.api.delete_resources(publicIds);
             console.log(`Deleted images from Cloudinary: ${publicIds.join(', ')}`);
+            console.log('Cloudinary API response:', result);
         }
     } catch (error) {
         console.error('Error deleting images from Cloudinary', error);

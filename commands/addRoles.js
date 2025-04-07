@@ -71,22 +71,19 @@ module.exports = {
             let responseMessage = '';
             if (existingRoles.length > 0) {
                 const rolesDescription = addedRoles
-                    .map(role => `Name: ${role.name} | ID: ${role.id}`)
+                    .map(role => `Name: ${role.name}\nID: ${role.id}\n`)
                     .join('\n');
-                responseMessage += `Successfully added the following roles:\n ${rolesDescription}\n\n`;
+                responseMessage += `Successfully added the following roles:\n ${rolesDescription}\n`;
             }
             if (existingRoles.length > 0) {
                 const rolesDescription = existingRoles
-                    .map(role => `Name: ${role.name} | ID: ${role.id}`)
+                    .map(role => `Name: ${role.name}\nID: ${role.id}\n`)
                     .join('\n');
                 responseMessage += `The following roles already exist and therefore were not added:\n ${rolesDescription}`;
             }
 
-            // const rolesDescription = additionalRoles
-            // .map(role => `Name: ${role.name} | ID: ${role.id}`)
-            // .join('\n');
             const addRolesEmbed = new EmbedBuilder()
-                .setTitle('Successfully added new roles.')
+                .setTitle('Successfully processed roles:')
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(`${responseMessage}`);
             

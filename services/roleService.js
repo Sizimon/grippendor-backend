@@ -12,9 +12,11 @@ async function saveRole(guildId, roleName, roleId) {
     const result = await db.query(query, values);
 
     if (result.rows.length === 0) {
-        console.log(`Role "${roleName}" already exists in guild ${guildId}.`);;
+        console.log(`Role "${roleName}" already exists in guild ${guildId}.`);
+        return false;
     } else {
-        console.log(`Role "${roleName}" added to guild ${guildId}.`)
+        console.log(`Role "${roleName}" added to guild ${guildId}.`);
+        return true;
     }
 }
 

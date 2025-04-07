@@ -56,19 +56,39 @@ module.exports = {
         }
 
         try {
+            const existingRoles = [];
+            const addedRoles = [];
+
             for (const role of additionalRoles) {
-                await roleService.saveRole(interaction.guild.id, role.name, role.id)
+                const wasAdded = await roleService.saveRole(interaction.guild.id, role.name, role.id);
+                if (wasAdded) {
+                    addedRoles.push(role);
+                } else {
+                    existingRoles.push(role);
+                }
             }
 
-            const rolesDescription = additionalRoles
-            .map(role => `Name: ${role.name} | ID: ${role.id}`)
-            .join('\n');
+            let responseMessage = '';
+            if (existingRoles.length > 0) {
+                const rolesDescription = addedRoles
+                    .map(role => `Name: ${role.name} | ID: ${role.id}`)
+                    .join('\n');
+                responseMessage += `Successfully added the following roles:\n ${rolesDescription}\n\n`;
+            }
+            if (existingRoles.length > 0) {
+                const rolesDescription = existingRoles
+                    .map(role => `Name: ${role.name} | ID: ${role.id}`)
+                    .join('\n');
+                responseMessage += `The following roles already exist and therefore were not added:\n ${rolesDescription}`;
+            }
+
+            // const rolesDescription = additionalRoles
+            // .map(role => `Name: ${role.name} | ID: ${role.id}`)
+            // .join('\n');
             const addRolesEmbed = new EmbedBuilder()
                 .setTitle('Successfully added new roles.')
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
-                .setDescription(`You have added a total of: ${additionalRoles.length} new roles. \n
-                    Here is a breakdown of the roles you added: \n ${rolesDescription}
-                    `);
+                .setDescription(`${responseMessage}`);
             
             const checkChannelQuery = `
                     SELECT channel

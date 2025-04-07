@@ -5,10 +5,17 @@ async function saveRole(guildId, roleName, roleId) {
     const query = `
         INSERT INTO roles (guild_id, role_name, role_id)
         VALUES ($1, $2, $3)
-        ON CONFLICT (guild_id, role_id) DO NOTHING;
+        ON CONFLICT (guild_id, role_name) DO NOTHING
+        RETURNING *;
     `;
     const values = [guildId, roleName, roleId];
     await db.query(query, values);
+
+    if (result.rows.length === 0) {
+        console.log(`Role "${roleName}" already exists in guild ${guildId}.`);;
+    } else {
+        console.log(`Role "${roleName}" added to guild ${guildId}.`)
+    }
 }
 
 async function getRolesByGuild(guildId) {

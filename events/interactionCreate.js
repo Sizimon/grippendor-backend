@@ -154,9 +154,12 @@ module.exports = async function interactionCreate(interaction) {
                         if (result.rows.length > 0) {
                             const { thumbnail_url, image_urls } = result.rows[0]
                             console.log('Thumbnail URL:', thumbnail_url);
-                            console.log('Image URLs:', image_urls);
+                            console.log('Image URLs (raw):', image_urls);
+                            
+                            const parsedImageUrls = Array.isArray(image_urls) ? image_urls : JSON.parse(image_urls || '[]');
+                            console.log('Parsed Image URLs:', parsedImageUrls);
 
-                            const allImageUrls = [thumbnail_url, ...(image_urls || [])].filter(url => url);
+                            const allImageUrls = [thumbnail_url, ...parsedImageUrls].filter(url => url);
                             console.log('All Image URLs:', allImageUrls);
 
                             await deleteImagesFromCloudinary(allImageUrls);

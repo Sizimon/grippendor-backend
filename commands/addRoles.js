@@ -69,7 +69,7 @@ module.exports = {
             }
 
             let responseMessage = '';
-            if (existingRoles.length > 0) {
+            if (addedRoles.length > 0) {
                 const rolesDescription = addedRoles
                     .map(role => `Name: ${role.name}\nID: ${role.id}\n`)
                     .join('\n');

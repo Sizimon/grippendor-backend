@@ -26,10 +26,8 @@ async function initializeBot(client, config) {
         logger.log('All members fetched');
 
         const members = guild.members.cache;
-        // logger.log(`Fetched Members: ${members.map(member => member.user ? member.user.username : 'undefined').join(', ')}`);
 
         const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
-        // logger.log(`Members with role: ${membersWithRole.map(member => member.nickname || member.displayName).join(', ')}`);
 
         for (const [id, member] of membersWithRole) {
             const userId = id;

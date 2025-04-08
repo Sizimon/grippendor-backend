@@ -129,6 +129,7 @@ module.exports = {
                     The basic commands are:
                     /setup | Setup the bot according to server configurations / change the bot configurations.
                     /add-roles | Add trackable roles to users, for use in the party maker / other features.
+                    /create-preset | Create a preset for the event matchmaking process.
                     /create-event | Create an event for users with an attendance list. \n
                     Your dashboard is customised with the following settings:
                     Title: ${title}

@@ -6,7 +6,7 @@ const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputB
 const db = require('../utils/db')
 const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
 const { savePreset } = require('../services/presetService');
-const { parse } = require('dotenv');
+// const { parse } = require('dotenv');
 
 module.exports = async function interactionCreate(interaction) {
     if (interaction.isButton()) {
@@ -16,7 +16,7 @@ module.exports = async function interactionCreate(interaction) {
 
         if (action === 'attend' || action === 'decline') {
             const eventGameQuery = `
-                SELECT game_name FROM events WHERE id = $1;
+                SELECT game_id FROM events WHERE id = $1;
             `;
             const eventGameResult = await db.query(eventGameQuery, [eventId]);
             if (eventGameResult.rows.length === 0) {
@@ -24,11 +24,11 @@ module.exports = async function interactionCreate(interaction) {
                     content: 'Event not found.', ephemeral: true
                 });
             }
-            const gameRole = eventGameResult.rows[0].game_name;
-            console.log('Game Role:', gameRole);
+            const gameRoleId = eventGameResult.rows[0].game_id;
+            console.log('Game Role:', gameRoleId);
 
-            if (!member.roles.cache.has(gameRole)) {
-                console.log('User does not have the required role:', gameRole);
+            if (!member.roles.cache.has(gameRoleId)) {
+                console.log('User does not have the required role:', gameRoleId);
                 return await interaction.reply({
                     content: `You need to have the required game role to RSVP for this event. Please check your roles and try again.`,
                     ephemeral: true

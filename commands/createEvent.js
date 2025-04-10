@@ -41,8 +41,8 @@ module.exports = {
         .setName('create-event')
         .setDescription('Create an event')
         .addRoleOption(option => 
-            option.setName('game_name')
-                .setDescription('Select the game for the event.')
+            option.setName('game')
+                .setDescription('Select the game (role) for the event.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('name')
@@ -111,7 +111,7 @@ module.exports = {
             return await interaction.editReply({ content: 'You do not have permission to perform this action.', ephemeral: true });
         }
 
-        const gameName = interaction.options.getRole('game_name');
+        const gameDetails = interaction.options.getRole('game');
         const name = interaction.options.getString('name');
         const channel = interaction.options.getChannel('channel');
         const summary = interaction.options.getString('summary');
@@ -232,7 +232,8 @@ module.exports = {
 
             const event = {
                 guildId: interaction.guild.id,
-                gameName: gameName.id,
+                gameName: gameDetails.name,
+                gameId: gameDetails.id,
                 name: name,
                 channelId: channel.id,
                 summary: summary,
@@ -262,12 +263,12 @@ module.exports = {
             // END
 
             const eventEmbed = new EmbedBuilder()
-                .setTitle(`GAME:${gameName.name} | EVENT: ${name}`)
+                .setTitle(`GAME:${gameDetails.name} | EVENT: ${name}`)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(summary)
                 .setThumbnail('https://media.discordapp.net/attachments/1337393468326023241/1337395709665873960/DCC_Logo.png?ex=67c83fd0&is=67c6ee50&hm=6e168061cf4ffe112dd8301418ba008cad2696601913156b2ff3401d5abdba24&=&format=webp&quality=lossless&width=1752&height=1012')
                 .addFields(
-                    { name: 'Game:', value: gameName.name, inline: true },
+                    { name: 'Game:', value: gameDetails.name, inline: true },
                     { name: '🕒 Date and Time', value: `<t:${eventDateUNIX}:f> (This Date & Time is displayed in your local time!)`, inline: false },
                     { name: '✅ Yes', value: '\u200B', inline: true },
                     { name: '❌ No', value: '\u200B', inline: true }

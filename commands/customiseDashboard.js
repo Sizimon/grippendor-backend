@@ -146,12 +146,12 @@ module.exports = {
             }
 
             const query = `
-                INSERT INTO guilds (id, color, icon_url, banner_url)
+                INSERT INTO guilds (id, color, icon, banner)
                 VALUES ($1, $2, $3, $4)
                 ON CONFLICT (id) DO UPDATE
                 SET color = EXCLUDED.color,
-                    icon_url = EXCLUDED.icon_url,
-                    banner_url = EXCLUDED.banner_url;
+                    icon = EXCLUDED.icon,
+                    banner = EXCLUDED.banner;
                     `;
             const values = [
                 customisations.guild_id,

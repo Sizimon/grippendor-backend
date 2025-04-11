@@ -137,6 +137,18 @@ module.exports = {
 
 
         try {
+            const checkGuildExistsQuery = `
+                SELECT 1 FROM guilds WHERE id = $1
+            `;
+            const guildExists = await db.query(checkGuildExistsQuery, [interaction.guild.id]);
+
+            if (guildExists.rows.length === 0) {
+                return await interaction.editReply({
+                    content: 'Your guild is not registered. Please run the `/setup` command first.',
+                    ephemeral: true,
+                });
+            }
+
             const customisations = {
                 guild_id: interaction.guild.id,
                 color: color,
@@ -152,6 +164,11 @@ module.exports = {
                 SET color = EXCLUDED.color,
                     icon = EXCLUDED.icon,
                     banner = EXCLUDED.banner;
+                    channel = guilds.channel,
+                    primary_role = guilds.primary_role,
+                    admin_role = guilds.admin_role,
+                    title = guilds.title,
+                    password = guilds.password,
                     `;
             const values = [
                 customisations.guild_id,

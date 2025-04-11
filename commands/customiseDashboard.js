@@ -158,8 +158,8 @@ module.exports = {
             }
 
             const query = `
-                INSERT INTO guilds (id, color, icon, banner, channel, primary_role, admin_role, title, password)
-                VALUES ($1, $2, $3, $4, guilds.channel, guilds.primary_role, guilds.admin_role, guilds.title, guilds.password)
+                INSERT INTO guilds (id, color, icon, banner)
+                VALUES ($1, $2, $3, $4)
                 ON CONFLICT (id) DO UPDATE
                 SET color = EXCLUDED.color,
                     icon = EXCLUDED.icon,

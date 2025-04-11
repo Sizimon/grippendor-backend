@@ -23,6 +23,18 @@ async function uploadImageToCloudinary(imageUrl) {
     }
 }
 
+async function uploadCustomsToCloudinary(imageUrl) {
+    try {
+        const result = await cloudinary.uploader.upload(imageUrl, { folder: 'discord-customs' });
+        return result.secure_url;
+    } catch (error) {
+        console.error('Error uploading image to Cloudinary', error);
+        throw error;
+    }
+}
+
+
+
 
 // DELETE IMAGES RELATED TO EVENT IF EVENT IS DELETES --- TESTING!
 async function deleteImagesFromCloudinary(imageUrls) {
@@ -51,6 +63,7 @@ async function deleteImagesFromCloudinary(imageUrls) {
 
 module.exports = {
     uploadImageToCloudinary,
+    uploadCustomsToCloudinary,
     deleteImagesFromCloudinary,
 }
     

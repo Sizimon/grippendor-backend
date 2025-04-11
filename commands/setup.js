@@ -1,21 +1,9 @@
-const axios = require('axios');
-const sharp = require('sharp'); // Library for checking metadata of attachments
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const { initializeBot } = require('../utils/index.js');
 const bcrypt = require('bcrypt');
 const db = require('../utils/db.js');
-const { uploadImageToCloudinary } = require('../utils/cloudinary.js');
 
 const guildService = require('../services/guildService.js')
-
-const colorChoices = [
-    { label: 'Sandy Brown (#F19143)', value: '#F19143' },
-    { label: 'Light Sea Blue (#00B9AE)', value: '#00B9AE' },
-    { label: 'Dusty Green (#8FAD88)', value: '#8FAD88' },
-    { label: 'Malachite (#32E875)', value: '#32E875' },
-    { label: 'Rojo Red (#DD0426)', value: '#DD0426' },
-    { label: 'Flax (#F5DD90)', value: '#F5DD90' },
-]
 
 const setupCommand = new SlashCommandBuilder()
     .setName('setup')
@@ -23,10 +11,8 @@ const setupCommand = new SlashCommandBuilder()
     .addChannelOption(option => option.setName('channel').setDescription('Default Bot Channel (Should be a admin channel)').setRequired(true))
     .addRoleOption(option => option.setName('admin_role').setDescription('This role grants use of bot admin permissions.').setRequired(true))
     .addRoleOption(option => option.setName('primary_role').setDescription('The bot will track all members with the role you choose, (i.e default member role)').setRequired(true))
-    .addStringOption(option => option.setName('color').setDescription('Choose your color scheme.').setRequired(true).addChoices(colorChoices.map(cc => ({ name: cc.label, value: cc.value }))))
     .addStringOption(option => option.setName('title').setDescription('The title for the frontend dashboard (MAXIMUM: 25 Characters)').setRequired(true))
     .addStringOption(option => option.setName('password').setDescription('Password to access Dashboard. (IMPORTANT: DO NOT USE PRIVATE/PERSONAL PASSWORDS)').setRequired(true))
-    .addAttachmentOption(option => option.setName('icon').setDescription('Insert your guild icon. (MAXIMUM 400x400px) (OPTIMAL: .PNG WITH TRANSPARENT BACKGROUND)').setRequired(false));
 
 module.exports = {
     data: setupCommand,
@@ -41,55 +27,11 @@ module.exports = {
         await interaction.reply({ content: 'Initiating Setup...', ephemeral: true });
 
         const channel = interaction.options.getChannel('channel');
-        const color = interaction.options.getString('color');
         const primaryRole = interaction.options.getRole('primary_role');
         const adminRole = interaction.options.getRole('admin_role');
         const title = interaction.options.getString('title');
         const password = interaction.options.getString('password');
-        const icon = interaction.options.getAttachment('icon');
-        let iconUrl = null;
-
-        // Validate if Icon is correct size
-        if (icon) {
-            try {
-                // Validate the image format
-                const validFormats = ['jpg', 'jpeg', 'png', 'webp', 'svg'];
-                const fileExtension = icon.name.split('.').pop().toLowerCase();
-
-                if (!validFormats.includes(fileExtension)) {
-                    return await interaction.editReply({
-                        content:  `Unsupported image format. Please upload an image in one of the following formats: ${validFormats.join(', ')}`,
-                        ephemeral: true,
-                    })
-                }
-
-                const response = await axios({
-                    method: 'get',
-                    url: icon.url,
-                    responseType: 'arraybuffer',
-                });
-
-                // Use sharp to inspect image dimensions
-                const imageBuffer = Buffer.from(response.data);
-                const metadata = await sharp(imageBuffer).metadata();
-
-                // Image size validation
-                if (metadata.width > 400 || metadata.height > 400) {
-                    return await interaction.editReply({
-                        content: 'Size of icon is too large. Icon must be 400x400px maximum.'
-                    });
-                }
-
-                iconUrl = await uploadImageToCloudinary(icon.url);
-            } catch (error) {
-                console.error('Error validating icon size:', error);
-                return await interaction.editReply({
-                    content: `An error occured while validating the icon: ${error}`,
-                    ephemeral: true,
-                })
-            }
-        }
-
+       
         // Validate Title Length
         if (title.length > 25) {
             await interaction.editReply({
@@ -109,10 +51,8 @@ module.exports = {
             const config = {
                 guild: interaction.guild.id,
                 channel: channel.id,
-                color,
                 primaryRole: primaryRole.id,
                 adminRole: adminRole.id,
-                icon: iconUrl,
                 title,
                 password: hashedPassword
             };
@@ -124,22 +64,18 @@ module.exports = {
                 .setTitle(title)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(`Configuration saved! \n
-                    You can now start using the Gripendor Bot. 
-                    The bot's default channel has been set to: (${channel}) \n
+                    You can now start using the Gripendor Bot.
+                    Server membership tracked through the following role: ${primaryRole.name} \n
+                    Start off by customising your dashboard by using the "/customise-dashboard" command (or keep the defaults)! \n 
+                    The bot's default channel has been set to: ${channel.name} \n
                     The basic commands are:
                     /setup | Setup the bot according to server configurations / change the bot configurations.
+                    /customise-dashboard | Customise the bot dashboard with a color scheme, banner and icon.
                     /add-roles | Add trackable roles to users, for use in the party maker / other features.
                     /create-preset | Create a preset for the event matchmaking process.
                     /create-event | Create an event for users with an attendance list. \n
-                    Your dashboard is customised with the following settings:
-                    Title: ${title}
-                    Default Dashboard Color: ${color}
-                    Server membership tracked through the following role: ${primaryRole} \n
-                    Your Dashboard Icon URL: ${iconUrl} 
+                    
                     ACCESS YOUR DASHBOARD HERE: ${dashboardUrl}`)
-            if (iconUrl) {
-                setupEmbed.setThumbnail(iconUrl);
-            }
 
             await channel.send({
                 embeds: [setupEmbed]

@@ -158,18 +158,12 @@ module.exports = {
             }
 
             const query = `
-                INSERT INTO guilds (id, color, icon, banner)
-                VALUES ($1, $2, $3, $4)
-                ON CONFLICT (id) DO UPDATE
-                SET color = EXCLUDED.color,
-                    icon = EXCLUDED.icon,
-                    banner = EXCLUDED.banner,
-                    channel = guilds.channel,
-                    primary_role = guilds.primary_role,
-                    admin_role = guilds.admin_role,
-                    title = guilds.title,
-                    password = guilds.password;
-                    `;
+                UPDATE guilds
+                SET color = COALESCE($2, color),
+                    icon = COALESCE($3, icon),
+                    banner = COALESCE($4, banner)
+                WHERE id = $1;
+            `;
             const values = [
                 customisations.guild_id,
                 customisations.color,

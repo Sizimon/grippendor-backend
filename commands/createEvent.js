@@ -152,6 +152,7 @@ module.exports = {
                 });
                 return;
             }
+            console.log('date:', date);
         }
 
         if (time) {
@@ -163,6 +164,7 @@ module.exports = {
                 });
                 return;
             }
+            console.log('time:', time);
         }
 
         // Validate that the date itself is correct
@@ -187,7 +189,9 @@ module.exports = {
 
         // CONVERTS THE INPUT DATE / TIME WITH MOMENT, THEN CONVERTS THAT INTO UTC FOR THE DB
         const eventDateTimeLocal = moment.tz(`${date} ${time}`, timezone);
+        console.log('Event Date Time Local', eventDateTimeLocal)
         const eventDateTimeUTC = eventDateTimeLocal.utc().format();
+        console.log('Event Date Time UTC', eventDateTimeUTC)
         // END
 
         const tempDir = path.join(__dirname, 'temp');

@@ -65,9 +65,9 @@ module.exports = {
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(`Configuration saved! \n
                     You can now start using the Gripendor Bot.
-                    Server membership tracked through the following role: ${primaryRole.name} \n
+                    Server membership tracked through the following role: @${primaryRole.name} \n
                     Start off by customising your dashboard by using the "/customise-dashboard" command (or keep the defaults)! \n 
-                    The bot's default channel has been set to: ${channel.name} \n
+                    The bot's default channel has been set to: #${channel.name} \n
                     The basic commands are:
                     /setup | Setup the bot according to server configurations / change the bot configurations.
                     /customise-dashboard | Customise the bot dashboard with a color scheme, banner and icon.

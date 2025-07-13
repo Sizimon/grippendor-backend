@@ -35,6 +35,7 @@ app.post('/bot-backend/login', async (req, res) => {
             if (isMatch) {
                 const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '1h' });
                 res.json({ success: true, token });
+                console.log('Login successful for guild:', guildId);
             } else {
                 res.json({ success: false });
             }

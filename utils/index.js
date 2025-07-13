@@ -23,11 +23,13 @@ async function initializeBot(client, config) {
     try {
         logger.log('Fetching all members...');
         await guild.members.fetch();
-        logger.log('All members fetched');
+        logger.log('All members fetched'); // THE LOGGING STOPS HERE THE ERROR IS IN THE FOLLOWING CODE RESOLVE SOON!
 
         const members = guild.members.cache;
+        console.log('Members fetched:', members.size);
 
         const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
+        console.log('Members with primary role:', membersWithRole.size);
 
         for (const [id, member] of membersWithRole) {
             const userId = id;
@@ -91,6 +93,7 @@ async function initializeBot(client, config) {
         `;
             await db.query(deleteGuildUserQuery, [guild.id, user_id]);
         }
+        console.log('Guild initialized successfully:', guild.name);
     } catch (error) {
         logger.error('Error fetching members:', error);
     }

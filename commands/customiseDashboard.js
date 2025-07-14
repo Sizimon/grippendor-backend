@@ -156,21 +156,38 @@ module.exports = {
                 banner_url: bannerUrl,
 
             }
+            let query, values;
 
-            const query = `
-                UPDATE guilds
-                SET color = COALESCE($2, color),
-                    icon = COALESCE($3, icon),
-                    banner = COALESCE($4, banner)
-                WHERE id = $1;
-            `;
-            const values = [
-                customisations.guild_id,
-                customisations.color,
-                customisations.icon_url,
-                customisations.banner_url,
-            ];
 
+            if (color) {
+                // If color is provided, include it in the update
+                query = `
+                    UPDATE guilds
+                    SET color = $2,
+                        icon = COALESCE($3, icon),
+                        banner = COALESCE($4, banner)
+                    WHERE id = $1;
+                `;
+                values = [
+                    customisations.guild_id,
+                    customisations.color,
+                    customisations.icon_url,
+                    customisations.banner_url,
+                ];
+            } else {
+                // If color is not provided, don't update it
+                query = `
+                    UPDATE guilds
+                    SET icon = COALESCE($2, icon),
+                        banner = COALESCE($3, banner)
+                    WHERE id = $1;
+                `;
+                values = [
+                    customisations.guild_id,
+                    customisations.icon_url,
+                    customisations.banner_url,
+                ];
+            }
             await db.query(query, values);
         } catch (error) {
             console.error('Error saving customisations:', error);

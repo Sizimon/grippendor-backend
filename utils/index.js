@@ -97,7 +97,7 @@ async function initializeBot(client, config) {
             const placeholders = userIdsWithRole.map((_, index) => `$${index + 2}`).join(', ');
             const userIdsToRemove = await db.query(`
             SELECT user_id FROM guildusers WHERE guild_id = $1 AND user_id NOT IN (${placeholders})
-        `, [guild.id]);
+        `, [guild.id, ...userIdsWithRole]);
 
             console.log(`Found ${userIdsToRemove.rows.length} users to remove`);
 

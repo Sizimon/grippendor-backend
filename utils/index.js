@@ -2,6 +2,8 @@ const logger = require('./logger');
 const db = require('./db.js')
 
 async function initializeBot(client, config) {
+    console.log('Starting initializeBot for guild:', config.id);
+
     // Get the guild from the client cache and check it exists
     const guild = client.guilds.cache.get(config.id);
     if (!guild) {
@@ -16,9 +18,11 @@ async function initializeBot(client, config) {
         return;
     }
 
+    console.log('Fetching roles from database...')
     const rolesQuery = 'SELECT role_name, role_id FROM roles WHERE guild_id = $1';
     const rolesResult = await db.query(rolesQuery, [config.id]);
     const additionalRoles = rolesResult.rows;
+    console.log('Roles fetched:', additionalRoles.length);
 
     try {
         logger.log('Fetching all members...');
@@ -31,6 +35,7 @@ async function initializeBot(client, config) {
         const membersWithRole = members.filter(member => member.roles.cache.has(primaryRole.id));
         console.log('Members with primary role:', membersWithRole.size);
 
+        console.log('Starting member processing...');
         for (const [id, member] of membersWithRole) {
             const userId = id;
             const username = member.nickname || member.displayName;
@@ -40,7 +45,7 @@ async function initializeBot(client, config) {
                 continue;
             }
 
-            // logger.log(`Updating user: ${userId}, ${username}`);
+            console.log(`Processing user: ${userId}, ${username}`);
 
             const userQuery = `
                 INSERT INTO Users (user_id, username, updated_at)
@@ -51,6 +56,7 @@ async function initializeBot(client, config) {
             `;
             const userValues = [userId, username];
             await db.query(userQuery, userValues);
+            console.log(`User table updated for: ${userId}`);
 
             const guildUserQuery = `
                 INSERT INTO GuildUsers (guild_id, user_id, username, total_count, updated_at)
@@ -61,6 +67,7 @@ async function initializeBot(client, config) {
             `;
             const guildUserValues = [guild.id, userId, username];
             await db.query(guildUserQuery, guildUserValues);
+            console.log(`Guild user table updated for: ${userId}`);
 
             const roleStatus = additionalRoles.map(role => ({
                 roleName: role.role_name,
@@ -68,6 +75,7 @@ async function initializeBot(client, config) {
             }));
 
             // Insert roles for each user
+            console.log(`Processing ${roleStatus.length} roles for user: ${userId}`);
             for (const roles of roleStatus) {
                 const additionalRoleQuery = `
                     INSERT INTO GuildUserRoles (guild_id, user_id, role_name, has_role)
@@ -78,24 +86,36 @@ async function initializeBot(client, config) {
                 const additialRoleValues = [guild.id, userId, roles.roleName, roles.hasRole];
                 await db.query(additionalRoleQuery, additialRoleValues);
             }
+            console.log(`Roles processed for user: ${userId}`);
         }
+
+        console.log('Member processing complete. Starting cleanup...');
 
         // Remove users from the database if they no longer have the primary role
         const userIdsWithRole = membersWithRole.map(member => member.id);
-        const userIdsToRemove = await db.query(`
-            SELECT user_id FROM GuildUsers WHERE guild_id = $1 AND user_id NOT IN (${userIdsWithRole.map(id => `'${id}'`).join(', ')})
+        if (userIdsWithRole.length > 0) {
+            const placeholders = userIdsWithRole.map((_, index) => `$${index + 2}`).join(', ');
+            const userIdsToRemove = await db.query(`
+            SELECT user_id FROM GuildUsers WHERE guild_id = $1 AND user_id NOT IN (${placeholders})
         `, [guild.id]);
 
-        for (const { user_id } of userIdsToRemove.rows) {
-            const deleteGuildUserQuery = `
-            DELETE FROM GuildUsers
-            WHERE guild_id = $1 AND user_id = $2;
-        `;
-            await db.query(deleteGuildUserQuery, [guild.id, user_id]);
+            console.log(`Found ${userIdsToRemove.rows.length} users to remove`);
+
+            for (const { user_id } of userIdsToRemove.rows) {
+                const deleteGuildUserQuery = `
+                    DELETE FROM GuildUsers
+                    WHERE guild_id = $1 AND user_id = $2;
+                `;
+                await db.query(deleteGuildUserQuery, [guild.id, user_id]);
+                console.log(`Removed user ${user_id} from GuildUsers`);
+            }
+        } else {
+            const deleteAllQuery = `DELETE FROM GuildUsers WHERE guild_id = $1`;
+            await db.query(deleteAllQuery, [guild.id]);
         }
         console.log('Guild initialized successfully:', guild.name);
     } catch (error) {
-        logger.error('Error fetching members:', error);
+        console.error('Error fetching members:', error);
     }
 }
 

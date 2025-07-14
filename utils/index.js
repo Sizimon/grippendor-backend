@@ -48,7 +48,7 @@ async function initializeBot(client, config) {
             console.log(`Processing user: ${userId}, ${username}`);
 
             const userQuery = `
-                INSERT INTO Users (user_id, username, updated_at)
+                INSERT INTO users (user_id, username, updated_at)
                 VALUES ($1, $2, CURRENT_TIMESTAMP)
                 ON CONFLICT (user_id)
                 DO UPDATE SET username = EXCLUDED.username,
@@ -59,7 +59,7 @@ async function initializeBot(client, config) {
             console.log(`User table updated for: ${userId}`);
 
             const guildUserQuery = `
-                INSERT INTO GuildUsers (guild_id, user_id, username, total_count, updated_at)
+                INSERT INTO guildusers (guild_id, user_id, username, total_count, updated_at)
                 VALUES ($1, $2, $3, 0, CURRENT_TIMESTAMP)
                 ON CONFLICT (guild_id, user_id)
                 DO UPDATE SET username = EXCLUDED.username,
@@ -78,7 +78,7 @@ async function initializeBot(client, config) {
             console.log(`Processing ${roleStatus.length} roles for user: ${userId}`);
             for (const roles of roleStatus) {
                 const additionalRoleQuery = `
-                    INSERT INTO GuildUserRoles (guild_id, user_id, role_name, has_role)
+                    INSERT INTO guilduserroles (guild_id, user_id, role_name, has_role)
                     VALUES ($1, $2, $3, $4)
                     ON CONFLICT (guild_id, user_id, role_name)
                     DO UPDATE SET has_role = EXCLUDED.has_role;
@@ -96,21 +96,21 @@ async function initializeBot(client, config) {
         if (userIdsWithRole.length > 0) {
             const placeholders = userIdsWithRole.map((_, index) => `$${index + 2}`).join(', ');
             const userIdsToRemove = await db.query(`
-            SELECT user_id FROM GuildUsers WHERE guild_id = $1 AND user_id NOT IN (${placeholders})
+            SELECT user_id FROM guildusers WHERE guild_id = $1 AND user_id NOT IN (${placeholders})
         `, [guild.id]);
 
             console.log(`Found ${userIdsToRemove.rows.length} users to remove`);
 
             for (const { user_id } of userIdsToRemove.rows) {
                 const deleteGuildUserQuery = `
-                    DELETE FROM GuildUsers
+                    DELETE FROM guildusers
                     WHERE guild_id = $1 AND user_id = $2;
                 `;
                 await db.query(deleteGuildUserQuery, [guild.id, user_id]);
                 console.log(`Removed user ${user_id} from GuildUsers`);
             }
         } else {
-            const deleteAllQuery = `DELETE FROM GuildUsers WHERE guild_id = $1`;
+            const deleteAllQuery = `DELETE FROM guildusers WHERE guild_id = $1`;
             await db.query(deleteAllQuery, [guild.id]);
         }
         console.log('Guild initialized successfully:', guild.name);

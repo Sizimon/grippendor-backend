@@ -24,6 +24,9 @@ const customDashboardCommand = new SlashCommandBuilder()
 module.exports = {
     data: customDashboardCommand,
     async execute(interaction) {
+
+        await interaction.deferReply({ ephemeral: true }); // Defer the reply to allow time for processing
+
         // Verify that the command user has the required role!
         const getAdminRoleQuery = `
                                         SELECT admin_role
@@ -43,7 +46,7 @@ module.exports = {
             return await interaction.editReply({ content: 'You do not have permission to perform this action.', ephemeral: true });
         }
 
-        interaction.reply({
+        interaction.editReply({
             content: 'Applying your customisations...',
             ephemeral: true,
         })

@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const cookieParser = require('cookie-parser');
 const db = require('./utils/db')
 require('dotenv').config();
 
@@ -15,13 +16,15 @@ const { loadConfig, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadE
 const app = express();
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json()); // Parse JSON bodies
+app.use(cookieParser()); // Parse cookies
 
 // END
 
 logger.log('Starting bot...');
 const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
+const isProduction = process.env.GRIPPENDOR_NODE_ENV === 'production';
 
-app.post('/bot-backend/login', async (req, res) => {
+app.post('/grippendor-backend/login', async (req, res) => {
     logger.log('Login request received');
     const { guildId, password } = req.body;
 
@@ -33,8 +36,14 @@ app.post('/bot-backend/login', async (req, res) => {
             const hashedPassword = result.rows[0].password;
             const isMatch = await bcrypt.compare(password, hashedPassword);
             if (isMatch) {
-                const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '1h' });
-                res.json({ success: true, token });
+                const token = jwt.sign({ guildId }, JWT_SECRET, { expiresIn: '24h' });
+                res.cookie('authToken', token, {
+                    httpOnly: true,
+                    secure: isProduction, // Use secure cookies in production
+                    sameSite: 'lax',
+                    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+                });
+                res.json({ success: true });
                 console.log('Login successful for guild:', guildId);
             } else {
                 res.json({ success: false });
@@ -49,8 +58,7 @@ app.post('/bot-backend/login', async (req, res) => {
 });
 
 function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = req.cookies.authToken;
     if (!token) return res.status(401).json({ error: 'Unauthorized' });
 
     jwt.verify(token, JWT_SECRET, (err, user) => {
@@ -60,8 +68,20 @@ function authenticateToken(req, res, next) {
     });
 }
 
+app.post('/grippendor-backend/logout', (req, res) => {
+    res.clearCookie('authToken');
+    res.json({ success: true });
+});
+
+app.get('/grippendor-backend/check-auth', authenticateToken, (req, res) => {
+    res.json({ 
+        authenticated: true,
+        guildId: req.user.guildId
+     });
+});
+
 //Endpoint for loading the guild
-app.get('/bot-backend/config/:guildId', authenticateToken, async (req, res) => {
+app.get('/grippendor-backend/config/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -75,7 +95,7 @@ app.get('/bot-backend/config/:guildId', authenticateToken, async (req, res) => {
 });
 
 //Endpoint for loading guild user data.
-app.get('/bot-backend/userdata/:guildId', authenticateToken, async (req, res) => {
+app.get('/grippendor-backend/userdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -107,7 +127,7 @@ app.get('/bot-backend/userdata/:guildId', authenticateToken, async (req, res) =>
 
 
 //Endpoint to fetch event data
-app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) => {
+app.get('/grippendor-backend/eventdata/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -127,7 +147,7 @@ app.get('/bot-backend/eventdata/:guildId', authenticateToken, async (req, res) =
 });
 
 //Endpoint to fetch users for party making for selected event
-app.get('/bot-backend/eventuserdata/:guildId/:eventId', authenticateToken, async (req, res) => {
+app.get('/grippendor-backend/eventuserdata/:guildId/:eventId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     const eventId = req.params.eventId;
 
@@ -153,7 +173,7 @@ app.get('/bot-backend/eventuserdata/:guildId/:eventId', authenticateToken, async
     }
 });
 
-app.get('/bot-backend/presets/:guildId', authenticateToken, async (req, res) => {
+app.get('/grippendor-backend/presets/:guildId', authenticateToken, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });

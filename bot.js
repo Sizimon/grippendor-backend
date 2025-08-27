@@ -18,8 +18,8 @@ app.use(express.json()); // Parse JSON bodies
 app.use(cookieParser()); // Parse cookies
 
 console.log('Starting bot...');
-app.use('/grippendor-backend', authRouter);
-app.use('/grippendor-backend', guildRouter);
+app.use('/api', authRouter);
+app.use('/api', guildRouter);
 
 
 // Start the bot and API server

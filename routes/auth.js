@@ -10,7 +10,7 @@ const { authMiddleware } = require('../AuthMiddleware')
 const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
 const isProduction = process.env.GRIPPENDOR_NODE_ENV === 'production';
 
-router.post('/login', async (req, res) => {
+router.post('/auth/login', async (req, res) => {
     console.log('Login request received');
     const { guildId, password } = req.body;
     try {
@@ -42,12 +42,12 @@ router.post('/login', async (req, res) => {
     }
 });
 
-router.post('/logout', (req, res) => {
+router.post('/auth/logout', (req, res) => {
     res.clearCookie('token');
     res.json({ success: true });
 });
 
-router.get('/check-auth', authMiddleware, (req, res) => {
+router.get('/auth/me', authMiddleware, (req, res) => {
     res.json({ 
         authenticated: true,
         guildId: req.user.guildId

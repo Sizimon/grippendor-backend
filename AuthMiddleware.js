@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
-if (!process.env.SECRET_KEY) {
-    throw new Error("SECRET_KEY must be set in environment variables");
+if (!process.env.JWT_SECRET) {
+    throw new Error("JWT_SECRET must be set in environment variables");
 }
-const JWT_SECRET = process.env.SECRET_KEY;
+const JWT_SECRET = process.env.JWT_SECRET;
 const isProduction = process.env.GRIPPENDOR_NODE_ENV === 'production';
 
 function authMiddleware(req, res, next) {

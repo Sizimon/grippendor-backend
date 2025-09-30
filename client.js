@@ -31,7 +31,7 @@ for (const file of commandFiles) {
     commands.push(command.data.toJSON());
 }
 
-client.once('ready', async () => {
+client.once('clientReady', async () => {
     logger.log(`Logged in as ${client.user.tag}`);
 
     const rest = new REST({ version: '9' }).setToken(process.env.DISCORD_TOKEN);

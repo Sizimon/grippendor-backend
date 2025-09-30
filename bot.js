@@ -10,8 +10,11 @@ const authRouter = require('./routes/auth.js')
 const guildRouter = require('./routes/guild.js')
 
 const app = express();
+
+app.set('trust proxy', 1);
+
 app.use(cors({ 
-    origin: 'http://localhost:3000',
+    origin: 'https://szymonsamus.dev',
     credentials: true
 }));
 app.use(express.json()); // Parse JSON bodies

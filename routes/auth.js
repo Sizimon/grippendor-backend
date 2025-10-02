@@ -50,7 +50,7 @@ router.post('/auth/logout', (req, res) => {
 router.get('/auth/me', authMiddleware, (req, res) => {
     res.json({ 
         authenticated: true,
-        guildId: req.user.guildId
+        guildId: req.guild.id
      });
 });
 

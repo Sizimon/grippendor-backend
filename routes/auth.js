@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const { authMiddleware } = require('../AuthMiddleware')
 
-const JWT_SECRET = process.env.SECRET_KEY || Math.random().toString(36).substring(7);
+const JWT_SECRET = process.env.JWT_SECRET
 const isProduction = process.env.GRIPPENDOR_NODE_ENV === 'production';
 
 router.post('/auth/login', async (req, res) => {

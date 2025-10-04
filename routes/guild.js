@@ -43,7 +43,7 @@ router.get('/userdata/:guildId', authMiddleware, async (req, res) => {
             });
             res.json(userdata);
         } else {
-            res.status(404).json({ error: 'Names or roles not found' });
+            res.json([]);
         }
     } catch (error) {
         logger.error('Error fetching names and roles:', error);
@@ -63,7 +63,7 @@ router.get('/eventdata/:guildId', authMiddleware, async (req, res) => {
         if (events && events.length > 0) {
             res.json(events);
         } else {
-            res.status(404).json({ error: 'Events not found' });
+            res.json([]); // 200 OK with empty array
         }
     } catch (error) {
         logger.error('Error fetching events:', error);
@@ -88,9 +88,11 @@ router.get('/eventuserdata/:guildId/:eventId', authMiddleware, async (req, res) 
         const eventUserData = await loadEventUserData(eventId, guildId);
         console.log('Event user data:', eventUserData);
         if (eventUserData) {
-            res.json({ eventUserData });
+            res.json({ 
+                eventUserData: eventUserData || [] 
+            });
         } else {
-            res.status(404).json({ error: 'Event user data not found.'});
+            res.status(204).json({ error: 'Event user data not found.'});
         }
     } catch (error) {
         console.error('Error fetching event user data:', error);
@@ -107,11 +109,7 @@ router.get('/presets/:guildId', authMiddleware, async (req, res) => {
         const query = 'SELECT * FROM presets WHERE guild_id = $1';
         const values = [guildId];
         const result = await db.query(query, values);
-        if (result.rows.length > 0) {
-            res.json(result.rows);
-        } else {
-            res.status(404).json({ error: 'No presets found for this guild.' });
-        }
+        res.json(result.rows);
     } catch (error) {
         logger.error('Error fetching presets:', error);
         res.status(500).json({ error: 'Failed to fetch presets.' });

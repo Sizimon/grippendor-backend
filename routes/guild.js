@@ -92,7 +92,7 @@ router.get('/eventuserdata/:guildId/:eventId', authMiddleware, async (req, res) 
                 eventUserData: eventUserData || [] 
             });
         } else {
-            res.status(204).json({ error: 'Event user data not found.'});
+            res.status(204).json({ error: 'Event user data not found.' });
         }
     } catch (error) {
         console.error('Error fetching event user data:', error);

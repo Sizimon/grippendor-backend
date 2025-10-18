@@ -2,21 +2,33 @@ const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = req
 const db = require('../utils/db.js')
 
 async function saveRole(guildId, roleName, roleId) {
-    const query = `
-        INSERT INTO roles (guild_id, role_name, role_id)
-        VALUES ($1, $2, $3)
-        ON CONFLICT (guild_id, role_name) DO NOTHING
-        RETURNING *;
-    `;
-    const values = [guildId, roleName, roleId];
-    const result = await db.query(query, values);
+    try {
+        // First check if role already exists
+        const checkQuery = `
+            SELECT * FROM roles 
+            WHERE guild_id = $1 AND role_name = $2
+        `;
+        const existing = await db.query(checkQuery, [guildId, roleName]);
 
-    if (result.rows.length === 0) {
-        console.log(`Role "${roleName}" already exists in guild ${guildId}.`);
-        return false;
-    } else {
-        console.log(`Role "${roleName}" added to guild ${guildId}.`);
-        return true;
+        if (existing.rows.length > 0) {
+            console.log(`Role ${roleName} already exists for guild ${guildId}`);
+            return false; // Role already exists
+        }
+
+        // Insert new role
+        const insertQuery = `
+            INSERT INTO roles (guild_id, role_name, role_id)
+            VALUES ($1, $2, $3)
+            RETURNING *;
+        `;
+        const result = await db.query(insertQuery, [guildId, roleName, roleId]);
+
+        console.log(`Successfully added role: ${roleName}`);
+        return true; // Role was added
+
+    } catch (error) {
+        console.error('Error in saveRole:', error);
+        throw error;
     }
 }
 
@@ -31,7 +43,7 @@ async function askForRoleCounts(interaction, partySize, selectedRoles, presetNam
     const modal = new ModalBuilder()
         .setCustomId('role_counts_modal')
         .setTitle(`Specify Roles: Maximum ${partySize} total.`);
-    
+
     selectedRoles.forEach((role, index) => {
         const input = new TextInputBuilder()
             .setCustomId(`role_count_${index + 1}`)

@@ -108,7 +108,7 @@ async function sendReminder(client, userId, username, eventName, eventDate) {
     try {
         const user = await client.users.fetch(userId);
         const eventDateUNIX = moment(eventDate).unix();
-        const reminderEmber = new EmbedBuilder()
+        const reminderEmbed = new EmbedBuilder()
             .setColor('#0099ff')
             .setTitle(`Reminder for Event: ${eventName}`)
             .setDescription(
@@ -116,7 +116,7 @@ async function sendReminder(client, userId, username, eventName, eventDate) {
                 Don't forget about the event "${eventName}"!\n
                 This event is taking place at <t:${eventDateUNIX}:f> (This Date & Time is displayed in your local time!)`)
             .setFooter({ text:'GripendorBot', iconURL: client.user.avatarURL()});
-        await user.send({ embeds: [reminderEmber] });
+        await user.send({ embeds: [reminderEmbed] });
         console.log('Reminder sent to:', username);
     } catch (error) {
         console.error('Error sending reminder:', error);

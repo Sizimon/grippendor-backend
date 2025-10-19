@@ -4,10 +4,7 @@ const db = require('../utils/db.js')
 async function saveRole(guildId, roleName, roleId) {
     try {
         // First check if role already exists
-        const checkQuery = `
-            SELECT * FROM roles 
-            WHERE guild_id = $1 AND role_name = $2
-        `;
+        const checkQuery = 'SELECT * FROM roles WHERE guild_id = $1 AND role_name = $2';
         const existing = await db.query(checkQuery, [guildId, roleName]);
 
         if (existing.rows.length > 0) {
@@ -16,20 +13,25 @@ async function saveRole(guildId, roleName, roleId) {
         }
 
         // Insert new role
-        const insertQuery = `
-            INSERT INTO roles (guild_id, role_name, role_id)
-            VALUES ($1, $2, $3)
-            RETURNING *;
-        `;
-        const result = await db.query(insertQuery, [guildId, roleName, roleId]);
-
+        const insertQuery = 'INSERT INTO roles (guild_id, role_name, role_id) VALUES ($1, $2, $3);';
+        await db.query(insertQuery, [guildId, roleName, roleId]);
         console.log(`Successfully added role: ${roleName}`);
-        return true; // Role was added
+        return true;
 
     } catch (error) {
         console.error('Error in saveRole:', error);
         throw error;
     }
+}
+
+async function updateUserRole(guildId, userId, roleName, hasRole) {
+    const query = `
+        INSERT INTO guilduserroles (guild_id, user_id, role_name, has_role)
+        VALUES ($1, $2, $3, $4)
+        ON CONFLICT (guild_id, user_id, role_name)
+        DO UPDATE SET has_role = EXCLUDED.has_role
+    `;
+    await db.query(query, [guildId, userId, roleName, hasRole]);
 }
 
 async function getRolesByGuild(guildId) {
@@ -68,6 +70,7 @@ async function askForRoleCounts(interaction, partySize, selectedRoles, presetNam
 
 module.exports = {
     saveRole,
+    updateUserRole,
     getRolesByGuild,
     askForRoleCounts,
 };

@@ -249,7 +249,80 @@ async function initializeBot(client, config) {
     }
 }
 
+
+// Start periodic role sync every 15 minutes
+function startPeriodicRoleSync(client) {
+    console.log('Starting periodic role sync...');
+    
+    // Sync every 15 minutes
+    setInterval(async () => {
+        try {
+            console.log('Running scheduled role sync...');
+            
+            // Get all tracked guilds
+            const guildsResult = await db.query('SELECT id FROM guilds');
+            
+            for (const { id: guildId } of guildsResult.rows) {
+                try {
+                    console.log(`Syncing all roles for guild: ${guildId}`);
+                    await syncNewRolesForGuild(client, guildId);
+                    
+                    // Small delay between guilds to avoid rate limits
+                    await new Promise(resolve => setTimeout(resolve, 1000));
+                    
+                } catch (guildError) {
+                    console.error(`Error syncing guild ${guildId}:`, guildError);
+                    // Continue with next guild
+                }
+            }
+            
+            console.log('Scheduled role sync complete');
+            
+        } catch (error) {
+            console.error('Error in periodic role sync:', error);
+        }
+    }, 15 * 60 * 1000); // 15 minutes
+}
+
+// Sync roles for a single user (called in guildMemberUpdate event)
+async function syncSingleUserRoles(client, guildId, userId) {
+    try {
+        const guild = client.guilds.cache.get(guildId);
+        if (!guild) return;
+
+        const member = guild.members.cache.get(userId);
+        if (!member) return;
+
+        // Get tracked roles for this guild
+        const rolesQuery = 'SELECT role_name, role_id FROM roles WHERE guild_id = $1';
+        const rolesResult = await db.query(rolesQuery, [guildId]);
+        const trackedRoles = rolesResult.rows;
+
+        if (trackedRoles.length === 0) return;
+
+        // Update each tracked role for this user
+        for (const role of trackedRoles) {
+            const hasRole = member.roles.cache.has(role.role_id);
+            
+            const roleQuery = `
+                INSERT INTO guilduserroles (guild_id, user_id, role_name, has_role)
+                VALUES ($1, $2, $3, $4)
+                ON CONFLICT (guild_id, user_id, role_name)
+                DO UPDATE SET has_role = EXCLUDED.has_role
+            `;
+            await db.query(roleQuery, [guildId, userId, role.role_name, hasRole]);
+        }
+
+        console.log(`Single user role sync complete for user ${userId}`);
+        
+    } catch (error) {
+        console.error(`Error syncing roles for user ${userId}:`, error);
+    }
+}
+
 module.exports = {
     initializeBot,
     syncNewRolesForGuild,
+    startPeriodicRoleSync,
+    syncSingleUserRoles
 };

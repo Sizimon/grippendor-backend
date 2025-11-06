@@ -1,20 +1,21 @@
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 const db = require('../utils/db.js')
 
-async function saveRole(guildId, roleName, roleId) {
+async function saveRole(guildId, roleName, roleId, roleColor = '#000000') {
     try {
         // First check if role already exists
         const checkQuery = 'SELECT * FROM roles WHERE guild_id = $1 AND role_name = $2';
         const existing = await db.query(checkQuery, [guildId, roleName]);
 
+        // Role Exists
         if (existing.rows.length > 0) {
             console.log(`Role ${roleName} already exists for guild ${guildId}`);
-            return false; // Role already exists
+            return false; 
         }
 
         // Insert new role
-        const insertQuery = 'INSERT INTO roles (guild_id, role_name, role_id) VALUES ($1, $2, $3);';
-        await db.query(insertQuery, [guildId, roleName, roleId]);
+        const insertQuery = 'INSERT INTO roles (guild_id, role_name, role_id, role_color) VALUES ($1, $2, $3, $4);';
+        await db.query(insertQuery, [guildId, roleName, roleId, roleColor]);
         console.log(`Successfully added role: ${roleName}`);
         return true;
 

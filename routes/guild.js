@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require('../utils/db')
 require('dotenv').config();
 
-const { loadConfig, loadGuildUsers, loadGuildUserRoles, loadEventUserData, loadEventData } = require('../utils/loaders') // Data loading functions
+const { loadConfig, loadGuildUsersWithRoles, loadEventUserData, loadEventData } = require('../utils/loaders') // Data loading functions
 const { authMiddleware } = require('../AuthMiddleware')
 
 //Endpoint for loading the guild
@@ -27,18 +27,14 @@ router.get('/userdata/:guildId', authMiddleware, async (req, res) => {
         return res.status(400).json({ error: 'Invalid guild ID' });
     }
     try {
-        const guildUsers = await loadGuildUsers(guildId);
-        const guildUserRoles = await loadGuildUserRoles(guildId);
+        const guildUsersWithRoles = await loadGuildUsersWithRoles(guildId);
 
-        if (guildUsers && guildUserRoles) {
-            const userdata = guildUsers.map(user => {
-                const roles = guildUserRoles
-                    .filter(role => role.user_id === user.user_id && role.has_role)
-                    .map(role => role.role_name);
+        if (guildUsersWithRoles) {
+            const userdata = guildUsersWithRoles.map(user => {
                 return {
                     name: user.username,
                     counter: user.total_count,
-                    roles: roles.length > 0 ? roles : [],
+                    roles: user.roles.length > 0 ? user.roles : [],
                 };
             });
             res.json(userdata);

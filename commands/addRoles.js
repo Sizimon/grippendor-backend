@@ -45,6 +45,7 @@ module.exports = {
         for (let i = 1; i <= 15; i++) {
             const role = interaction.options.getRole(`additional_role_${i}`);
             if (role) {
+                console.log(`Role to add: ${role.name} (${role.id}) COLOR: ${role.hexColor}`);
                 additionalRoles.push(role);
             }
         }
@@ -61,7 +62,12 @@ module.exports = {
             const addedRoles = [];
 
             for (const role of additionalRoles) {
-                const wasAdded = await roleService.saveRole(interaction.guild.id, role.name, role.id);
+                const wasAdded = await roleService.saveRole(
+                    interaction.guild.id, 
+                    role.name, 
+                    role.id,
+                    role.hexColor
+                );
                 if (wasAdded) {
                     addedRoles.push(role);
                 } else {
@@ -133,13 +139,19 @@ async function sendRoleUpdateEmbed(interaction, addedRoles, existingRoles) {
         
         if (addedRoles.length > 0) {
             embedDescription += `**✅ Added Roles (${addedRoles.length}):**\n`;
-            embedDescription += addedRoles.map(role => `• ${role.name}`).join('\n');
+            embedDescription += addedRoles.map(role => {
+                const colorDisplay = role.hexColor !== '#000000' ? ` (${role.hexColor})` : '(No color)';
+                return `• ${role.name}${colorDisplay}`;
+            }).join('\n');
             embedDescription += '\n\n';
         }
         
         if (existingRoles.length > 0) {
             embedDescription += `**ℹ️ Already Existing (${existingRoles.length}):**\n`;
-            embedDescription += existingRoles.map(role => `• ${role.name}`).join('\n');
+            embedDescription += existingRoles.map(role => {
+                const colorDisplay = role.hexColor !== '#000000' ? ` (${role.hexColor})` : '(No color)';
+                return `• ${role.name}${colorDisplay}`;
+            }).join('\n');
         }
 
         const addRolesEmbed = new EmbedBuilder()

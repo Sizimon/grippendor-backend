@@ -16,10 +16,10 @@ function authMiddleware(req, res, next) {
     }
     try {
         const decoded = jwt.verify(token, JWT_SECRET);
-        req.user = { id: decoded.userId };
+        req.guild = { id: decoded.guildId };
 
         // Issue a new token with 24h expiry
-        const newToken = jwt.sign({ userId: decoded.userId }, JWT_SECRET, { expiresIn: '24h' });
+        const newToken = jwt.sign({ guildId: decoded.guildId }, JWT_SECRET, { expiresIn: '24h' });
         res.cookie('token', newToken, {
             httpOnly: true,
             secure: isProduction,

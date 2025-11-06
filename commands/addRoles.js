@@ -1,10 +1,11 @@
 const { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 const db = require('../utils/db.js');
 const roleService = require('../services/roleService.js');
+const { syncNewRolesForGuild } = require('../utils/index.js');
 
 const addRolesCommand = new SlashCommandBuilder()
     .setName('add-roles')
-    .setDescription('Add additional roles. (These roles can be used for partymaking functionality)')
+    .setDescription('Add additional roles, to be used in presets.')
 for (let i = 1; i <= 15; i++) {
     addRolesCommand.addRoleOption(option =>
         option.setName(`additional_role_${i}`)
@@ -44,13 +45,14 @@ module.exports = {
         for (let i = 1; i <= 15; i++) {
             const role = interaction.options.getRole(`additional_role_${i}`);
             if (role) {
+                console.log(`Role to add: ${role.name} (${role.id}) COLOR: ${role.hexColor}`);
                 additionalRoles.push(role);
             }
         }
 
         if (additionalRoles.length === 0) {
             return await interaction.editReply({
-                content: 'No valid roles were provided.', 
+                content: 'No valid roles were provided.',
                 ephemeral: true
             });
         }
@@ -60,7 +62,12 @@ module.exports = {
             const addedRoles = [];
 
             for (const role of additionalRoles) {
-                const wasAdded = await roleService.saveRole(interaction.guild.id, role.name, role.id);
+                const wasAdded = await roleService.saveRole(
+                    interaction.guild.id, 
+                    role.name, 
+                    role.id,
+                    role.hexColor
+                );
                 if (wasAdded) {
                     addedRoles.push(role);
                 } else {
@@ -68,60 +75,96 @@ module.exports = {
                 }
             }
 
-            let responseMessage = '';
             if (addedRoles.length > 0) {
-                const rolesDescription = addedRoles
-                    .map(role => `Name: ${role.name}\nID: ${role.id}\n`)
-                    .join('\n');
-                responseMessage += `Successfully added the following roles:\n ${rolesDescription}\n`;
+                try {
+                    const addedRoleNames = addedRoles.map(role => role.name);
+                    await syncNewRolesForGuild(interaction.client, interaction.guild.id, addedRoleNames);
+                } catch (syncError) {
+                    console.error('Error syncing roles:', syncError);
+                    return await interaction.editReply({
+                        content: `Added ${addedRoles.length} role(s), but failed to sync user data: ${syncError.message}`,
+                        ephemeral: true
+                    });
+                }
+            }
+
+            let userMessage = '';
+            if (addedRoles.length > 0) {
+                userMessage += `✅ Successfully added ${addedRoles.length} role(s) and synced user data.\n`;
             }
             if (existingRoles.length > 0) {
-                const rolesDescription = existingRoles
-                    .map(role => `Name: ${role.name}\nID: ${role.id}\n`)
-                    .join('\n');
-                responseMessage += `The following roles already exist and therefore were not added:\n ${rolesDescription}`;
+                userMessage += `ℹ️ ${existingRoles.length} role(s) already existed and were skipped.`;
             }
 
-            const addRolesEmbed = new EmbedBuilder()
-                .setTitle('Successfully processed roles:')
-                .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
-                .setDescription(`${responseMessage}`);
-            
-            const checkChannelQuery = `
-                    SELECT channel
-                    FROM guilds
-                    WHERE id = $1
-            `;
-            const result = await db.query(checkChannelQuery, [interaction.guild.id])
-            const channelId = result.rows[0]?.channel;
-
-            if (!channelId) {
-                return await interaction.editReply({
-                    content: 'Could not find the configured channel to send the embed.',
-                });
-            }
-
-            const channel = interaction.guild.channels.cache.get(channelId);
-            if (!channel) {
-                return await interaction.editReply({
-                    content: 'The configured channel is invalid or no longer exists.',
-                });
-            }
-
-            await channel.send({
-                embeds: [addRolesEmbed]
+            // Update the user with final status
+            await interaction.editReply({
+                content: userMessage,
+                ephemeral: true
             });
 
-            await interaction.editReply({
-                content: 'Roles have been successfully added!'
-            })
+            // Send embed to channel if there are results to show
+            if (addedRoles.length > 0 || existingRoles.length > 0) {
+                await sendRoleUpdateEmbed(interaction, addedRoles, existingRoles);
+            }
         } catch (error) {
             console.error('Error adding roles:', error);
             await interaction.editReply({
-                content: `Something went wrong. ${error}`,
+                content: `Something went wrong: ${error.message}`,
                 ephemeral: true
             });
         }
     }
+}
 
+// Helper function for channel embed
+async function sendRoleUpdateEmbed(interaction, addedRoles, existingRoles) {
+    try {
+        const checkChannelQuery = 'SELECT channel FROM guilds WHERE id = $1';
+        const result = await db.query(checkChannelQuery, [interaction.guild.id]);
+        const channelId = result.rows[0]?.channel;
+
+        if (!channelId) {
+            console.log('No channel configured for role updates');
+            return;
+        }
+
+        const channel = interaction.guild.channels.cache.get(channelId);
+        if (!channel) {
+            console.log('Configured channel not found');
+            return;
+        }
+
+        // Build embed description
+        let embedDescription = '';
+        
+        if (addedRoles.length > 0) {
+            embedDescription += `**✅ Added Roles (${addedRoles.length}):**\n`;
+            embedDescription += addedRoles.map(role => {
+                const colorDisplay = role.hexColor !== '#000000' ? ` (${role.hexColor})` : '(No color)';
+                return `• ${role.name}${colorDisplay}`;
+            }).join('\n');
+            embedDescription += '\n\n';
+        }
+        
+        if (existingRoles.length > 0) {
+            embedDescription += `**ℹ️ Already Existing (${existingRoles.length}):**\n`;
+            embedDescription += existingRoles.map(role => {
+                const colorDisplay = role.hexColor !== '#000000' ? ` (${role.hexColor})` : '(No color)';
+                return `• ${role.name}${colorDisplay}`;
+            }).join('\n');
+        }
+
+        const addRolesEmbed = new EmbedBuilder()
+            .setTitle('Role Update Summary')
+            .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
+            .setDescription(embedDescription)
+            .setColor(addedRoles.length > 0 ? 0x00ff00 : 0xffaa00) // Green if added, orange if only existing
+            .setTimestamp();
+
+        await channel.send({ embeds: [addRolesEmbed] });
+
+    } catch (error) {
+        console.error('Error sending role update embed:', error);
+        // Don't throw - this is just for logging, not critical
+    }
 }

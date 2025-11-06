@@ -1,23 +1,38 @@
 const { ModalBuilder, TextInputBuilder, TextInputStyle, ActionRowBuilder } = require('discord.js');
 const db = require('../utils/db.js')
 
-async function saveRole(guildId, roleName, roleId) {
-    const query = `
-        INSERT INTO roles (guild_id, role_name, role_id)
-        VALUES ($1, $2, $3)
-        ON CONFLICT (guild_id, role_name) DO NOTHING
-        RETURNING *;
-    `;
-    const values = [guildId, roleName, roleId];
-    const result = await db.query(query, values);
+async function saveRole(guildId, roleName, roleId, roleColor = '#000000') {
+    try {
+        // First check if role already exists
+        const checkQuery = 'SELECT * FROM roles WHERE guild_id = $1 AND role_name = $2';
+        const existing = await db.query(checkQuery, [guildId, roleName]);
 
-    if (result.rows.length === 0) {
-        console.log(`Role "${roleName}" already exists in guild ${guildId}.`);
-        return false;
-    } else {
-        console.log(`Role "${roleName}" added to guild ${guildId}.`);
+        // Role Exists
+        if (existing.rows.length > 0) {
+            console.log(`Role ${roleName} already exists for guild ${guildId}`);
+            return false; 
+        }
+
+        // Insert new role
+        const insertQuery = 'INSERT INTO roles (guild_id, role_name, role_id, role_color) VALUES ($1, $2, $3, $4);';
+        await db.query(insertQuery, [guildId, roleName, roleId, roleColor]);
+        console.log(`Successfully added role: ${roleName}`);
         return true;
+
+    } catch (error) {
+        console.error('Error in saveRole:', error);
+        throw error;
     }
+}
+
+async function updateUserRole(guildId, userId, roleName, hasRole) {
+    const query = `
+        INSERT INTO guilduserroles (guild_id, user_id, role_name, has_role)
+        VALUES ($1, $2, $3, $4)
+        ON CONFLICT (guild_id, user_id, role_name)
+        DO UPDATE SET has_role = EXCLUDED.has_role
+    `;
+    await db.query(query, [guildId, userId, roleName, hasRole]);
 }
 
 async function getRolesByGuild(guildId) {
@@ -31,7 +46,7 @@ async function askForRoleCounts(interaction, partySize, selectedRoles, presetNam
     const modal = new ModalBuilder()
         .setCustomId('role_counts_modal')
         .setTitle(`Specify Roles: Maximum ${partySize} total.`);
-    
+
     selectedRoles.forEach((role, index) => {
         const input = new TextInputBuilder()
             .setCustomId(`role_count_${index + 1}`)
@@ -56,6 +71,7 @@ async function askForRoleCounts(interaction, partySize, selectedRoles, presetNam
 
 module.exports = {
     saveRole,
+    updateUserRole,
     getRolesByGuild,
     askForRoleCounts,
 };

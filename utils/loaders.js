@@ -24,48 +24,51 @@ async function loadConfig(guildId) {
     }
 }
 
-async function loadGuildUsers(guildId) {
+async function loadGuildUsersWithRoles(guildId) {
     if (!guildId || isNaN(guildId)) {
         logger.error('Invalid guild ID:', guildId);
         return null;
     }
 
-    const query = 'SELECT * FROM GuildUsers WHERE guild_id = $1';
-    const values = [guildId];
-
+    const query = `
+        SELECT 
+            u.user_id, 
+            u.username,
+            u.total_count,
+            json_agg(
+                CASE 
+                    WHEN gur.has_role = TRUE THEN 
+                        json_build_object(
+                            'role_name', r.role_name,
+                            'role_id', r.role_id,
+                            'role_color', r.role_color
+                        )
+                    ELSE NULL 
+                END
+            ) FILTER (WHERE gur.has_role = TRUE) as roles
+        FROM guildusers u
+        LEFT JOIN guilduserroles gur ON u.user_id = gur.user_id AND u.guild_id = gur.guild_id
+        LEFT JOIN roles r ON gur.role_name = r.role_name AND gur.guild_id = r.guild_id
+        WHERE u.guild_id = $1
+        GROUP BY u.user_id, u.username, u.total_count
+        ORDER BY u.username;
+    `;
+    
     try {
-        const result = await db.query(query, values);
+        const result = await db.query(query, [guildId]);
         if (result.rows.length > 0) {
-            return result.rows;
+            return result.rows.map(row => ({
+                user_id: row.user_id,
+                username: row.username,
+                total_count: row.total_count,
+                roles: row.roles || []
+            }));
         } else {
             logger.error('Guild members not found for guild:', guildId);
-            return null;
-        }
-    } catch (error) {
-        logger.error('Error loading names from database:', error);
-        return null;
-    }
-}
-
-async function loadGuildUserRoles(guildId) {
-    if (!guildId || isNaN(guildId)) {
-        logger.error('Invalid guild ID:', guildId);
-        return null;
-    }
-
-    const query = 'SELECT * FROM GuildUserRoles WHERE guild_id = $1';
-    const values = [guildId];
-
-    try {
-        const result = await db.query(query, values);
-        if (result.rows.length > 0) {
-            return result.rows;
-        } else {
-            logger.error('Guild user roles not found for guild:', guildId);
             return [];
         }
     } catch (error) {
-        logger.error('Error loading user roles from database:', error);
+        logger.error('Error loading guild users with roles:', error);
         return null;
     }
 }
@@ -108,7 +111,7 @@ async function sendReminder(client, userId, username, eventName, eventDate) {
     try {
         const user = await client.users.fetch(userId);
         const eventDateUNIX = moment(eventDate).unix();
-        const reminderEmber = new EmbedBuilder()
+        const reminderEmbed = new EmbedBuilder()
             .setColor('#0099ff')
             .setTitle(`Reminder for Event: ${eventName}`)
             .setDescription(
@@ -116,7 +119,7 @@ async function sendReminder(client, userId, username, eventName, eventDate) {
                 Don't forget about the event "${eventName}"!\n
                 This event is taking place at <t:${eventDateUNIX}:f> (This Date & Time is displayed in your local time!)`)
             .setFooter({ text:'GripendorBot', iconURL: client.user.avatarURL()});
-        await user.send({ embeds: [reminderEmber] });
+        await user.send({ embeds: [reminderEmbed] });
         console.log('Reminder sent to:', username);
     } catch (error) {
         console.error('Error sending reminder:', error);
@@ -170,8 +173,7 @@ async function loadEventUserData(eventId, guildId) {
 
 module.exports = {
     loadConfig,
-    loadGuildUsers,
-    loadGuildUserRoles,
+    loadGuildUsersWithRoles,
     checkUpcomingEvents,
     loadEventData,
     loadEventUserData,

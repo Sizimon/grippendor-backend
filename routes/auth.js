@@ -1,4 +1,5 @@
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 const router = express.Router();
 const db = require('../utils/db')
 const bcrypt = require('bcrypt');
@@ -10,7 +11,15 @@ const { authMiddleware } = require('../AuthMiddleware')
 const JWT_SECRET = process.env.JWT_SECRET
 const isProduction = process.env.GRIPPENDOR_NODE_ENV === 'production';
 
-router.post('/auth/login', async (req, res) => {
+const loginLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    max: 5, // Limit each IP to 5 login requests per windowMs
+    message: {
+        error: 'Too many login attempts from this IP, please try again after 10 minutes.'
+    }
+});
+
+router.post('/auth/login', loginLimiter, async (req, res) => {
     console.log('Login request received');
     const { guildId, password } = req.body;
     try {
@@ -47,7 +56,7 @@ router.post('/auth/logout', (req, res) => {
     res.json({ success: true });
 });
 
-router.get('/auth/me', authMiddleware, (req, res) => {
+router.get('/auth/me', loginLimiter,authMiddleware, (req, res) => {
     res.json({ 
         authenticated: true,
         guildId: req.guild.id

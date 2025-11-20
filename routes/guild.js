@@ -1,4 +1,5 @@
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 const router = express.Router();
 const db = require('../utils/db')
 require('dotenv').config();
@@ -6,8 +7,16 @@ require('dotenv').config();
 const { loadConfig, loadGuildUsersWithRoles, loadEventUserData, loadEventData } = require('../utils/loaders') // Data loading functions
 const { authMiddleware } = require('../AuthMiddleware')
 
+const guildLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    max: 100, // Limit each IP to 10 requests per windowMs
+    message: {
+        error: 'Too many requests from this IP, please try again after 10 minutes.'
+    }
+});
+
 //Endpoint for loading the guild
-router.get('/config/:guildId', authMiddleware, async (req, res) => {
+router.get('/config/:guildId', guildLimiter, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -21,7 +30,7 @@ router.get('/config/:guildId', authMiddleware, async (req, res) => {
 });
 
 //Endpoint for loading guild user data.
-router.get('/userdata/:guildId', authMiddleware, async (req, res) => {
+router.get('/userdata/:guildId', guildLimiter, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -48,7 +57,7 @@ router.get('/userdata/:guildId', authMiddleware, async (req, res) => {
 });
 
 //Endpoint to fetch event data
-router.get('/eventdata/:guildId', authMiddleware, async (req, res) => {
+router.get('/eventdata/:guildId', guildLimiter, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });
@@ -68,7 +77,7 @@ router.get('/eventdata/:guildId', authMiddleware, async (req, res) => {
 });
 
 //Endpoint to fetch users for party making for selected event
-router.get('/eventuserdata/:guildId/:eventId', authMiddleware, async (req, res) => {
+router.get('/eventuserdata/:guildId/:eventId', guildLimiter, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     const eventId = req.params.eventId;
 
@@ -96,7 +105,7 @@ router.get('/eventuserdata/:guildId/:eventId', authMiddleware, async (req, res) 
     }
 });
 
-router.get('/presets/:guildId', authMiddleware, async (req, res) => {
+router.get('/presets/:guildId', guildLimiter, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ error: 'Invalid guild ID' });

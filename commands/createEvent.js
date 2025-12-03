@@ -38,7 +38,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('create-event')
         .setDescription('Create an event')
-        .addRoleOption(option => 
+        .addRoleOption(option =>
             option.setName('game')
                 .setDescription('Select the game (role) for the event.')
                 .setRequired(true))
@@ -97,16 +97,39 @@ module.exports = {
                                 WHERE id = $1
                             `;
         const adminSearchResult = await db.query(getAdminRoleQuery, [interaction.guild.id]);
+
         if (adminSearchResult.rows.length === 0) {
+            const errorEmbed = new EmbedBuilder()
+                .setTitle('❌ Configuration Error')
+                .setDescription('Could not find the admin role for this server.')
+                .setColor('#ff0000')
+                .setFooter({ text: 'Contact an administrator to set up the bot properly.' });
+
             return await interaction.editReply({
-                content: 'Could not find the admin role.', ephemeral: true
+                content: '',
+                embeds: [errorEmbed],
+                ephemeral: true
             });
         }
+
         const requiredRole = adminSearchResult.rows[0].admin_role;
         const hasPermission = interaction.member.roles.cache.has(requiredRole);
 
         if (!hasPermission) {
-            return await interaction.editReply({ content: 'You do not have permission to perform this action.', ephemeral: true });
+            const permissionEmbed = new EmbedBuilder()
+                .setTitle('🔒 Access Denied')
+                .setDescription('You do not have permission to create events.')
+                .addFields(
+                    { name: 'Required Role', value: `<@&${requiredRole}>`, inline: true }
+                )
+                .setColor('#ff6b00')
+                .setFooter({ text: 'Contact an administrator if you believe this is an error.' });
+
+            return await interaction.editReply({
+                content: '',
+                embeds: [permissionEmbed],
+                ephemeral: true
+            });
         }
 
         const gameDetails = interaction.options.getRole('game');
@@ -126,29 +149,74 @@ module.exports = {
 
         // !!! VALIDATION CHECKS !!!
         if (name.length > 50) {
-            await interaction.editReply({ content: 'The name must be 50 characters or less.', ephemeral: true });
-            return;
+            const errorEmbed = new EmbedBuilder()
+                .setTitle('❌ Validation Error')
+                .setDescription('The event name is too long.')
+                .addFields(
+                    { name: 'Current Length', value: `${name.length} characters`, inline: true },
+                    { name: 'Maximum Allowed', value: '50 characters', inline: true }
+                )
+                .setColor('#ff0000');
+
+            return await interaction.editReply({
+                content: '',
+                embeds: [errorEmbed],
+                ephemeral: true
+            });
         }
 
         if (summary.length > 250) {
-            await interaction.editReply({ content: 'The summary must be 250 characters or less.', ephemeral: true });
-            return;
+            const errorEmbed = new EmbedBuilder()
+                .setTitle('❌ Validation Error')
+                .setDescription('The event summary is too long.')
+                .addFields(
+                    { name: 'Current Length', value: `${summary.length} characters`, inline: true },
+                    { name: 'Maximum Allowed', value: '250 characters', inline: true }
+                )
+                .setColor('#ff0000');
+
+            return await interaction.editReply({
+                content: '',
+                embeds: [errorEmbed],
+                ephemeral: true
+            });
         }
 
         if (description.length > 2000) {
-            await interaction.editReply({ content: 'The description must be 2000 characters or less.', ephemeral: true });
-            return;
+            const errorEmbed = new EmbedBuilder()
+                .setTitle('❌ Validation Error')
+                .setDescription('The event description is too long.')
+                .addFields(
+                    { name: 'Current Length', value: `${description.length} characters`, inline: true },
+                    { name: 'Maximum Allowed', value: '2000 characters', inline: true }
+                )
+                .setColor('#ff0000');
+
+            return await interaction.editReply({
+                content: '',
+                embeds: [errorEmbed],
+                ephemeral: true
+            });
         }
 
         // Check the date was entered correctly
         if (date) {
             const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
             if (!dateRegex.test(date)) {
-                await interaction.editReply({
-                    content: 'Invalid date format. Please use the format YYYY-MM-DD.',
-                    ephemeral: true,
+                const errorEmbed = new EmbedBuilder()
+                    .setTitle('❌ Invalid Date Format')
+                    .setDescription('Please use the correct date format.')
+                    .addFields(
+                        { name: 'Required Format', value: 'YYYY-MM-DD', inline: true },
+                        { name: 'Example', value: '2024-12-25', inline: true }
+                    )
+                    .setColor('#ff0000');
+
+                return await interaction.editReply({
+                    content: '',
+                    embeds: [errorEmbed],
+                    ephemeral: true
                 });
-                return;
             }
             console.log('date:', date);
         }
@@ -156,11 +224,20 @@ module.exports = {
         if (time) {
             const timeRegex = /^\d{2}:\d{2}$/;
             if (!timeRegex.test(time)) {
-                await interaction.editReply({
-                    contend: 'Invalid time format. Please use the format HH:MM.',
-                    ephemeral: true,
+                const errorEmbed = new EmbedBuilder()
+                    .setTitle('❌ Invalid Time Format')
+                    .setDescription('Please use the correct time format.')
+                    .addFields(
+                        { name: 'Required Format', value: 'HH:MM (24-hour)', inline: true },
+                        { name: 'Example', value: '14:30 or 09:15', inline: true }
+                    )
+                    .setColor('#ff0000');
+
+                return await interaction.editReply({
+                    content: '',
+                    embeds: [errorEmbed],
+                    ephemeral: true
                 });
-                return;
             }
             console.log('time:', time);
         }
@@ -168,21 +245,39 @@ module.exports = {
         // Validate that the date itself is correct
         const isValidDate = moment(date, 'YYYY-MM-DD', true).isValid();
         if (!isValidDate) {
-            await interaction.editReply({
-                content: 'The date you have entered is invalid.',
-                ephemeral: true,
+            const errorEmbed = new EmbedBuilder()
+                .setTitle('❌ Invalid Date')
+                .setDescription('The date you entered does not exist.')
+                .addFields(
+                    { name: 'Your Input', value: date, inline: true },
+                    { name: 'Format Required', value: 'YYYY-MM-DD', inline: true }
+                )
+                .setColor('#ff0000');
+
+            return await interaction.editReply({
+                content: '',
+                embeds: [errorEmbed],
+                ephemeral: true
             });
-            return;
         }
 
         // Validate that the time itself is correct
         const isValidTime = moment(time, 'HH:mm', true).isValid();
         if (!isValidTime) {
-            await interaction.editReply({
-                content: 'The time you have entered is invalid.',
-                ephemeral: true,
+            const errorEmbed = new EmbedBuilder()
+                .setTitle('❌ Invalid Time')
+                .setDescription('The time you entered is not valid.')
+                .addFields(
+                    { name: 'Your Input', value: time, inline: true },
+                    { name: 'Format Required', value: 'HH:MM (24-hour)', inline: true }
+                )
+                .setColor('#ff0000');
+
+            return await interaction.editReply({
+                content: '',
+                embeds: [errorEmbed],
+                ephemeral: true
             });
-            return;
         }
 
         // CONVERTS THE INPUT DATE / TIME WITH MOMENT, THEN CONVERTS THAT INTO UTC FOR THE DB
@@ -265,13 +360,13 @@ module.exports = {
             // END
 
             const eventEmbed = new EmbedBuilder()
-                .setTitle(`GAME:${gameDetails.name} | EVENT: ${name}`)
+                .setTitle(`${gameDetails.name} • ${name}`)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(summary)
-                .setThumbnail('https://media.discordapp.net/attachments/1337393468326023241/1337395709665873960/DCC_Logo.png?ex=67c83fd0&is=67c6ee50&hm=6e168061cf4ffe112dd8301418ba008cad2696601913156b2ff3401d5abdba24&=&format=webp&quality=lossless&width=1752&height=1012')
+                .setThumbnail(interaction.guild.iconURL())
                 .addFields(
                     { name: 'Game:', value: gameDetails.name, inline: true },
-                    { name: '🕒 Date and Time', value: `<t:${eventDateUNIX}:f> (This Date & Time is displayed in your local time!)`, inline: false },
+                    { name: '🕒 Date and Time', value: `<t:${eventDateUNIX}:f>`, inline: false },
                     { name: '✅ Yes', value: '\u200B', inline: true },
                     { name: '❌ No', value: '\u200B', inline: true }
                 )
@@ -317,7 +412,20 @@ module.exports = {
             await interaction.editReply({ content: 'Event created successfully!', ephemeral: true });
         } catch (error) {
             console.error(error);
-            await interaction.editReply({ content: `There was an error creating the event: ${error}`, ephemeral: true });
+            const errorEmbed = new EmbedBuilder()
+                .setTitle('❌ Event Creation Failed')
+                .setDescription('An unexpected error occurred while creating the event.')
+                .addFields(
+                    { name: 'Error Details', value: error.message || 'Unknown error', inline: false }
+                )
+                .setColor('#ff0000')
+                .setFooter({ text: 'Please try again or contact support if the issue persists.' });
+
+            await interaction.editReply({
+                content: '',
+                embeds: [errorEmbed],
+                ephemeral: true
+            });
         }
     }
 }

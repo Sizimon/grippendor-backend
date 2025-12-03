@@ -7,7 +7,15 @@ const { EmbedBuilder, ModalBuilder, TextInputStyle, ActionRowBuilder, TextInputB
 const db = require('../utils/db')
 const { deleteImagesFromCloudinary } = require('../utils/cloudinary');
 const { savePreset } = require('../services/presetService');
-// const { parse } = require('dotenv');
+
+// Color constants for consistency
+const COLORS = {
+    SUCCESS: '#00ff00',
+    ERROR: '#ff0000',
+    WARNING: '#ff6b00',
+    INFO: '#0099ff',
+    NEUTRAL: '#6c757d'
+};
 
 module.exports = async function interactionCreate(interaction) {
     if (interaction.isButton()) {
@@ -215,7 +223,15 @@ module.exports = async function interactionCreate(interaction) {
                         const deleteEventQuery = 'DELETE FROM events WHERE id = $1';
                         await db.query(deleteEventQuery, [eventId]);
                         await interaction.message.delete();
-                        await interaction.reply({ content: 'Event has been canceled and removed from the database.', ephemeral: true });
+                        const cancelEmbed = new EmbedBuilder()
+                            .setTitle('❌ Event Canceled')
+                            .setDescription('The event has been successfully canceled and removed from the database.')
+                            .setColor(COLORS.ERROR)
+
+                        return await interaction.reply({
+                            embeds: [cancelEmbed],
+                            ephemeral: true
+                        });
                     } catch (error) {
                         console.error('Error deleting event or images:', error);
                         await interaction.reply({
@@ -235,7 +251,16 @@ module.exports = async function interactionCreate(interaction) {
                         WHERE id = $2;
                     `;
                 await db.query(updateEventQuery, [debrief, eventId]);
-                await interaction.reply({ content: 'Event has been finished and debriefing has been saved.', ephemeral: true });
+
+                const finishEmbed = new EmbedBuilder()
+                            .setTitle('✅ Event Finished')
+                            .setDescription('The event has been successfully finished and the event notes have been saved.')
+                            .setColor(COLORS.SUCCESS)
+
+                        return await interaction.reply({
+                            embeds: [finishEmbed],
+                            ephemeral: true
+                        });
 
             } else if (interaction.customId === 'role_counts_modal') {
                 console.log('Deferring reply for role_counts_modal...');

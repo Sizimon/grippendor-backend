@@ -74,19 +74,7 @@ module.exports = {
         .addAttachmentOption(option =>
             option.setName('thumbnail_url')
                 .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
-                .setRequired(true))
-        .addAttachmentOption(option =>
-            option.setName('briefing_url')
-                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
-                .setRequired(false))
-        .addAttachmentOption(option =>
-            option.setName('briefing_url_2')
-                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
-                .setRequired(false))
-        .addAttachmentOption(option =>
-            option.setName('briefing_url_3')
-                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
-                .setRequired(false)),
+                .setRequired(true)),
     async execute(interaction) {
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 
@@ -141,11 +129,11 @@ module.exports = {
         const time = interaction.options.getString('time');
         const timezone = interaction.options.getString('timezone');
         const thumbnail = interaction.options.getAttachment('thumbnail_url');
-        const images = [
-            interaction.options.getAttachment('briefing_url'),
-            interaction.options.getAttachment('briefing_url_2'),
-            interaction.options.getAttachment('briefing_url_3')
-        ].filter(image => image !== null);
+        // const images = [
+        //     interaction.options.getAttachment('briefing_url'),
+        //     interaction.options.getAttachment('briefing_url_2'),
+        //     interaction.options.getAttachment('briefing_url_3')
+        // ].filter(image => image !== null);
 
         // !!! VALIDATION CHECKS !!!
         if (name.length > 50) {
@@ -296,36 +284,36 @@ module.exports = {
         try {
             // Collect image URLs from Discord and upload to Cloudinary
             const thumbnailUrl = await uploadImageToCloudinary(thumbnail.url);
-            const imageUrls = await Promise.all(images.map(async (image) => {
-                const imagePath = path.join(tempDir, image.name);
-                try {
-                    // Download the image from the URL (using stream to avoid storing image in memory)
-                    const response = await axios({
-                        method: 'get',
-                        url: image.url,
-                        responseType: 'stream',
-                    });
+            // const imageUrls = await Promise.all(images.map(async (image) => {
+            //     const imagePath = path.join(tempDir, image.name);
+            //     try {
+            //         // Download the image from the URL (using stream to avoid storing image in memory)
+            //         const response = await axios({
+            //             method: 'get',
+            //             url: image.url,
+            //             responseType: 'stream',
+            //         });
 
-                    // Create the writable stream to save file locally
-                    const writer = fs.createWriteStream(imagePath);
-                    response.data.pipe(writer);
+            //         // Create the writable stream to save file locally
+            //         const writer = fs.createWriteStream(imagePath);
+            //         response.data.pipe(writer);
 
-                    // Wait for file to finish writing (with error handling)
-                    await new Promise((resolve, reject) => {
-                        writer.on('finish', resolve);
-                        writer.on('error', reject);
-                    });
+            //         // Wait for file to finish writing (with error handling)
+            //         await new Promise((resolve, reject) => {
+            //             writer.on('finish', resolve);
+            //             writer.on('error', reject);
+            //         });
 
-                    // Upload to Cloudinary
-                    const cloudinaryUrl = await uploadImageToCloudinary(imagePath);
-                    return cloudinaryUrl;
-                } finally {
-                    // Ensure the file is deleted
-                    if (fs.existsSync(imagePath)) {
-                        fs.unlinkSync(imagePath);
-                    }
-                }
-            }));
+            //         // Upload to Cloudinary
+            //         const cloudinaryUrl = await uploadImageToCloudinary(imagePath);
+            //         return cloudinaryUrl;
+            //     } finally {
+            //         // Ensure the file is deleted
+            //         if (fs.existsSync(imagePath)) {
+            //             fs.unlinkSync(imagePath);
+            //         }
+            //     }
+            // }));
 
             const event = {
                 guildId: interaction.guild.id,
@@ -337,7 +325,7 @@ module.exports = {
                 description: description,
                 eventDate: eventDateTimeUTC,
                 thumbnailUrl: thumbnailUrl,
-                imageUrls: JSON.stringify(imageUrls),
+                // imageUrls: JSON.stringify(imageUrls),
             };
 
             console.log('Inserting event into DB....')

@@ -75,7 +75,7 @@ module.exports = {
             option.setName('thumbnail_url')
                 .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
                 .setRequired(true)),
-        //         .addAttachmentOption(option =>
+        //         .addAttachmentOption(option => CHANGE NAMING TO IMAGE_URLS LATER
         //     option.setName('briefing_url')
         //         .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
         //         .setRequired(false))

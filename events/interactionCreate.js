@@ -21,20 +21,35 @@ module.exports = async function interactionCreate(interaction) {
             `;
             const eventGameResult = await db.query(eventGameQuery, [eventId]);
             if (eventGameResult.rows.length === 0) {
-                return await interaction.reply({
-                    content: 'Event not found.', ephemeral: true
-                });
-            }
-            const gameRoleId = eventGameResult.rows[0].game_id;
-            console.log('Game Role:', gameRoleId);
+                const errorEmbed = new EmbedBuilder()
+                    .setTitle('❌ Event Not Found')
+                    .setDescription('The event you\'re trying to join no longer exists.')
+                    .setColor(COLORS.ERROR)
+                    .setFooter({ text: 'Please refresh and try again.' });
 
-            if (!member.roles.cache.has(gameRoleId)) {
-                console.log('User does not have the required role:', gameRoleId);
                 return await interaction.reply({
-                    content: `You need to have the required game role to RSVP for this event. Please check your roles and try again.`,
+                    embeds: [errorEmbed],
                     ephemeral: true
                 });
             }
+            const gameRoleId = eventGameResult.rows[0].game_id;
+
+            if (!member.roles.cache.has(gameRoleId)) {
+                const roleEmbed = new EmbedBuilder()
+                    .setTitle('🔒 Role Required')
+                    .setDescription('You need the required game role to RSVP for this event.')
+                    .addFields(
+                        { name: 'Required Role', value: `<@&${gameRoleId}>`, inline: true }
+                    )
+                    .setColor(COLORS.WARNING)
+                    .setFooter({ text: 'Contact an administrator to get the required role.' });
+
+                return await interaction.reply({
+                    embeds: [roleEmbed],
+                    ephemeral: true
+                });
+            }
+
             const userId = interaction.user.id;
             const username = nickname || interaction.user.username;
             const response = action === 'attend' ? 'yes' : 'no';
@@ -81,8 +96,18 @@ module.exports = async function interactionCreate(interaction) {
             ]);
             await eventMessage.edit({ embeds: [eventEmbed] });
 
-            // Send an ephemeral reply to the user
-            await interaction.reply({ content: `You have indicated your attendance as ${response === 'yes' ? 'Yes' : 'No'}.`, ephemeral: true });
+            // Professional attendance confirmation
+            const confirmEmbed = new EmbedBuilder()
+                .setTitle(response === 'yes' ? '✅ Attendance Confirmed' : '❌ Attendance Declined')
+                .setDescription(`Your response has been recorded as **${response === 'yes' ? 'Yes' : 'No'}**.`)
+                .setColor(response === 'yes' ? COLORS.SUCCESS : COLORS.NEUTRAL)
+                .setFooter({ text: 'You can change your response anytime before the event.' });
+
+            await interaction.reply({
+                embeds: [confirmEmbed],
+                ephemeral: true
+            });
+
         } else if (action === 'cancel' || action === 'finish') {
             // Check if the user is an admin
             const getAdminRoleQuery = `
@@ -91,16 +116,37 @@ module.exports = async function interactionCreate(interaction) {
                 WHERE id = $1
             `;
             const adminSearchResult = await db.query(getAdminRoleQuery, [interaction.guild.id]);
+
             if (adminSearchResult.rows.length === 0) {
+                const configEmbed = new EmbedBuilder()
+                    .setTitle('❌ Configuration Error')
+                    .setDescription('Could not find the admin role configuration.')
+                    .setColor(COLORS.ERROR)
+                    .setFooter({ text: 'Contact a server administrator.' });
+
                 return await interaction.reply({
-                    content: 'Could not find the admin role.', ephemeral: true
+                    embeds: [configEmbed],
+                    ephemeral: true
                 });
             }
+
             const requiredRole = adminSearchResult.rows[0].admin_role;
             const hasPermission = member.roles.cache.has(requiredRole);
 
             if (!hasPermission) {
-                return await interaction.reply({ content: 'You do not have permission to perform this action.', ephemeral: true });
+                const permissionEmbed = new EmbedBuilder()
+                    .setTitle('🔒 Access Denied')
+                    .setDescription('You do not have permission to perform this action.')
+                    .addFields(
+                        { name: 'Required Role', value: `<@&${requiredRole}>`, inline: true }
+                    )
+                    .setColor(COLORS.WARNING)
+                    .setFooter({ text: 'Contact an administrator if you believe this is an error.' });
+
+                return await interaction.reply({
+                    embeds: [permissionEmbed],
+                    ephemeral: true
+                });
             }
 
             if (action === 'cancel') {
@@ -156,7 +202,7 @@ module.exports = async function interactionCreate(interaction) {
                             const { thumbnail_url, image_urls } = result.rows[0]
                             console.log('Thumbnail URL:', thumbnail_url);
                             console.log('Image URLs (raw):', image_urls);
-                            
+
                             const parsedImageUrls = Array.isArray(image_urls) ? image_urls : JSON.parse(image_urls || '[]');
                             console.log('Parsed Image URLs:', parsedImageUrls);
 

@@ -75,6 +75,18 @@ module.exports = {
             option.setName('thumbnail_url')
                 .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
                 .setRequired(true)),
+        //         .addAttachmentOption(option =>
+        //     option.setName('briefing_url')
+        //         .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+        //         .setRequired(false))
+        // .addAttachmentOption(option =>
+        //     option.setName('briefing_url_2')
+        //         .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+        //         .setRequired(false))
+        // .addAttachmentOption(option =>
+        //     option.setName('briefing_url_3')
+        //         .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+        //         .setRequired(false))
     async execute(interaction) {
         await interaction.reply({ content: 'Creating event...', ephemeral: true });
 

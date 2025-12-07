@@ -48,32 +48,32 @@ module.exports = {
                 .setRequired(true))
         .addChannelOption(option =>
             option.setName('channel')
-                .setDescription('The channel in which the Event/Mission will be posted.')
+                .setDescription('The channel in which the Event will be posted.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('summary')
-                .setDescription('A brief summary of the Event/Mission. (MAXIMUM: 50 Characters)')
+                .setDescription('A brief summary of the Event.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('description')
-                .setDescription('A full briefing of the Event/Mission.')
+                .setDescription('A full description of the Event.')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('date')
-                .setDescription('The date of the Event/Mission in this format: (YYYY-MM-DD)')
+                .setDescription('The date of the Event. (YYYY-MM-DD)')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('time')
-                .setDescription('The time of the Event/Mission: (HH:MM in 24-hour format)')
+                .setDescription('The time of the Event. (HH:MM)')
                 .setRequired(true))
         .addStringOption(option =>
             option.setName('timezone')
-                .setDescription('Your timezone in UTC format.')
+                .setDescription('Select your timezone.')
                 .setRequired(true)
                 .addChoices(timeZones.map(tz => ({ name: tz.label, value: tz.value }))))
         .addAttachmentOption(option =>
             option.setName('thumbnail_url')
-                .setDescription('Attach a Thumbnail Image URL for the Event/Mission.')
+                .setDescription('Attach a Thumbnail Image URL for the Event.')
                 .setRequired(true)),
         //         .addAttachmentOption(option => CHANGE NAMING TO IMAGE_URLS LATER
         //     option.setName('briefing_url')

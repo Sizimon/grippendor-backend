@@ -59,7 +59,7 @@ module.exports = {
 
             await guildService.saveGuildConfig(config);
 
-            const dashboardUrl = `http://szymonsamus.dev/bot-dashboard/`;
+            const dashboardUrl = `http://szymonsamus.dev/grippendor/`;
             const setupEmbed = new EmbedBuilder()
                 .setTitle(title)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })

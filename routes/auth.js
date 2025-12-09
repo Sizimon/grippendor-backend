@@ -1,4 +1,5 @@
 const express = require('express');
+const rateLimit = require('express-rate-limit');
 const router = express.Router();
 const db = require('../utils/db')
 const bcrypt = require('bcrypt');
@@ -10,9 +11,25 @@ const { authMiddleware } = require('../AuthMiddleware')
 const JWT_SECRET = process.env.JWT_SECRET;
 const isProduction = process.env.GRIPPENDOR_NODE_ENV === 'production';
 
-router.post('/auth/login', async (req, res) => {
+const loginLimiter = rateLimit({
+    windowMs: 10 * 60 * 1000, // 10 minutes
+    max: 10, // Limit each IP to 10 login requests per windowMs
+    message: {
+        error: 'Too many login attempts from this IP, please try again after 10 minutes.'
+    }
+});
+
+router.post('/auth/login', loginLimiter, async (req, res) => {
     console.log('Login request received');
     const { guildId, password } = req.body;
+
+    if (!guildId || isNaN(guildId)) {
+        return res.status(400).json({ 
+            success: false, 
+            error: 'Invalid Guild ID. To get your Guild ID, enable Developer Mode in Discord settings, then right-click your server and select "Copy ID".' 
+        });
+    }
+
     try {
         const query = 'SELECT password FROM guilds WHERE id = $1';
         const values = [guildId];
@@ -28,27 +45,36 @@ router.post('/auth/login', async (req, res) => {
                     sameSite: 'lax',
                     maxAge: 24 * 60 * 60 * 1000 // 24 hours
                 });
-                res.json({ success: true });
+                res.status(200).json({ success: true });
                 console.log('Login successful for guild:', guildId);
             } else {
-                res.json({ success: false });
+                res.status(401).json({ 
+                    success: false, 
+                    error: 'Invalid password' 
+                });
             }
         } else {
-            res.json({ success: false });
+            res.status(404).json({ 
+                success: false, 
+                error: 'Guild not found. Add the bot to your server & run the /setup command to register the server.' 
+            });
         }
     } catch (error) {
-        logger.error('Error during login:', error);
-        res.status(500).json({ success: false });
+        console.error('Error during login:', error);
+        res.status(500).json({ 
+            success: false, 
+            error: 'Internal server error' 
+        });
     }
 });
 
 router.post('/auth/logout', (req, res) => {
     res.clearCookie('token');
-    res.json({ success: true });
+    res.status(200).json({ success: true });
 });
 
-router.get('/auth/me', authMiddleware, (req, res) => {
-    res.json({ 
+router.get('/auth/me',authMiddleware, (req, res) => {
+    res.status(200).json({ 
         authenticated: true,
         guildId: req.guild.id
      });

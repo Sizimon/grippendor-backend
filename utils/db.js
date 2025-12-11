@@ -2,9 +2,9 @@ const { Client } = require('pg');
 
 const dbClient = new Client({
     user: process.env.DB_USER,
-    host: process.env.DB_HOST,
-    database: process.env.DB_NAME,
-    password: process.env.DB_PASSWORD,
+    host: process.env.GRIPPENDOR_DB_HOST,
+    database: process.env.GRIPPENDOR_DB_NAME,
+    password: process.env.GRIPPENDOR_DB_PASSWORD,
     port: process.env.DB_PORT,
 });
 

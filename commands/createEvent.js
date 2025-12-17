@@ -360,12 +360,12 @@ module.exports = {
             // END
 
             const eventEmbed = new EmbedBuilder()
-                .setTitle(`${gameDetails.name} • ${name}`)
+                .setTitle(`${name}`)
                 .setAuthor({ name: interaction.guild.name, iconURL: interaction.guild.iconURL() })
                 .setDescription(summary)
                 .setThumbnail(interaction.guild.iconURL())
                 .addFields(
-                    { name: 'Game:', value: gameDetails.name, inline: true },
+                    { name: 'Game:', value: `<@&${gameDetails.id}>`, inline: true },
                     { name: '🕒 Date and Time', value: `<t:${eventDateUNIX}:f>`, inline: false },
                     { name: '✅ Yes', value: '\u200B', inline: true },
                     { name: '❌ No', value: '\u200B', inline: true }

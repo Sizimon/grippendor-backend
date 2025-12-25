@@ -7,6 +7,12 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const { authMiddleware } = require('../AuthMiddleware')
+const { metricsMiddleware } = require('../metricMiddleware');
+
+const metrics = metricsMiddleware({
+    service: 'auth-service',
+    url: 'https://szymonsamus.dev/api/metrics'
+});
 
 const JWT_SECRET = process.env.JWT_SECRET
 const isProduction = process.env.GRIPPENDOR_NODE_ENV === 'production';
@@ -19,7 +25,7 @@ const loginLimiter = rateLimit({
     }
 });
 
-router.post('/auth/login', loginLimiter, async (req, res) => {
+router.post('/auth/login', loginLimiter, metrics, async (req, res) => {
     console.log('Login request received');
     const { guildId, password } = req.body;
 
@@ -68,12 +74,12 @@ router.post('/auth/login', loginLimiter, async (req, res) => {
     }
 });
 
-router.post('/auth/logout', (req, res) => {
+router.post('/auth/logout', metrics, (req, res) => {
     res.clearCookie('token');
     res.status(200).json({ success: true });
 });
 
-router.get('/auth/me',authMiddleware, (req, res) => {
+router.get('/auth/me', metrics, authMiddleware, (req, res) => {
     res.status(200).json({ 
         authenticated: true,
         guildId: req.guild.id

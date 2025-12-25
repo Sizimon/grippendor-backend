@@ -6,6 +6,12 @@ require('dotenv').config();
 
 const { loadConfig, loadGuildUsersWithRoles, loadEventUserData, loadEventData } = require('../utils/loaders') // Data loading functions
 const { authMiddleware } = require('../AuthMiddleware')
+const { metricsMiddleware } = require('../metricMiddleware');
+
+const metrics = metricsMiddleware({
+    service: 'guild-service',
+    url: 'https://szymonsamus.dev/api/metrics'
+});
 
 const guildLimiter = rateLimit({
     windowMs: 10 * 60 * 1000, // 10 minutes
@@ -16,7 +22,7 @@ const guildLimiter = rateLimit({
 });
 
 //Endpoint for loading the guild
-router.get('/config/:guildId', guildLimiter, authMiddleware, async (req, res) => {
+router.get('/config/:guildId', guildLimiter, metrics, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ 
@@ -42,7 +48,7 @@ router.get('/config/:guildId', guildLimiter, authMiddleware, async (req, res) =>
 });
 
 //Endpoint for loading guild user data.
-router.get('/userdata/:guildId', guildLimiter, authMiddleware, async (req, res) => {
+router.get('/userdata/:guildId', guildLimiter, metrics, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ 
@@ -73,7 +79,7 @@ router.get('/userdata/:guildId', guildLimiter, authMiddleware, async (req, res) 
 });
 
 //Endpoint to fetch event data
-router.get('/eventdata/:guildId', guildLimiter, authMiddleware, async (req, res) => {
+router.get('/eventdata/:guildId', guildLimiter, metrics, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ 
@@ -97,7 +103,7 @@ router.get('/eventdata/:guildId', guildLimiter, authMiddleware, async (req, res)
 });
 
 //Endpoint to fetch users for party making for selected event
-router.get('/eventuserdata/:guildId/:eventId', guildLimiter, authMiddleware, async (req, res) => {
+router.get('/eventuserdata/:guildId/:eventId', guildLimiter, metrics, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     const eventId = req.params.eventId;
 
@@ -133,7 +139,7 @@ router.get('/eventuserdata/:guildId/:eventId', guildLimiter, authMiddleware, asy
     }
 });
 
-router.get('/presets/:guildId', guildLimiter, authMiddleware, async (req, res) => {
+router.get('/presets/:guildId', guildLimiter, metrics, authMiddleware, async (req, res) => {
     const guildId = req.params.guildId;
     if (!guildId || isNaN(guildId)) {
         return res.status(400).json({ 

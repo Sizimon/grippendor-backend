@@ -10,7 +10,7 @@ const { authMiddleware } = require('../AuthMiddleware')
 const { metricsMiddleware } = require('../metricMiddleware');
 
 const metrics = metricsMiddleware({
-    service: 'auth-service',
+    service: 'grippendor-auth-service',
     url: 'https://szymonsamus.dev/api/metrics'
 });
 
